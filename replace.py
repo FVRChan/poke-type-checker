@@ -1,0 +1,7 @@
+reader=open("index.html")
+html_string=reader.read()
+html_string=html_string.replace("/static/js","/poke-type-checker/static/js")
+reader.close()
+writer=open("index.html","w")
+writer.write(html_string)
+writer.close()

@@ -5,3 +5,4 @@ basic_create:
 	mv ./docs/static ./
 	mv ./docs/index.html .
 	rm -rf ./docs
+	python3 ./replace.py
