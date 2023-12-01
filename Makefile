@@ -3,3 +3,5 @@ basic_create:
 	rm -rf ./docs ./static
 	mv poke-js/build ./docs
 	mv ./docs/static ./
+	mv ./docs/index.html .
+	rm -rf ./docs
