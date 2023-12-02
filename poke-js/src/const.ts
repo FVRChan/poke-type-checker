@@ -56,5 +56,6 @@ export const type_en_to_ja = {
     どしょく: { ground: 0 },
     ふゆう: { ground: 0 },
     きよめのしお: { ghost: 0.5 },
+    あついしぼう: { fire: 0.5,ice: 0.5,freezedry: 0.5 },
   } as typeToEffects;
   
