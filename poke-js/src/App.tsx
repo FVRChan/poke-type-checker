@@ -84,6 +84,22 @@ const color_map = {
   0: "dimgray",
 } as i_color_map;
 
+// https://zenn.dev/kenghaya/articles/6020b6192dadec
+const useWindowSize = (): number[] => {
+  const [size, setSize] = React.useState([0, 0]);
+  React.useLayoutEffect(() => {
+    const updateSize = (): void => {
+      setSize([window.innerWidth, window.innerHeight]);
+    };
+
+    window.addEventListener("resize", updateSize);
+    updateSize();
+
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+  return size;
+};
+
 export default function App() {
   const classes = useStyles();
 
@@ -167,6 +183,11 @@ export default function App() {
     }
     return res;
   };
+
+  const local_pokemon_matrix = pokemon_array(
+    Math.ceil(useWindowSize()[0] / 100)
+  );
+
   return (
     <div className="App">
       <div>
@@ -200,7 +221,7 @@ export default function App() {
           <Table stickyHeader aria-label="sticky table">
             <TableBody>
               {/* 課題(TODO) => 横幅を動的にしたい*/}
-              {pokemon_array.map((list) => {
+              {local_pokemon_matrix.map((list) => {
                 return (
                   <TableRow>
                     {list.map((poke) => {
@@ -213,12 +234,14 @@ export default function App() {
                       const bgcolor = color_map[Math.max(...type_res_list)];
 
                       return (
-                        <TableCell style={{ background: bgcolor }}>
+                        <TableCell
+                          style={{ width: "100px", background: bgcolor }}
+                        >
                           {poke.front_picture ? (
                             <img
                               src={poke.front_picture}
-                              width={75}
-                              height={75}
+                              width={50}
+                              height={50}
                             ></img>
                           ) : (
                             <>

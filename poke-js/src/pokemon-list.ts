@@ -645,18 +645,36 @@ const pokemon_list = init_pokemon_list.sort((a, b) =>
 
 export default pokemon_list;
 
-export const pokemon_array = [] as Array<Array<Pokemon>>
-let temp_list = [] as Array<Pokemon>
-pokemon_list.forEach((p,i) => {
-    temp_list.push(p)
-    if (temp_list.length>=10){
-        pokemon_array.push(temp_list)
-        temp_list=[]
-    }
-});
-if (temp_list.length>0){
-    pokemon_array.push(temp_list)
-    temp_list=[]
+// export const pokemon_array = [] as Array<Array<Pokemon>>
+// let temp_list = [] as Array<Pokemon>
+// pokemon_list.forEach((p,i) => {
+//     temp_list.push(p)
+//     if (temp_list.length>=10){
+//         pokemon_array.push(temp_list)
+//         temp_list=[]
+//     }
+// });
+// if (temp_list.length>0){
+//     pokemon_array.push(temp_list)
+//     temp_list=[]
+// }
+
+export function pokemon_array  (separate_number:number)  {
+  const local_separate_number = Math.min(10,separate_number)
+  let ret_matrix= [] as Array<Array<Pokemon>>
+  let temp_list = [] as Array<Pokemon>
+  pokemon_list.forEach((p,i) => {
+      temp_list.push(p)
+      if (temp_list.length>=local_separate_number){
+          ret_matrix.push(temp_list)
+          temp_list=[]
+      }
+  });
+  if (temp_list.length>0){
+      ret_matrix.push(temp_list)
+      temp_list=[]
+  }
+  return ret_matrix
 }
 
 // console.log(pokemon_array)
