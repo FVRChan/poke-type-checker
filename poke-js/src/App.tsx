@@ -7,7 +7,7 @@ import {
   TableBody,
   TableCell,
   FormControlLabel,
-  Checkbox,
+  Checkbox,Tooltip,
 } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import pokemon_list, { pokemon_array, Pokemon } from "./pokemon-list";
@@ -141,6 +141,7 @@ const handleSetTypeChecker=(tc:typeCheckerI)=>{
   // reset_effect_num_map()
   setTypeChecker(tc)
 }
+ const takashi=Object.keys(tokusei_map).join(", ")
   return (
     <div className="App">
       <div>
@@ -151,11 +152,13 @@ const handleSetTypeChecker=(tc:typeCheckerI)=>{
           setTypeChecker={handleSetTypeChecker}
         ></TypeChecker>
       </div>
-      {false && (
+      {true && (
         <>
           <div>
             <h2>オプション</h2>
           </div>
+          
+          <Tooltip title={takashi} arrow>
           <FormControlLabel
             control={
               <Checkbox
@@ -166,7 +169,7 @@ const handleSetTypeChecker=(tc:typeCheckerI)=>{
               />
             }
             label="受け特性考慮"
-          />
+          /></Tooltip>
         </>
       )}
       <div>
