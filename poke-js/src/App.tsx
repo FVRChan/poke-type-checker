@@ -65,7 +65,7 @@ export default function App() {
     typeChecker,
     setTypeChecker,
     isKimo,
-    setKimo,
+    setKimo,isIromegane,setIromegane
   } = useViewModel();
 
   const typeCalc = (poke: Pokemon, at: string): number => {
@@ -107,6 +107,10 @@ export default function App() {
     // TODO : 攻め条件
     // ノーマルスキン
 
+    if(isIromegane&&[0.25,0.5].includes(res)){
+      res*=2
+    }
+
     if (isTokuseiConsideration) {
       ([poke.tokusei1, poke.tokusei2, poke.tokusei3] as Array<string>).map(
         (t) => {
@@ -129,7 +133,7 @@ export default function App() {
   const handleSetTypeChecker = (tc: typeCheckerI) => {
     setTypeChecker(tc);
   };
-  const takashi = Object.keys(tokusei_map).join(", ");
+  const uketokuDetail = Object.keys(tokusei_map).join(", ");
   return (
     <div className="App">
       <div>
@@ -142,10 +146,10 @@ export default function App() {
       {true && (
         <>
           <div>
-            <h2>オプション</h2>
+            <h4>オプション</h4>
           </div>
 
-          <Tooltip title={takashi} arrow>
+          <Tooltip title={uketokuDetail} arrow>
             <FormControlLabel
               control={
                 <Checkbox
@@ -169,10 +173,21 @@ export default function App() {
             }
             label="きもったま/しんがん"
           />
+          <FormControlLabel
+            control={
+              <Checkbox
+                value={isIromegane}
+                onChange={() => {
+                  setIromegane(!isIromegane);
+                }}
+              />
+            }
+            label="いろめがね"
+          />
         </>
       )}
       <div>
-        <h2>ポケモン表</h2>
+        <h2>ポケモン表</h2>※手動による暫定の使用率順
         <TableContainer>
           <Table stickyHeader aria-label="sticky table">
             <TableBody>
@@ -219,9 +234,11 @@ export default function App() {
           </Table>
         </TableContainer>
       </div>
-      {false && (
+      {/* 使うか微妙なためコメントアウト */}
+      {/* {false && (
         <div>
           <h2>相性表</h2>
+          
         </div>
       )}
       {false && (
@@ -284,7 +301,7 @@ export default function App() {
             </TableBody>
           </Table>
         </TableContainer>
-      )}
+      )} */}
     </div>
   );
 }

@@ -26,6 +26,7 @@ export default function useViewModel() {
     fairy: false,
   });
   const [isKimo, setKimo] = React.useState<boolean>(false);
+  const [isIromegane, setIromegane] = React.useState<boolean>(false);
   return {
     isTokuseiConsideration,
     setTokuseiConsideration,
@@ -33,5 +34,6 @@ export default function useViewModel() {
     setTypeChecker,
     isKimo,
     setKimo,
+    isIromegane,setIromegane
   };
 }
