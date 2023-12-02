@@ -25,10 +25,13 @@ export default function useViewModel() {
     dark: false,
     fairy: false,
   });
+  const [isKimo, setKimo] = React.useState<boolean>(false);
   return {
     isTokuseiConsideration,
-setTokuseiConsideration,
-typeChecker,
-setTypeChecker,
-  }
+    setTokuseiConsideration,
+    typeChecker,
+    setTypeChecker,
+    isKimo,
+    setKimo,
+  };
 }

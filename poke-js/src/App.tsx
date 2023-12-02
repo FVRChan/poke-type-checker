@@ -7,7 +7,8 @@ import {
   TableBody,
   TableCell,
   FormControlLabel,
-  Checkbox,Tooltip,
+  Checkbox,
+  Tooltip,
 } from "@mui/material";
 import { makeStyles } from "@material-ui/core";
 import pokemon_list, { pokemon_array, Pokemon } from "./pokemon-list";
@@ -27,8 +28,8 @@ const useStyles = makeStyles(() => ({
 interface i_color_map {
   [index: number]: string;
 }
-interface i_effect_num_map{
-  [index:number]:number;
+interface i_effect_num_map {
+  [index: number]: number;
 }
 const color_map = {
   4: "gold",
@@ -38,8 +39,6 @@ const color_map = {
   0.25: "darkgray",
   0: "dimgray",
 } as i_color_map;
-// 特性
-// 特性を考慮するかみたいな条件を入れる
 
 // https://zenn.dev/kenghaya/articles/6020b6192dadec 🙇🙇🙇
 const useWindowSize = (): number[] => {
@@ -62,36 +61,25 @@ export default function App() {
 
   const {
     isTokuseiConsideration,
-setTokuseiConsideration,
-typeChecker,
-setTypeChecker,
-  }=useViewModel()
-
-  // const [effect_num_map,set_effect_num_map] = React.useState<i_effect_num_map>({
-  //   4:0,
-  //   2:0,
-  //   1:0,
-  //   0.5:0,
-  //   0.25:0,
-  //   0:0,
-  // })
-  // const reset_effect_num_map=()=>{
-  //   set_effect_num_map({
-  //     4:0,
-  //     2:0,
-  //     1:0,
-  //     0.5:0,
-  //     0.25:0,
-  //     0:0,
-  //   })
-  // }
+    setTokuseiConsideration,
+    typeChecker,
+    setTypeChecker,
+    isKimo,
+    setKimo,
+  } = useViewModel();
 
   const typeCalc = (poke: Pokemon, at: string): number => {
-    
     let res = 1;
     const r1 = type_map[poke.pokemon_type1_en].damage_relations;
     if (r1.double_damage_from.includes(at)) {
       res *= 2.0;
+    } else if (
+      (at === "normal" || at === "fighting") &&
+      isKimo &&
+      (r1.no_damage_to.includes("normal") ||
+        r1.no_damage_to.includes("fighting"))
+    ) {
+      res *= 1;
     } else if (r1.half_damage_from.includes(at)) {
       res *= 0.5;
     } else if (r1.no_damage_from.includes(at)) {
@@ -101,6 +89,13 @@ setTypeChecker,
       const r2 = type_map[poke.pokemon_type2_en].damage_relations;
       if (r2.double_damage_from.includes(at)) {
         res *= 2.0;
+      } else if (
+        (at === "normal" || at === "fighting") &&
+        isKimo &&
+        (r2.no_damage_to.includes("normal") ||
+          r2.no_damage_to.includes("fighting"))
+      ) {
+        res *= 1;
       } else if (r2.half_damage_from.includes(at)) {
         res *= 0.5;
       } else if (r2.no_damage_from.includes(at)) {
@@ -110,7 +105,7 @@ setTypeChecker,
 
     // ふしぎなまもり(内定するのかしら)
     // TODO : 攻め条件
-    // きもったま/しんがん/ノーマルスキン
+    // ノーマルスキン
 
     if (isTokuseiConsideration) {
       ([poke.tokusei1, poke.tokusei2, poke.tokusei3] as Array<string>).map(
@@ -125,30 +120,22 @@ setTypeChecker,
       );
     }
 
-    // const enm = JSON.parse(JSON.stringify(effect_num_map));
-    // enm[res]++;
-    // set_effect_num_map(enm);
-
-    // console.log(enm)
-
     return res;
   };
 
   const local_pokemon_matrix = pokemon_array(
     Math.ceil(useWindowSize()[0] / 100)
   );
-const handleSetTypeChecker=(tc:typeCheckerI)=>{
-  // reset_effect_num_map()
-  setTypeChecker(tc)
-}
- const takashi=Object.keys(tokusei_map).join(", ")
+  const handleSetTypeChecker = (tc: typeCheckerI) => {
+    setTypeChecker(tc);
+  };
+  const takashi = Object.keys(tokusei_map).join(", ");
   return (
     <div className="App">
       <div>
         <h2>タイプ</h2>
         <TypeChecker
           typeChecker={typeChecker}
-          // setTypeChecker={setTypeChecker}
           setTypeChecker={handleSetTypeChecker}
         ></TypeChecker>
       </div>
@@ -157,19 +144,31 @@ const handleSetTypeChecker=(tc:typeCheckerI)=>{
           <div>
             <h2>オプション</h2>
           </div>
-          
+
           <Tooltip title={takashi} arrow>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  value={isTokuseiConsideration}
+                  onChange={() => {
+                    setTokuseiConsideration(!isTokuseiConsideration);
+                  }}
+                />
+              }
+              label="受け特性考慮"
+            />
+          </Tooltip>
           <FormControlLabel
             control={
               <Checkbox
-                value={isTokuseiConsideration}
+                value={isKimo}
                 onChange={() => {
-                  setTokuseiConsideration(!isTokuseiConsideration);
+                  setKimo(!isKimo);
                 }}
               />
             }
-            label="受け特性考慮"
-          /></Tooltip>
+            label="きもったま/しんがん"
+          />
         </>
       )}
       <div>
@@ -177,7 +176,6 @@ const handleSetTypeChecker=(tc:typeCheckerI)=>{
         <TableContainer>
           <Table stickyHeader aria-label="sticky table">
             <TableBody>
-              {/* 課題(TODO) => 横幅を動的にしたい*/}
               {local_pokemon_matrix.map((list) => {
                 return (
                   <TableRow>
@@ -233,7 +231,6 @@ const handleSetTypeChecker=(tc:typeCheckerI)=>{
               <TableRow>
                 <TableCell>画像</TableCell>
                 <TableCell>タイプ</TableCell>
-                {/* {typeCheckNode()} */}
                 {Object.keys(type_en_to_kanji).map((t) => {
                   return (
                     <TableCell
@@ -244,7 +241,7 @@ const handleSetTypeChecker=(tc:typeCheckerI)=>{
                       }}
                       key={t}
                     >
-                      {type_en_to_kanji [t]}
+                      {type_en_to_kanji[t]}
                     </TableCell>
                   );
                 })}
