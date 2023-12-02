@@ -1,5 +1,7 @@
-import { typeCheckerI, type_en_to_ja } from "./App";
+import React from "react";
+import { typeCheckerI } from "./interface";
 import { FormControlLabel, Checkbox } from "@mui/material";
+import { type_en_to_ja } from "./const";
 
 export default function TypeChecker({
   typeChecker,
@@ -9,7 +11,7 @@ export default function TypeChecker({
   setTypeChecker: (tc: typeCheckerI) => void;
 }) {
   return (
-    <>
+    <div>
       {Object.keys(typeChecker).map((t) => {
         return (
           <>
@@ -29,6 +31,6 @@ export default function TypeChecker({
           </>
         );
       })}
-    </>
+    </div>
   );
 }

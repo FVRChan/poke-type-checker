@@ -13,6 +13,9 @@ import { makeStyles } from "@material-ui/core";
 import pokemon_list, { pokemon_array, Pokemon } from "./pokemon-list";
 import type_map from "./type-map";
 import TypeChecker from "./TypeChecker";
+import { tokusei_map, type_en_to_ja, type_en_to_kanji } from "./const";
+import useViewModel from "./useViewModel";
+import { typeCheckerI } from "./interface";
 const useStyles = makeStyles(() => ({
   pictureColumn: {
     width: "1px",
@@ -21,59 +24,11 @@ const useStyles = makeStyles(() => ({
     width: "1px",
   },
 }));
-export const type_en_to_ja = {
-  normal: "ノーマル",
-  fighting: "かくとう",
-  flying: "ひこう",
-  poison: "どく",
-  ground: "じめん",
-  rock: "いわ",
-  bug: "むし",
-  ghost: "ゴースト",
-  steel: "はがね",
-  fire: "ほのお",
-  water: "みず",
-  grass: "くさ",
-  electric: "でんき",
-  psychic: "エスパー",
-  ice: "こおり",
-  freezedry: "フリーズドライ",
-  dragon: "ドラゴン",
-  dark: "あく",
-  fairy: "フェアリー",
-} as typeToString;
-export const type_en_to_kanji = {
-  normal: "無",
-  fighting: "闘",
-  flying: "飛",
-  poison: "毒",
-  ground: "地",
-  rock: "岩",
-  bug: "虫",
-  ghost: "霊",
-  steel: "鋼",
-  fire: "炎",
-  water: "水",
-  grass: "草",
-  electric: "電",
-  psychic: "超",
-  ice: "氷",
-  freezedry: "フ",
-  dragon: "龍",
-  dark: "悪",
-  fairy: "妖",
-} as typeToString;
-interface typeToString {
-  [index: string]: string;
-}
-interface typeToEffects {
-  [index: string]: { [index: string]: number };
-}
-export interface typeCheckerI {
-  [index: string]: boolean;
-}
 interface i_color_map {
   [index: number]: string;
+}
+interface i_effect_num_map{
+  [index:number]:number;
 }
 const color_map = {
   4: "gold",
@@ -83,8 +38,10 @@ const color_map = {
   0.25: "darkgray",
   0: "dimgray",
 } as i_color_map;
+// 特性
+// 特性を考慮するかみたいな条件を入れる
 
-// https://zenn.dev/kenghaya/articles/6020b6192dadec
+// https://zenn.dev/kenghaya/articles/6020b6192dadec 🙇🙇🙇
 const useWindowSize = (): number[] => {
   const [size, setSize] = React.useState([0, 0]);
   React.useLayoutEffect(() => {
@@ -103,31 +60,34 @@ const useWindowSize = (): number[] => {
 export default function App() {
   const classes = useStyles();
 
-  const [isTokuseiConsideration, setTokuseiConsideration] =
-    React.useState<boolean>(false);
-  const [typeChecker, setTypeChecker] = React.useState<typeCheckerI>({
-    normal: false,
-    fighting: false,
-    flying: false,
-    poison: false,
-    ground: false,
-    rock: false,
-    bug: false,
-    ghost: false,
-    steel: false,
-    fire: false,
-    water: false,
-    grass: false,
-    electric: false,
-    psychic: false,
-    ice: false,
-    freezedry: false,
-    dragon: false,
-    dark: false,
-    fairy: false,
-  });
+  const {
+    isTokuseiConsideration,
+setTokuseiConsideration,
+typeChecker,
+setTypeChecker,
+  }=useViewModel()
+
+  // const [effect_num_map,set_effect_num_map] = React.useState<i_effect_num_map>({
+  //   4:0,
+  //   2:0,
+  //   1:0,
+  //   0.5:0,
+  //   0.25:0,
+  //   0:0,
+  // })
+  // const reset_effect_num_map=()=>{
+  //   set_effect_num_map({
+  //     4:0,
+  //     2:0,
+  //     1:0,
+  //     0.5:0,
+  //     0.25:0,
+  //     0:0,
+  //   })
+  // }
 
   const typeCalc = (poke: Pokemon, at: string): number => {
+    
     let res = 1;
     const r1 = type_map[poke.pokemon_type1_en].damage_relations;
     if (r1.double_damage_from.includes(at)) {
@@ -152,23 +112,6 @@ export default function App() {
     // TODO : 攻め条件
     // きもったま/しんがん/ノーマルスキン
 
-    // 特性
-    // 特性を考慮するかみたいな条件を入れる
-    const tokusei_map = {
-      ちくでん: { electric: 0 },
-      ひらいしん: { electric: 0 },
-      でんきエンジン: { electric: 0 },
-      もらいび: { fire: 0 },
-      こんがりボディ: { fire: 0 },
-      すいほう: { fire: 0.5 },
-      たいねつ: { fire: 0.5 },
-      ちょすい: { water: 0 },
-      よびみず: { water: 0 },
-      そうしょく: { grass: 0 },
-      どしょく: { ground: 0 },
-      ふゆう: { ground: 0 },
-      きよめのしお: { ghost: 0.5 },
-    } as typeToEffects;
     if (isTokuseiConsideration) {
       ([poke.tokusei1, poke.tokusei2, poke.tokusei3] as Array<string>).map(
         (t) => {
@@ -181,20 +124,31 @@ export default function App() {
         }
       );
     }
+
+    // const enm = JSON.parse(JSON.stringify(effect_num_map));
+    // enm[res]++;
+    // set_effect_num_map(enm);
+
+    // console.log(enm)
+
     return res;
   };
 
   const local_pokemon_matrix = pokemon_array(
     Math.ceil(useWindowSize()[0] / 100)
   );
-
+const handleSetTypeChecker=(tc:typeCheckerI)=>{
+  // reset_effect_num_map()
+  setTypeChecker(tc)
+}
   return (
     <div className="App">
       <div>
         <h2>タイプ</h2>
         <TypeChecker
           typeChecker={typeChecker}
-          setTypeChecker={setTypeChecker}
+          // setTypeChecker={setTypeChecker}
+          setTypeChecker={handleSetTypeChecker}
         ></TypeChecker>
       </div>
       {false && (
@@ -287,7 +241,7 @@ export default function App() {
                       }}
                       key={t}
                     >
-                      {type_en_to_kanji[t]}
+                      {type_en_to_kanji [t]}
                     </TableCell>
                   );
                 })}

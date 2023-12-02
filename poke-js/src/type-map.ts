@@ -12,7 +12,7 @@ const type_map = {
   fighting: {
     damage_relations: {
       double_damage_from: ["flying", "psychic", "fairy"],
-      double_damage_to: ["normal", "rock", "steel", "ice","freezedry", "dark"],
+      double_damage_to: ["normal", "rock", "steel", "ice", "freezedry", "dark"],
       half_damage_from: ["rock", "bug", "dark"],
       half_damage_to: ["flying", "poison", "bug", "psychic", "fairy"],
       no_damage_from: [],
@@ -21,7 +21,7 @@ const type_map = {
   },
   flying: {
     damage_relations: {
-      double_damage_from: ["rock", "electric", "ice","freezedry"],
+      double_damage_from: ["rock", "electric", "ice", "freezedry"],
       double_damage_to: ["fighting", "bug", "grass"],
       half_damage_from: ["fighting", "bug", "grass"],
       half_damage_to: ["rock", "steel", "electric"],
@@ -41,7 +41,7 @@ const type_map = {
   },
   ground: {
     damage_relations: {
-      double_damage_from: ["water", "grass", "ice","freezedry"],
+      double_damage_from: ["water", "grass", "ice", "freezedry"],
       double_damage_to: ["poison", "rock", "steel", "fire", "electric"],
       half_damage_from: ["poison", "rock"],
       half_damage_to: ["bug", "grass"],
@@ -52,7 +52,7 @@ const type_map = {
   rock: {
     damage_relations: {
       double_damage_from: ["fighting", "ground", "steel", "water", "grass"],
-      double_damage_to: ["flying", "bug", "fire", "ice","freezedry"],
+      double_damage_to: ["flying", "bug", "fire", "ice", "freezedry"],
       half_damage_from: ["normal", "flying", "poison", "fire"],
       half_damage_to: ["fighting", "ground", "steel"],
       no_damage_from: [],
@@ -90,7 +90,7 @@ const type_map = {
   steel: {
     damage_relations: {
       double_damage_from: ["fighting", "ground", "fire"],
-      double_damage_to: ["rock", "ice","freezedry", "fairy"],
+      double_damage_to: ["rock", "ice", "freezedry", "fairy"],
       half_damage_from: [
         "normal",
         "flying",
@@ -99,7 +99,8 @@ const type_map = {
         "steel",
         "grass",
         "psychic",
-        "ice","freezedry",
+        "ice",
+        "freezedry",
         "dragon",
         "fairy",
       ],
@@ -111,8 +112,16 @@ const type_map = {
   fire: {
     damage_relations: {
       double_damage_from: ["ground", "rock", "water"],
-      double_damage_to: ["bug", "steel", "grass", "ice","freezedry"],
-      half_damage_from: ["bug", "steel", "fire", "grass", "ice","freezedry", "fairy"],
+      double_damage_to: ["bug", "steel", "grass", "ice", "freezedry"],
+      half_damage_from: [
+        "bug",
+        "steel",
+        "fire",
+        "grass",
+        "ice",
+        "freezedry",
+        "fairy",
+      ],
       half_damage_to: ["rock", "fire", "water", "dragon"],
       no_damage_from: [],
       no_damage_to: [],
@@ -120,7 +129,7 @@ const type_map = {
   },
   water: {
     damage_relations: {
-      double_damage_from: ["grass", "electric","freezedry"],
+      double_damage_from: ["grass", "electric", "freezedry"],
       double_damage_to: ["ground", "rock", "fire"],
       half_damage_from: ["steel", "fire", "water", "ice"],
       half_damage_to: ["water", "grass", "dragon"],
@@ -130,7 +139,14 @@ const type_map = {
   },
   grass: {
     damage_relations: {
-      double_damage_from: ["flying", "poison", "bug", "fire", "ice","freezedry"],
+      double_damage_from: [
+        "flying",
+        "poison",
+        "bug",
+        "fire",
+        "ice",
+        "freezedry",
+      ],
       double_damage_to: ["ground", "rock", "water"],
       half_damage_from: ["ground", "water", "grass", "electric"],
       half_damage_to: [
@@ -170,15 +186,15 @@ const type_map = {
     damage_relations: {
       double_damage_from: ["fighting", "rock", "steel", "fire"],
       double_damage_to: ["flying", "ground", "grass", "dragon"],
-      half_damage_from: ["ice","freezedry"],
-      half_damage_to: ["steel", "fire", "water", "ice","freezedry"],
+      half_damage_from: ["ice", "freezedry"],
+      half_damage_to: ["steel", "fire", "water", "ice", "freezedry"],
       no_damage_from: [],
       no_damage_to: [],
     },
   },
   dragon: {
     damage_relations: {
-      double_damage_from: ["ice","freezedry", "dragon", "fairy"],
+      double_damage_from: ["ice", "freezedry", "dragon", "fairy"],
       double_damage_to: ["dragon"],
       half_damage_from: ["fire", "water", "grass", "electric"],
       half_damage_to: ["steel"],
