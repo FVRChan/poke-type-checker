@@ -1,8 +1,8 @@
 import React from "react";
 import {
+  Button,
   Table,
   TableContainer,
-  TableHead,
   TableRow,
   TableBody,
   TableCell,
@@ -10,63 +10,148 @@ import {
   Checkbox,
   Tooltip,
 } from "@mui/material";
-import { makeStyles } from "@material-ui/core";
-import pokemon_list, { pokemon_array, Pokemon } from "./pokemon-list";
+import { pokemon_array, pokemon_list } from "./pokemon-list";
 import type_map from "./type-map";
 import TypeChecker from "./TypeChecker";
-import { tokusei_map, type_en_to_ja, type_en_to_kanji } from "./const";
+import { color_map, cookiePokemon, tokusei_map } from "./const";
 import useViewModel from "./useViewModel";
-import { typeCheckerI } from "./interface";
-const useStyles = makeStyles(() => ({
-  pictureColumn: {
-    width: "1px",
-  },
-  typeColumn: {
-    width: "1px",
-  },
-}));
-interface i_color_map {
-  [index: number]: string;
-}
-interface i_effect_num_map {
-  [index: number]: number;
-}
-const color_map = {
-  4: "gold",
-  2: "khaki",
-  1: "",
-  0.5: "lightgray",
-  0.25: "darkgray",
-  0: "dimgray",
-} as i_color_map;
-
-// https://zenn.dev/kenghaya/articles/6020b6192dadec 🙇🙇🙇
-const useWindowSize = (): number[] => {
-  const [size, setSize] = React.useState([0, 0]);
-  React.useLayoutEffect(() => {
-    const updateSize = (): void => {
-      setSize([window.innerWidth, window.innerHeight]);
-    };
-
-    window.addEventListener("resize", updateSize);
-    updateSize();
-
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
-  return size;
-};
+import { typeCheckerI, Pokemon, PokemonMove } from "./interface";
+import { useCookies } from "react-cookie";
+import { pokemon_move_list } from "./pokemon-moves";
 
 export default function App() {
-  const classes = useStyles();
-
+  const [cookies, setCookies, removeCookies] = useCookies([
+    "sp1",
+    "sp2",
+    "sp3",
+    "sp4",
+    "sp5",
+    "sp6",
+  ]);
+  const [] = React.useState();
   const {
     isTokuseiConsideration,
     setTokuseiConsideration,
     typeChecker,
     setTypeChecker,
     isKimo,
-    setKimo,isIromegane,setIromegane
+    setKimo,
+    isIromegane,
+    setIromegane,
+    useWindowSize,
   } = useViewModel();
+  const [selectedPokeList, setSelectedPokeList] = React.useState<Pokemon[]>([]);
+  const handleSetSelectedPokeList = (poke: Pokemon) => {
+    if (
+      selectedPokeList.length > 5 ||
+      selectedPokeList.filter((v) => {
+        return v.pokedex === poke.pokedex;
+      }).length > 0
+    ) {
+      return;
+    }
+    const spl = JSON.parse(JSON.stringify(selectedPokeList));
+    spl.push(poke);
+    setSelectedPokeList(spl);
+    if (selectedPokeList.length === 0) {
+      writeCookie("sp1", poke);
+    } else if (selectedPokeList.length === 1) {
+      writeCookie("sp2", poke);
+    } else if (selectedPokeList.length === 2) {
+      writeCookie("sp3", poke);
+    } else if (selectedPokeList.length === 3) {
+      writeCookie("sp4", poke);
+    } else if (selectedPokeList.length === 4) {
+      writeCookie("sp5", poke);
+    } else if (selectedPokeList.length === 5) {
+      writeCookie("sp6", poke);
+    }
+  };
+
+  const toCookiePokemon = (argPoke: Pokemon): cookiePokemon => {
+    return {
+      pokemon_id: argPoke.pokemon_id,
+      move1: argPoke.sm1,
+      move2: argPoke.sm2,
+      move3: argPoke.sm3,
+      move4: argPoke.sm4,
+      showMovelist: argPoke.showMovelist,
+    } as cookiePokemon;
+  };
+  const fromCookiePokemon = (argPoke: cookiePokemon): Pokemon | undefined => {
+    const t = pokemon_list.find((v) => {
+      return v.pokemon_id === argPoke.pokemon_id;
+    });
+    if (t) {
+      t.sm1 = argPoke.move1;
+      t.sm2 = argPoke.move2;
+      t.sm3 = argPoke.move3;
+      t.sm4 = argPoke.move4;
+      t.showMovelist = argPoke.showMovelist;
+    }
+    return t;
+  };
+  const writeCookie = (
+    key: "sp1" | "sp2" | "sp3" | "sp4" | "sp5" | "sp6",
+    argPoke: Pokemon
+  ) => {
+    setCookies(key, toCookiePokemon(argPoke));
+  };
+  const readCookie = (
+    key: "sp1" | "sp2" | "sp3" | "sp4" | "sp5" | "sp6"
+  ): Pokemon | undefined => {
+    return fromCookiePokemon(cookies[key]);
+  };
+
+  const resetSelectedPokeList = () => {
+    setSelectedPokeList([]);
+    removeCookies("sp1");
+    removeCookies("sp2");
+    removeCookies("sp3");
+    removeCookies("sp4");
+    removeCookies("sp5");
+    removeCookies("sp6");
+  };
+  React.useEffect(() => {
+    const init_list = [] as Pokemon[];
+    if (cookies["sp1"] !== undefined) {
+      const t = readCookie("sp1");
+      if (t) {
+        init_list.push(t);
+      }
+    }
+    if (cookies["sp2"] !== undefined) {
+      const t = readCookie("sp2");
+      if (t) {
+        init_list.push(t);
+      }
+    }
+    if (cookies["sp3"] !== undefined) {
+      const t = readCookie("sp3");
+      if (t) {
+        init_list.push(t);
+      }
+    }
+    if (cookies["sp4"] !== undefined) {
+      const t = readCookie("sp4");
+      if (t) {
+        init_list.push(t);
+      }
+    }
+    if (cookies["sp5"] !== undefined) {
+      const t = readCookie("sp5");
+      if (t) {
+        init_list.push(t);
+      }
+    }
+    if (cookies["sp6"] !== undefined) {
+      const t = readCookie("sp6");
+      if (t) {
+        init_list.push(t);
+      }
+    }
+    setSelectedPokeList(init_list);
+  }, []);
 
   const typeCalc = (poke: Pokemon, at: string): number => {
     let res = 1;
@@ -107,8 +192,8 @@ export default function App() {
     // TODO : 攻め条件
     // ノーマルスキン
 
-    if(isIromegane&&[0.25,0.5].includes(res)){
-      res*=2
+    if (isIromegane && [0.25, 0.5].includes(res)) {
+      res *= 2;
     }
 
     if (isTokuseiConsideration) {
@@ -128,12 +213,29 @@ export default function App() {
   };
 
   const local_pokemon_matrix = pokemon_array(
-    Math.ceil(useWindowSize()[0] / 100)
+    Math.ceil(useWindowSize().width / 100)
   );
   const handleSetTypeChecker = (tc: typeCheckerI) => {
     setTypeChecker(tc);
   };
   const uketokuDetail = Object.keys(tokusei_map).join(", ");
+
+  const getMove = (poke: Pokemon, num: number): PokemonMove | undefined => {
+    if (num === 1) {
+      return poke.sm1;
+    }
+    if (num === 2) {
+      return poke.sm2;
+    }
+    if (num === 3) {
+      return poke.sm3;
+    }
+    if (num === 4) {
+      return poke.sm4;
+    }
+    return undefined;
+  };
+
   return (
     <div className="App">
       <div>
@@ -187,6 +289,130 @@ export default function App() {
         </>
       )}
       <div>
+        <h2>選出</h2>
+        {selectedPokeList && selectedPokeList.length > 0 && (
+          <Button
+            onClick={resetSelectedPokeList}
+            style={{ background: "lightblue" }}
+          >
+            初期化
+          </Button>
+        )}
+        {selectedPokeList.map((poke, i) => {
+          return (
+            <div>
+              <div>
+                {poke.front_picture ? (
+                  <img
+                    onClick={() => {
+                      const tpl = JSON.parse(
+                        JSON.stringify(selectedPokeList)
+                      ) as Pokemon[];
+                      const tp = tpl[i];
+                      tp.showMovelist = !tp.showMovelist;
+                      tpl[i] = tp;
+                      setSelectedPokeList(tpl);
+                      const cookieKey = `sp${i + 1}` as
+                        | "sp1"
+                        | "sp2"
+                        | "sp3"
+                        | "sp4"
+                        | "sp5"
+                        | "sp6";
+                      writeCookie(cookieKey, tp);
+                    }}
+                    src={poke.front_picture}
+                    width={50}
+                    height={50}
+                  ></img>
+                ) : (
+                  <>
+                    <div
+                      onClick={() => {
+                        const tpl = JSON.parse(
+                          JSON.stringify(selectedPokeList)
+                        ) as Pokemon[];
+                        const tp = tpl[i];
+                        tp.showMovelist = !tp.showMovelist;
+                        tpl[i] = tp;
+                        setSelectedPokeList(tpl);
+                        const cookieKey = `sp${i + 1}` as
+                          | "sp1"
+                          | "sp2"
+                          | "sp3"
+                          | "sp4"
+                          | "sp5"
+                          | "sp6";
+                        writeCookie(cookieKey, tp);
+                      }}
+                    >
+                      {poke.pokemon_name}
+                    </div>
+                    <div>
+                      {poke.pokemon_type1_ja}
+                      {poke.pokemon_type2_ja && <>/{poke.pokemon_type2_ja}</>}
+                    </div>
+                  </>
+                )}
+              </div>
+              {poke.showMovelist && (
+                <div>
+                  <div>
+                    {[1, 2, 3, 4].map((jjj) => {
+                      return (
+                        <div>
+                          <select
+                            onChange={(e) => {
+                              const pm = pokemon_move_list.find(
+                                (dddd) => dddd.id === Number(e.target.value)
+                              ) as PokemonMove | undefined;
+                              const cookieKey = `sp${i + 1}` as
+                                | "sp1"
+                                | "sp2"
+                                | "sp3"
+                                | "sp4"
+                                | "sp5"
+                                | "sp6";
+                              const cp = readCookie(cookieKey);
+
+                              if (cp && pm) {
+                                // cp.sm1=pm?.id
+                                if (jjj === 1) {
+                                  cp.sm1 = pm;
+                                } else if (jjj === 2) {
+                                  cp.sm2 = pm;
+                                } else if (jjj === 3) {
+                                  cp.sm3 = pm;
+                                } else if (jjj === 4) {
+                                  cp.sm4 = pm;
+                                }
+                                writeCookie(cookieKey, cp);
+                              }
+                            }}
+                          >
+                            {poke.moves.map((pm) => {
+                              return (
+                                <option
+                                  value={pm.id}
+                                  selected={getMove(poke, jjj)?.id === pm.id}
+                                >
+                                  {pm.name}
+                                </option>
+                              );
+                            })}
+                          </select>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      <div>
         <h2>ポケモン表</h2>※手動による暫定の使用率順
         <TableContainer>
           <Table stickyHeader aria-label="sticky table">
@@ -206,6 +432,9 @@ export default function App() {
                       return (
                         <TableCell
                           style={{ width: "100px", background: bgcolor }}
+                          onClick={() => {
+                            handleSetSelectedPokeList(poke);
+                          }}
                         >
                           {poke.front_picture ? (
                             <img
