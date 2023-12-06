@@ -66,7 +66,7 @@ export default function useViewModel() {
     "sp6",
   ]);
   const localPokemonMatrix = pokemon_array(
-    Math.ceil(useWindowSize().width / 100)-1
+    Math.ceil(useWindowSize().width / 100)
   );
 
   // falseなら自分のを選ぶ

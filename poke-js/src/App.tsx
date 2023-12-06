@@ -374,7 +374,9 @@ export default function App() {
               </Button>
             )}
           </Grid>
-          <Grid xs={5}>
+          {/* 位置調整をうまくやりたい */}
+          <Grid xs={4}></Grid> 
+          <Grid xs={1}>
             {selectedAitePokeList.map((poke, i) => {
               return (
                 <AitePoke poke={poke} i={i}></AitePoke>
