@@ -42,7 +42,9 @@ export default function useViewModel() {
     const [size, setSize] = React.useState([0, 0]);
     React.useLayoutEffect(() => {
       const updateSize = (): void => {
+        // console.log(window.innerWidth, window.innerHeight,window.outerWidth, window.outerHeight)
         setSize([window.innerWidth, window.innerHeight]);
+        // setSize([window.outerWidth, window.outerHeight]);
       };
 
       window.addEventListener("resize", updateSize);
@@ -64,7 +66,7 @@ export default function useViewModel() {
     "sp6",
   ]);
   const localPokemonMatrix = pokemon_array(
-    Math.ceil(useWindowSize().width / 100)
+    Math.ceil(useWindowSize().width / 100)-1
   );
 
   // falseなら自分のを選ぶ
