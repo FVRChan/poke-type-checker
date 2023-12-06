@@ -65,8 +65,9 @@ export default function useViewModel() {
     "sp5",
     "sp6",
   ]);
+  // 範囲指定orマッピングみたいにしたほうがいいかもしれない...?
   const localPokemonMatrix = pokemon_array(
-    Math.ceil(useWindowSize().width / 100)
+    Math.ceil((useWindowSize().width-50) / 100)
   );
 
   // falseなら自分のを選ぶ
