@@ -328,6 +328,8 @@ export default function App() {
     setSelectedMyPokeList(spl);
   };
 
+  const [showRemoveMyPokeButton,setRemoveMyPokeButton]=React.useState<boolean>(false);
+
   return (
     <div className="App">
       <div>
@@ -365,7 +367,7 @@ export default function App() {
                 </div>
               );
             })}
-            {selectedMyPokeList && selectedMyPokeList.length > 0 && (
+            {showRemoveMyPokeButton&&selectedMyPokeList && selectedMyPokeList.length > 0 && (
               <Button
                 onClick={resetSelectedMyPokeList}
                 style={{ background: "lightblue" }}
@@ -395,7 +397,7 @@ export default function App() {
       </div>
 
       <div>
-        <h2>ポケモン表</h2>※手動による暫定の使用率順
+        <h2>ポケモン選択</h2>※手動による暫定の使用率順
         <div>
           <label>
             自分
@@ -462,6 +464,21 @@ export default function App() {
           </Table>
         </TableContainer>
       </div>
+
+      <div>
+      <label>
+            <Switch
+              defaultChecked={showRemoveMyPokeButton}
+              onChange={() => {
+                setRemoveMyPokeButton(!showRemoveMyPokeButton);
+              }}
+              color="secondary"
+            />
+            自分初期化ボタン表示
+          </label>
+
+      </div>
+      
     </div>
   );
 }
