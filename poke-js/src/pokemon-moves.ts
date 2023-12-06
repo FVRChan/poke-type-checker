@@ -4580,8 +4580,8 @@ export const pokemon_move_list = [
       "id": 573,
       "name": "\u30d5\u30ea\u30fc\u30ba\u30c9\u30e9\u30a4",
       "power": 70,
-      "type_en": "ice",
-      "type_ja": "\u3053\u304a\u308a"
+      "type_en": "freezedry",
+      "type_ja": "フリーズドライ"
     },
     {
       "accuracy": null,

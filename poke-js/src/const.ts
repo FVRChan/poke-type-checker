@@ -76,6 +76,11 @@ export const color_map = {
   0.25: "darkgray",
   0: "dimgray",
 } as i_color_map;
+export const allow_color_map = {
+  4: "deeppink",
+  2: "hotpink",
+  1: "pink",
+} as i_color_map;
 
 export interface cookiePokemon {
   pokemon_id: number;

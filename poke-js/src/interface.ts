@@ -39,10 +39,10 @@ export interface Pokemon {
   used_rank: number;
   moves: PokemonMove[];
   move_id_list: number[];
-  sm1: PokemonMove;
-  sm2: PokemonMove;
-  sm3: PokemonMove;
-  sm4: PokemonMove;
+  sm1?: PokemonMove;
+  sm2?: PokemonMove;
+  sm3?: PokemonMove;
+  sm4?: PokemonMove;
   showMovelist: boolean;
 }
 
@@ -54,3 +54,11 @@ export interface PokemonMove {
   type_en: string;
   type_ja: string;
 }
+
+export type selectedPokemonCookieKey =
+  | "sp1"
+  | "sp2"
+  | "sp3"
+  | "sp4"
+  | "sp5"
+  | "sp6";

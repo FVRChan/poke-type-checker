@@ -1,5 +1,7 @@
 import React from "react";
-import { typeCheckerI } from "./interface";
+import { Pokemon, typeCheckerI } from "./interface";
+import { useCookies } from "react-cookie";
+import { pokemon_array } from "./pokemon-list";
 
 export default function useViewModel() {
   const [isTokuseiConsideration, setTokuseiConsideration] =
@@ -27,6 +29,12 @@ export default function useViewModel() {
   });
   const [isKimo, setKimo] = React.useState<boolean>(false);
   const [isIromegane, setIromegane] = React.useState<boolean>(false);
+  const [selectedMyPokeList, setSelectedMyPokeList] = React.useState<Pokemon[]>(
+    []
+  );
+  const [selectedAitePokeList, setSelectedAitePokeList] = React.useState<
+    Pokemon[]
+  >([]);
 
   // https://zenn.dev/kenghaya/articles/6020b6192dadec 🙇🙇🙇
   // 端末幅次第で1行あたりに表示するポケモンの数の変更(動的なのでスマフォの縦横変化やPCWindowsサイズ変更などが対応できている)
@@ -47,6 +55,23 @@ export default function useViewModel() {
     };
   };
 
+  const [cookies, setCookies, removeCookies] = useCookies([
+    "sp1",
+    "sp2",
+    "sp3",
+    "sp4",
+    "sp5",
+    "sp6",
+  ]);
+  const localPokemonMatrix = pokemon_array(
+    Math.ceil(useWindowSize().width / 100)
+  );
+
+  // falseなら自分のを選ぶ
+  const [selectPokemonSwitch, setSelectPokemonSwitch] =
+    // React.useState<boolean>(false); 
+    React.useState<boolean>(true); // 開発のため
+
   return {
     isTokuseiConsideration,
     setTokuseiConsideration,
@@ -56,6 +81,16 @@ export default function useViewModel() {
     setKimo,
     isIromegane,
     setIromegane,
-    useWindowSize,
+    // useWindowSize,
+    cookies,
+    setCookies,
+    removeCookies,
+    selectedMyPokeList,
+    setSelectedMyPokeList,
+    localPokemonMatrix,
+    selectPokemonSwitch,
+    setSelectPokemonSwitch,
+    selectedAitePokeList,
+    setSelectedAitePokeList,
   };
 }
