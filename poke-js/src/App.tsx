@@ -48,6 +48,7 @@ export default function App() {
     selectedMyPokeList,
     setSelectedMyPokeList,
     localPokemonMatrix,
+    // localKengaiPokemonMatrix,
     selectPokemonSwitch,
     setSelectPokemonSwitch,
     selectedAitePokeList,
@@ -274,8 +275,8 @@ export default function App() {
           const t = new LeaderLine(myRef, aiteRef, {
             color: allow_color_map[ret],
             path: "straight",
-            startSocket:"right",
-            endSocket:"left",
+            startSocket: "right",
+            endSocket: "left",
           });
           ttl.push(t);
         }
@@ -328,7 +329,8 @@ export default function App() {
     setSelectedMyPokeList(spl);
   };
 
-  const [showRemoveMyPokeButton,setRemoveMyPokeButton]=React.useState<boolean>(false);
+  const [showRemoveMyPokeButton, setRemoveMyPokeButton] =
+    React.useState<boolean>(false);
 
   return (
     <div className="App">
@@ -351,7 +353,7 @@ export default function App() {
         ></OptionChecker>
       </div>
 
-      <div>
+      {/* <div>
         <h2>選出</h2>
         <Grid container spacing={2} style={{ marginLeft: "20px" }}>
           <Grid xs={5}>
@@ -367,22 +369,21 @@ export default function App() {
                 </div>
               );
             })}
-            {showRemoveMyPokeButton&&selectedMyPokeList && selectedMyPokeList.length > 0 && (
-              <Button
-                onClick={resetSelectedMyPokeList}
-                style={{ background: "lightblue" }}
-              >
-                初期化
-              </Button>
-            )}
+            {showRemoveMyPokeButton &&
+              selectedMyPokeList &&
+              selectedMyPokeList.length > 0 && (
+                <Button
+                  onClick={resetSelectedMyPokeList}
+                  style={{ background: "lightblue" }}
+                >
+                  初期化
+                </Button>
+              )}
           </Grid>
-          {/* 位置調整をうまくやりたい */}
-          <Grid xs={4}></Grid> 
+          <Grid xs={4}></Grid>
           <Grid xs={1}>
             {selectedAitePokeList.map((poke, i) => {
-              return (
-                <AitePoke poke={poke} i={i}></AitePoke>
-              );
+              return <AitePoke poke={poke} i={i}></AitePoke>;
             })}
             {selectedAitePokeList && selectedAitePokeList.length > 0 && (
               <Button
@@ -394,11 +395,11 @@ export default function App() {
             )}
           </Grid>
         </Grid>
-      </div>
+      </div> */}
 
       <div>
         <h2>ポケモン選択</h2>※手動による暫定の使用率順
-        <div>
+        {/* <div>
           <label>
             自分
             <Switch
@@ -410,7 +411,7 @@ export default function App() {
             />
             相手
           </label>
-        </div>
+        </div> */}
         <TableContainer>
           <Table stickyHeader aria-label="sticky table">
             <TableBody>
@@ -463,22 +464,77 @@ export default function App() {
             </TableBody>
           </Table>
         </TableContainer>
+        {/* {false && (
+          <div>
+            <div>使用率150位圏外</div>
+            <TableContainer>
+              <Table stickyHeader aria-label="sticky table">
+                <TableBody>
+                  {localKengaiPokemonMatrix.map((list) => {
+                    return (
+                      <TableRow>
+                        {list.map((poke) => {
+                          const checkedTypeList = Object.keys(
+                            typeChecker
+                          ).filter((v) => typeChecker[v]);
+                          const type_res_list = checkedTypeList.map((v) =>
+                            typeCalc(poke, v)
+                          );
+                          const bgcolor = color_map[Math.max(...type_res_list)];
+
+                          return (
+                            <TableCell
+                              style={{ width: "100px", background: bgcolor }}
+                              onClick={() => {
+                                if (!selectPokemonSwitch) {
+                                  handleSetSelectedMyPokeList(poke);
+                                } else {
+                                  handleSetSelectedAitePokeList(poke);
+                                }
+                              }}
+                            >
+                              {poke.front_picture ? (
+                                <img
+                                  src={poke.front_picture}
+                                  width={50}
+                                  height={50}
+                                ></img>
+                              ) : (
+                                <>
+                                  <div>{poke.pokemon_name}</div>
+                                  <div>
+                                    {poke.pokemon_type1_ja}
+                                    {poke.pokemon_type2_ja && (
+                                      <>/{poke.pokemon_type2_ja}</>
+                                    )}
+                                  </div>
+                                </>
+                              )}
+                            </TableCell>
+                          );
+                        })}
+                      </TableRow>
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </div>
+        )} */}
       </div>
 
-      <div>
-      <label>
-            <Switch
-              defaultChecked={showRemoveMyPokeButton}
-              onChange={() => {
-                setRemoveMyPokeButton(!showRemoveMyPokeButton);
-              }}
-              color="secondary"
-            />
-            自分初期化ボタン表示
-          </label>
-
-      </div>
-      
+      {/* <div>
+        <label>
+          <Switch
+            defaultChecked={showRemoveMyPokeButton}
+            onChange={() => {
+              setRemoveMyPokeButton(!showRemoveMyPokeButton);
+            }}
+            color="secondary"
+          />
+          自分初期化ボタン表示
+        </label>
+      </div> */}
     </div>
   );
 }

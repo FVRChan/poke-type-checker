@@ -57,6 +57,7 @@ export default function useViewModel() {
     };
   };
 
+  // cookie保存なのでいびつ過ぎる
   const [cookies, setCookies, removeCookies] = useCookies([
     "sp1",
     "sp2",
@@ -67,12 +68,16 @@ export default function useViewModel() {
   ]);
   // 範囲指定orマッピングみたいにしたほうがいいかもしれない...?
   const localPokemonMatrix = pokemon_array(
-    Math.ceil((useWindowSize().width-50) / 100)
+    Math.ceil((useWindowSize().width - 50) / 100)
   );
+
+  // const localKengaiPokemonMatrix = kengai_pokemon_array(
+  //   Math.ceil((useWindowSize().width - 50) / 100)
+  // );
 
   // falseなら自分のを選ぶ
   const [selectPokemonSwitch, setSelectPokemonSwitch] =
-    // React.useState<boolean>(false); 
+    // React.useState<boolean>(false);
     React.useState<boolean>(true); // 開発のため
 
   return {
@@ -91,6 +96,7 @@ export default function useViewModel() {
     selectedMyPokeList,
     setSelectedMyPokeList,
     localPokemonMatrix,
+    // localKengaiPokemonMatrix,
     selectPokemonSwitch,
     setSelectPokemonSwitch,
     selectedAitePokeList,

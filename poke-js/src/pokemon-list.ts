@@ -22089,3 +22089,23 @@ export function pokemon_array(separate_number: number) {
   }
   return ret_matrix;
 }
+
+// export const kengai_pokemon_list = init_pokemon_list.filter((v)=>v.used_rank===kengai_number);
+
+// export function kengai_pokemon_array(separate_number: number) {
+//   const local_separate_number = Math.min(15, separate_number);
+//   let ret_matrix = [] as Array<Array<Pokemon>>;
+//   let temp_list = [] as Array<Pokemon>;
+//   kengai_pokemon_list.forEach((p, i) => {
+//     temp_list.push(p);
+//     if (temp_list.length >= local_separate_number) {
+//       ret_matrix.push(temp_list);
+//       temp_list = [];
+//     }
+//   });
+//   if (temp_list.length > 0) {
+//     ret_matrix.push(temp_list);
+//     temp_list = [];
+//   }
+//   return ret_matrix;
+// }
