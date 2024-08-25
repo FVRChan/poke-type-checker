@@ -6,7 +6,7 @@ import requests
 import json
 from typing import Any
 from datetime import date
-
+import os
 TYPE_ID_NORMAL = 1
 TYPE_ID_FIGHTING = 2
 TYPE_ID_FLYING = 3
@@ -230,47 +230,76 @@ class PokemonAbility:
     id: int
     name_ja: str
     name_en: str
-    # 特性で受けるダメージ半減
-    half_type_id_list: List[int] = List
-    # 特性で受けるダメージ無効化
-    no_damage_type_id_list: List[int] = List
-    # # きもったま/しんがん
-    is_scrappy: bool = False
-    # # ちからもち/ヨガパワー
-    is_tikaramoti: bool = False
-    # # かたやぶり/テラボルテージ/ターボブレイズ
-    is_katayaburi: bool = False
-    # # ハードロック/メタルプロテクト
-    is_hardrock: bool = False
-    # # マルチスケイル/ファントムガード
-    is_multi_slace: bool = False
-    # # テラスシェル
-    is_tera_shell: bool = False
-    # # フェアリースキン
-    is_faily_skin: bool = False
-    # # いろめがね
-    is_iromegane: bool = False
+
     # # 与えるときのダメージ倍率(タイプ別)
     cause_type_damege_special_rate: dict = Dict
+    # # 与えるときのダメージ倍率(タイプ別)
+    receive_type_damege_special_rate: dict = Dict
+
+    is_scrappy: bool = False
+    is_tikaramoti: bool = False
+    is_katayaburi: bool = False
+    is_hardrock: bool = False
+    is_multi_slace: bool = False
+    is_tera_shell: bool = False
+    is_faily_skin: bool = False
+    is_iromegane: bool = False
+    is_tennen: bool = False
+    is_harikiri: bool = False
+    is_tetunokobushi: bool = False
+    is_tekiourixyoku: bool = False
+    is_sunpower: bool = False
+    is_technician: bool = False
+    is_sutemi: bool = False
+    is_tikarazuku: bool = False
+    is_friendguard: bool = False
+    is_heavymetal: bool = False
+    is_lightmetal: bool = False
+    is_dokubousou: bool = False
+    is_netubousou: bool = False
+    is_analyze: bool = False
+    is_surinuke: bool = False
+    is_furcoar: bool = False
+    is_boudan: bool = False
+    is_ganzixyouago: bool = False
+    is_mega_launcher: bool = False
+    is_kusanokegawa: bool = False
+    is_kataitume: bool = False
+    is_punkrock: bool = False
+    is_koorinorinpun: bool = False
+    is_gorimutixyuu: bool = False
+    is_wazawainoutuwa: bool = False
+    is_wazawainouturugi: bool = False
+    is_wazawainoohuda: bool = False
+    is_wazawainoutama: bool = False
+    is_hihiironokodou: bool = False
+    is_hadoronengine: bool = False
+    is_kireazi: bool = False
+    is_soudaisixyou: bool = False
 
     def set_extra_value(self):
         # 受けるダメージ
         if self.name_ja == "あついしぼう":
-            self.half_type_id_list.append(TYPE_ID_FIRE, TYPE_ID_ICE)
+            self.receive_type_damege_special_rate = {
+                TYPE_ID_FIRE: 0.5, TYPE_ID_ICE: 0.5}
         if self.name_ja == "ちくでん" or self.name_ja == "ひらいしん" or self.name_ja == "でんきエンジン":
-            self.half_type_id_list.append(TYPE_ID_ELECTRIC)
+            self.receive_type_damege_special_rate = {TYPE_ID_ELECTRIC: 0}
         if self.name_ja == "もらいび" or self.name_ja == "こんがりボディ":
-            self.no_damage_type_id_list.append(TYPE_ID_FIRE)
+            self.receive_type_damege_special_rate = {TYPE_ID_FIRE: 0}
         if self.name_ja == "すいほう" or self.name_ja == "たいねつ":
-            self.half_type_id_list.append(TYPE_ID_FIRE)
+            self.receive_type_damege_special_rate = {TYPE_ID_FIRE: 0.5}
         if self.name_ja == "ちょすい" or self.name_ja == "よびみず":
-            self.no_damage_type_id_list.append(TYPE_ID_WATER)
+            self.receive_type_damege_special_rate = {TYPE_ID_WATER: 0}
         if self.name_ja == "そうしょく":
-            self.no_damage_type_id_list.append(TYPE_ID_GRASS)
+            self.receive_type_damege_special_rate = {TYPE_ID_GRASS: 0}
         if self.name_ja == "どしょく" or self.name_ja == "ふゆう":
-            self.no_damage_type_id_list.append(TYPE_ID_GROUND)
+            self.receive_type_damege_special_rate = {TYPE_ID_GROUND: 0}
         if self.name_ja == "きよめのしお":
-            self.half_type_id_list.append(TYPE_ID_GHOST)
+            self.receive_type_damege_special_rate = {TYPE_ID_GHOST: 0.5}
+        if self.name_ja == "かんそうはだ":
+            self.receive_type_damege_special_rate = {
+                TYPE_ID_WATER: 0, TYPE_ID_FIRE: 1.25
+            }
 
         # 与えるダメージ
         if self.name_ja == "すいほう":
@@ -287,6 +316,20 @@ class PokemonAbility:
             self.cause_type_damege_special_rate = {TYPE_ID_FAIRY: 5448/4096}
         if self.name_ja == "ダークオーラ":
             self.cause_type_damege_special_rate = {TYPE_ID_DARK: 5448/4096}
+        if self.name_ja == "しんりょく":
+            self.cause_type_damege_special_rate = {TYPE_ID_GRASS: 1.5}
+        if self.name_ja == "もうか":
+            self.cause_type_damege_special_rate = {TYPE_ID_FIRE: 1.5}
+        if self.name_ja == "げきりゅう":
+            self.cause_type_damege_special_rate = {TYPE_ID_WATER: 1.5}
+        if self.name_ja == "むしのしらせ":
+            self.cause_type_damege_special_rate = {TYPE_ID_BUG: 1.5}
+        if self.name_ja == "すなのちから":
+            self.cause_type_damege_special_rate = {
+                TYPE_ID_ROCK: 1.3,
+                TYPE_ID_GROUND: 1.3,
+                TYPE_ID_STEEL: 1.3,
+            }
 
         # その他
         if self.name_ja == "きもったま" or self.name_ja == "しんがん":
@@ -307,44 +350,81 @@ class PokemonAbility:
             self.is_iromegane = True
         if self.name_ja == "てんねん":
             self.is_tennen = True
-        "はりきり"
-        "しんりょく"
-        "もうか"
-        "げきりゅう"
-        "むしのしらせ"
-        "かんそうはだ"
-        "てつのこぶし"
-        "てきおうりょく"
-        "サンパワー"
-        "テクニシャン"
-        "すてみ"
-        "ちからずく"
-        "フレンドガード"
-        "ヘヴィメタル"
-        "ライトメタル"
-        "どくぼうそう"
-        "ねつぼうそう"
-        "アナライズ"
-        "すりぬけ"
-        "すなのちから"
-        "ファーコート"
-        "ぼうだん"
-        "がんじょうあご"
-        "メガランチャー"
-        "くさのけがわ"
-        "かたいツメ"
-        "パンクロック"
-        "こおりのりんぷん"
-        "ごりむちゅう"
-        "わざわいのうつわ"
-        "わざわいのつるぎ"
-        "わざわいのおふだ"
-        "わざわいのたま"
-        "ひひいろのこどう"
-        "ハドロンエンジン"
-        "きれあじ"
-        "そうだいしょう"
+        if self.name_ja in ["はりきり"]:
+            self.is_harikiri = True
+        if self.name_ja in ["てつのこぶし"]:
+            self.is_tetunokobushi = True
+        if self.name_ja in ["てきおうりょく"]:
+            self.is_tekiourixyoku = True
+        if self.name_ja in ["サンパワー"]:
+            self.is_sunpower = True
+        if self.name_ja in ["テクニシャン"]:
+            self.is_technician = True
+        if self.name_ja in ["すてみ"]:
+            self.is_sutemi = True
+        if self.name_ja in ["ちからずく"]:
+            self.is_tikarazuku = True
+        if self.name_ja in ["フレンドガード"]:
+            self.is_friendguard = True
+        if self.name_ja in ["ヘヴィメタル"]:
+            self.is_heavymetal = True
+        if self.name_ja in ["ライトメタル"]:
+            self.is_lightmetal = True
+        if self.name_ja in ["どくぼうそう"]:
+            self.is_dokubousou = True
+        if self.name_ja in ["ねつぼうそう"]:
+            self.is_netubousou = True
+        if self.name_ja in ["アナライズ"]:
+            self.is_analyze = True
+        if self.name_ja in ["すりぬけ"]:
+            self.is_surinuke = True
+        if self.name_ja in ["ファーコート"]:
+            self.is_furcoar = True
+        if self.name_ja in ["ぼうだん"]:
+            self.is_boudan = True
+        if self.name_ja in ["がんじょうあご"]:
+            self.is_ganzixyouago = True
+        if self.name_ja in ["メガランチャー"]:
+            self.is_mega_launcher = True
+        if self.name_ja in ["くさのけがわ"]:
+            self.is_kusanokegawa = True
+        if self.name_ja in ["かたいツメ"]:
+            self.is_kataitume = True
+        if self.name_ja in ["パンクロック"]:
+            self.is_punkrock = True
+        if self.name_ja in ["こおりのりんぷん"]:
+            self.is_koorinorinpun = True
+        if self.name_ja in ["ごりむちゅう"]:
+            self.is_gorimutixyuu = True
+        if self.name_ja in ["わざわいのうつわ"]:
+            self.is_wazawainoutuwa = True
+        if self.name_ja in ["わざわいのつるぎ"]:
+            self.is_wazawainouturugi = True
+        if self.name_ja in ["わざわいのおふだ"]:
+            self.is_wazawainoohuda = True
+        if self.name_ja in ["わざわいのたま"]:
+            self.is_wazawainoutama = True
+        if self.name_ja in ["ひひいろのこどう"]:
+            self.is_hihiironokodou = True
+        if self.name_ja in ["ハドロンエンジン"]:
+            self.is_hadoronengine = True
+        if self.name_ja in ["きれあじ"]:
+            self.is_kireazi = True
+        if self.name_ja in ["そうだいしょう"]:
+            self.is_soudaisixyou = True
 
+@dataclass
+class PokemonItem:
+    id:int
+    name_ja:str
+    name_en:str
+    picture_url:str
+
+@dataclass
+class PokemonSeikaku:
+    id:int
+    name_ja:str
+    name_en:str
 
 @dataclass
 class PokemonMove:
@@ -354,10 +434,49 @@ class PokemonMove:
     type: int
     accuracy: int
     power: int
-
     is_renzoku: bool = False
     min_renzoku: int = 0
     max_renzoku: int = 0
+    is_freeze_dry: bool = False
+    is_hydro_steam: bool = False
+    is_psy_blade: bool = False
+    is_zidanda: bool = False
+    is_punch: bool = False
+    is_tama: bool = False
+    is_hadou: bool = False
+    is_kamituki: bool = False
+    is_kaze: bool = False
+    is_odori: bool = False
+    is_oto: bool = False
+    is_heavy_slam: bool = False
+    is_ketaguri: bool = False
+    is_hatakiotosu: bool = False
+    is_kishikaisei: bool = False
+    is_karagenki: bool = False
+    is_shiohuki: bool = False
+    is_weather_ball: bool = False
+    is_2x_under_condition: bool = False
+    is_wring_out: bool = False
+    is_stored_power: bool = False
+    is_psyshock: bool = False
+    is_electro_ball: bool = False
+    is_body_press: bool = False
+    is_ikasama: bool = False
+    is_through_rank: bool = False
+    is_ohakamairi: bool = False
+    is_kakutei_critical: bool = False
+    is_type_changeable: bool = False
+    is_flying_press: bool = False
+    is_zishin: bool = False
+    is_katayaburi: bool = False
+    is_wide_force: bool = False
+    is_mist_burst: bool = False
+    is_rising_bolt: bool = False
+    is_waves_of_the_earth: bool = False
+    is_kabehakai: bool = False
+    is_batugun_sugoi: bool = False
+    is_hundo: bool = False
+    is_tutakon: bool = False
 
     def set_extra_value(self):
         if self.name_ja in MOVE_RENZOKU_DICT:
@@ -405,7 +524,7 @@ class PokemonMove:
         if self.name_ja in ["アクロバット", "ベノムショック", "どくばりセンボン", "たたりめ", "しっぺがえし", "ゆきなだれ", "でんげきくちばし", "エラがみ",]:
             self.is_2x_under_condition = True
         if self.name_ja in ["しぼりとる", "にぎりつぶす", "ハードプレス"]:
-            self.wring_out = True
+            self.is_wring_out = True
         if self.name_ja in ["アシストパワー", "つけあがる"]:
             self.is_stored_power = True
         if self.name_ja in ["サイコショック", "サイコブレイク", "しんぴのつるぎ"]:
@@ -430,18 +549,16 @@ class PokemonMove:
             self.is_flying_press = True
         if self.name_ja in ["じしん"]:
             self.is_zishin = True
-        if self.name_ja in ["じしん"]:
-            self.is_zishin = True
         if self.name_ja in ["メテオドライブ", "シャドーレイ", "フォトンゲイザー",]:
             self.is_katayaburi = True
         if self.name_ja in ["ワイドフォース",]:
-            self.is_katayaburi = True
+            self.is_wide_force = True
         if self.name_ja in ["ミストバースト",]:
-            self.is_katayaburi = True
+            self.is_mist_burst = True
         if self.name_ja in ["ライジングボルト",]:
-            self.is_katayaburi = True
+            self.is_rising_bolt = True
         if self.name_ja in ["だいちのはどう",]:
-            self.is_katayaburi = True
+            self.is_waves_of_the_earth = True
         if self.name_ja in ["かわらわり", "サイコファング", "レイジングブル"]:
             self.is_kabehakai = True
         if self.name_ja in ["アクセルブレイク", "イナズマドライブ"]:
@@ -462,9 +579,10 @@ class Pokemon:
     special_attack: int
     special_deffense: int
     speed: int
-    # type_list:List[PokemonType]
-    # ability_list:List[PokemonAbility]
     picture_url: str
+    type_id_list: List[int] = List
+    ability_id_list: List[int] = List
+    move_id_list: List[int] = List
     # def set_type_list(self,arg_list):
     #     temp_list=list()
     #     for arg in arg_list:
@@ -500,20 +618,17 @@ class RankmatchSeason:
     def get_rankmatch_season_detail_url(self):
         return 'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pokemon' % (self.id, self.rst, self.ts2)
 
-    # シーズンごとの情報を使用率順位を取得して保存
-    # 後でPokemonに合わせる
-    # def set_usage_rank_list(self):
-    #     res = requests.get(
-    #         self.get_rankmatch_season_detail_url(),
-    #         headers=pokemon_home_api_header,
-    #     )
-    #     usage_rank = json.loads(res.text)
-    #     temp_list = list()
-    #     for i, usage in enumerate(usage_rank):
-    #         temp_list.append(Pokemon(
-    #             usage["id"], usage["form"], i+1
-    #         ))
-    #     self.usage_rank_list = temp_list
+    def set_usage_rank_list(self):
+        res = requests.get(
+            self.get_rankmatch_season_detail_url(),
+            headers=pokemon_home_api_header,
+        )
+        usage_rank = json.loads(res.text)
+        return usage_rank
+        # print(usage_rank)
+        # temp_list = list()
+        # for i, usage in enumerate(usage_rank):
+
 
 
 def get_rankmatch_season_list() -> List[RankmatchSeason]:
@@ -525,7 +640,7 @@ def get_rankmatch_season_list() -> List[RankmatchSeason]:
                         headers=pokemon_home_api_header)
     # print(json.loads(res.text))
     res_json = json.loads(res.text)
-    print(res_json)
+    # print(res_json)
     single_season_list, double_season_list = list(), list()
     for key1 in res_json["list"]:
         for key2 in res_json["list"][key1]:
@@ -557,60 +672,197 @@ def get_rankmatch_season_list() -> List[RankmatchSeason]:
 # https://pokeapi.co/api/v2/pokemon-species/38/
 
 
+def decode_pokemon(data: dict) -> Pokemon:
+    return Pokemon(
+        id=data["id"],
+        name_ja=data["name_ja"],
+        hp=data["hp"],
+        attack=data["attack"],
+        deffense=data["deffense"],
+        special_attack=data["special_attack"],
+        special_deffense=data["special_deffense"],
+        speed=data["speed"],
+        picture_url=data["picture_url"],
+        type_id_list=data["type_id_list"],
+        ability_id_list=data["ability_id_list"],
+        move_id_list=data["move_id_list"],
+    )
+
+
+def decode_pokemon_type(data: dict) -> PokemonType:
+    return PokemonType(
+        id=data["id"],
+        name_ja=data["name_ja"],
+        name_en=data["name_en"],
+    )
+
+
+def decode_pokemon_ability(data: dict) -> PokemonAbility:
+    print(data)
+    return PokemonAbility(
+        id=data["id"],
+        name_ja=data["name_ja"],
+        name_en=data["name_en"],
+        cause_type_damege_special_rate=data["cause_type_damege_special_rate"],
+        receive_type_damege_special_rate=data["receive_type_damege_special_rate"],
+        is_scrappy=data["is_scrappy"],
+        is_tikaramoti=data["is_tikaramoti"],
+        is_katayaburi=data["is_katayaburi"],
+        is_hardrock=data["is_hardrock"],
+        is_multi_slace=data["is_multi_slace"],
+        is_tera_shell=data["is_tera_shell"],
+        is_faily_skin=data["is_faily_skin"],
+        is_iromegane=data["is_iromegane"],
+        is_tennen=data["is_tennen"],
+        is_harikiri=data["is_harikiri"],
+        is_tetunokobushi=data["is_tetunokobushi"],
+        is_tekiourixyoku=data["is_tekiourixyoku"],
+        is_sunpower=data["is_sunpower"],
+        is_technician=data["is_technician"],
+        is_sutemi=data["is_sutemi"],
+        is_tikarazuku=data["is_tikarazuku"],
+        is_friendguard=data["is_friendguard"],
+        is_heavymetal=data["is_heavymetal"],
+        is_lightmetal=data["is_lightmetal"],
+        is_dokubousou=data["is_dokubousou"],
+        is_netubousou=data["is_netubousou"],
+        is_analyze=data["is_analyze"],
+        is_surinuke=data["is_surinuke"],
+        is_furcoar=data["is_furcoar"],
+        is_boudan=data["is_boudan"],
+        is_ganzixyouago=data["is_ganzixyouago"],
+        is_mega_launcher=data["is_mega_launcher"],
+        is_kusanokegawa=data["is_kusanokegawa"],
+        is_kataitume=data["is_kataitume"],
+        is_punkrock=data["is_punkrock"],
+        is_koorinorinpun=data["is_koorinorinpun"],
+        is_gorimutixyuu=data["is_gorimutixyuu"],
+        is_wazawainoutuwa=data["is_wazawainoutuwa"],
+        is_wazawainouturugi=data["is_wazawainouturugi"],
+        is_wazawainoohuda=data["is_wazawainoohuda"],
+        is_wazawainoutama=data["is_wazawainoutama"],
+        is_hihiironokodou=data["is_hihiironokodou"],
+        is_hadoronengine=data["is_hadoronengine"],
+        is_kireazi=data["is_kireazi"],
+        is_soudaisixyou=data["is_soudaisixyou"],
+    )
+
+
+def decode_pokemon_move(data: dict) -> PokemonMove:
+    return PokemonMove(
+        id=data["id"],
+        name_ja=data["name_ja"],
+        name_en=data["name_en"],
+        type=data["type"],
+        accuracy=data["accuracy"],
+        power=data["power"],
+        is_renzoku=data["is_renzoku"],
+        min_renzoku=data["min_renzoku"],
+        max_renzoku=data["max_renzoku"],
+        is_freeze_dry=data["is_freeze_dry"],
+        is_hydro_steam=data["is_hydro_steam"],
+        is_psy_blade=data["is_psy_blade"],
+        is_zidanda=data["is_zidanda"],
+        is_punch=data["is_punch"],
+        is_tama=data["is_tama"],
+        is_hadou=data["is_hadou"],
+        is_kamituki=data["is_kamituki"],
+        is_kaze=data["is_kaze"],
+        is_odori=data["is_odori"],
+        is_oto=data["is_oto"],
+        is_heavy_slam=data["is_heavy_slam"],
+        is_ketaguri=data["is_ketaguri"],
+        is_hatakiotosu=data["is_hatakiotosu"],
+        is_kishikaisei=data["is_kishikaisei"],
+        is_karagenki=data["is_karagenki"],
+        is_shiohuki=data["is_shiohuki"],
+        is_weather_ball=data["is_weather_ball"],
+        is_2x_under_condition=data["is_2x_under_condition"],
+        is_wring_out=data["is_wring_out"],
+        is_stored_power=data["is_stored_power"],
+        is_psyshock=data["is_psyshock"],
+        is_electro_ball=data["is_electro_ball"],
+        is_body_press=data["is_body_press"],
+        is_ikasama=data["is_ikasama"],
+        is_through_rank=data["is_through_rank"],
+        is_ohakamairi=data["is_ohakamairi"],
+        is_kakutei_critical=data["is_kakutei_critical"],
+        is_type_changeable=data["is_type_changeable"],
+        is_flying_press=data["is_flying_press"],
+        is_zishin=data["is_zishin"],
+        is_katayaburi=data["is_katayaburi"],
+        is_wide_force=data["is_wide_force"],
+        is_mist_burst=data["is_mist_burst"],
+        is_rising_bolt=data["is_rising_bolt"],
+        is_waves_of_the_earth=data["is_waves_of_the_earth"],
+        is_kabehakai=data["is_kabehakai"],
+        is_batugun_sugoi=data["is_batugun_sugoi"],
+        is_hundo=data["is_hundo"],
+        is_tutakon=data["is_tutakon"],
+    )
+
+
 def get_pokemon_list():
+    if os.path.exists("./pokemon.json"):
+        loaded_list = json.loads(
+            open("./pokemon.json").read(), object_hook=decode_pokemon)
+        return loaded_list
     url = "https://pokeapi.co/api/v2/pokemon?limit=2000"
     res = json.loads(requests.get(url).text)
     results = res["results"]
     ret_list = list()
     for _, result in enumerate(results):
-        detail_url = result["url"]
-        detail_res = json.loads(requests.get(detail_url).text)
-        species_url = "https://pokeapi.co/api/v2/pokemon-species/%d/" % detail_res["id"]
-        species_res = json.loads(requests.get(species_url).text)
-        name_ja = [n for n in species_res["names"]
-                   if n["language"]["name"] == "ja-Hrkt"][0]["name"]
-        hp = [s for s in detail_res["stats"] if s["stat"]
-              ["name"] == "hp"][0]["base_stat"]
-        attack = [s for s in detail_res["stats"] if s["stat"]
-                  ["name"] == "attack"][0]["base_stat"]
-        deffense = [s for s in detail_res["stats"]
-                    if s["stat"]["name"] == "defense"][0]["base_stat"]
-        special_attack = [s for s in detail_res["stats"]
-                          if s["stat"]["name"] == "special-attack"][0]["base_stat"]
-        special_deffense = [s for s in detail_res["stats"]
-                            if s["stat"]["name"] == "special-defense"][0]["base_stat"]
-        speed = [s for s in detail_res["stats"] if s["stat"]
-                 ["name"] == "speed"][0]["base_stat"]
+        try:
+            detail_url = result["url"]
+            detail_res = json.loads(requests.get(detail_url).text)
+            species_url = "https://pokeapi.co/api/v2/pokemon-species/%d/" % detail_res["id"]
+            species_res = json.loads(requests.get(species_url).text)
+            name_ja = [n for n in species_res["names"]
+                       if n["language"]["name"] == "ja-Hrkt"][0]["name"]
+            hp = [s for s in detail_res["stats"] if s["stat"]
+                  ["name"] == "hp"][0]["base_stat"]
+            attack = [s for s in detail_res["stats"] if s["stat"]
+                      ["name"] == "attack"][0]["base_stat"]
+            deffense = [s for s in detail_res["stats"]
+                        if s["stat"]["name"] == "defense"][0]["base_stat"]
+            special_attack = [s for s in detail_res["stats"]
+                              if s["stat"]["name"] == "special-attack"][0]["base_stat"]
+            special_deffense = [s for s in detail_res["stats"]
+                                if s["stat"]["name"] == "special-defense"][0]["base_stat"]
+            speed = [s for s in detail_res["stats"] if s["stat"]
+                     ["name"] == "speed"][0]["base_stat"]
 
-        # type1=[t for t in detail_res["types"] if t["slot"]==1][0]
-        # type2=[t for t in detail_res["types"] if t["slot"]==2]
-        # type_list=[type1["type"]]
-        # if len(type2)>0:
-        #     type_list.append(type2[0]["type"])
-        # ability1=[a for a in detail_res["abilities"] if a["slot"]==1][0]["ability"]
-        # ability2=[a for a in detail_res["abilities"] if a["slot"]==2]
-        # ability3=[a for a in detail_res["abilities"] if a["slot"]==3]
-        # ability_list=[ability1]
-        # if len(ability2)>0:
-        #     ability_list.append(ability2[0]["ability"])
-        # if len(ability3)>0:
-        #     ability_list.append(ability3[0]["ability"])
-        picture_url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/%d.png" % detail_res["id"]
+            moves = [int(m["move"]["url"].split("/")[6])
+                     for m in detail_res["moves"]]
+            types = [int(m["type"]["url"].split("/")[6])
+                     for m in detail_res["types"]]
+            abilities = [int(m["ability"]["url"].split("/")[6])
+                         for m in detail_res["abilities"]]
 
-        pokemon = Pokemon(
-            detail_res["id"], name_ja, hp, attack, deffense, special_attack, special_deffense, speed, picture_url
-        )
-        # pokemon.set_type_list(type_list)
-        # pokemon.set_ability_list_list(ability_list)
+            picture_url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/%d.png" % detail_res[
+                "id"]
 
-        print(pokemon, pokemon.ability_list, pokemon.type_list)
+            pokemon = Pokemon(
+                detail_res["id"], name_ja, hp, attack, deffense, special_attack, special_deffense, speed, picture_url
+            )
+            pokemon.move_id_list = moves
+            pokemon.type_id_list = types
+            pokemon.ability_id_list = abilities
 
-        ret_list.append(pokemon)
-        # for debug
-        break
+            ret_list.append(pokemon)
+        except:
+            1
+
+    writer = open("./pokemon.json", "w")
+    writer.write(json.dumps(ret_list, default=default, ensure_ascii=False))
+    writer.close()
 
 
-def get_type_info():
+def get_type_list():
+    if os.path.exists("./type.json"):
+        loaded_list = json.loads(
+            open("./type.json").read(), object_hook=decode_pokemon_type)
+        return loaded_list
     url = "https://pokeapi.co/api/v2/type?limit=50"
     res = json.loads(requests.get(url).text)
     result_list = res["results"]
@@ -639,7 +891,63 @@ def get_type_info():
     writer.close()
 
 
-def get_ability_info():
+def get_ability_list():
+    if os.path.exists("./ability.json"):
+        temp_list=json.loads(open("./ability.json").read())
+
+        loaded_list=list()
+        for temp_row in temp_list:
+            # これだけ他みたいに読み込めなくて鬱
+            tttt=PokemonAbility(
+                id=temp_row["id"],
+                name_ja=temp_row["name_ja"],
+                name_en=temp_row["name_en"],
+                cause_type_damege_special_rate=temp_row["cause_type_damege_special_rate"],
+                receive_type_damege_special_rate=temp_row["receive_type_damege_special_rate"],
+                is_scrappy=temp_row["is_scrappy"],
+                is_tikaramoti=temp_row["is_tikaramoti"],
+                is_katayaburi=temp_row["is_katayaburi"],
+                is_hardrock=temp_row["is_hardrock"],
+                is_multi_slace=temp_row["is_multi_slace"],
+                is_tera_shell=temp_row["is_tera_shell"],
+                is_faily_skin=temp_row["is_faily_skin"],
+                is_iromegane=temp_row["is_iromegane"],
+                is_tennen=temp_row["is_tennen"],
+                is_harikiri=temp_row["is_harikiri"],
+                is_tetunokobushi=temp_row["is_tetunokobushi"],
+                is_tekiourixyoku=temp_row["is_tekiourixyoku"],
+                is_sunpower=temp_row["is_sunpower"],
+                is_technician=temp_row["is_technician"],
+                is_sutemi=temp_row["is_sutemi"],
+                is_tikarazuku=temp_row["is_tikarazuku"],
+                is_friendguard=temp_row["is_friendguard"],
+                is_heavymetal=temp_row["is_heavymetal"],
+                is_lightmetal=temp_row["is_lightmetal"],
+                is_dokubousou=temp_row["is_dokubousou"],
+                is_netubousou=temp_row["is_netubousou"],
+                is_analyze=temp_row["is_analyze"],
+                is_surinuke=temp_row["is_surinuke"],
+                is_furcoar=temp_row["is_furcoar"],
+                is_boudan=temp_row["is_boudan"],
+                is_ganzixyouago=temp_row["is_ganzixyouago"],
+                is_mega_launcher=temp_row["is_mega_launcher"],
+                is_kusanokegawa=temp_row["is_kusanokegawa"],
+                is_kataitume=temp_row["is_kataitume"],
+                is_punkrock=temp_row["is_punkrock"],
+                is_koorinorinpun=temp_row["is_koorinorinpun"],
+                is_gorimutixyuu=temp_row["is_gorimutixyuu"],
+                is_wazawainoutuwa=temp_row["is_wazawainoutuwa"],
+                is_wazawainouturugi=temp_row["is_wazawainouturugi"],
+                is_wazawainoohuda=temp_row["is_wazawainoohuda"],
+                is_wazawainoutama=temp_row["is_wazawainoutama"],
+                is_hihiironokodou=temp_row["is_hihiironokodou"],
+                is_hadoronengine=temp_row["is_hadoronengine"],
+                is_kireazi=temp_row["is_kireazi"],
+                is_soudaisixyou=temp_row["is_soudaisixyou"],
+            )
+            loaded_list.append(tttt)
+            # print(tttt)
+        return loaded_list
     url = "https://pokeapi.co/api/v2/ability?limit=500"
     res = json.loads(requests.get(url).text)
     result_list = res["results"]
@@ -654,13 +962,10 @@ def get_ability_info():
                        if n["language"]["name"] == "ja"][0]["name"]
             name_en = [n for n in detail_res["names"]
                        if n["language"]["name"] == "en"][0]["name"]
-            # half_list,zero_list=list(),list()
             temp_ability = PokemonAbility(
                 id=id, name_ja=name_ja, name_en=name_en,
             )
-            # temp_ability.init()
             temp_ability.set_extra_value()
-            # print(temp_ability)
             ability_list.append(temp_ability)
         except:
             _ = 1
@@ -670,7 +975,11 @@ def get_ability_info():
     writer.close()
 
 
-def get_move_info():
+def get_move_list():
+    if os.path.exists("./move.json"):
+        loaded_list = json.loads(
+            open("./move.json").read(), object_hook=decode_pokemon_move)
+        return loaded_list
     url = "https://pokeapi.co/api/v2/move?limit=1000"
     res = json.loads(requests.get(url).text)
     result_list = res["results"]
@@ -705,6 +1014,130 @@ def get_move_info():
     writer.close()
 
 
-get_type_info()
-get_ability_info()
-get_move_info()
+def get_item_list():
+    if os.path.exists("./item.json"):
+        temp_list=json.loads(open("./item.json").read())
+        ret_item_list=list()
+        for temp in temp_list:
+            ret_item_list.append(PokemonItem(
+                id=temp["id"],
+                name_ja=temp["name_ja"],
+                name_en=temp["name_en"],
+                picture_url=temp["picture_url"],
+            ))
+        return ret_item_list
+    url = "https://pokeapi.co/api/v2/item?limit=2500"
+    res = json.loads(requests.get(url).text)
+    result_list = res["results"]
+    move_list = list()
+    for result in result_list:
+        try:
+            detail_url = result["url"]
+            detail_res = json.loads(requests.get(detail_url).text)
+            time.sleep(0.1)
+            id = detail_res["id"]
+            name_ja = [n for n in detail_res["names"]
+                       if n["language"]["name"] == "ja"][0]["name"]
+            name_en = [n for n in detail_res["names"]
+                       if n["language"]["name"] == "en"][0]["name"]
+            picture_url=detail_res["sprites"]["default"]
+            temp_move = PokemonItem(
+                id=id,
+                name_ja=name_ja,
+                name_en=name_en,
+                picture_url=picture_url,
+            )
+            move_list.append(temp_move)
+        except:
+            _ = 1
+
+    writer = open("./item.json", "w")
+    writer.write(json.dumps(move_list, default=default, ensure_ascii=False))
+    writer.close()
+
+
+def get_season_detail_info():
+    if os.path.exists("./single_season_info.json"):
+        return json.loads(open("./single_season_info.json").read())
+    single_season_list=get_rankmatch_season_list()
+    ret_dict=dict()
+    for single_season in single_season_list:
+        detail_dict=dict()
+        for x in (1,7):
+            season_detail_url = 'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,x)
+            try:
+                detail_res=json.loads(requests.get(season_detail_url).text)
+                time.sleep(0.25)
+                for key,value in detail_res.items():
+                    detail_dict[int(key)]=value
+            except:
+                1
+        ret_dict[single_season.season]=detail_dict
+    writer = open("./single_season_info.json", "w")
+    writer.write(json.dumps(ret_dict, default=default, ensure_ascii=False))
+    writer.close()
+
+    return ret_dict
+
+# https://pokeapi.co/api/v2/nature?limit=33
+
+def get_seikaku_list():
+    if os.path.exists("./seikaku.json"):
+        temp_list=json.loads(open("./seikaku.json").read())
+        ret_item_list=list()
+        for temp in temp_list:
+            ret_item_list.append(PokemonSeikaku(
+                id=temp["id"],
+                name_ja=temp["name_ja"],
+                name_en=temp["name_en"],
+            ))
+        return ret_item_list
+    url = "https://pokeapi.co/api/v2/nature?limit=33"
+    res = json.loads(requests.get(url).text)
+    result_list = res["results"]
+    ret_list = list()
+    for result in result_list:
+        try:
+            detail_url = result["url"]
+            detail_res = json.loads(requests.get(detail_url).text)
+            time.sleep(0.1)
+            id = detail_res["id"]
+            name_ja = [n for n in detail_res["names"]
+                       if n["language"]["name"] == "ja"][0]["name"]
+            name_en = [n for n in detail_res["names"]
+                       if n["language"]["name"] == "en"][0]["name"]
+            temp_move = PokemonSeikaku(
+                id=id,
+                name_ja=name_ja,
+                name_en=name_en,
+            )
+            ret_list.append(temp_move)
+        except:
+            _ = 1
+
+    writer = open("./seikaku.json", "w")
+    writer.write(json.dumps(ret_list, default=default, ensure_ascii=False))
+    writer.close()
+
+
+# pokemon_list=get_pokemon_list()
+# ability_list=get_ability_list()
+# move_list=get_move_list()
+# type_list=get_type_list()
+# item_list=get_item_list()
+# single_season_list=get_rankmatch_season_list()
+# seikaku_list=get_seikaku_list()
+
+# for single_season in single_season_list:
+#     usege_info_list=single_season.set_usage_rank_list()
+#     for usage_info in usege_info_list:
+#         pokemon=[p for p in pokemon_list if p.id==usage_info["id"]]
+#         if len(pokemon)==0:
+#             raise "kusa"
+#         pokemon=pokemon[0]
+#         poke_detail_url = 'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,pokemon.id)
+#         print(single_season.season,poke_detail_url)
+#         break
+
+#     break
+
