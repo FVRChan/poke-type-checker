@@ -1140,4 +1140,3 @@ def get_seikaku_list():
 #         break
 
 #     break
-
