@@ -1,4 +1,4 @@
-const pokemon_list = [
+export const pokemon_list = [
   {
     id: 1,
     base: {
@@ -13530,7 +13530,7 @@ export const pokemon_array = [] as Array<Array<Pokemon>>;
 let temp_list = [] as Array<Pokemon>;
 pokemon_list.forEach((p, i) => {
   temp_list.push(p);
-  if (temp_list.length >= 10) {
+  if (temp_list.length >= 15) {
     pokemon_array.push(temp_list);
     temp_list = [];
   }
