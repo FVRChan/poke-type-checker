@@ -29,7 +29,7 @@ export default function App() {
   return (
     <div className="App">
       <div>
-        <Grid container spacing={2}>
+        <Grid container direction="column">
           <Grid>
             <Autocomplete
               value={offencePokemon}
@@ -61,17 +61,18 @@ export default function App() {
             />
             威力{offenceMove.power}({offenceMove.type})
           </Grid>
-        </Grid>
-        <Grid container direction={"column"}>
-          <h2>攻撃側努力値</h2>
-          <Effort pokemon={offencePokemon} pokemonSetter={setOffencePokemon} />
-        </Grid>
-        <Grid container direction={"column"}>
-          <h2>守備側努力値</h2>
-          <Effort
-            pokemon={deffenceDummyPokemon}
-            pokemonSetter={setDeffenceDummyPokemon}
-          />
+          <Grid>
+            <h2>攻撃側努力値</h2>
+            <Effort
+              pokemon={offencePokemon}
+              pokemonSetter={setOffencePokemon}
+            />
+            <h2>守備側努力値</h2>
+            <Effort
+              pokemon={deffenceDummyPokemon}
+              pokemonSetter={setDeffenceDummyPokemon}
+            />
+          </Grid>
         </Grid>
         <h2>ポケモン表</h2>
         <TableContainer>
