@@ -26,6 +26,11 @@ TYPE_ID_DRAGON = 16
 TYPE_ID_DARK = 17
 TYPE_ID_FAIRY = 18
 
+def form_mapping(pokemon_id:int,form_number:int):
+    if pokemon_id==901 and form_number==1:
+        return 10272
+    return pokemon_id
+
 MOVE_RENZOKU_DICT = {
     "ダブルニードル": {"min": 2, "max": 2},
     "にどげり": {"min": 2, "max": 2},
@@ -580,6 +585,7 @@ class Pokemon:
     special_deffense: int
     speed: int
     picture_url: str
+    species_id: str
     type_id_list: List[int] = List
     ability_id_list: List[int] = List
     move_id_list: List[int] = List
@@ -683,6 +689,7 @@ def decode_pokemon(data: dict) -> Pokemon:
         special_deffense=data["special_deffense"],
         speed=data["speed"],
         picture_url=data["picture_url"],
+        species_id=data["species_id"],
         type_id_list=data["type_id_list"],
         ability_id_list=data["ability_id_list"],
         move_id_list=data["move_id_list"],
@@ -815,8 +822,18 @@ def get_pokemon_list():
         try:
             detail_url = result["url"]
             detail_res = json.loads(requests.get(detail_url).text)
-            species_url = "https://pokeapi.co/api/v2/pokemon-species/%d/" % detail_res["id"]
+            time.sleep(0.1)
+            species_url = detail_res["species"]["url"]
             species_res = json.loads(requests.get(species_url).text)
+            species_id = species_res["id"]
+            form_url = detail_res["forms"][0]["url"]
+            form_res = json.loads(requests.get(form_url).text)
+            form_name = ""
+            if len(form_res["form_names"])>0:
+                form_name = [form for form in form_res["form_names"] if form["language"]["name"]=="ja-Hrkt"]
+                if form_name!=None and  len(form_name)>0:
+                    form_name = form_name[0]["name"]
+            time.sleep(0.2)
             name_ja = [n for n in species_res["names"]
                        if n["language"]["name"] == "ja-Hrkt"][0]["name"]
             hp = [s for s in detail_res["stats"] if s["stat"]
@@ -842,16 +859,20 @@ def get_pokemon_list():
             picture_url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/%d.png" % detail_res[
                 "id"]
 
+            if form_name!="":
+                name_ja="%s(%s)"%(name_ja,form_name)
             pokemon = Pokemon(
-                detail_res["id"], name_ja, hp, attack, deffense, special_attack, special_deffense, speed, picture_url
+                detail_res["id"], name_ja, hp, attack, deffense, special_attack, special_deffense, speed, picture_url,species_id
             )
             pokemon.move_id_list = moves
             pokemon.type_id_list = types
             pokemon.ability_id_list = abilities
 
             ret_list.append(pokemon)
+            print("ok %s" % result["url"])
         except:
-            1
+            print(result["url"])
+            raise "wwww"
 
     writer = open("./pokemon.json", "w")
     writer.write(json.dumps(ret_list, default=default, ensure_ascii=False))
@@ -1143,67 +1164,73 @@ def get_personality_list():
 
 
 
-    
-@dataclass
-class PokemonForRankMatchBaseAbility:
-    name_ja:str
-    name_en:str
-    hp: int
-    attack: int
-    deffense: int
-    special_attack: int
-    special_deffense: int
-    speed: int
-    picture_url: str
 
-@dataclass
-class PokemonForRankMatchOftenUsedTerasutaru:
-    type_id: int
-    type_name_ja: str
-    type_name_en: str
-    usage_rate:float
+# @dataclass
+# class PokemonForRankMatchBaseAbility:
+#     name_ja:str
+#     name_en:str
+#     hp: int
+#     attack: int
+#     deffense: int
+#     special_attack: int
+#     special_deffense: int
+#     speed: int
+#     picture_url: str
 
-@dataclass
-class PokemonForRankMatchOftenUsedPersonality:
-    type_id: int
-    type_name_ja: str
-    type_name_en: str
-    usage_rate:float
+# @dataclass
+# class PokemonForRankMatchOftenUsedTerasutaru:
+#     type_id: int
+#     type_name_ja: str
+#     type_name_en: str
+#     usage_rate:float
 
-@dataclass
-class PokemonForRankMatchOftenUsedItem:
-    id:int
-    name_ja:str
-    name_en:str
-    usage_rate:float
+# @dataclass
+# class PokemonForRankMatchOftenUsedPersonality:
+#     type_id: int
+#     type_name_ja: str
+#     type_name_en: str
+#     usage_rate:float
 
-@dataclass
-class PokemonForRankMatchOftenUsedMove:
-    id:int
-    name_ja:str
-    name_en:str
-    usage_rate:float
+# @dataclass
+# class PokemonForRankMatchOftenUsedItem:
+#     id:int
+#     name_ja:str
+#     name_en:str
+#     usage_rate:float
 
-@dataclass
-class PokemonForRankMatchOftenUsedAbility:
-    id:int
-    name_ja:str
-    name_en:str
-    usage_rate:float
+# @dataclass
+# class PokemonForRankMatchOftenUsedMove:
+#     id:int
+#     name_ja:str
+#     name_en:str
+#     usage_rate:float
+
+# @dataclass
+# class PokemonForRankMatchOftenUsedAbility:
+#     id:int
+#     name_ja:str
+#     name_en:str
+#     usage_rate:float
 
 @dataclass
 class PokemonForRankMatch:
     id:int
-    base_ability:PokemonForRankMatchBaseAbility
+    base:Pokemon
+    # base_ability:PokemonForRankMatchBaseAbility
     # 特性とかはJS側で合わせればいいのでは
-    type_id_list: List[int] = List
-    ability_id_list: List[int] = List
-    move_id_list: List[int] = List
-    often_used_terasutaru:List[PokemonForRankMatchOftenUsedTerasutaru]= List
-    often_used_personality:List[PokemonForRankMatchOftenUsedPersonality]= List
-    often_used_item:List[PokemonForRankMatchOftenUsedItem]= List
-    often_used_move:List[PokemonForRankMatchOftenUsedMove]= List
-    often_used_ability:List[PokemonForRankMatchOftenUsedAbility]= List
+    # type_id_list: List[int] = List
+    # ability_id_list: List[int] = List
+    # move_id_list: List[int] = List
+    # often_used_terasutaru:List[PokemonForRankMatchOftenUsedTerasutaru]= List
+    # often_used_personality:List[PokemonForRankMatchOftenUsedPersonality]= List# ダメージ計算には無くてもいいかも
+    # often_used_item:List[PokemonForRankMatchOftenUsedItem]= List # ダメージ計算には無くてもいいかも
+    # often_used_move:List[PokemonForRankMatchOftenUsedMove]= List
+    # often_used_ability:List[PokemonForRankMatchOftenUsedAbility]= List# ダメージ計算には無くてもいいかも
+    # often_used_terasutaru:List[int]= List
+    # often_used_personality:List[int]= List# ダメージ計算には無くてもいいかも
+    # often_used_item:List[int]= List # ダメージ計算には無くてもいいかも
+    # often_used_move:List[int]= List
+    # often_used_ability:List[int]= List# ダメージ計算には無くてもいいかも
 
 pokemon_list=get_pokemon_list()
 ability_list=get_ability_list()
@@ -1218,14 +1245,16 @@ for single_season in single_season_list:
     ### 使用率TOP150抽出
     usage_rate_mapper=dict()
     loop_usage_rate=1
-    for usage_info in usage_info_list:
-        pokemon=[p for p in pokemon_list if p.id==usage_info["id"]]
-        if len(pokemon)==0:
-            raise "kusa"
-        pokemon=pokemon[0]
-        usage_rate_mapper[loop_usage_rate]=pokemon
-        loop_usage_rate+=1
-    ### 
+    # 使用率は後で
+    # 後で使用率圏外のポケモンも補完する
+    # for usage_info in usage_info_list:
+    #     pokemon=[p for p in pokemon_list if p.id==usage_info["id"]]
+    #     if len(pokemon)==0:
+    #         raise "kusa"
+    #     pokemon=pokemon[0]
+    #     usage_rate_mapper[loop_usage_rate]=pokemon
+    #     loop_usage_rate+=1
+    # ###
     poke_detail_url_list = [
         'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,1),
         'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,2),
@@ -1234,21 +1263,48 @@ for single_season in single_season_list:
         'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,5),
         'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,6),
     ]
-    
+
+    #
     detail_mapper=dict()
+    detail_list=list()
+    # rank_list=list()
     for poke_detail_url in poke_detail_url_list:
         res=requests.get(poke_detail_url,headers=pokemon_home_api_header)
         time.sleep(1)
         res_dict=json.loads(res.text)
         for pokemon_number in res_dict.keys():
             for pokemon_form in res_dict[pokemon_number].keys():
-                print(res_dict[pokemon_number][pokemon_form])
-                break
-            break
-        break
+                # print(res_dict[pokemon_number][pokemon_form])
+                # usage_info=res_dict[pokemon_number][pokemon_form]
+                # often_usage_move_list=[move["id"] for move in usage_info["temoti"]["waza"]]
+                pokemon_id=form_mapping(pokemon_id=pokemon_number,form_number=pokemon_form)
+                pokemon=[p for p in pokemon_list if int(p.id)==int(pokemon_id)]
+                temp_info=PokemonForRankMatch(
+                    id=int(pokemon_id),
+                    base=pokemon[0],
+                    # often_used_move=often_usage_move_list,
+                )
+                # rank_list.append(pokemon_id)
+                if pokemon_id not in detail_mapper:
+                    detail_mapper[pokemon_id]=temp_info
+                    detail_list.append(temp_info)
+
+    # print(detail_mapper)
+    # detail_list=detail_mapper.keys()
+    takashi=open("kusatuonsen.json","w")
+    # takashi.write(json.dumps(list(detail_mapper.values())))
+    # takashi.write(json.dumps(json.loads(json.dumps({"detail_mapper":detail_mapper}, default=default, ensure_ascii=False))["detail_mapper"].values(), default=default, ensure_ascii=False))
+    # takashi.write(json.dumps({
+    #     # "usage_rate_mapper":usage_rate_mapper,
+    #     "detail_mapper":detail_mapper,
+    #     # "rank_list":rank_list,
+    # }, default=default, ensure_ascii=False))
+    # takashi.write(json.dumps({
+    #     "detail_list":detail_list,
+    # }, default=default, ensure_ascii=False))
+    takashi.write(json.dumps(detail_list, default=default, ensure_ascii=False))
+    takashi.close()
     break
 
-    #     # print(single_season.season,poke_detail_url)
-    #     break
 
-    # break
+
