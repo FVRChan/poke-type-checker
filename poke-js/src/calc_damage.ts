@@ -32,68 +32,70 @@ export interface EffectiveValue {
 export function calc_interface({
   offencePokemon,
   deffencePokemon,
+  deffenceDummyPokemon,
   move,
-}:{
+}: {
   offencePokemon: Pokemon;
   deffencePokemon: Pokemon;
+  deffenceDummyPokemon: Pokemon;
   move: Move;
 }) {
-  offencePokemon.effective_value={
-    hp:calcRealValueHPStat(
+  offencePokemon.effective_value = {
+    hp: calcRealValueHPStat(
       offencePokemon.base.hp,
-      offencePokemon.effective_slider_step.hp,
+      offencePokemon.effective_slider_step.hp
     ),
-    attack:calcRealValueOtherStat(
-              offencePokemon.base.attack,
-              offencePokemon.effective_slider_step.attack,
-              offencePokemon.personality.attack
-            ),
-    defense:calcRealValueOtherStat(
-              offencePokemon.base.defense,
-              offencePokemon.effective_slider_step.defense,
-              offencePokemon.personality.defense,
-            ),
-    special_attack:calcRealValueOtherStat(
-              offencePokemon.base.attack,
-              offencePokemon.effective_slider_step.attack,
-              offencePokemon.personality.attack,
-            ),
-    special_defense:calcRealValueOtherStat(
-              offencePokemon.base.attack,
-              offencePokemon.effective_slider_step.attack,
-              offencePokemon.personality.attack,
-            ),
-  }
-  deffencePokemon.effective_value={
-    hp:calcRealValueHPStat(
+    attack: calcRealValueOtherStat(
+      offencePokemon.base.attack,
+      offencePokemon.effective_slider_step.attack,
+      offencePokemon.personality.attack
+    ),
+    defense: calcRealValueOtherStat(
+      offencePokemon.base.defense,
+      offencePokemon.effective_slider_step.defense,
+      offencePokemon.personality.defense
+    ),
+    special_attack: calcRealValueOtherStat(
+      offencePokemon.base.attack,
+      offencePokemon.effective_slider_step.attack,
+      offencePokemon.personality.attack
+    ),
+    special_defense: calcRealValueOtherStat(
+      offencePokemon.base.attack,
+      offencePokemon.effective_slider_step.attack,
+      offencePokemon.personality.attack
+    ),
+  };
+  deffencePokemon.effective_value = {
+    hp: calcRealValueHPStat(
       deffencePokemon.base.hp,
-      deffencePokemon.effective_slider_step.hp,
+      deffenceDummyPokemon.effective_slider_step.hp
     ),
-    attack:calcRealValueOtherStat(
-              deffencePokemon.base.attack,
-              deffencePokemon.effective_slider_step.attack,
-              deffencePokemon.personality.attack
-            ),
-    defense:calcRealValueOtherStat(
-              deffencePokemon.base.defense,
-              deffencePokemon.effective_slider_step.defense,
-              deffencePokemon.personality.defense,
-            ),
-    special_attack:calcRealValueOtherStat(
-              deffencePokemon.base.attack,
-              deffencePokemon.effective_slider_step.attack,
-              deffencePokemon.personality.attack,
-            ),
-    special_defense:calcRealValueOtherStat(
-              deffencePokemon.base.attack,
-              deffencePokemon.effective_slider_step.attack,
-              deffencePokemon.personality.attack,
-            ),
-  }
+    attack: calcRealValueOtherStat(
+      deffencePokemon.base.attack,
+      deffenceDummyPokemon.effective_slider_step.attack,
+      deffenceDummyPokemon.personality.attack
+    ),
+    defense: calcRealValueOtherStat(
+      deffencePokemon.base.defense,
+      deffenceDummyPokemon.effective_slider_step.defense,
+      deffenceDummyPokemon.personality.defense
+    ),
+    special_attack: calcRealValueOtherStat(
+      deffencePokemon.base.attack,
+      deffenceDummyPokemon.effective_slider_step.attack,
+      deffenceDummyPokemon.personality.attack
+    ),
+    special_defense: calcRealValueOtherStat(
+      deffencePokemon.base.attack,
+      deffenceDummyPokemon.effective_slider_step.attack,
+      deffenceDummyPokemon.personality.attack
+    ),
+  };
   const rateList = [];
   const compatibilityTypeRate = getCompatibilityTypeRate(move, deffencePokemon);
   const movePokemonTypeRate = getMovePokemonTypeRate(move, offencePokemon);
-  rateList.push(compatibilityTypeRate,movePokemonTypeRate);
+  rateList.push(compatibilityTypeRate, movePokemonTypeRate);
   const calcedList = calcWithRand(
     move,
     offencePokemon,
@@ -104,7 +106,7 @@ export function calc_interface({
   const minDamage = Math.min(...calcedList);
   const counter = calcedList
     .map((v) => {
-      return deffencePokemon.base.hp - v < 0;
+      return deffencePokemon.effective_value.hp - v < 0;
     })
     .filter((v) => v);
   if (counter.length === calcedList.length) {
@@ -154,7 +156,10 @@ function calc({
   return a;
 }
 
-function getCompatibilityTypeRate(offenceMove: Move, deffencePokemon: Pokemon) :number{
+function getCompatibilityTypeRate(
+  offenceMove: Move,
+  deffencePokemon: Pokemon
+): number {
   const offenceType = offenceMove.type;
   const deffenceTypeList = deffencePokemon.base.type_id_list;
   let res = 1.0;
@@ -180,9 +185,9 @@ function getCompatibilityTypeRate(offenceMove: Move, deffencePokemon: Pokemon) :
   }
   return res;
 }
-function getMovePokemonTypeRate(move:Move, offencePokemon:Pokemon):number{
-  if (offencePokemon.base.type_id_list.includes(move.type)){
-    return 1.5
+function getMovePokemonTypeRate(move: Move, offencePokemon: Pokemon): number {
+  if (offencePokemon.base.type_id_list.includes(move.type)) {
+    return 1.5;
   }
-  return 1.0
+  return 1.0;
 }

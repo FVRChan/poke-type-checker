@@ -13026,7 +13026,7 @@ export interface Pokemon {
   base: PokemonBase;
   effective_value: EffectiveValue;
   effective_slider_step: EffortSlider;
-  personality:Personality;
+  personality: Personality;
 }
 
 export const pokemon_array = [] as Array<Array<Pokemon>>;
@@ -13046,12 +13046,12 @@ pokemon_list.forEach((p, i) => {
     special_attack: 0,
     special_defense: 0,
   };
-  p.personality={
-    attack:1.0,
-defense:1.0,
-special_attack:1.0,
-special_defense:1.0,
-  }
+  p.personality = {
+    attack: 1.0,
+    defense: 1.0,
+    special_attack: 1.0,
+    special_defense: 1.0,
+  };
   temp_list.push(p);
   if (temp_list.length >= 15) {
     pokemon_array.push(temp_list);
@@ -13061,4 +13061,45 @@ special_defense:1.0,
 if (temp_list.length > 0) {
   pokemon_array.push(temp_list);
   temp_list = [];
+}
+export function dummyPokemon(): Pokemon {
+  const p = {
+    id: 9999999,
+    base: {
+      id: 9999999,
+      name_ja: "ああああ",
+      hp: 1,
+      attack: 1,
+      defense: 1,
+      special_attack: 1,
+      special_defense: 1,
+      speed: 1,
+      picture_url: "",
+      species_id: 1,
+      type_id_list: [],
+      ability_id_list: [],
+      move_id_list: [],
+    },
+    effective_slider_step: {
+      hp: 0,
+      attack: 0,
+      defense: 0,
+      special_attack: 0,
+      special_defense: 0,
+    },
+    effective_value: {
+      hp: 0,
+      attack: 0,
+      defense: 0,
+      special_attack: 0,
+      special_defense: 0,
+    },
+    personality: {
+      attack: 1.0,
+      defense: 1.0,
+      special_attack: 1.0,
+      special_defense: 1.0,
+    } as Personality,
+};
+  return p;
 }

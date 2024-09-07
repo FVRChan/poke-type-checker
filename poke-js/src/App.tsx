@@ -1,5 +1,10 @@
 import React from "react";
-import { pokemon_list, pokemon_array, Pokemon } from "./pokemon-list";
+import {
+  pokemon_list,
+  pokemon_array,
+  Pokemon,
+  dummyPokemon,
+} from "./pokemon-list";
 import move_list, { Move, MOVE_DAMAGE_CLASS_PHYSICAL } from "./move";
 import {
   Table,
@@ -17,19 +22,10 @@ export default function App() {
   const [offencePokemon, setOffencePokemon] = React.useState<Pokemon>(
     pokemon_list[0]
   );
+  const [deffenceDummyPokemon, setDeffenceDummyPokemon] =
+    React.useState<Pokemon>(dummyPokemon);
   const [offenceMove, setOffenceMove] = React.useState<Move>(move_list[0]);
 
-
-  const [personalityAttack, setPersonalityAttack] = React.useState<
-    0.9 | 1.0 | 1.1
-  >(1.0);
-  const [personalityDeffence, setPersonalityDeffence] = React.useState<
-    0.9 | 1.0 | 1.1
-  >(1.0);
-  const [personalitySpecialAttack, setPersonalitySpecialAttack] =
-    React.useState<0.9 | 1.0 | 1.1>(1.0);
-  const [personalitySpecialDeffence, setPersonalitySpecialDeffence] =
-    React.useState<0.9 | 1.0 | 1.1>(1.0);
   return (
     <div className="App">
       <div>
@@ -48,7 +44,6 @@ export default function App() {
               renderInput={(params) => <TextField {...params} />}
               getOptionLabel={(p) => p.base.name_ja}
             />
-   
           </Grid>
           <Grid>
             <Autocomplete
@@ -68,7 +63,15 @@ export default function App() {
           </Grid>
         </Grid>
         <Grid container direction={"column"}>
+          <h2>攻撃側努力値</h2>
           <Effort pokemon={offencePokemon} pokemonSetter={setOffencePokemon} />
+        </Grid>
+        <Grid container direction={"column"}>
+          <h2>守備側努力値</h2>
+          <Effort
+            pokemon={deffenceDummyPokemon}
+            pokemonSetter={setDeffenceDummyPokemon}
+          />
         </Grid>
         <h2>ポケモン表</h2>
         <TableContainer>
@@ -101,6 +104,7 @@ export default function App() {
                             {calc_interface({
                               offencePokemon,
                               deffencePokemon: poke,
+                              deffenceDummyPokemon,
                               move: offenceMove,
                             })}
                           </div>
