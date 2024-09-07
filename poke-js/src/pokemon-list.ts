@@ -1,3 +1,5 @@
+import { EffectiveValue, EffortSlider, Personality } from "./calc_damage";
+
 export const pokemon_list = [
   {
     id: 1,
@@ -6,9 +8,9 @@ export const pokemon_list = [
       name_ja: "フシギダネ",
       hp: 45,
       attack: 49,
-      deffense: 49,
+      defense: 49,
       special_attack: 65,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
@@ -24,7 +26,6 @@ export const pokemon_list = [
         474, 491, 496, 497, 520, 526, 580, 590, 803, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 2,
@@ -33,9 +34,9 @@ export const pokemon_list = [
       name_ja: "フシギソウ",
       hp: 60,
       attack: 62,
-      deffense: 63,
+      defense: 63,
       special_attack: 80,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
@@ -51,7 +52,6 @@ export const pokemon_list = [
         497, 520, 526, 580, 590, 803, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 3,
@@ -60,9 +60,9 @@ export const pokemon_list = [
       name_ja: "フシギバナ",
       hp: 80,
       attack: 82,
-      deffense: 83,
+      defense: 83,
       special_attack: 100,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
@@ -79,7 +79,6 @@ export const pokemon_list = [
         590, 707, 803, 805, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 6,
@@ -88,9 +87,9 @@ export const pokemon_list = [
       name_ja: "リザードン",
       hp: 78,
       attack: 84,
-      deffense: 78,
+      defense: 78,
       special_attack: 109,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 100,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
@@ -109,7 +108,6 @@ export const pokemon_list = [
         590, 595, 612, 693, 784, 799, 814, 815, 851, 913, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 7,
@@ -118,9 +116,9 @@ export const pokemon_list = [
       name_ja: "ゼニガメ",
       hp: 44,
       attack: 48,
-      deffense: 65,
+      defense: 65,
       special_attack: 50,
-      special_deffense: 64,
+      special_defense: 64,
       speed: 43,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
@@ -138,7 +136,6 @@ export const pokemon_list = [
         861, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 8,
@@ -147,9 +144,9 @@ export const pokemon_list = [
       name_ja: "カメール",
       hp: 59,
       attack: 63,
-      deffense: 80,
+      defense: 80,
       special_attack: 65,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 58,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
@@ -166,7 +163,6 @@ export const pokemon_list = [
         504, 518, 526, 590, 612, 710, 791, 812, 834, 851, 861, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 9,
@@ -175,9 +171,9 @@ export const pokemon_list = [
       name_ja: "カメックス",
       hp: 79,
       attack: 83,
-      deffense: 100,
+      defense: 100,
       special_attack: 85,
-      special_deffense: 105,
+      special_defense: 105,
       speed: 78,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
@@ -196,7 +192,6 @@ export const pokemon_list = [
         861, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 24,
@@ -205,9 +200,9 @@ export const pokemon_list = [
       name_ja: "アーボック",
       hp: 60,
       attack: 95,
-      deffense: 69,
+      defense: 69,
       special_attack: 65,
-      special_deffense: 79,
+      special_defense: 79,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/24.png",
@@ -224,7 +219,6 @@ export const pokemon_list = [
         562, 590, 611, 675, 693, 706, 707, 784, 799, 806, 808, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 25,
@@ -233,9 +227,9 @@ export const pokemon_list = [
       name_ja: "ピカチュウ",
       hp: 35,
       attack: 55,
-      deffense: 40,
+      defense: 40,
       special_attack: 50,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 90,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
@@ -252,7 +246,6 @@ export const pokemon_list = [
         574, 577, 583, 589, 590, 598, 604, 609, 673, 804, 851, 885, 914, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 26,
@@ -261,9 +254,9 @@ export const pokemon_list = [
       name_ja: "ライチュウ",
       hp: 60,
       attack: 90,
-      deffense: 55,
+      defense: 55,
       special_attack: 90,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 110,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/26.png",
@@ -281,7 +274,6 @@ export const pokemon_list = [
         851, 885, 914, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 27,
@@ -290,9 +282,9 @@ export const pokemon_list = [
       name_ja: "サンド",
       hp: 50,
       attack: 75,
-      deffense: 85,
+      defense: 85,
       special_attack: 20,
-      special_deffense: 30,
+      special_defense: 30,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/27.png",
@@ -309,7 +301,6 @@ export const pokemon_list = [
         523, 526, 563, 590, 667, 675, 707, 798, 815, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 28,
@@ -318,9 +309,9 @@ export const pokemon_list = [
       name_ja: "サンドパン",
       hp: 75,
       attack: 100,
-      deffense: 110,
+      defense: 110,
       special_attack: 45,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/28.png",
@@ -337,7 +328,6 @@ export const pokemon_list = [
         446, 468, 479, 496, 523, 526, 529, 590, 667, 675, 707, 798, 815, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 35,
@@ -346,9 +336,9 @@ export const pokemon_list = [
       name_ja: "ピッピ",
       hp: 70,
       attack: 45,
-      deffense: 48,
+      defense: 48,
       special_attack: 60,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 35,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/35.png",
@@ -369,7 +359,6 @@ export const pokemon_list = [
         605, 612, 671, 791, 800, 802, 814, 851, 886, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 36,
@@ -378,9 +367,9 @@ export const pokemon_list = [
       name_ja: "ピクシー",
       hp: 95,
       attack: 70,
-      deffense: 73,
+      defense: 73,
       special_attack: 95,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/36.png",
@@ -401,7 +390,6 @@ export const pokemon_list = [
         595, 605, 612, 671, 673, 791, 800, 802, 814, 851, 886, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 37,
@@ -410,9 +398,9 @@ export const pokemon_list = [
       name_ja: "ロコン",
       hp: 38,
       attack: 41,
-      deffense: 40,
+      defense: 40,
       special_attack: 50,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/37.png",
@@ -428,7 +416,6 @@ export const pokemon_list = [
         488, 492, 496, 506, 510, 517, 541, 555, 590, 595, 608, 807, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 38,
@@ -437,9 +424,9 @@ export const pokemon_list = [
       name_ja: "キュウコン",
       hp: 73,
       attack: 76,
-      deffense: 75,
+      defense: 75,
       special_attack: 81,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 100,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/38.png",
@@ -456,7 +443,6 @@ export const pokemon_list = [
         541, 555, 590, 595, 608, 673, 807, 815, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 39,
@@ -465,9 +451,9 @@ export const pokemon_list = [
       name_ja: "プリン",
       hp: 115,
       attack: 45,
-      deffense: 20,
+      defense: 20,
       special_attack: 45,
-      special_deffense: 25,
+      special_defense: 25,
       speed: 20,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/39.png",
@@ -488,7 +474,6 @@ export const pokemon_list = [
         917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 40,
@@ -497,9 +482,9 @@ export const pokemon_list = [
       name_ja: "プクリン",
       hp: 140,
       attack: 70,
-      deffense: 45,
+      defense: 45,
       special_attack: 85,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/40.png",
@@ -520,7 +505,6 @@ export const pokemon_list = [
         861, 885, 886, 914, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 44,
@@ -529,9 +513,9 @@ export const pokemon_list = [
       name_ja: "クサイハナ",
       hp: 60,
       attack: 65,
-      deffense: 70,
+      defense: 70,
       special_attack: 85,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/44.png",
@@ -547,7 +531,6 @@ export const pokemon_list = [
         676, 803, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 45,
@@ -556,9 +539,9 @@ export const pokemon_list = [
       name_ja: "ラフレシア",
       hp: 75,
       attack: 80,
-      deffense: 85,
+      defense: 85,
       special_attack: 110,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/45.png",
@@ -574,7 +557,6 @@ export const pokemon_list = [
         585, 590, 605, 611, 668, 669, 676, 803, 810, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 48,
@@ -583,9 +565,9 @@ export const pokemon_list = [
       name_ja: "コンパン",
       hp: 60,
       attack: 55,
-      deffense: 50,
+      defense: 50,
       special_attack: 40,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/48.png",
@@ -600,7 +582,6 @@ export const pokemon_list = [
         445, 450, 474, 476, 491, 496, 522, 590, 611, 679, 806, 851, 884, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 49,
@@ -609,9 +590,9 @@ export const pokemon_list = [
       name_ja: "モルフォン",
       hp: 70,
       attack: 65,
-      deffense: 60,
+      defense: 60,
       special_attack: 90,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 90,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/49.png",
@@ -628,7 +609,6 @@ export const pokemon_list = [
         851, 884, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 50,
@@ -637,9 +617,9 @@ export const pokemon_list = [
       name_ja: "ディグダ",
       hp: 10,
       attack: 55,
-      deffense: 25,
+      defense: 25,
       special_attack: 35,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 95,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/50.png",
@@ -655,7 +635,6 @@ export const pokemon_list = [
         502, 515, 523, 526, 590, 675, 707, 815, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 51,
@@ -664,9 +643,9 @@ export const pokemon_list = [
       name_ja: "ダグトリオ",
       hp: 35,
       attack: 100,
-      deffense: 50,
+      defense: 50,
       special_attack: 50,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 120,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/51.png",
@@ -682,7 +661,6 @@ export const pokemon_list = [
         502, 523, 526, 563, 590, 667, 675, 707, 815, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 52,
@@ -691,9 +669,9 @@ export const pokemon_list = [
       name_ja: "ニャース",
       hp: 40,
       attack: 45,
-      deffense: 35,
+      defense: 35,
       special_attack: 40,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 90,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/52.png",
@@ -711,7 +689,6 @@ export const pokemon_list = [
         590, 675, 808, 851, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 53,
@@ -720,9 +697,9 @@ export const pokemon_list = [
       name_ja: "ペルシアン",
       hp: 65,
       attack: 70,
-      deffense: 60,
+      defense: 60,
       special_attack: 65,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 115,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/53.png",
@@ -740,7 +717,6 @@ export const pokemon_list = [
         590, 675, 806, 808, 851, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 54,
@@ -749,9 +725,9 @@ export const pokemon_list = [
       name_ja: "コダック",
       hp: 50,
       attack: 52,
-      deffense: 48,
+      defense: 48,
       special_attack: 65,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/54.png",
@@ -769,7 +745,6 @@ export const pokemon_list = [
         487, 490, 493, 496, 499, 503, 590, 612, 710, 812, 851, 885, 886, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 55,
@@ -778,9 +753,9 @@ export const pokemon_list = [
       name_ja: "ゴルダック",
       hp: 80,
       attack: 82,
-      deffense: 78,
+      defense: 78,
       special_attack: 95,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/55.png",
@@ -799,7 +774,6 @@ export const pokemon_list = [
         886, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 57,
@@ -808,9 +782,9 @@ export const pokemon_list = [
       name_ja: "オコリザル",
       hp: 65,
       attack: 105,
-      deffense: 60,
+      defense: 60,
       special_attack: 60,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 95,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/57.png",
@@ -828,7 +802,6 @@ export const pokemon_list = [
         523, 526, 530, 590, 612, 675, 707, 808, 851, 889,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 58,
@@ -837,9 +810,9 @@ export const pokemon_list = [
       name_ja: "ガーディ",
       hp: 55,
       attack: 70,
-      deffense: 45,
+      defense: 45,
       special_attack: 70,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/58.png",
@@ -855,7 +828,6 @@ export const pokemon_list = [
         583, 590, 682, 706, 833, 851, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 59,
@@ -864,9 +836,9 @@ export const pokemon_list = [
       name_ja: "ウインディ",
       hp: 90,
       attack: 110,
-      deffense: 80,
+      defense: 80,
       special_attack: 100,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 95,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/59.png",
@@ -883,7 +855,6 @@ export const pokemon_list = [
         851, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 60,
@@ -892,9 +863,9 @@ export const pokemon_list = [
       name_ja: "ニョロモ",
       hp: 40,
       attack: 50,
-      deffense: 40,
+      defense: 40,
       special_attack: 40,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 90,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/60.png",
@@ -910,7 +881,6 @@ export const pokemon_list = [
         710, 851, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 61,
@@ -919,9 +889,9 @@ export const pokemon_list = [
       name_ja: "ニョロゾ",
       hp: 65,
       attack: 65,
-      deffense: 65,
+      defense: 65,
       special_attack: 50,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 90,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/61.png",
@@ -937,7 +907,6 @@ export const pokemon_list = [
         363, 374, 414, 426, 445, 490, 496, 503, 523, 590, 612, 710, 851, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 62,
@@ -946,9 +915,9 @@ export const pokemon_list = [
       name_ja: "ニョロボン",
       hp: 90,
       attack: 95,
-      deffense: 95,
+      defense: 95,
       special_attack: 70,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/62.png",
@@ -966,7 +935,6 @@ export const pokemon_list = [
         530, 590, 612, 663, 667, 675, 710, 811, 851, 886, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 69,
@@ -975,9 +943,9 @@ export const pokemon_list = [
       name_ja: "マダツボミ",
       hp: 50,
       attack: 75,
-      deffense: 35,
+      defense: 35,
       special_attack: 70,
-      special_deffense: 30,
+      special_defense: 30,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/69.png",
@@ -993,7 +961,6 @@ export const pokemon_list = [
         668, 679, 803, 851, 884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 70,
@@ -1002,9 +969,9 @@ export const pokemon_list = [
       name_ja: "ウツドン",
       hp: 65,
       attack: 90,
-      deffense: 50,
+      defense: 50,
       special_attack: 85,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/70.png",
@@ -1020,7 +987,6 @@ export const pokemon_list = [
         611, 668, 679, 803, 851, 884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 71,
@@ -1029,9 +995,9 @@ export const pokemon_list = [
       name_ja: "ウツボット",
       hp: 80,
       attack: 105,
-      deffense: 65,
+      defense: 65,
       special_attack: 100,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/71.png",
@@ -1047,7 +1013,6 @@ export const pokemon_list = [
         482, 491, 496, 499, 536, 580, 590, 611, 668, 679, 803, 851, 884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 72,
@@ -1056,9 +1021,9 @@ export const pokemon_list = [
       name_ja: "メノクラゲ",
       hp: 40,
       attack: 40,
-      deffense: 35,
+      defense: 35,
       special_attack: 50,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/72.png",
@@ -1075,7 +1040,6 @@ export const pokemon_list = [
         851, 884, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 73,
@@ -1084,9 +1048,9 @@ export const pokemon_list = [
       name_ja: "ドククラゲ",
       hp: 80,
       attack: 70,
-      deffense: 65,
+      defense: 65,
       special_attack: 80,
-      special_deffense: 120,
+      special_defense: 120,
       speed: 100,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/73.png",
@@ -1103,7 +1067,6 @@ export const pokemon_list = [
         611, 675, 693, 710, 806, 810, 812, 851, 884, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 74,
@@ -1112,9 +1075,9 @@ export const pokemon_list = [
       name_ja: "イシツブテ",
       hp: 40,
       attack: 80,
-      deffense: 100,
+      defense: 100,
       special_attack: 30,
-      special_deffense: 30,
+      special_defense: 30,
       speed: 20,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/74.png",
@@ -1130,7 +1093,6 @@ export const pokemon_list = [
         469, 475, 479, 496, 510, 523, 590, 612, 667, 707, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 75,
@@ -1139,9 +1101,9 @@ export const pokemon_list = [
       name_ja: "ゴローン",
       hp: 55,
       attack: 95,
-      deffense: 115,
+      defense: 115,
       special_attack: 45,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 35,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/75.png",
@@ -1158,7 +1120,6 @@ export const pokemon_list = [
         912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 76,
@@ -1167,9 +1128,9 @@ export const pokemon_list = [
       name_ja: "ゴローニャ",
       hp: 80,
       attack: 120,
-      deffense: 130,
+      defense: 130,
       special_attack: 55,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/76.png",
@@ -1186,7 +1147,6 @@ export const pokemon_list = [
         612, 667, 707, 776, 851, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 79,
@@ -1195,9 +1155,9 @@ export const pokemon_list = [
       name_ja: "ヤドン",
       hp: 90,
       attack: 65,
-      deffense: 65,
+      defense: 65,
       special_attack: 40,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 15,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/79.png",
@@ -1215,7 +1175,6 @@ export const pokemon_list = [
         510, 523, 562, 590, 678, 710, 797, 851, 883, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 80,
@@ -1224,9 +1183,9 @@ export const pokemon_list = [
       name_ja: "ヤドラン",
       hp: 95,
       attack: 75,
-      deffense: 110,
+      defense: 110,
       special_attack: 100,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/80.png",
@@ -1246,7 +1205,6 @@ export const pokemon_list = [
         917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 81,
@@ -1255,9 +1213,9 @@ export const pokemon_list = [
       name_ja: "コイル",
       hp: 25,
       attack: 35,
-      deffense: 70,
+      defense: 70,
       special_attack: 95,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/81.png",
@@ -1273,7 +1231,6 @@ export const pokemon_list = [
         851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 82,
@@ -1282,9 +1239,9 @@ export const pokemon_list = [
       name_ja: "レアコイル",
       hp: 50,
       attack: 60,
-      deffense: 95,
+      defense: 95,
       special_attack: 120,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/82.png",
@@ -1300,7 +1257,6 @@ export const pokemon_list = [
         604, 796, 804, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 84,
@@ -1309,9 +1265,9 @@ export const pokemon_list = [
       name_ja: "ドードー",
       hp: 35,
       attack: 85,
-      deffense: 45,
+      defense: 45,
       special_attack: 35,
-      special_deffense: 35,
+      special_defense: 35,
       speed: 75,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/84.png",
@@ -1327,7 +1283,6 @@ export const pokemon_list = [
         675, 679, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 85,
@@ -1336,9 +1291,9 @@ export const pokemon_list = [
       name_ja: "ドードリオ",
       hp: 60,
       attack: 110,
-      deffense: 70,
+      defense: 70,
       special_attack: 60,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 110,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/85.png",
@@ -1354,7 +1309,6 @@ export const pokemon_list = [
         497, 512, 526, 529, 590, 675, 679, 707, 851, 884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 86,
@@ -1363,9 +1317,9 @@ export const pokemon_list = [
       name_ja: "パウワウ",
       hp: 65,
       attack: 45,
-      deffense: 55,
+      defense: 55,
       special_attack: 45,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/86.png",
@@ -1381,7 +1335,6 @@ export const pokemon_list = [
         496, 497, 529, 562, 590, 684, 812, 813, 851, 861, 883, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 87,
@@ -1390,9 +1343,9 @@ export const pokemon_list = [
       name_ja: "ジュゴン",
       hp: 90,
       attack: 70,
-      deffense: 80,
+      defense: 80,
       special_attack: 70,
-      special_deffense: 95,
+      special_defense: 95,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/87.png",
@@ -1409,7 +1362,6 @@ export const pokemon_list = [
         851, 861, 883, 886, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 89,
@@ -1418,9 +1370,9 @@ export const pokemon_list = [
       name_ja: "ベトベトン",
       hp: 105,
       attack: 105,
-      deffense: 75,
+      defense: 75,
       special_attack: 65,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/89.png",
@@ -1438,7 +1390,6 @@ export const pokemon_list = [
         851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 91,
@@ -1447,9 +1398,9 @@ export const pokemon_list = [
       name_ja: "パルシェン",
       hp: 50,
       attack: 95,
-      deffense: 180,
+      defense: 180,
       special_attack: 85,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/91.png",
@@ -1465,7 +1416,6 @@ export const pokemon_list = [
         496, 504, 524, 529, 534, 556, 590, 684, 710, 798, 851, 861, 883, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 93,
@@ -1474,9 +1424,9 @@ export const pokemon_list = [
       name_ja: "ゴースト",
       hp: 45,
       attack: 50,
-      deffense: 45,
+      defense: 45,
       special_attack: 115,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 95,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/93.png",
@@ -1493,7 +1443,6 @@ export const pokemon_list = [
         496, 502, 506, 566, 590, 605, 611, 806, 809, 810, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 94,
@@ -1502,9 +1451,9 @@ export const pokemon_list = [
       name_ja: "ゲンガー",
       hp: 60,
       attack: 65,
-      deffense: 60,
+      defense: 60,
       special_attack: 130,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 110,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png",
@@ -1523,7 +1472,6 @@ export const pokemon_list = [
         806, 809, 810, 851, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 97,
@@ -1532,9 +1480,9 @@ export const pokemon_list = [
       name_ja: "スリーパー",
       hp: 85,
       attack: 73,
-      deffense: 70,
+      defense: 70,
       special_attack: 73,
-      special_deffense: 115,
+      special_defense: 115,
       speed: 67,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/97.png",
@@ -1552,7 +1500,6 @@ export const pokemon_list = [
         496, 500, 502, 506, 577, 590, 605, 612, 678, 776, 797, 851, 885, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 100,
@@ -1561,9 +1508,9 @@ export const pokemon_list = [
       name_ja: "ビリリダマ",
       hp: 40,
       attack: 30,
-      deffense: 50,
+      defense: 50,
       special_attack: 55,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 100,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/100.png",
@@ -1578,7 +1525,6 @@ export const pokemon_list = [
         496, 521, 527, 528, 590, 598, 604, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 101,
@@ -1587,9 +1533,9 @@ export const pokemon_list = [
       name_ja: "マルマイン",
       hp: 60,
       attack: 50,
-      deffense: 70,
+      defense: 70,
       special_attack: 80,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 150,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/101.png",
@@ -1604,7 +1550,6 @@ export const pokemon_list = [
         451, 477, 486, 492, 496, 521, 527, 528, 590, 598, 602, 604, 851, 916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 102,
@@ -1613,9 +1558,9 @@ export const pokemon_list = [
       name_ja: "タマタマ",
       hp: 60,
       attack: 40,
-      deffense: 80,
+      defense: 80,
       special_attack: 60,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/102.png",
@@ -1631,7 +1576,6 @@ export const pokemon_list = [
         437, 445, 447, 473, 477, 496, 500, 516, 580, 590, 611, 803, 851, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 103,
@@ -1640,9 +1584,9 @@ export const pokemon_list = [
       name_ja: "ナッシー",
       hp: 95,
       attack: 95,
-      deffense: 85,
+      defense: 85,
       special_attack: 125,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/103.png",
@@ -1659,7 +1603,6 @@ export const pokemon_list = [
         580, 590, 611, 678, 707, 797, 803, 805, 851, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 106,
@@ -1668,9 +1611,9 @@ export const pokemon_list = [
       name_ja: "サワムラー",
       hp: 50,
       attack: 120,
-      deffense: 53,
+      defense: 53,
       special_attack: 35,
-      special_deffense: 110,
+      special_defense: 110,
       speed: 87,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/106.png",
@@ -1687,7 +1630,6 @@ export const pokemon_list = [
         496, 514, 523, 526, 590, 612, 673, 675, 679, 707, 811, 851, 853, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 107,
@@ -1696,9 +1638,9 @@ export const pokemon_list = [
       name_ja: "エビワラー",
       hp: 50,
       attack: 105,
-      deffense: 79,
+      defense: 79,
       special_attack: 35,
-      special_deffense: 110,
+      special_defense: 110,
       speed: 76,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/107.png",
@@ -1715,7 +1657,6 @@ export const pokemon_list = [
         501, 514, 523, 526, 590, 612, 673, 675, 811, 851, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 109,
@@ -1724,9 +1665,9 @@ export const pokemon_list = [
       name_ja: "ドガース",
       hp: 40,
       attack: 65,
-      deffense: 95,
+      defense: 95,
       special_attack: 60,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 35,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/109.png",
@@ -1742,7 +1683,6 @@ export const pokemon_list = [
         510, 562, 590, 599, 611, 810, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 110,
@@ -1751,9 +1691,9 @@ export const pokemon_list = [
       name_ja: "マタドガス",
       hp: 65,
       attack: 90,
-      deffense: 120,
+      defense: 120,
       special_attack: 85,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/110.png",
@@ -1769,7 +1709,6 @@ export const pokemon_list = [
         562, 590, 599, 611, 810, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 112,
@@ -1778,9 +1717,9 @@ export const pokemon_list = [
       name_ja: "サイドン",
       hp: 105,
       attack: 130,
-      deffense: 120,
+      defense: 120,
       special_attack: 45,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/112.png",
@@ -1800,7 +1739,6 @@ export const pokemon_list = [
         916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 113,
@@ -1809,9 +1747,9 @@ export const pokemon_list = [
       name_ja: "ラッキー",
       hp: 250,
       attack: 5,
-      deffense: 5,
+      defense: 5,
       special_attack: 35,
-      special_deffense: 105,
+      special_defense: 105,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/113.png",
@@ -1831,7 +1769,6 @@ export const pokemon_list = [
         707, 791, 851, 883, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 117,
@@ -1840,9 +1777,9 @@ export const pokemon_list = [
       name_ja: "シードラ",
       hp: 55,
       attack: 65,
-      deffense: 95,
+      defense: 95,
       special_attack: 95,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/117.png",
@@ -1857,7 +1794,6 @@ export const pokemon_list = [
         416, 430, 445, 496, 499, 503, 590, 673, 710, 799, 812, 851, 883, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 123,
@@ -1866,9 +1802,9 @@ export const pokemon_list = [
       name_ja: "ストライク",
       hp: 70,
       attack: 110,
-      deffense: 80,
+      defense: 80,
       special_attack: 55,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 105,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/123.png",
@@ -1885,7 +1821,6 @@ export const pokemon_list = [
         885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 125,
@@ -1894,9 +1829,9 @@ export const pokemon_list = [
       name_ja: "エレブー",
       hp: 65,
       attack: 83,
-      deffense: 57,
+      defense: 57,
       special_attack: 95,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 105,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/125.png",
@@ -1913,7 +1848,6 @@ export const pokemon_list = [
         590, 598, 604, 612, 804, 851, 885, 916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 126,
@@ -1922,9 +1856,9 @@ export const pokemon_list = [
       name_ja: "ブーバー",
       hp: 65,
       attack: 95,
-      deffense: 57,
+      defense: 57,
       special_attack: 100,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 93,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/126.png",
@@ -1941,7 +1875,6 @@ export const pokemon_list = [
         530, 535, 562, 590, 612, 807, 815, 851, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 128,
@@ -1950,9 +1883,9 @@ export const pokemon_list = [
       name_ja: "ケンタロス",
       hp: 75,
       attack: 100,
-      deffense: 95,
+      defense: 95,
       special_attack: 40,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 110,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/128.png",
@@ -1969,7 +1902,6 @@ export const pokemon_list = [
         707, 808, 851, 873, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 129,
@@ -1978,9 +1910,9 @@ export const pokemon_list = [
       name_ja: "コイキング",
       hp: 20,
       attack: 10,
-      deffense: 55,
+      defense: 55,
       special_attack: 15,
-      special_deffense: 20,
+      special_defense: 20,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/129.png",
@@ -1989,7 +1921,6 @@ export const pokemon_list = [
       ability_id_list: [33, 155],
       move_id_list: [33, 56, 150, 175, 340],
     },
-    often_used_move: null,
   },
   {
     id: 130,
@@ -1998,9 +1929,9 @@ export const pokemon_list = [
       name_ja: "ギャラドス",
       hp: 95,
       attack: 125,
-      deffense: 79,
+      defense: 79,
       special_attack: 60,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 81,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/130.png",
@@ -2017,7 +1948,6 @@ export const pokemon_list = [
         523, 525, 542, 590, 693, 799, 808, 851, 886, 913, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 131,
@@ -2026,9 +1956,9 @@ export const pokemon_list = [
       name_ja: "ラプラス",
       hp: 130,
       attack: 85,
-      deffense: 80,
+      defense: 80,
       special_attack: 85,
-      special_deffense: 95,
+      special_defense: 95,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/131.png",
@@ -2046,7 +1976,6 @@ export const pokemon_list = [
         776, 791, 851, 883, 886, 913, 914, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 132,
@@ -2055,9 +1984,9 @@ export const pokemon_list = [
       name_ja: "メタモン",
       hp: 48,
       attack: 48,
-      deffense: 48,
+      defense: 48,
       special_attack: 48,
-      special_deffense: 48,
+      special_defense: 48,
       speed: 48,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png",
@@ -2066,7 +1995,6 @@ export const pokemon_list = [
       ability_id_list: [7, 150],
       move_id_list: [144],
     },
-    often_used_move: null,
   },
   {
     id: 133,
@@ -2075,9 +2003,9 @@ export const pokemon_list = [
       name_ja: "イーブイ",
       hp: 55,
       attack: 55,
-      deffense: 50,
+      defense: 50,
       special_attack: 45,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png",
@@ -2092,7 +2020,6 @@ export const pokemon_list = [
         387, 445, 485, 496, 497, 500, 514, 526, 590, 608, 673, 851, 885, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 134,
@@ -2101,9 +2028,9 @@ export const pokemon_list = [
       name_ja: "シャワーズ",
       hp: 130,
       attack: 65,
-      deffense: 60,
+      defense: 60,
       special_attack: 110,
-      special_deffense: 95,
+      special_defense: 95,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/134.png",
@@ -2120,7 +2047,6 @@ export const pokemon_list = [
         673, 710, 812, 851, 885, 886, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 135,
@@ -2129,9 +2055,9 @@ export const pokemon_list = [
       name_ja: "サンダース",
       hp: 65,
       attack: 65,
-      deffense: 60,
+      defense: 60,
       special_attack: 110,
-      special_deffense: 95,
+      special_defense: 95,
       speed: 130,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/135.png",
@@ -2148,7 +2074,6 @@ export const pokemon_list = [
         598, 604, 608, 673, 804, 851, 885, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 136,
@@ -2157,9 +2082,9 @@ export const pokemon_list = [
       name_ja: "ブースター",
       hp: 65,
       attack: 130,
-      deffense: 60,
+      defense: 60,
       special_attack: 95,
-      special_deffense: 110,
+      special_defense: 110,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/136.png",
@@ -2176,7 +2101,6 @@ export const pokemon_list = [
         815, 851, 885, 914, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 143,
@@ -2185,9 +2109,9 @@ export const pokemon_list = [
       name_ja: "カビゴン",
       hp: 160,
       attack: 110,
-      deffense: 65,
+      defense: 65,
       special_attack: 65,
-      special_deffense: 110,
+      special_defense: 110,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png",
@@ -2207,7 +2131,6 @@ export const pokemon_list = [
         912, 916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 147,
@@ -2216,9 +2139,9 @@ export const pokemon_list = [
       name_ja: "ミニリュウ",
       hp: 41,
       attack: 64,
-      deffense: 45,
+      defense: 45,
       special_attack: 50,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/147.png",
@@ -2234,7 +2157,6 @@ export const pokemon_list = [
         496, 510, 525, 590, 693, 784, 799, 851, 886, 913,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 148,
@@ -2243,9 +2165,9 @@ export const pokemon_list = [
       name_ja: "ハクリュー",
       hp: 61,
       attack: 84,
-      deffense: 65,
+      defense: 65,
       special_attack: 70,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/148.png",
@@ -2261,7 +2183,6 @@ export const pokemon_list = [
         525, 590, 693, 784, 799, 851, 886, 913,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 149,
@@ -2270,9 +2191,9 @@ export const pokemon_list = [
       name_ja: "カイリュー",
       hp: 91,
       attack: 134,
-      deffense: 95,
+      defense: 95,
       special_attack: 100,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png",
@@ -2292,7 +2213,6 @@ export const pokemon_list = [
         913,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 153,
@@ -2301,9 +2221,9 @@ export const pokemon_list = [
       name_ja: "ベイリーフ",
       hp: 60,
       attack: 62,
-      deffense: 80,
+      defense: 80,
       special_attack: 63,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/153.png",
@@ -2319,7 +2239,6 @@ export const pokemon_list = [
         673, 707, 803, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 154,
@@ -2328,9 +2247,9 @@ export const pokemon_list = [
       name_ja: "メガニウム",
       hp: 80,
       attack: 82,
-      deffense: 100,
+      defense: 100,
       special_attack: 83,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/154.png",
@@ -2347,7 +2266,6 @@ export const pokemon_list = [
         776, 803, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 156,
@@ -2356,9 +2274,9 @@ export const pokemon_list = [
       name_ja: "マグマラシ",
       hp: 58,
       attack: 64,
-      deffense: 58,
+      defense: 58,
       special_attack: 80,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/156.png",
@@ -2374,7 +2292,6 @@ export const pokemon_list = [
         682, 807, 851, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 157,
@@ -2383,9 +2300,9 @@ export const pokemon_list = [
       name_ja: "バクフーン",
       hp: 78,
       attack: 84,
-      deffense: 78,
+      defense: 78,
       special_attack: 109,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 100,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/157.png",
@@ -2403,7 +2320,6 @@ export const pokemon_list = [
         707, 807, 809, 815, 851, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 159,
@@ -2412,9 +2328,9 @@ export const pokemon_list = [
       name_ja: "アリゲイツ",
       hp: 65,
       attack: 80,
-      deffense: 80,
+      defense: 80,
       special_attack: 59,
-      special_deffense: 63,
+      special_defense: 63,
       speed: 58,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/159.png",
@@ -2431,7 +2347,6 @@ export const pokemon_list = [
         526, 590, 612, 706, 710, 784, 812, 851, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 160,
@@ -2440,9 +2355,9 @@ export const pokemon_list = [
       name_ja: "オーダイル",
       hp: 85,
       attack: 105,
-      deffense: 100,
+      defense: 100,
       special_attack: 79,
-      special_deffense: 83,
+      special_defense: 83,
       speed: 78,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/160.png",
@@ -2460,7 +2375,6 @@ export const pokemon_list = [
         555, 590, 612, 706, 707, 710, 784, 799, 808, 812, 851, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 161,
@@ -2469,9 +2383,9 @@ export const pokemon_list = [
       name_ja: "オタチ",
       hp: 35,
       attack: 46,
-      deffense: 34,
+      defense: 34,
       special_attack: 35,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 20,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/161.png",
@@ -2488,7 +2402,6 @@ export const pokemon_list = [
         526, 583, 590, 608, 612, 693, 851, 882, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 162,
@@ -2497,9 +2410,9 @@ export const pokemon_list = [
       name_ja: "オオタチ",
       hp: 85,
       attack: 76,
-      deffense: 64,
+      defense: 64,
       special_attack: 45,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 90,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/162.png",
@@ -2517,7 +2430,6 @@ export const pokemon_list = [
         886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 164,
@@ -2526,9 +2438,9 @@ export const pokemon_list = [
       name_ja: "ヨルノズク",
       hp: 100,
       attack: 50,
-      deffense: 50,
+      defense: 50,
       special_attack: 86,
-      special_deffense: 96,
+      special_defense: 96,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/164.png",
@@ -2545,7 +2457,6 @@ export const pokemon_list = [
         526, 542, 585, 590, 673, 814, 851, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 167,
@@ -2554,9 +2465,9 @@ export const pokemon_list = [
       name_ja: "イトマル",
       hp: 40,
       attack: 60,
-      deffense: 40,
+      defense: 40,
       special_attack: 40,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/167.png",
@@ -2572,7 +2483,6 @@ export const pokemon_list = [
         611, 672, 679, 806, 851, 884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 168,
@@ -2581,9 +2491,9 @@ export const pokemon_list = [
       name_ja: "アリアドス",
       hp: 70,
       attack: 90,
-      deffense: 70,
+      defense: 70,
       special_attack: 60,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/168.png",
@@ -2599,7 +2509,6 @@ export const pokemon_list = [
         590, 599, 611, 672, 675, 679, 684, 707, 806, 851, 884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 171,
@@ -2608,9 +2517,9 @@ export const pokemon_list = [
       name_ja: "ランターン",
       hp: 125,
       attack: 58,
-      deffense: 58,
+      defense: 58,
       special_attack: 76,
-      special_deffense: 76,
+      special_defense: 76,
       speed: 67,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/171.png",
@@ -2626,7 +2535,6 @@ export const pokemon_list = [
         590, 598, 604, 605, 671, 710, 804, 812, 851, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 180,
@@ -2635,9 +2543,9 @@ export const pokemon_list = [
       name_ja: "モココ",
       hp: 70,
       attack: 55,
-      deffense: 55,
+      defense: 55,
       special_attack: 80,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/180.png",
@@ -2653,7 +2561,6 @@ export const pokemon_list = [
         590, 598, 604, 605, 612, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 181,
@@ -2662,9 +2569,9 @@ export const pokemon_list = [
       name_ja: "デンリュウ",
       hp: 90,
       attack: 75,
-      deffense: 85,
+      defense: 85,
       special_attack: 115,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/181.png",
@@ -2681,7 +2588,6 @@ export const pokemon_list = [
         612, 673, 693, 707, 784, 800, 851, 885, 913, 916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 182,
@@ -2690,9 +2596,9 @@ export const pokemon_list = [
       name_ja: "キレイハナ",
       hp: 75,
       attack: 80,
-      deffense: 95,
+      defense: 95,
       special_attack: 90,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/182.png",
@@ -2708,7 +2614,6 @@ export const pokemon_list = [
         583, 585, 590, 605, 611, 668, 669, 673, 676, 803, 813, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 183,
@@ -2717,9 +2622,9 @@ export const pokemon_list = [
       name_ja: "マリル",
       hp: 70,
       attack: 20,
-      deffense: 50,
+      defense: 50,
       special_attack: 20,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/183.png",
@@ -2737,7 +2642,6 @@ export const pokemon_list = [
         851, 861, 883, 885, 886, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 184,
@@ -2746,9 +2650,9 @@ export const pokemon_list = [
       name_ja: "マリルリ",
       hp: 100,
       attack: 50,
-      deffense: 80,
+      defense: 80,
       special_attack: 60,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/184.png",
@@ -2765,7 +2669,6 @@ export const pokemon_list = [
         612, 693, 710, 798, 802, 851, 861, 883, 885, 886, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 185,
@@ -2774,9 +2677,9 @@ export const pokemon_list = [
       name_ja: "ウソッキー",
       hp: 70,
       attack: 100,
-      deffense: 115,
+      defense: 115,
       special_attack: 30,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/185.png",
@@ -2793,7 +2696,6 @@ export const pokemon_list = [
         496, 523, 590, 612, 667, 707, 715, 776, 800, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 186,
@@ -2802,9 +2704,9 @@ export const pokemon_list = [
       name_ja: "ニョロトノ",
       hp: 90,
       attack: 75,
-      deffense: 75,
+      defense: 75,
       special_attack: 90,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/186.png",
@@ -2821,7 +2723,6 @@ export const pokemon_list = [
         886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 188,
@@ -2830,9 +2731,9 @@ export const pokemon_list = [
       name_ja: "ポポッコ",
       hp: 55,
       attack: 45,
-      deffense: 50,
+      defense: 50,
       special_attack: 45,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/188.png",
@@ -2848,7 +2749,6 @@ export const pokemon_list = [
         851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 189,
@@ -2857,9 +2757,9 @@ export const pokemon_list = [
       name_ja: "ワタッコ",
       hp: 75,
       attack: 55,
-      deffense: 70,
+      defense: 70,
       special_attack: 55,
-      special_deffense: 95,
+      special_defense: 95,
       speed: 110,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/189.png",
@@ -2875,7 +2775,6 @@ export const pokemon_list = [
         611, 676, 679, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 191,
@@ -2884,9 +2783,9 @@ export const pokemon_list = [
       name_ja: "ヒマナッツ",
       hp: 30,
       attack: 30,
-      deffense: 30,
+      defense: 30,
       special_attack: 30,
-      special_deffense: 30,
+      special_defense: 30,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/191.png",
@@ -2901,7 +2800,6 @@ export const pokemon_list = [
         580, 590, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 192,
@@ -2910,9 +2808,9 @@ export const pokemon_list = [
       name_ja: "キマワリ",
       hp: 75,
       attack: 75,
-      deffense: 55,
+      defense: 55,
       special_attack: 105,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/192.png",
@@ -2927,7 +2825,6 @@ export const pokemon_list = [
         495, 496, 572, 579, 580, 590, 605, 803, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 193,
@@ -2936,9 +2833,9 @@ export const pokemon_list = [
       name_ja: "ヤンヤンマ",
       hp: 65,
       attack: 65,
-      deffense: 45,
+      defense: 45,
       special_attack: 75,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 95,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/193.png",
@@ -2953,7 +2850,6 @@ export const pokemon_list = [
         403, 405, 432, 445, 450, 466, 496, 522, 590, 679, 806, 851, 884, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 194,
@@ -2962,9 +2858,9 @@ export const pokemon_list = [
       name_ja: "ウパー",
       hp: 55,
       attack: 45,
-      deffense: 45,
+      defense: 45,
       special_attack: 25,
-      special_deffense: 25,
+      special_defense: 25,
       speed: 15,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/194.png",
@@ -2981,7 +2877,6 @@ export const pokemon_list = [
         851, 883, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 195,
@@ -2990,9 +2885,9 @@ export const pokemon_list = [
       name_ja: "ヌオー",
       hp: 95,
       attack: 85,
-      deffense: 85,
+      defense: 85,
       special_attack: 65,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 35,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/195.png",
@@ -3009,7 +2904,6 @@ export const pokemon_list = [
         523, 590, 598, 611, 612, 667, 707, 710, 776, 851, 883, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 196,
@@ -3018,9 +2912,9 @@ export const pokemon_list = [
       name_ja: "エーフィ",
       hp: 65,
       attack: 65,
-      deffense: 60,
+      defense: 60,
       special_attack: 130,
-      special_deffense: 95,
+      special_defense: 95,
       speed: 110,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/196.png",
@@ -3037,7 +2931,6 @@ export const pokemon_list = [
         577, 590, 605, 608, 673, 678, 706, 797, 851, 885, 914, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 197,
@@ -3046,9 +2939,9 @@ export const pokemon_list = [
       name_ja: "ブラッキー",
       hp: 95,
       attack: 65,
-      deffense: 110,
+      defense: 110,
       special_attack: 60,
-      special_deffense: 130,
+      special_defense: 130,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/197.png",
@@ -3065,7 +2958,6 @@ export const pokemon_list = [
         526, 555, 590, 608, 673, 675, 808, 851, 885, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 198,
@@ -3074,9 +2966,9 @@ export const pokemon_list = [
       name_ja: "ヤミカラス",
       hp: 60,
       attack: 85,
-      deffense: 42,
+      defense: 42,
       special_attack: 85,
-      special_deffense: 42,
+      special_defense: 42,
       speed: 91,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/198.png",
@@ -3093,7 +2985,6 @@ export const pokemon_list = [
         511, 512, 514, 542, 555, 590, 808, 814, 851, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 199,
@@ -3102,9 +2993,9 @@ export const pokemon_list = [
       name_ja: "ヤドキング",
       hp: 95,
       attack: 75,
-      deffense: 80,
+      defense: 80,
       special_attack: 100,
-      special_deffense: 110,
+      special_defense: 110,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/199.png",
@@ -3124,7 +3015,6 @@ export const pokemon_list = [
         917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 200,
@@ -3133,9 +3023,9 @@ export const pokemon_list = [
       name_ja: "ムウマ",
       hp: 60,
       attack: 60,
-      deffense: 60,
+      defense: 60,
       special_attack: 85,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/200.png",
@@ -3153,7 +3043,6 @@ export const pokemon_list = [
         605, 807, 809, 851, 883, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 203,
@@ -3162,9 +3051,9 @@ export const pokemon_list = [
       name_ja: "キリンリキ",
       hp: 70,
       attack: 80,
-      deffense: 65,
+      defense: 65,
       special_attack: 90,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/203.png",
@@ -3182,7 +3071,6 @@ export const pokemon_list = [
         667, 678, 706, 707, 797, 851, 885, 888, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 204,
@@ -3191,9 +3079,9 @@ export const pokemon_list = [
       name_ja: "クヌギダマ",
       hp: 50,
       attack: 65,
-      deffense: 90,
+      defense: 90,
       special_attack: 35,
-      special_deffense: 35,
+      special_defense: 35,
       speed: 15,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/204.png",
@@ -3209,7 +3097,6 @@ export const pokemon_list = [
         590, 679, 851, 861, 884,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 205,
@@ -3218,9 +3105,9 @@ export const pokemon_list = [
       name_ja: "フォレトス",
       hp: 75,
       attack: 90,
-      deffense: 140,
+      defense: 140,
       special_attack: 60,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/205.png",
@@ -3237,7 +3124,6 @@ export const pokemon_list = [
         590, 673, 679, 684, 776, 796, 851, 861, 884, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 206,
@@ -3246,9 +3132,9 @@ export const pokemon_list = [
       name_ja: "ノコッチ",
       hp: 100,
       attack: 70,
-      deffense: 70,
+      defense: 70,
       special_attack: 65,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/206.png",
@@ -3266,7 +3152,6 @@ export const pokemon_list = [
         679, 684, 707, 784, 799, 805, 806, 814, 851, 861, 884, 886, 887,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 207,
@@ -3275,9 +3160,9 @@ export const pokemon_list = [
       name_ja: "グライガー",
       hp: 65,
       attack: 75,
-      deffense: 105,
+      defense: 105,
       special_attack: 35,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/207.png",
@@ -3295,7 +3180,6 @@ export const pokemon_list = [
         667, 675, 679, 706, 784, 799, 806, 814, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 209,
@@ -3304,9 +3188,9 @@ export const pokemon_list = [
       name_ja: "ブルー",
       hp: 60,
       attack: 80,
-      deffense: 50,
+      defense: 50,
       special_attack: 40,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/209.png",
@@ -3324,7 +3208,6 @@ export const pokemon_list = [
         706, 707, 808, 851, 885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 210,
@@ -3333,9 +3216,9 @@ export const pokemon_list = [
       name_ja: "グランブル",
       hp: 90,
       attack: 120,
-      deffense: 75,
+      defense: 75,
       special_attack: 60,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/210.png",
@@ -3353,7 +3236,6 @@ export const pokemon_list = [
         526, 528, 555, 583, 590, 605, 612, 706, 707, 808, 851, 885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 211,
@@ -3362,9 +3244,9 @@ export const pokemon_list = [
       name_ja: "ハリーセン",
       hp: 65,
       attack: 95,
-      deffense: 85,
+      defense: 85,
       special_attack: 55,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/211.png",
@@ -3381,7 +3263,6 @@ export const pokemon_list = [
         565, 590, 599, 675, 710, 798, 799, 812, 839, 851, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 212,
@@ -3390,9 +3271,9 @@ export const pokemon_list = [
       name_ja: "ハッサム",
       hp: 70,
       attack: 130,
-      deffense: 100,
+      defense: 100,
       special_attack: 55,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/212.png",
@@ -3409,7 +3290,6 @@ export const pokemon_list = [
         673, 679, 693, 796, 806, 814, 851, 884, 885, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 214,
@@ -3418,9 +3298,9 @@ export const pokemon_list = [
       name_ja: "ヘラクロス",
       hp: 80,
       attack: 125,
-      deffense: 75,
+      defense: 75,
       special_attack: 40,
-      special_deffense: 95,
+      special_defense: 95,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/214.png",
@@ -3437,7 +3317,6 @@ export const pokemon_list = [
         679, 684, 693, 806, 811, 851, 884, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 215,
@@ -3446,9 +3325,9 @@ export const pokemon_list = [
       name_ja: "ニューラ",
       hp: 55,
       attack: 95,
-      deffense: 55,
+      defense: 55,
       special_attack: 35,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 115,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/215.png",
@@ -3466,7 +3345,6 @@ export const pokemon_list = [
         496, 514, 555, 556, 590, 612, 673, 675, 808, 813, 851, 883, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 216,
@@ -3475,9 +3353,9 @@ export const pokemon_list = [
       name_ja: "ヒメグマ",
       hp: 60,
       attack: 80,
-      deffense: 50,
+      defense: 50,
       special_attack: 50,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/216.png",
@@ -3494,7 +3372,6 @@ export const pokemon_list = [
         498, 514, 523, 526, 583, 589, 590, 608, 612, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 217,
@@ -3503,9 +3380,9 @@ export const pokemon_list = [
       name_ja: "リングマ",
       hp: 90,
       attack: 130,
-      deffense: 75,
+      defense: 75,
       special_attack: 75,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/217.png",
@@ -3523,7 +3400,6 @@ export const pokemon_list = [
         851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 219,
@@ -3532,9 +3408,9 @@ export const pokemon_list = [
       name_ja: "マグカルゴ",
       hp: 60,
       attack: 50,
-      deffense: 120,
+      defense: 120,
       special_attack: 90,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/219.png",
@@ -3551,7 +3427,6 @@ export const pokemon_list = [
         815, 851, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 220,
@@ -3560,9 +3435,9 @@ export const pokemon_list = [
       name_ja: "ウリムー",
       hp: 50,
       attack: 50,
-      deffense: 40,
+      defense: 40,
       special_attack: 30,
-      special_deffense: 30,
+      special_defense: 30,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/220.png",
@@ -3578,7 +3453,6 @@ export const pokemon_list = [
         667, 707, 851, 883, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 221,
@@ -3587,9 +3461,9 @@ export const pokemon_list = [
       name_ja: "イノムー",
       hp: 100,
       attack: 100,
-      deffense: 80,
+      defense: 80,
       special_attack: 60,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/221.png",
@@ -3605,7 +3479,6 @@ export const pokemon_list = [
         523, 556, 573, 590, 667, 675, 707, 851, 883, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 225,
@@ -3614,9 +3487,9 @@ export const pokemon_list = [
       name_ja: "デリバード",
       hp: 45,
       attack: 55,
-      deffense: 45,
+      defense: 45,
       special_attack: 65,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 75,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/225.png",
@@ -3633,7 +3506,6 @@ export const pokemon_list = [
         529, 573, 590, 612, 693, 694, 813, 814, 851, 861, 883, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 227,
@@ -3642,9 +3514,9 @@ export const pokemon_list = [
       name_ja: "エアームド",
       hp: 65,
       attack: 80,
-      deffense: 140,
+      defense: 140,
       special_attack: 40,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/227.png",
@@ -3661,7 +3533,6 @@ export const pokemon_list = [
         814, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 229,
@@ -3670,9 +3541,9 @@ export const pokemon_list = [
       name_ja: "ヘルガー",
       hp: 75,
       attack: 90,
-      deffense: 50,
+      defense: 50,
       special_attack: 110,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 95,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/229.png",
@@ -3689,7 +3560,6 @@ export const pokemon_list = [
         675, 706, 807, 808, 851, 885, 894, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 230,
@@ -3698,9 +3568,9 @@ export const pokemon_list = [
       name_ja: "キングドラ",
       hp: 75,
       attack: 95,
-      deffense: 95,
+      defense: 95,
       special_attack: 95,
-      special_deffense: 95,
+      special_defense: 95,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/230.png",
@@ -3716,7 +3586,6 @@ export const pokemon_list = [
         812, 834, 851, 883, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 232,
@@ -3725,9 +3594,9 @@ export const pokemon_list = [
       name_ja: "ドンファン",
       hp: 90,
       attack: 120,
-      deffense: 120,
+      defense: 120,
       special_attack: 60,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/232.png",
@@ -3744,7 +3613,6 @@ export const pokemon_list = [
         684, 693, 707, 776, 851, 861, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 233,
@@ -3753,9 +3621,9 @@ export const pokemon_list = [
       name_ja: "ポリゴン２",
       hp: 85,
       attack: 80,
-      deffense: 90,
+      defense: 90,
       special_attack: 105,
-      special_deffense: 95,
+      special_defense: 95,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/233.png",
@@ -3771,7 +3639,6 @@ export const pokemon_list = [
         527, 590, 598, 683, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 234,
@@ -3780,9 +3647,9 @@ export const pokemon_list = [
       name_ja: "オドシシ",
       hp: 73,
       attack: 95,
-      deffense: 62,
+      defense: 62,
       special_attack: 85,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/234.png",
@@ -3799,7 +3666,6 @@ export const pokemon_list = [
         496, 500, 514, 523, 526, 528, 590, 675, 679, 828, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 235,
@@ -3808,9 +3674,9 @@ export const pokemon_list = [
       name_ja: "ドーブル",
       hp: 55,
       attack: 20,
-      deffense: 35,
+      defense: 35,
       special_attack: 20,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 75,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/235.png",
@@ -3819,7 +3685,6 @@ export const pokemon_list = [
       ability_id_list: [20, 101, 141],
       move_id_list: [166],
     },
-    often_used_move: null,
   },
   {
     id: 237,
@@ -3828,9 +3693,9 @@ export const pokemon_list = [
       name_ja: "カポエラー",
       hp: 50,
       attack: 95,
-      deffense: 95,
+      defense: 95,
       special_attack: 35,
-      special_deffense: 110,
+      special_defense: 110,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/237.png",
@@ -3847,7 +3712,6 @@ export const pokemon_list = [
         918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 242,
@@ -3856,9 +3720,9 @@ export const pokemon_list = [
       name_ja: "ハピナス",
       hp: 255,
       attack: 10,
-      deffense: 10,
+      defense: 10,
       special_attack: 75,
-      special_deffense: 135,
+      special_defense: 135,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/242.png",
@@ -3877,7 +3741,6 @@ export const pokemon_list = [
         528, 574, 590, 604, 605, 612, 673, 707, 791, 851, 883, 885, 886, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 246,
@@ -3886,9 +3749,9 @@ export const pokemon_list = [
       name_ja: "ヨーギラス",
       hp: 50,
       attack: 64,
-      deffense: 50,
+      defense: 50,
       special_attack: 45,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 41,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/246.png",
@@ -3904,7 +3767,6 @@ export const pokemon_list = [
         514, 523, 555, 590, 612, 707, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 247,
@@ -3913,9 +3775,9 @@ export const pokemon_list = [
       name_ja: "サナギラス",
       hp: 70,
       attack: 84,
-      deffense: 70,
+      defense: 70,
       special_attack: 65,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 51,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/247.png",
@@ -3931,7 +3793,6 @@ export const pokemon_list = [
         523, 555, 590, 612, 667, 707, 808, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 248,
@@ -3940,9 +3801,9 @@ export const pokemon_list = [
       name_ja: "バンギラス",
       hp: 100,
       attack: 134,
-      deffense: 110,
+      defense: 110,
       special_attack: 95,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 61,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/248.png",
@@ -3961,7 +3822,6 @@ export const pokemon_list = [
         514, 523, 525, 555, 590, 612, 667, 693, 707, 776, 784, 808, 851, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 252,
@@ -3970,9 +3830,9 @@ export const pokemon_list = [
       name_ja: "キモリ",
       hp: 40,
       attack: 45,
-      deffense: 35,
+      defense: 35,
       special_attack: 65,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/252.png",
@@ -3989,7 +3849,6 @@ export const pokemon_list = [
         612, 670, 784, 803, 851, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 253,
@@ -3998,9 +3857,9 @@ export const pokemon_list = [
       name_ja: "ジュプトル",
       hp: 50,
       attack: 65,
-      deffense: 45,
+      defense: 45,
       special_attack: 85,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 95,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/253.png",
@@ -4017,7 +3876,6 @@ export const pokemon_list = [
         580, 590, 612, 669, 670, 784, 803, 851, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 254,
@@ -4026,9 +3884,9 @@ export const pokemon_list = [
       name_ja: "ジュカイン",
       hp: 70,
       attack: 85,
-      deffense: 65,
+      defense: 65,
       special_attack: 105,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 120,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/254.png",
@@ -4047,7 +3905,6 @@ export const pokemon_list = [
         913, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 255,
@@ -4056,9 +3913,9 @@ export const pokemon_list = [
       name_ja: "アチャモ",
       hp: 45,
       attack: 60,
-      deffense: 40,
+      defense: 40,
       special_attack: 70,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/255.png",
@@ -4074,7 +3931,6 @@ export const pokemon_list = [
         497, 510, 519, 526, 590, 851, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 256,
@@ -4083,9 +3939,9 @@ export const pokemon_list = [
       name_ja: "ワカシャモ",
       hp: 60,
       attack: 85,
-      deffense: 60,
+      defense: 60,
       special_attack: 85,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/256.png",
@@ -4102,7 +3958,6 @@ export const pokemon_list = [
         497, 510, 519, 526, 530, 590, 612, 811, 851, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 257,
@@ -4111,9 +3966,9 @@ export const pokemon_list = [
       name_ja: "バシャーモ",
       hp: 80,
       attack: 120,
-      deffense: 70,
+      defense: 70,
       special_attack: 110,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png",
@@ -4132,7 +3987,6 @@ export const pokemon_list = [
         851, 915, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 258,
@@ -4141,9 +3995,9 @@ export const pokemon_list = [
       name_ja: "ミズゴロウ",
       hp: 50,
       attack: 70,
-      deffense: 50,
+      defense: 50,
       special_attack: 50,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/258.png",
@@ -4159,7 +4013,6 @@ export const pokemon_list = [
         482, 496, 497, 503, 518, 526, 590, 710, 851, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 259,
@@ -4168,9 +4021,9 @@ export const pokemon_list = [
       name_ja: "ヌマクロー",
       hp: 70,
       attack: 85,
-      deffense: 70,
+      defense: 70,
       special_attack: 60,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/259.png",
@@ -4187,7 +4040,6 @@ export const pokemon_list = [
         526, 590, 612, 710, 851, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 260,
@@ -4196,9 +4048,9 @@ export const pokemon_list = [
       name_ja: "ラグラージ",
       hp: 100,
       attack: 110,
-      deffense: 90,
+      defense: 90,
       special_attack: 85,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/260.png",
@@ -4216,7 +4068,6 @@ export const pokemon_list = [
         526, 590, 612, 663, 667, 707, 710, 776, 812, 851, 886, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 262,
@@ -4225,9 +4076,9 @@ export const pokemon_list = [
       name_ja: "グラエナ",
       hp: 70,
       attack: 90,
-      deffense: 70,
+      defense: 70,
       special_attack: 60,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/262.png",
@@ -4243,7 +4094,6 @@ export const pokemon_list = [
         590, 673, 675, 706, 808, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 270,
@@ -4252,9 +4102,9 @@ export const pokemon_list = [
       name_ja: "ハスボー",
       hp: 40,
       attack: 30,
-      deffense: 30,
+      defense: 30,
       special_attack: 40,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/270.png",
@@ -4269,7 +4119,6 @@ export const pokemon_list = [
         445, 447, 496, 497, 503, 574, 580, 590, 803, 851, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 271,
@@ -4278,9 +4127,9 @@ export const pokemon_list = [
       name_ja: "ハスブレロ",
       hp: 60,
       attack: 50,
-      deffense: 50,
+      defense: 50,
       special_attack: 60,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/271.png",
@@ -4297,7 +4146,6 @@ export const pokemon_list = [
         590, 612, 803, 851, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 272,
@@ -4306,9 +4154,9 @@ export const pokemon_list = [
       name_ja: "ルンパッパ",
       hp: 80,
       attack: 70,
-      deffense: 70,
+      defense: 70,
       special_attack: 90,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/272.png",
@@ -4325,7 +4173,6 @@ export const pokemon_list = [
         468, 496, 497, 503, 574, 580, 590, 612, 803, 851, 861, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 273,
@@ -4334,9 +4181,9 @@ export const pokemon_list = [
       name_ja: "タネボー",
       hp: 40,
       attack: 40,
-      deffense: 50,
+      defense: 50,
       special_attack: 30,
-      special_deffense: 30,
+      special_defense: 30,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/273.png",
@@ -4352,7 +4199,6 @@ export const pokemon_list = [
         885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 274,
@@ -4361,9 +4207,9 @@ export const pokemon_list = [
       name_ja: "コノハナ",
       hp: 70,
       attack: 70,
-      deffense: 40,
+      defense: 40,
       special_attack: 60,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/274.png",
@@ -4381,7 +4227,6 @@ export const pokemon_list = [
         803, 808, 851, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 275,
@@ -4390,9 +4235,9 @@ export const pokemon_list = [
       name_ja: "ダーテング",
       hp: 90,
       attack: 100,
-      deffense: 60,
+      defense: 60,
       special_attack: 90,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/275.png",
@@ -4412,7 +4257,6 @@ export const pokemon_list = [
         808, 851, 885, 886, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 279,
@@ -4421,9 +4265,9 @@ export const pokemon_list = [
       name_ja: "ペリッパー",
       hp: 60,
       attack: 50,
-      deffense: 100,
+      defense: 100,
       special_attack: 95,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/279.png",
@@ -4439,7 +4283,6 @@ export const pokemon_list = [
         496, 497, 503, 507, 512, 542, 590, 710, 814, 851, 883, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 282,
@@ -4448,9 +4291,9 @@ export const pokemon_list = [
       name_ja: "サーナイト",
       hp: 68,
       attack: 65,
-      deffense: 65,
+      defense: 65,
       special_attack: 125,
-      special_deffense: 115,
+      special_defense: 115,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png",
@@ -4468,7 +4311,6 @@ export const pokemon_list = [
         590, 595, 605, 673, 678, 791, 797, 802, 813, 851, 914, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 283,
@@ -4477,9 +4319,9 @@ export const pokemon_list = [
       name_ja: "アメタマ",
       hp: 40,
       attack: 30,
-      deffense: 32,
+      defense: 32,
       special_attack: 50,
-      special_deffense: 52,
+      special_defense: 52,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/283.png",
@@ -4495,7 +4337,6 @@ export const pokemon_list = [
         886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 284,
@@ -4504,9 +4345,9 @@ export const pokemon_list = [
       name_ja: "アメモース",
       hp: 70,
       attack: 60,
-      deffense: 62,
+      defense: 62,
       special_attack: 100,
-      special_deffense: 82,
+      special_defense: 82,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/284.png",
@@ -4523,7 +4364,6 @@ export const pokemon_list = [
         806, 814, 851, 884, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 286,
@@ -4532,9 +4372,9 @@ export const pokemon_list = [
       name_ja: "キノガッサ",
       hp: 60,
       attack: 130,
-      deffense: 80,
+      defense: 80,
       special_attack: 60,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/286.png",
@@ -4551,7 +4391,6 @@ export const pokemon_list = [
         445, 447, 474, 490, 496, 514, 523, 526, 580, 590, 612, 673, 851, 884,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 288,
@@ -4560,9 +4399,9 @@ export const pokemon_list = [
       name_ja: "ヤルキモノ",
       hp: 80,
       attack: 80,
-      deffense: 80,
+      defense: 80,
       special_attack: 55,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 90,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/288.png",
@@ -4580,7 +4419,6 @@ export const pokemon_list = [
         590, 612, 675, 707, 808, 851, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 289,
@@ -4589,9 +4427,9 @@ export const pokemon_list = [
       name_ja: "ケッキング",
       hp: 150,
       attack: 160,
-      deffense: 100,
+      defense: 100,
       special_attack: 95,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 100,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/289.png",
@@ -4610,7 +4448,6 @@ export const pokemon_list = [
         707, 776, 808, 851, 884, 885, 886, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 297,
@@ -4619,9 +4456,9 @@ export const pokemon_list = [
       name_ja: "ハリテヤマ",
       hp: 144,
       attack: 120,
-      deffense: 60,
+      defense: 60,
       special_attack: 40,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/297.png",
@@ -4638,7 +4475,6 @@ export const pokemon_list = [
         590, 612, 675, 707, 776, 808, 811, 838, 851, 886, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 298,
@@ -4647,9 +4483,9 @@ export const pokemon_list = [
       name_ja: "ルリリ",
       hp: 50,
       attack: 20,
-      deffense: 40,
+      defense: 40,
       special_attack: 20,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 20,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/298.png",
@@ -4665,7 +4501,6 @@ export const pokemon_list = [
         914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 299,
@@ -4674,9 +4509,9 @@ export const pokemon_list = [
       name_ja: "ノズパス",
       hp: 30,
       attack: 45,
-      deffense: 135,
+      defense: 135,
       special_attack: 45,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/299.png",
@@ -4692,7 +4527,6 @@ export const pokemon_list = [
         521, 523, 590, 605, 667, 707, 776, 796, 800, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 302,
@@ -4701,9 +4535,9 @@ export const pokemon_list = [
       name_ja: "ヤミラミ",
       hp: 50,
       attack: 75,
-      deffense: 75,
+      defense: 75,
       special_attack: 65,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/302.png",
@@ -4723,7 +4557,6 @@ export const pokemon_list = [
         808, 809, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 307,
@@ -4732,9 +4565,9 @@ export const pokemon_list = [
       name_ja: "アサナン",
       hp: 30,
       attack: 40,
-      deffense: 55,
+      defense: 55,
       special_attack: 40,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/307.png",
@@ -4752,7 +4585,6 @@ export const pokemon_list = [
         590, 612, 678, 797, 851, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 308,
@@ -4761,9 +4593,9 @@ export const pokemon_list = [
       name_ja: "チャーレム",
       hp: 60,
       attack: 60,
-      deffense: 75,
+      defense: 75,
       special_attack: 60,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/308.png",
@@ -4781,7 +4613,6 @@ export const pokemon_list = [
         678, 797, 851, 853, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 311,
@@ -4790,9 +4621,9 @@ export const pokemon_list = [
       name_ja: "プラスル",
       hp: 60,
       attack: 50,
-      deffense: 40,
+      defense: 40,
       special_attack: 85,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 95,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/311.png",
@@ -4808,7 +4639,6 @@ export const pokemon_list = [
         521, 527, 528, 583, 589, 590, 598, 604, 609, 715, 851, 885, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 312,
@@ -4817,9 +4647,9 @@ export const pokemon_list = [
       name_ja: "マイナン",
       hp: 60,
       attack: 40,
-      deffense: 50,
+      defense: 50,
       special_attack: 75,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 95,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/312.png",
@@ -4835,7 +4665,6 @@ export const pokemon_list = [
         527, 528, 583, 589, 590, 604, 609, 715, 851, 885, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 313,
@@ -4844,9 +4673,9 @@ export const pokemon_list = [
       name_ja: "バルビート",
       hp: 65,
       attack: 73,
-      deffense: 75,
+      defense: 75,
       special_attack: 47,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/313.png",
@@ -4863,7 +4692,6 @@ export const pokemon_list = [
         885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 314,
@@ -4872,9 +4700,9 @@ export const pokemon_list = [
       name_ja: "イルミーゼ",
       hp: 65,
       attack: 47,
-      deffense: 75,
+      defense: 75,
       special_attack: 73,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/314.png",
@@ -4891,7 +4719,6 @@ export const pokemon_list = [
         611, 612, 806, 851, 884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 316,
@@ -4900,9 +4727,9 @@ export const pokemon_list = [
       name_ja: "ゴクリン",
       hp: 70,
       attack: 43,
-      deffense: 53,
+      defense: 53,
       special_attack: 43,
-      special_deffense: 53,
+      special_defense: 53,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/316.png",
@@ -4918,7 +4745,6 @@ export const pokemon_list = [
         482, 491, 496, 499, 562, 590, 599, 611, 612, 747, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 317,
@@ -4927,9 +4753,9 @@ export const pokemon_list = [
       name_ja: "マルノーム",
       hp: 100,
       attack: 73,
-      deffense: 83,
+      defense: 83,
       special_attack: 73,
-      special_deffense: 83,
+      special_defense: 83,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/317.png",
@@ -4946,7 +4772,6 @@ export const pokemon_list = [
         776, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 322,
@@ -4955,9 +4780,9 @@ export const pokemon_list = [
       name_ja: "ドンメル",
       hp: 60,
       attack: 60,
-      deffense: 40,
+      defense: 40,
       special_attack: 65,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 35,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/322.png",
@@ -4974,7 +4799,6 @@ export const pokemon_list = [
         851, 885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 323,
@@ -4983,9 +4807,9 @@ export const pokemon_list = [
       name_ja: "バクーダ",
       hp: 70,
       attack: 100,
-      deffense: 70,
+      defense: 70,
       special_attack: 105,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/323.png",
@@ -5002,7 +4826,6 @@ export const pokemon_list = [
         851, 885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 324,
@@ -5011,9 +4834,9 @@ export const pokemon_list = [
       name_ja: "コータス",
       hp: 70,
       attack: 85,
-      deffense: 140,
+      defense: 140,
       special_attack: 85,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 20,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/324.png",
@@ -5030,7 +4853,6 @@ export const pokemon_list = [
         915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 325,
@@ -5039,9 +4861,9 @@ export const pokemon_list = [
       name_ja: "バネブー",
       hp: 60,
       attack: 25,
-      deffense: 35,
+      defense: 35,
       special_attack: 70,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/325.png",
@@ -5058,7 +4880,6 @@ export const pokemon_list = [
         679, 797, 851, 883, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 326,
@@ -5067,9 +4888,9 @@ export const pokemon_list = [
       name_ja: "ブーピッグ",
       hp: 80,
       attack: 45,
-      deffense: 65,
+      defense: 65,
       special_attack: 90,
-      special_deffense: 110,
+      special_defense: 110,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/326.png",
@@ -5088,7 +4909,6 @@ export const pokemon_list = [
         883, 885, 886, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 328,
@@ -5097,9 +4917,9 @@ export const pokemon_list = [
       name_ja: "ナックラー",
       hp: 45,
       attack: 100,
-      deffense: 45,
+      defense: 45,
       special_attack: 45,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 10,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/328.png",
@@ -5114,7 +4934,6 @@ export const pokemon_list = [
         660, 673, 815, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 330,
@@ -5123,9 +4942,9 @@ export const pokemon_list = [
       name_ja: "フライゴン",
       hp: 80,
       attack: 100,
-      deffense: 80,
+      defense: 80,
       special_attack: 80,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 100,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/330.png",
@@ -5143,7 +4962,6 @@ export const pokemon_list = [
         675, 693, 784, 799, 814, 815, 851, 913, 914, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 331,
@@ -5152,9 +4970,9 @@ export const pokemon_list = [
       name_ja: "サボネア",
       hp: 50,
       attack: 85,
-      deffense: 40,
+      defense: 40,
       special_attack: 85,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 35,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/331.png",
@@ -5172,7 +4990,6 @@ export const pokemon_list = [
         885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 332,
@@ -5181,9 +4998,9 @@ export const pokemon_list = [
       name_ja: "ノクタス",
       hp: 70,
       attack: 115,
-      deffense: 60,
+      defense: 60,
       special_attack: 115,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/332.png",
@@ -5201,7 +5018,6 @@ export const pokemon_list = [
         675, 679, 681, 707, 803, 806, 808, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 334,
@@ -5210,9 +5026,9 @@ export const pokemon_list = [
       name_ja: "チルタリス",
       hp: 75,
       attack: 70,
-      deffense: 90,
+      defense: 90,
       special_attack: 70,
-      special_deffense: 105,
+      special_defense: 105,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/334.png",
@@ -5229,7 +5045,6 @@ export const pokemon_list = [
         574, 583, 585, 590, 605, 784, 814, 851, 883, 885, 913, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 335,
@@ -5238,9 +5053,9 @@ export const pokemon_list = [
       name_ja: "ザングース",
       hp: 73,
       attack: 115,
-      deffense: 60,
+      defense: 60,
       special_attack: 60,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 90,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/335.png",
@@ -5259,7 +5074,6 @@ export const pokemon_list = [
         681, 851, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 336,
@@ -5268,9 +5082,9 @@ export const pokemon_list = [
       name_ja: "ハブネーク",
       hp: 73,
       attack: 100,
-      deffense: 60,
+      defense: 60,
       special_attack: 100,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/336.png",
@@ -5288,7 +5102,6 @@ export const pokemon_list = [
         851, 884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 340,
@@ -5297,9 +5110,9 @@ export const pokemon_list = [
       name_ja: "ナマズン",
       hp: 110,
       attack: 78,
-      deffense: 73,
+      defense: 73,
       special_attack: 76,
-      special_deffense: 71,
+      special_defense: 71,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/340.png",
@@ -5315,7 +5128,6 @@ export const pokemon_list = [
         523, 562, 590, 667, 707, 710, 851, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 341,
@@ -5324,9 +5136,9 @@ export const pokemon_list = [
       name_ja: "ヘイガニ",
       hp: 43,
       attack: 80,
-      deffense: 65,
+      defense: 65,
       special_attack: 50,
-      special_deffense: 35,
+      special_defense: 35,
       speed: 35,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/341.png",
@@ -5342,7 +5154,6 @@ export const pokemon_list = [
         453, 458, 468, 496, 498, 503, 534, 590, 710, 851, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 342,
@@ -5351,9 +5162,9 @@ export const pokemon_list = [
       name_ja: "シザリガー",
       hp: 63,
       attack: 120,
-      deffense: 85,
+      defense: 85,
       special_attack: 90,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/342.png",
@@ -5370,7 +5181,6 @@ export const pokemon_list = [
         503, 514, 534, 555, 590, 710, 808, 851, 886, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 350,
@@ -5379,9 +5189,9 @@ export const pokemon_list = [
       name_ja: "ミロカロス",
       hp: 95,
       attack: 60,
-      deffense: 79,
+      defense: 79,
       special_attack: 100,
-      special_deffense: 125,
+      special_defense: 125,
       speed: 81,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/350.png",
@@ -5398,7 +5208,6 @@ export const pokemon_list = [
         886, 913, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 353,
@@ -5407,9 +5216,9 @@ export const pokemon_list = [
       name_ja: "カゲボウズ",
       hp: 44,
       attack: 75,
-      deffense: 35,
+      defense: 35,
       special_attack: 63,
-      special_deffense: 33,
+      special_defense: 33,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/353.png",
@@ -5426,7 +5235,6 @@ export const pokemon_list = [
         851, 884,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 354,
@@ -5435,9 +5243,9 @@ export const pokemon_list = [
       name_ja: "ジュペッタ",
       hp: 64,
       attack: 115,
-      deffense: 65,
+      defense: 65,
       special_attack: 83,
-      special_deffense: 63,
+      special_defense: 63,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/354.png",
@@ -5454,7 +5262,6 @@ export const pokemon_list = [
         806, 807, 808, 809, 851, 884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 355,
@@ -5463,9 +5270,9 @@ export const pokemon_list = [
       name_ja: "ヨマワル",
       hp: 20,
       attack: 40,
-      deffense: 90,
+      defense: 90,
       special_attack: 30,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 25,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/355.png",
@@ -5481,7 +5288,6 @@ export const pokemon_list = [
         477, 496, 502, 506, 566, 590, 611, 806, 809, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 356,
@@ -5490,9 +5296,9 @@ export const pokemon_list = [
       name_ja: "サマヨール",
       hp: 40,
       attack: 70,
-      deffense: 130,
+      defense: 130,
       special_attack: 60,
-      special_deffense: 130,
+      special_defense: 130,
       speed: 25,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/356.png",
@@ -5509,7 +5315,6 @@ export const pokemon_list = [
         472, 477, 496, 502, 506, 523, 566, 590, 611, 612, 806, 809, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 357,
@@ -5518,9 +5323,9 @@ export const pokemon_list = [
       name_ja: "トロピウス",
       hp: 99,
       attack: 68,
-      deffense: 83,
+      defense: 83,
       special_attack: 72,
-      special_deffense: 87,
+      special_defense: 87,
       speed: 51,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/357.png",
@@ -5537,7 +5342,6 @@ export const pokemon_list = [
         693, 707, 776, 814, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 358,
@@ -5546,9 +5350,9 @@ export const pokemon_list = [
       name_ja: "チリーン",
       hp: 75,
       attack: 50,
-      deffense: 80,
+      defense: 80,
       special_attack: 95,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/358.png",
@@ -5565,7 +5369,6 @@ export const pokemon_list = [
         497, 500, 502, 505, 555, 574, 577, 578, 590, 605, 673, 797, 851, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 362,
@@ -5574,9 +5377,9 @@ export const pokemon_list = [
       name_ja: "オニゴーリ",
       hp: 80,
       attack: 80,
-      deffense: 80,
+      defense: 80,
       special_attack: 80,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/362.png",
@@ -5592,7 +5395,6 @@ export const pokemon_list = [
         798, 851, 861, 883, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 370,
@@ -5601,9 +5403,9 @@ export const pokemon_list = [
       name_ja: "ラブカス",
       hp: 43,
       attack: 30,
-      deffense: 55,
+      defense: 55,
       special_attack: 40,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 97,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/370.png",
@@ -5618,7 +5420,6 @@ export const pokemon_list = [
         590, 608, 710, 715, 799, 812, 851, 883,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 371,
@@ -5627,9 +5428,9 @@ export const pokemon_list = [
       name_ja: "タツベイ",
       hp: 45,
       attack: 75,
-      deffense: 60,
+      defense: 60,
       special_attack: 40,
-      special_deffense: 30,
+      special_defense: 30,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/371.png",
@@ -5644,7 +5445,6 @@ export const pokemon_list = [
         428, 434, 442, 445, 468, 496, 510, 525, 590, 851, 913,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 373,
@@ -5653,9 +5453,9 @@ export const pokemon_list = [
       name_ja: "ボーマンダ",
       hp: 95,
       attack: 135,
-      deffense: 80,
+      defense: 80,
       special_attack: 110,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 100,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/373.png",
@@ -5672,7 +5472,6 @@ export const pokemon_list = [
         784, 814, 851, 913, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 374,
@@ -5681,9 +5480,9 @@ export const pokemon_list = [
       name_ja: "ダンバル",
       hp: 40,
       attack: 55,
-      deffense: 80,
+      defense: 80,
       special_attack: 35,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/374.png",
@@ -5692,7 +5491,6 @@ export const pokemon_list = [
       ability_id_list: [29, 135],
       move_id_list: [29, 33, 36, 334, 428, 442, 796, 851],
     },
-    often_used_move: null,
   },
   {
     id: 375,
@@ -5701,9 +5499,9 @@ export const pokemon_list = [
       name_ja: "メタング",
       hp: 60,
       attack: 75,
-      deffense: 100,
+      defense: 100,
       special_attack: 55,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/375.png",
@@ -5720,7 +5518,6 @@ export const pokemon_list = [
         800, 851, 885, 912, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 376,
@@ -5729,9 +5526,9 @@ export const pokemon_list = [
       name_ja: "メタグロス",
       hp: 80,
       attack: 135,
-      deffense: 130,
+      defense: 130,
       special_attack: 95,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/376.png",
@@ -5749,7 +5546,6 @@ export const pokemon_list = [
         917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 388,
@@ -5758,9 +5554,9 @@ export const pokemon_list = [
       name_ja: "ハヤシガメ",
       hp: 75,
       attack: 89,
-      deffense: 85,
+      defense: 85,
       special_attack: 55,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 36,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/388.png",
@@ -5776,7 +5572,6 @@ export const pokemon_list = [
         523, 526, 580, 590, 670, 803, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 389,
@@ -5785,9 +5580,9 @@ export const pokemon_list = [
       name_ja: "ドダイトス",
       hp: 95,
       attack: 109,
-      deffense: 105,
+      defense: 105,
       special_attack: 75,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 56,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/389.png",
@@ -5805,7 +5600,6 @@ export const pokemon_list = [
         912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 392,
@@ -5814,9 +5608,9 @@ export const pokemon_list = [
       name_ja: "ゴウカザル",
       hp: 76,
       attack: 104,
-      deffense: 71,
+      defense: 71,
       special_attack: 104,
-      special_deffense: 71,
+      special_defense: 71,
       speed: 108,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/392.png",
@@ -5835,7 +5629,6 @@ export const pokemon_list = [
         808, 811, 815, 833, 851, 915, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 393,
@@ -5844,9 +5637,9 @@ export const pokemon_list = [
       name_ja: "ポッチャマ",
       hp: 53,
       attack: 51,
-      deffense: 53,
+      defense: 53,
       special_attack: 61,
-      special_deffense: 56,
+      special_defense: 56,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/393.png",
@@ -5862,7 +5655,6 @@ export const pokemon_list = [
         526, 574, 590, 681, 710, 812, 813, 851, 861, 883, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 394,
@@ -5871,9 +5663,9 @@ export const pokemon_list = [
       name_ja: "ポッタイシ",
       hp: 64,
       attack: 66,
-      deffense: 68,
+      defense: 68,
       special_attack: 81,
-      special_deffense: 76,
+      special_defense: 76,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/394.png",
@@ -5890,7 +5682,6 @@ export const pokemon_list = [
         886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 395,
@@ -5899,9 +5690,9 @@ export const pokemon_list = [
       name_ja: "エンペルト",
       hp: 84,
       attack: 86,
-      deffense: 88,
+      defense: 88,
       special_attack: 111,
-      special_deffense: 101,
+      special_defense: 101,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/395.png",
@@ -5919,7 +5710,6 @@ export const pokemon_list = [
         673, 675, 681, 710, 796, 808, 812, 813, 814, 834, 851, 861, 883, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 398,
@@ -5928,9 +5718,9 @@ export const pokemon_list = [
       name_ja: "ムクホーク",
       hp: 85,
       attack: 120,
-      deffense: 70,
+      defense: 70,
       special_attack: 50,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 100,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/398.png",
@@ -5945,7 +5735,6 @@ export const pokemon_list = [
         526, 542, 590, 673, 814, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 402,
@@ -5954,9 +5743,9 @@ export const pokemon_list = [
       name_ja: "コロトック",
       hp: 77,
       attack: 85,
-      deffense: 51,
+      defense: 51,
       special_attack: 55,
-      special_deffense: 51,
+      special_defense: 51,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/402.png",
@@ -5972,7 +5761,6 @@ export const pokemon_list = [
         885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 405,
@@ -5981,9 +5769,9 @@ export const pokemon_list = [
       name_ja: "レントラー",
       hp: 80,
       attack: 120,
-      deffense: 79,
+      defense: 79,
       special_attack: 95,
-      special_deffense: 79,
+      special_defense: 79,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/405.png",
@@ -5999,7 +5787,6 @@ export const pokemon_list = [
         885, 916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 408,
@@ -6008,9 +5795,9 @@ export const pokemon_list = [
       name_ja: "ズガイドス",
       hp: 67,
       attack: 125,
-      deffense: 40,
+      defense: 40,
       special_attack: 30,
-      special_deffense: 30,
+      special_defense: 30,
       speed: 58,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/408.png",
@@ -6026,7 +5813,6 @@ export const pokemon_list = [
         496, 498, 510, 523, 590, 612, 707, 851, 885, 913,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 409,
@@ -6035,9 +5821,9 @@ export const pokemon_list = [
       name_ja: "ラムパルド",
       hp: 97,
       attack: 165,
-      deffense: 60,
+      defense: 60,
       special_attack: 65,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 58,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/409.png",
@@ -6054,7 +5840,6 @@ export const pokemon_list = [
         510, 523, 525, 590, 612, 673, 707, 776, 784, 851, 885, 913, 916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 410,
@@ -6063,9 +5848,9 @@ export const pokemon_list = [
       name_ja: "タテトプス",
       hp: 30,
       attack: 42,
-      deffense: 118,
+      defense: 118,
       special_attack: 42,
-      special_deffense: 88,
+      special_defense: 88,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/410.png",
@@ -6081,7 +5866,6 @@ export const pokemon_list = [
         851, 885, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 411,
@@ -6090,9 +5874,9 @@ export const pokemon_list = [
       name_ja: "トリデプス",
       hp: 60,
       attack: 52,
-      deffense: 168,
+      defense: 168,
       special_attack: 47,
-      special_deffense: 138,
+      special_defense: 138,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/411.png",
@@ -6108,7 +5892,6 @@ export const pokemon_list = [
         484, 492, 496, 510, 523, 590, 707, 776, 796, 800, 815, 851, 885, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 415,
@@ -6117,9 +5900,9 @@ export const pokemon_list = [
       name_ja: "ミツハニー",
       hp: 30,
       attack: 30,
-      deffense: 42,
+      defense: 42,
       special_attack: 30,
-      special_deffense: 42,
+      special_defense: 42,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/415.png",
@@ -6131,7 +5914,6 @@ export const pokemon_list = [
         806, 814, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 416,
@@ -6140,9 +5922,9 @@ export const pokemon_list = [
       name_ja: "ビークイン",
       hp: 70,
       attack: 80,
-      deffense: 102,
+      defense: 102,
       special_attack: 80,
-      special_deffense: 102,
+      special_defense: 102,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/416.png",
@@ -6159,7 +5941,6 @@ export const pokemon_list = [
         676, 679, 806, 814, 851, 884, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 417,
@@ -6168,9 +5949,9 @@ export const pokemon_list = [
       name_ja: "パチリス",
       hp: 60,
       attack: 45,
-      deffense: 70,
+      defense: 70,
       special_attack: 45,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 95,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/417.png",
@@ -6187,7 +5968,6 @@ export const pokemon_list = [
         885, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 418,
@@ -6196,9 +5976,9 @@ export const pokemon_list = [
       name_ja: "ブイゼル",
       hp: 55,
       attack: 65,
-      deffense: 35,
+      defense: 35,
       special_attack: 60,
-      special_deffense: 30,
+      special_defense: 30,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/418.png",
@@ -6214,7 +5994,6 @@ export const pokemon_list = [
         496, 497, 503, 541, 590, 612, 710, 812, 834, 851, 861, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 419,
@@ -6223,9 +6002,9 @@ export const pokemon_list = [
       name_ja: "フローゼル",
       hp: 85,
       attack: 105,
-      deffense: 55,
+      defense: 55,
       special_attack: 85,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 115,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/419.png",
@@ -6241,7 +6020,6 @@ export const pokemon_list = [
         487, 490, 496, 497, 503, 555, 590, 612, 710, 812, 834, 851, 861, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 422,
@@ -6250,9 +6028,9 @@ export const pokemon_list = [
       name_ja: "カラナクシ(にしのうみ)",
       hp: 76,
       attack: 48,
-      deffense: 48,
+      defense: 48,
       special_attack: 57,
-      special_deffense: 62,
+      special_defense: 62,
       speed: 34,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/422.png",
@@ -6268,7 +6046,6 @@ export const pokemon_list = [
         883, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 423,
@@ -6277,9 +6054,9 @@ export const pokemon_list = [
       name_ja: "トリトドン(にしのうみ)",
       hp: 111,
       attack: 83,
-      deffense: 68,
+      defense: 68,
       special_attack: 92,
-      special_deffense: 82,
+      special_defense: 82,
       speed: 39,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/423.png",
@@ -6295,7 +6072,6 @@ export const pokemon_list = [
         710, 806, 851, 883, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 424,
@@ -6304,9 +6080,9 @@ export const pokemon_list = [
       name_ja: "エテボース",
       hp: 75,
       attack: 100,
-      deffense: 66,
+      defense: 66,
       special_attack: 60,
-      special_deffense: 66,
+      special_defense: 66,
       speed: 115,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/424.png",
@@ -6323,7 +6099,6 @@ export const pokemon_list = [
         512, 514, 526, 530, 590, 612, 673, 675, 813, 851, 885, 886, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 426,
@@ -6332,9 +6107,9 @@ export const pokemon_list = [
       name_ja: "フワライド",
       hp: 150,
       attack: 80,
-      deffense: 44,
+      defense: 44,
       special_attack: 90,
-      special_deffense: 54,
+      special_defense: 54,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/426.png",
@@ -6351,7 +6126,6 @@ export const pokemon_list = [
         512, 566, 590, 668, 693, 851, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 429,
@@ -6360,9 +6134,9 @@ export const pokemon_list = [
       name_ja: "ムウマージ",
       hp: 60,
       attack: 60,
-      deffense: 60,
+      defense: 60,
       special_attack: 105,
-      special_deffense: 105,
+      special_defense: 105,
       speed: 105,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/429.png",
@@ -6379,7 +6153,6 @@ export const pokemon_list = [
         502, 506, 566, 577, 590, 595, 605, 673, 807, 808, 809, 851, 883, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 430,
@@ -6388,9 +6161,9 @@ export const pokemon_list = [
       name_ja: "ドンカラス",
       hp: 100,
       attack: 125,
-      deffense: 52,
+      defense: 52,
       special_attack: 105,
-      special_deffense: 52,
+      special_defense: 52,
       speed: 71,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/430.png",
@@ -6407,7 +6180,6 @@ export const pokemon_list = [
         851, 886, 894, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 435,
@@ -6416,9 +6188,9 @@ export const pokemon_list = [
       name_ja: "スカタンク",
       hp: 103,
       attack: 93,
-      deffense: 67,
+      defense: 67,
       special_attack: 71,
-      special_deffense: 61,
+      special_defense: 61,
       speed: 84,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/435.png",
@@ -6435,7 +6207,6 @@ export const pokemon_list = [
         675, 807, 808, 810, 851, 885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 437,
@@ -6444,9 +6215,9 @@ export const pokemon_list = [
       name_ja: "ドータクン",
       hp: 67,
       attack: 89,
-      deffense: 116,
+      defense: 116,
       special_attack: 79,
-      special_deffense: 116,
+      special_defense: 116,
       speed: 33,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/437.png",
@@ -6463,7 +6234,6 @@ export const pokemon_list = [
         683, 707, 776, 796, 797, 798, 800, 851, 861, 912, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 438,
@@ -6472,9 +6242,9 @@ export const pokemon_list = [
       name_ja: "ウソハチ",
       hp: 50,
       attack: 80,
-      deffense: 95,
+      defense: 95,
       special_attack: 10,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 10,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/438.png",
@@ -6490,7 +6260,6 @@ export const pokemon_list = [
         851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 442,
@@ -6499,9 +6268,9 @@ export const pokemon_list = [
       name_ja: "ミカルゲ",
       hp: 50,
       attack: 92,
-      deffense: 108,
+      defense: 108,
       special_attack: 92,
-      special_deffense: 108,
+      special_defense: 108,
       speed: 35,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/442.png",
@@ -6517,7 +6286,6 @@ export const pokemon_list = [
         500, 502, 506, 511, 514, 555, 566, 590, 611, 807, 808, 809, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 445,
@@ -6526,9 +6294,9 @@ export const pokemon_list = [
       name_ja: "ガブリアス",
       hp: 108,
       attack: 130,
-      deffense: 95,
+      defense: 95,
       special_attack: 80,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 102,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/445.png",
@@ -6545,7 +6313,6 @@ export const pokemon_list = [
         784, 799, 815, 851, 913,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 446,
@@ -6554,9 +6321,9 @@ export const pokemon_list = [
       name_ja: "ゴンベ",
       hp: 135,
       attack: 85,
-      deffense: 40,
+      defense: 40,
       special_attack: 40,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 5,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/446.png",
@@ -6573,7 +6340,6 @@ export const pokemon_list = [
         496, 498, 510, 514, 523, 526, 562, 590, 612, 707, 851, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 447,
@@ -6582,9 +6348,9 @@ export const pokemon_list = [
       name_ja: "リオル",
       hp: 40,
       attack: 70,
-      deffense: 40,
+      defense: 40,
       special_attack: 35,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/447.png",
@@ -6601,7 +6367,6 @@ export const pokemon_list = [
         530, 590, 612, 673, 811, 851, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 448,
@@ -6610,9 +6375,9 @@ export const pokemon_list = [
       name_ja: "ルカリオ",
       hp: 70,
       attack: 110,
-      deffense: 70,
+      defense: 70,
       special_attack: 115,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 90,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/448.png",
@@ -6630,7 +6395,6 @@ export const pokemon_list = [
         612, 673, 791, 796, 805, 811, 851, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 449,
@@ -6639,9 +6403,9 @@ export const pokemon_list = [
       name_ja: "ヒポポタス",
       hp: 68,
       attack: 72,
-      deffense: 78,
+      defense: 78,
       special_attack: 38,
-      special_deffense: 42,
+      special_defense: 42,
       speed: 32,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/449.png",
@@ -6656,7 +6420,6 @@ export const pokemon_list = [
         496, 523, 590, 667, 707, 776, 815, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 450,
@@ -6665,9 +6428,9 @@ export const pokemon_list = [
       name_ja: "カバルドン",
       hp: 108,
       attack: 112,
-      deffense: 118,
+      defense: 118,
       special_attack: 68,
-      special_deffense: 72,
+      special_defense: 72,
       speed: 47,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/450.png",
@@ -6682,7 +6445,6 @@ export const pokemon_list = [
         484, 496, 523, 590, 667, 707, 776, 815, 851, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 454,
@@ -6691,9 +6453,9 @@ export const pokemon_list = [
       name_ja: "ドクロッグ",
       hp: 83,
       attack: 106,
-      deffense: 65,
+      defense: 65,
       special_attack: 86,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/454.png",
@@ -6711,7 +6473,6 @@ export const pokemon_list = [
         810, 811, 851, 886, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 457,
@@ -6720,9 +6481,9 @@ export const pokemon_list = [
       name_ja: "ネオラント",
       hp: 69,
       attack: 69,
-      deffense: 76,
+      defense: 76,
       special_attack: 69,
-      special_deffense: 86,
+      special_defense: 86,
       speed: 91,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/457.png",
@@ -6737,7 +6498,6 @@ export const pokemon_list = [
         466, 487, 496, 503, 512, 590, 605, 812, 851, 886, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 460,
@@ -6746,9 +6506,9 @@ export const pokemon_list = [
       name_ja: "ユキノオー",
       hp: 90,
       attack: 92,
-      deffense: 75,
+      defense: 75,
       special_attack: 92,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/460.png",
@@ -6765,7 +6525,6 @@ export const pokemon_list = [
         851, 861, 883, 885, 886, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 461,
@@ -6774,9 +6533,9 @@ export const pokemon_list = [
       name_ja: "マニューラ",
       hp: 70,
       attack: 120,
-      deffense: 65,
+      defense: 65,
       special_attack: 45,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 125,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/461.png",
@@ -6794,7 +6553,6 @@ export const pokemon_list = [
         851, 861, 883, 885, 886, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 462,
@@ -6803,9 +6561,9 @@ export const pokemon_list = [
       name_ja: "ジバコイル",
       hp: 70,
       attack: 70,
-      deffense: 115,
+      defense: 115,
       special_attack: 130,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/462.png",
@@ -6821,7 +6579,6 @@ export const pokemon_list = [
         604, 776, 796, 798, 804, 851, 912, 916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 464,
@@ -6830,9 +6587,9 @@ export const pokemon_list = [
       name_ja: "ドサイドン",
       hp: 115,
       attack: 140,
-      deffense: 130,
+      defense: 130,
       special_attack: 55,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/464.png",
@@ -6851,7 +6608,6 @@ export const pokemon_list = [
         707, 776, 784, 800, 815, 851, 915, 916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 466,
@@ -6860,9 +6616,9 @@ export const pokemon_list = [
       name_ja: "エレキブル",
       hp: 75,
       attack: 123,
-      deffense: 67,
+      defense: 67,
       special_attack: 95,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 95,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/466.png",
@@ -6879,7 +6635,6 @@ export const pokemon_list = [
         612, 663, 707, 804, 851, 885, 916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 467,
@@ -6888,9 +6643,9 @@ export const pokemon_list = [
       name_ja: "ブーバーン",
       hp: 75,
       attack: 95,
-      deffense: 67,
+      defense: 67,
       special_attack: 125,
-      special_deffense: 95,
+      special_defense: 95,
       speed: 83,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/467.png",
@@ -6907,7 +6662,6 @@ export const pokemon_list = [
         535, 562, 590, 595, 612, 707, 807, 815, 851, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 469,
@@ -6916,9 +6670,9 @@ export const pokemon_list = [
       name_ja: "メガヤンマ",
       hp: 86,
       attack: 76,
-      deffense: 86,
+      defense: 86,
       special_attack: 116,
-      special_deffense: 56,
+      special_defense: 56,
       speed: 95,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/469.png",
@@ -6934,7 +6688,6 @@ export const pokemon_list = [
         806, 814, 851, 884, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 470,
@@ -6943,9 +6696,9 @@ export const pokemon_list = [
       name_ja: "リーフィア",
       hp: 65,
       attack: 110,
-      deffense: 130,
+      defense: 130,
       special_attack: 60,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 95,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/470.png",
@@ -6961,7 +6714,6 @@ export const pokemon_list = [
         496, 497, 500, 514, 526, 590, 608, 669, 673, 803, 851, 885, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 471,
@@ -6970,9 +6722,9 @@ export const pokemon_list = [
       name_ja: "グレイシア",
       hp: 65,
       attack: 60,
-      deffense: 110,
+      defense: 110,
       special_attack: 130,
-      special_deffense: 95,
+      special_defense: 95,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/471.png",
@@ -6988,7 +6740,6 @@ export const pokemon_list = [
         526, 573, 590, 608, 673, 694, 813, 851, 883, 886, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 472,
@@ -6997,9 +6748,9 @@ export const pokemon_list = [
       name_ja: "グライオン",
       hp: 75,
       attack: 95,
-      deffense: 125,
+      defense: 125,
       special_attack: 45,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 95,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/472.png",
@@ -7017,7 +6768,6 @@ export const pokemon_list = [
         706, 784, 799, 806, 814, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 473,
@@ -7026,9 +6776,9 @@ export const pokemon_list = [
       name_ja: "マンムー",
       hp: 110,
       attack: 130,
-      deffense: 80,
+      defense: 80,
       special_attack: 70,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/473.png",
@@ -7045,7 +6795,6 @@ export const pokemon_list = [
         883, 885, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 474,
@@ -7054,9 +6803,9 @@ export const pokemon_list = [
       name_ja: "ポリゴンＺ",
       hp: 85,
       attack: 80,
-      deffense: 70,
+      defense: 70,
       special_attack: 135,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 90,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/474.png",
@@ -7072,7 +6821,6 @@ export const pokemon_list = [
         502, 527, 590, 598, 683, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 475,
@@ -7081,9 +6829,9 @@ export const pokemon_list = [
       name_ja: "エルレイド",
       hp: 68,
       attack: 125,
-      deffense: 65,
+      defense: 65,
       special_attack: 65,
-      special_deffense: 115,
+      special_defense: 115,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/475.png",
@@ -7103,7 +6851,6 @@ export const pokemon_list = [
         612, 669, 673, 675, 678, 791, 797, 811, 813, 851, 895, 914, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 476,
@@ -7112,9 +6859,9 @@ export const pokemon_list = [
       name_ja: "ダイノーズ",
       hp: 60,
       attack: 55,
-      deffense: 145,
+      defense: 145,
       special_attack: 75,
-      special_deffense: 150,
+      special_defense: 150,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/476.png",
@@ -7131,7 +6878,6 @@ export const pokemon_list = [
         912, 916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 477,
@@ -7140,9 +6886,9 @@ export const pokemon_list = [
       name_ja: "ヨノワール",
       hp: 45,
       attack: 100,
-      deffense: 135,
+      defense: 135,
       special_attack: 65,
-      special_deffense: 135,
+      special_defense: 135,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/477.png",
@@ -7159,7 +6905,6 @@ export const pokemon_list = [
         496, 502, 506, 523, 566, 590, 611, 612, 663, 673, 806, 809, 851, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 478,
@@ -7168,9 +6913,9 @@ export const pokemon_list = [
       name_ja: "ユキメノコ",
       hp: 70,
       attack: 80,
-      deffense: 70,
+      defense: 70,
       special_attack: 80,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 110,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/478.png",
@@ -7187,7 +6932,6 @@ export const pokemon_list = [
         694, 809, 813, 851, 861, 883, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 479,
@@ -7196,9 +6940,9 @@ export const pokemon_list = [
       name_ja: "ロトム(ロトムのすがた)",
       hp: 50,
       attack: 50,
-      deffense: 77,
+      defense: 77,
       special_attack: 95,
-      special_deffense: 77,
+      special_defense: 77,
       speed: 91,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/479.png",
@@ -7213,7 +6957,6 @@ export const pokemon_list = [
         506, 521, 527, 590, 598, 604, 804, 809, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 495,
@@ -7222,9 +6965,9 @@ export const pokemon_list = [
       name_ja: "ツタージャ",
       hp: 45,
       attack: 45,
-      deffense: 55,
+      defense: 55,
       special_attack: 45,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 63,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/495.png",
@@ -7240,7 +6983,6 @@ export const pokemon_list = [
         590, 803, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 496,
@@ -7249,9 +6991,9 @@ export const pokemon_list = [
       name_ja: "ジャノビー",
       hp: 60,
       attack: 60,
-      deffense: 75,
+      defense: 75,
       special_attack: 60,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 83,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/496.png",
@@ -7267,7 +7009,6 @@ export const pokemon_list = [
         885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 497,
@@ -7276,9 +7017,9 @@ export const pokemon_list = [
       name_ja: "ジャローダ",
       hp: 75,
       attack: 75,
-      deffense: 95,
+      defense: 95,
       special_attack: 75,
-      special_deffense: 95,
+      special_defense: 95,
       speed: 113,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/497.png",
@@ -7294,7 +7035,6 @@ export const pokemon_list = [
         520, 525, 526, 536, 572, 580, 590, 693, 784, 799, 803, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 498,
@@ -7303,9 +7043,9 @@ export const pokemon_list = [
       name_ja: "ポカブ",
       hp: 65,
       attack: 63,
-      deffense: 45,
+      defense: 45,
       special_attack: 45,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/498.png",
@@ -7320,7 +7060,6 @@ export const pokemon_list = [
         496, 497, 510, 519, 526, 528, 535, 590, 682, 707, 851, 885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 499,
@@ -7329,9 +7068,9 @@ export const pokemon_list = [
       name_ja: "チャオブー",
       hp: 90,
       attack: 93,
-      deffense: 55,
+      defense: 55,
       special_attack: 70,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/499.png",
@@ -7348,7 +7087,6 @@ export const pokemon_list = [
         851, 885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 500,
@@ -7357,9 +7095,9 @@ export const pokemon_list = [
       name_ja: "エンブオー",
       hp: 110,
       attack: 123,
-      deffense: 65,
+      defense: 65,
       special_attack: 100,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/500.png",
@@ -7376,7 +7114,6 @@ export const pokemon_list = [
         523, 526, 528, 535, 590, 612, 667, 707, 776, 811, 851, 885, 912, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 501,
@@ -7385,9 +7122,9 @@ export const pokemon_list = [
       name_ja: "ミジュマル",
       hp: 55,
       attack: 55,
-      deffense: 45,
+      defense: 45,
       special_attack: 63,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/501.png",
@@ -7403,7 +7140,6 @@ export const pokemon_list = [
         851, 883, 886, 895,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 503,
@@ -7412,9 +7148,9 @@ export const pokemon_list = [
       name_ja: "ダイケンキ",
       hp: 95,
       attack: 100,
-      deffense: 85,
+      defense: 85,
       special_attack: 108,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/503.png",
@@ -7431,7 +7167,6 @@ export const pokemon_list = [
         710, 808, 812, 851, 883, 886, 895, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 523,
@@ -7440,9 +7175,9 @@ export const pokemon_list = [
       name_ja: "ゼブライカ",
       hp: 75,
       attack: 100,
-      deffense: 63,
+      defense: 63,
       special_attack: 80,
-      special_deffense: 63,
+      special_defense: 63,
       speed: 116,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/523.png",
@@ -7457,7 +7192,6 @@ export const pokemon_list = [
         521, 523, 527, 528, 569, 590, 598, 604, 667, 673, 684, 851, 885, 916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 530,
@@ -7466,9 +7200,9 @@ export const pokemon_list = [
       name_ja: "ドリュウズ",
       hp: 110,
       attack: 135,
-      deffense: 60,
+      defense: 60,
       special_attack: 50,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 88,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/530.png",
@@ -7484,7 +7218,6 @@ export const pokemon_list = [
         851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 532,
@@ -7493,9 +7226,9 @@ export const pokemon_list = [
       name_ja: "ドッコラー",
       hp: 75,
       attack: 80,
-      deffense: 55,
+      defense: 55,
       special_attack: 25,
-      special_deffense: 35,
+      special_defense: 35,
       speed: 35,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/532.png",
@@ -7511,7 +7244,6 @@ export const pokemon_list = [
         590, 612, 693, 811, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 533,
@@ -7520,9 +7252,9 @@ export const pokemon_list = [
       name_ja: "ドテッコツ",
       hp: 85,
       attack: 105,
-      deffense: 85,
+      defense: 85,
       special_attack: 40,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/533.png",
@@ -7538,7 +7270,6 @@ export const pokemon_list = [
         693, 811, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 534,
@@ -7547,9 +7278,9 @@ export const pokemon_list = [
       name_ja: "ローブシン",
       hp: 105,
       attack: 140,
-      deffense: 95,
+      defense: 95,
       special_attack: 55,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/534.png",
@@ -7565,7 +7296,6 @@ export const pokemon_list = [
         523, 526, 590, 612, 667, 693, 707, 811, 851, 912, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 541,
@@ -7574,9 +7304,9 @@ export const pokemon_list = [
       name_ja: "クルマユ",
       hp: 55,
       attack: 63,
-      deffense: 90,
+      defense: 90,
       special_attack: 50,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 42,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/541.png",
@@ -7591,7 +7321,6 @@ export const pokemon_list = [
         884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 542,
@@ -7600,9 +7329,9 @@ export const pokemon_list = [
       name_ja: "ハハコモリ",
       hp: 75,
       attack: 103,
-      deffense: 80,
+      defense: 80,
       special_attack: 70,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 92,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/542.png",
@@ -7618,7 +7347,6 @@ export const pokemon_list = [
         565, 580, 590, 673, 675, 676, 679, 803, 806, 813, 851, 884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 546,
@@ -7627,9 +7355,9 @@ export const pokemon_list = [
       name_ja: "モンメン",
       hp: 40,
       attack: 27,
-      deffense: 60,
+      defense: 60,
       special_attack: 37,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 66,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/546.png",
@@ -7644,7 +7372,6 @@ export const pokemon_list = [
         605, 803, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 547,
@@ -7653,9 +7380,9 @@ export const pokemon_list = [
       name_ja: "エルフーン",
       hp: 60,
       attack: 67,
-      deffense: 85,
+      defense: 85,
       special_attack: 77,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 116,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/547.png",
@@ -7670,7 +7397,6 @@ export const pokemon_list = [
         496, 538, 542, 580, 581, 583, 584, 585, 590, 605, 803, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 549,
@@ -7679,9 +7405,9 @@ export const pokemon_list = [
       name_ja: "ドレディア",
       hp: 70,
       attack: 60,
-      deffense: 75,
+      defense: 75,
       special_attack: 110,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 90,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/549.png",
@@ -7696,7 +7422,6 @@ export const pokemon_list = [
         590, 669, 673, 676, 803, 851, 885, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 550,
@@ -7705,9 +7430,9 @@ export const pokemon_list = [
       name_ja: "バスラオ(あかすじのすがた)",
       hp: 70,
       attack: 92,
-      deffense: 65,
+      defense: 65,
       special_attack: 80,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 98,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/550.png",
@@ -7722,7 +7447,6 @@ export const pokemon_list = [
         487, 496, 498, 503, 515, 590, 706, 710, 799, 812, 834, 851, 883, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 553,
@@ -7731,9 +7455,9 @@ export const pokemon_list = [
       name_ja: "ワルビアル",
       hp: 95,
       attack: 117,
-      deffense: 80,
+      defense: 80,
       special_attack: 65,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 92,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/553.png",
@@ -7751,7 +7475,6 @@ export const pokemon_list = [
         806, 808, 815, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 559,
@@ -7760,9 +7483,9 @@ export const pokemon_list = [
       name_ja: "ズルッグ",
       hp: 50,
       attack: 75,
-      deffense: 70,
+      defense: 70,
       special_attack: 35,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 48,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/559.png",
@@ -7779,7 +7502,6 @@ export const pokemon_list = [
         514, 525, 526, 530, 555, 590, 612, 675, 808, 811, 851, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 560,
@@ -7788,9 +7510,9 @@ export const pokemon_list = [
       name_ja: "ズルズキン",
       hp: 65,
       attack: 90,
-      deffense: 115,
+      defense: 115,
       special_attack: 45,
-      special_deffense: 115,
+      special_defense: 115,
       speed: 58,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/560.png",
@@ -7808,7 +7530,6 @@ export const pokemon_list = [
         808, 811, 851, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 570,
@@ -7817,9 +7538,9 @@ export const pokemon_list = [
       name_ja: "ゾロア",
       hp: 40,
       attack: 65,
-      deffense: 40,
+      defense: 40,
       special_attack: 80,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/570.png",
@@ -7835,7 +7556,6 @@ export const pokemon_list = [
         492, 496, 506, 510, 514, 539, 555, 590, 806, 807, 808, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 571,
@@ -7844,9 +7564,9 @@ export const pokemon_list = [
       name_ja: "ゾロアーク",
       hp: 60,
       attack: 105,
-      deffense: 60,
+      defense: 60,
       special_attack: 120,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 105,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/571.png",
@@ -7863,7 +7583,6 @@ export const pokemon_list = [
         675, 806, 807, 808, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 573,
@@ -7872,9 +7591,9 @@ export const pokemon_list = [
       name_ja: "チラチーノ",
       hp: 75,
       attack: 95,
-      deffense: 60,
+      defense: 60,
       special_attack: 65,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 115,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/573.png",
@@ -7890,7 +7609,6 @@ export const pokemon_list = [
         861, 882, 885, 886, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 575,
@@ -7899,9 +7617,9 @@ export const pokemon_list = [
       name_ja: "ゴチミル",
       hp: 60,
       attack: 45,
-      deffense: 70,
+      defense: 70,
       special_attack: 75,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/575.png",
@@ -7917,7 +7635,6 @@ export const pokemon_list = [
         477, 478, 492, 496, 500, 502, 589, 590, 678, 797, 851, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 576,
@@ -7926,9 +7643,9 @@ export const pokemon_list = [
       name_ja: "ゴチルゼル",
       hp: 70,
       attack: 55,
-      deffense: 95,
+      defense: 95,
       special_attack: 95,
-      special_deffense: 110,
+      special_defense: 110,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/576.png",
@@ -7945,7 +7662,6 @@ export const pokemon_list = [
         612, 673, 678, 797, 851, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 577,
@@ -7954,9 +7670,9 @@ export const pokemon_list = [
       name_ja: "ユニラン",
       hp: 45,
       attack: 30,
-      deffense: 40,
+      defense: 40,
       special_attack: 105,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 20,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/577.png",
@@ -7972,7 +7688,6 @@ export const pokemon_list = [
         500, 502, 590, 611, 678, 797, 798, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 578,
@@ -7981,9 +7696,9 @@ export const pokemon_list = [
       name_ja: "ダブラン",
       hp: 65,
       attack: 40,
-      deffense: 50,
+      defense: 50,
       special_attack: 125,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/578.png",
@@ -7999,7 +7714,6 @@ export const pokemon_list = [
         500, 502, 590, 611, 678, 797, 798, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 579,
@@ -8008,9 +7722,9 @@ export const pokemon_list = [
       name_ja: "ランクルス",
       hp: 110,
       attack: 65,
-      deffense: 75,
+      defense: 75,
       special_attack: 125,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/579.png",
@@ -8027,7 +7741,6 @@ export const pokemon_list = [
         496, 500, 502, 590, 611, 612, 673, 678, 797, 798, 851, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 580,
@@ -8036,9 +7749,9 @@ export const pokemon_list = [
       name_ja: "コアルヒー",
       hp: 62,
       attack: 44,
-      deffense: 50,
+      defense: 50,
       special_attack: 44,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/580.png",
@@ -8053,7 +7766,6 @@ export const pokemon_list = [
         885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 581,
@@ -8062,9 +7774,9 @@ export const pokemon_list = [
       name_ja: "スワンナ",
       hp: 75,
       attack: 87,
-      deffense: 63,
+      defense: 63,
       special_attack: 87,
-      special_deffense: 63,
+      special_defense: 63,
       speed: 98,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/581.png",
@@ -8079,7 +7791,6 @@ export const pokemon_list = [
         590, 710, 812, 851, 885, 886, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 586,
@@ -8088,9 +7799,9 @@ export const pokemon_list = [
       name_ja: "メブキジカ(はるのすがた)",
       hp: 80,
       attack: 100,
-      deffense: 70,
+      defense: 70,
       special_attack: 60,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 95,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/586.png",
@@ -8106,7 +7817,6 @@ export const pokemon_list = [
         675, 684, 707, 803, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 591,
@@ -8115,9 +7825,9 @@ export const pokemon_list = [
       name_ja: "モロバレル",
       hp: 114,
       attack: 85,
-      deffense: 70,
+      defense: 70,
       special_attack: 85,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/591.png",
@@ -8131,7 +7841,6 @@ export const pokemon_list = [
         437, 447, 474, 476, 492, 495, 496, 499, 506, 580, 590, 676, 707, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 594,
@@ -8140,9 +7849,9 @@ export const pokemon_list = [
       name_ja: "ママンボウ",
       hp: 165,
       attack: 75,
-      deffense: 80,
+      defense: 80,
       special_attack: 40,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/594.png",
@@ -8158,7 +7867,6 @@ export const pokemon_list = [
         914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 596,
@@ -8167,9 +7875,9 @@ export const pokemon_list = [
       name_ja: "デンチュラ",
       hp: 70,
       attack: 77,
-      deffense: 60,
+      defense: 60,
       special_attack: 97,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 108,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/596.png",
@@ -8184,7 +7892,6 @@ export const pokemon_list = [
         528, 564, 590, 611, 675, 679, 683, 804, 806, 851, 884,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 603,
@@ -8193,9 +7900,9 @@ export const pokemon_list = [
       name_ja: "シビビール",
       hp: 65,
       attack: 85,
-      deffense: 70,
+      defense: 70,
       special_attack: 75,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/603.png",
@@ -8210,7 +7917,6 @@ export const pokemon_list = [
         675, 679, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 604,
@@ -8219,9 +7925,9 @@ export const pokemon_list = [
       name_ja: "シビルドン",
       hp: 85,
       attack: 115,
-      deffense: 80,
+      defense: 80,
       special_attack: 105,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/604.png",
@@ -8238,7 +7944,6 @@ export const pokemon_list = [
         604, 612, 675, 679, 707, 710, 776, 851, 916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 608,
@@ -8247,9 +7952,9 @@ export const pokemon_list = [
       name_ja: "ランプラー",
       hp: 60,
       attack: 40,
-      deffense: 60,
+      defense: 60,
       special_attack: 95,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/608.png",
@@ -8264,7 +7969,6 @@ export const pokemon_list = [
         496, 499, 502, 506, 510, 517, 590, 595, 806, 807, 808, 809, 851, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 609,
@@ -8273,9 +7977,9 @@ export const pokemon_list = [
       name_ja: "シャンデラ",
       hp: 60,
       attack: 55,
-      deffense: 90,
+      defense: 90,
       special_attack: 145,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/609.png",
@@ -8291,7 +7995,6 @@ export const pokemon_list = [
         851, 885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 612,
@@ -8300,9 +8003,9 @@ export const pokemon_list = [
       name_ja: "オノノクス",
       hp: 76,
       attack: 147,
-      deffense: 90,
+      defense: 90,
       special_attack: 60,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 97,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/612.png",
@@ -8318,7 +8021,6 @@ export const pokemon_list = [
         525, 530, 555, 590, 673, 693, 707, 784, 799, 851, 885, 913,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 614,
@@ -8327,9 +8029,9 @@ export const pokemon_list = [
       name_ja: "ツンベアー",
       hp: 95,
       attack: 130,
-      deffense: 80,
+      defense: 80,
       special_attack: 70,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/614.png",
@@ -8346,7 +8048,6 @@ export const pokemon_list = [
         589, 590, 612, 675, 710, 776, 851, 883, 885, 886, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 615,
@@ -8355,9 +8056,9 @@ export const pokemon_list = [
       name_ja: "フリージオ",
       hp: 80,
       attack: 50,
-      deffense: 50,
+      defense: 50,
       special_attack: 95,
-      special_deffense: 135,
+      special_defense: 135,
       speed: 105,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/615.png",
@@ -8372,7 +8073,6 @@ export const pokemon_list = [
         590, 673, 694, 813, 851, 861, 883, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 619,
@@ -8381,9 +8081,9 @@ export const pokemon_list = [
       name_ja: "コジョフー",
       hp: 45,
       attack: 85,
-      deffense: 50,
+      defense: 50,
       special_attack: 55,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/619.png",
@@ -8399,7 +8099,6 @@ export const pokemon_list = [
         512, 514, 526, 530, 590, 612, 811, 851, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 620,
@@ -8408,9 +8107,9 @@ export const pokemon_list = [
       name_ja: "コジョンド",
       hp: 65,
       attack: 125,
-      deffense: 60,
+      defense: 60,
       special_attack: 95,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 105,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/620.png",
@@ -8427,7 +8126,6 @@ export const pokemon_list = [
         861, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 623,
@@ -8436,9 +8134,9 @@ export const pokemon_list = [
       name_ja: "ゴルーグ",
       hp: 89,
       attack: 124,
-      deffense: 80,
+      defense: 80,
       special_attack: 55,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/623.png",
@@ -8456,7 +8154,6 @@ export const pokemon_list = [
         851, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 624,
@@ -8465,9 +8162,9 @@ export const pokemon_list = [
       name_ja: "コマタナ",
       hp: 45,
       attack: 85,
-      deffense: 70,
+      defense: 70,
       special_attack: 40,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/624.png",
@@ -8483,7 +8180,6 @@ export const pokemon_list = [
         492, 496, 501, 514, 530, 555, 590, 612, 673, 796, 808, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 625,
@@ -8492,9 +8188,9 @@ export const pokemon_list = [
       name_ja: "キリキザン",
       hp: 65,
       attack: 125,
-      deffense: 100,
+      defense: 100,
       special_attack: 60,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/625.png",
@@ -8510,7 +8206,6 @@ export const pokemon_list = [
         490, 492, 496, 514, 530, 555, 590, 612, 673, 675, 796, 808, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 628,
@@ -8519,9 +8214,9 @@ export const pokemon_list = [
       name_ja: "ウォーグル",
       hp: 100,
       attack: 123,
-      deffense: 75,
+      defense: 75,
       special_attack: 57,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/628.png",
@@ -8536,7 +8231,6 @@ export const pokemon_list = [
         428, 432, 442, 468, 496, 507, 512, 514, 526, 542, 590, 673, 814, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 629,
@@ -8545,9 +8239,9 @@ export const pokemon_list = [
       name_ja: "バルチャイ",
       hp: 70,
       attack: 55,
-      deffense: 75,
+      defense: 75,
       special_attack: 45,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/629.png",
@@ -8563,7 +8257,6 @@ export const pokemon_list = [
         851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 630,
@@ -8572,9 +8265,9 @@ export const pokemon_list = [
       name_ja: "バルジーナ",
       hp: 110,
       attack: 65,
-      deffense: 105,
+      defense: 105,
       special_attack: 55,
-      special_deffense: 95,
+      special_defense: 95,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/630.png",
@@ -8590,7 +8283,6 @@ export const pokemon_list = [
         514, 542, 555, 590, 675, 808, 814, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 634,
@@ -8599,9 +8291,9 @@ export const pokemon_list = [
       name_ja: "ジヘッド",
       hp: 72,
       attack: 85,
-      deffense: 70,
+      defense: 70,
       special_attack: 65,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 58,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/634.png",
@@ -8616,7 +8308,6 @@ export const pokemon_list = [
         496, 510, 525, 526, 555, 590, 707, 808, 851, 913,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 635,
@@ -8625,9 +8316,9 @@ export const pokemon_list = [
       name_ja: "サザンドラ",
       hp: 92,
       attack: 105,
-      deffense: 90,
+      defense: 90,
       special_attack: 125,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 98,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/635.png",
@@ -8645,7 +8336,6 @@ export const pokemon_list = [
         851, 913,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 636,
@@ -8654,9 +8344,9 @@ export const pokemon_list = [
       name_ja: "メラルバ",
       hp: 55,
       attack: 85,
-      deffense: 55,
+      defense: 55,
       special_attack: 50,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/636.png",
@@ -8671,7 +8361,6 @@ export const pokemon_list = [
         884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 637,
@@ -8680,9 +8369,9 @@ export const pokemon_list = [
       name_ja: "ウルガモス",
       hp: 85,
       attack: 60,
-      deffense: 65,
+      defense: 65,
       special_attack: 135,
-      special_deffense: 105,
+      special_defense: 105,
       speed: 100,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/637.png",
@@ -8698,7 +8387,6 @@ export const pokemon_list = [
         806, 814, 851, 884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 651,
@@ -8707,9 +8395,9 @@ export const pokemon_list = [
       name_ja: "ハリボーグ",
       hp: 61,
       attack: 78,
-      deffense: 95,
+      defense: 95,
       special_attack: 56,
-      special_deffense: 58,
+      special_defense: 58,
       speed: 57,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/651.png",
@@ -8726,7 +8414,6 @@ export const pokemon_list = [
         526, 530, 580, 590, 612, 707, 803, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 652,
@@ -8735,9 +8422,9 @@ export const pokemon_list = [
       name_ja: "ブリガロン",
       hp: 88,
       attack: 107,
-      deffense: 122,
+      defense: 122,
       special_attack: 74,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 64,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/652.png",
@@ -8755,7 +8442,6 @@ export const pokemon_list = [
         523, 526, 530, 580, 590, 596, 612, 667, 707, 776, 803, 811, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 653,
@@ -8764,9 +8450,9 @@ export const pokemon_list = [
       name_ja: "フォッコ",
       hp: 40,
       attack: 45,
-      deffense: 40,
+      defense: 40,
       special_attack: 62,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/653.png",
@@ -8782,7 +8468,6 @@ export const pokemon_list = [
         851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 654,
@@ -8791,9 +8476,9 @@ export const pokemon_list = [
       name_ja: "テールナー",
       hp: 59,
       attack: 59,
-      deffense: 58,
+      defense: 58,
       special_attack: 90,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 73,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/654.png",
@@ -8809,7 +8494,6 @@ export const pokemon_list = [
         500, 502, 510, 519, 526, 590, 612, 673, 678, 807, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 655,
@@ -8818,9 +8502,9 @@ export const pokemon_list = [
       name_ja: "マフォクシー",
       hp: 75,
       attack: 69,
-      deffense: 72,
+      defense: 72,
       special_attack: 114,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 104,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/655.png",
@@ -8838,7 +8522,6 @@ export const pokemon_list = [
         807, 815, 851, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 658,
@@ -8847,9 +8530,9 @@ export const pokemon_list = [
       name_ja: "ゲッコウガ",
       hp: 72,
       attack: 95,
-      deffense: 67,
+      defense: 67,
       special_attack: 103,
-      special_deffense: 71,
+      special_defense: 71,
       speed: 122,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/658.png",
@@ -8866,7 +8549,6 @@ export const pokemon_list = [
         851, 883, 885, 886, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 662,
@@ -8875,9 +8557,9 @@ export const pokemon_list = [
       name_ja: "ヒノヤコマ",
       hp: 62,
       attack: 73,
-      deffense: 55,
+      defense: 55,
       special_attack: 56,
-      special_deffense: 52,
+      special_defense: 52,
       speed: 84,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/662.png",
@@ -8892,7 +8574,6 @@ export const pokemon_list = [
         590, 814, 851, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 663,
@@ -8901,9 +8582,9 @@ export const pokemon_list = [
       name_ja: "ファイアロー",
       hp: 78,
       attack: 81,
-      deffense: 71,
+      defense: 71,
       special_attack: 74,
-      special_deffense: 69,
+      special_defense: 69,
       speed: 126,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/663.png",
@@ -8918,7 +8599,6 @@ export const pokemon_list = [
         496, 510, 512, 526, 542, 590, 814, 851, 915, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 666,
@@ -8927,9 +8607,9 @@ export const pokemon_list = [
       name_ja: "ビビヨン(はなぞののもよう)",
       hp: 80,
       attack: 52,
-      deffense: 50,
+      defense: 50,
       special_attack: 90,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 89,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/666.png",
@@ -8944,7 +8624,6 @@ export const pokemon_list = [
         577, 590, 600, 611, 673, 676, 806, 851, 884,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 668,
@@ -8953,9 +8632,9 @@ export const pokemon_list = [
       name_ja: "カエンジシ",
       hp: 86,
       attack: 68,
-      deffense: 72,
+      defense: 72,
       special_attack: 109,
-      special_deffense: 66,
+      special_defense: 66,
       speed: 106,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/668.png",
@@ -8970,7 +8649,6 @@ export const pokemon_list = [
         523, 526, 528, 555, 568, 590, 706, 807, 851, 885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 671,
@@ -8979,9 +8657,9 @@ export const pokemon_list = [
       name_ja: "フラージェス(あかいはな)",
       hp: 78,
       attack: 65,
-      deffense: 68,
+      defense: 68,
       special_attack: 112,
-      special_deffense: 154,
+      special_defense: 154,
       speed: 75,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/671.png",
@@ -8996,7 +8674,6 @@ export const pokemon_list = [
         579, 580, 581, 585, 590, 605, 676, 802, 851, 885, 886, 914, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 673,
@@ -9005,9 +8682,9 @@ export const pokemon_list = [
       name_ja: "ゴーゴート",
       hp: 123,
       attack: 100,
-      deffense: 62,
+      defense: 62,
       special_attack: 97,
-      special_deffense: 81,
+      special_defense: 81,
       speed: 68,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/673.png",
@@ -9023,7 +8700,6 @@ export const pokemon_list = [
         885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 677,
@@ -9032,9 +8708,9 @@ export const pokemon_list = [
       name_ja: "ニャスパー",
       hp: 62,
       attack: 48,
-      deffense: 54,
+      defense: 54,
       special_attack: 63,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 68,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/677.png",
@@ -9050,7 +8726,6 @@ export const pokemon_list = [
         583, 590, 797, 851, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 678,
@@ -9059,9 +8734,9 @@ export const pokemon_list = [
       name_ja: "ニャオニクス(オスのすがた)",
       hp: 74,
       attack: 48,
-      deffense: 76,
+      defense: 76,
       special_attack: 83,
-      special_deffense: 81,
+      special_defense: 81,
       speed: 104,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/678.png",
@@ -9078,7 +8753,6 @@ export const pokemon_list = [
         851, 885, 914, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 686,
@@ -9087,9 +8761,9 @@ export const pokemon_list = [
       name_ja: "マーイーカ",
       hp: 53,
       attack: 54,
-      deffense: 53,
+      defense: 53,
       special_attack: 37,
-      special_deffense: 46,
+      special_defense: 46,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/686.png",
@@ -9105,7 +8779,6 @@ export const pokemon_list = [
         493, 496, 500, 502, 514, 576, 590, 679, 710, 797, 808, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 687,
@@ -9114,9 +8787,9 @@ export const pokemon_list = [
       name_ja: "カラマネロ",
       hp: 86,
       attack: 92,
-      deffense: 88,
+      defense: 88,
       special_attack: 68,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 73,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/687.png",
@@ -9133,7 +8806,6 @@ export const pokemon_list = [
         808, 851, 885, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 691,
@@ -9142,9 +8814,9 @@ export const pokemon_list = [
       name_ja: "ドラミドロ",
       hp: 65,
       attack: 75,
-      deffense: 90,
+      defense: 90,
       special_attack: 97,
-      special_deffense: 123,
+      special_defense: 123,
       speed: 44,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/691.png",
@@ -9160,7 +8832,6 @@ export const pokemon_list = [
         886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 693,
@@ -9169,9 +8840,9 @@ export const pokemon_list = [
       name_ja: "ブロスター",
       hp: 71,
       attack: 73,
-      deffense: 88,
+      defense: 88,
       special_attack: 120,
-      special_deffense: 89,
+      special_defense: 89,
       speed: 59,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/693.png",
@@ -9186,7 +8857,6 @@ export const pokemon_list = [
         474, 479, 482, 496, 503, 505, 590, 673, 710, 805, 812, 851, 884, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 700,
@@ -9195,9 +8865,9 @@ export const pokemon_list = [
       name_ja: "ニンフィア",
       hp: 95,
       attack: 65,
-      deffense: 65,
+      defense: 65,
       special_attack: 110,
-      special_deffense: 130,
+      special_defense: 130,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/700.png",
@@ -9213,7 +8883,6 @@ export const pokemon_list = [
         673, 802, 851, 885, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 701,
@@ -9222,9 +8891,9 @@ export const pokemon_list = [
       name_ja: "ルチャブル",
       hp: 78,
       attack: 92,
-      deffense: 75,
+      defense: 75,
       special_attack: 74,
-      special_deffense: 63,
+      special_defense: 63,
       speed: 118,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/701.png",
@@ -9242,7 +8911,6 @@ export const pokemon_list = [
         811, 814, 851, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 702,
@@ -9251,9 +8919,9 @@ export const pokemon_list = [
       name_ja: "デデンネ",
       hp: 67,
       attack: 58,
-      deffense: 57,
+      defense: 57,
       special_attack: 81,
-      special_deffense: 67,
+      special_defense: 67,
       speed: 101,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/702.png",
@@ -9269,7 +8937,6 @@ export const pokemon_list = [
         851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 703,
@@ -9278,9 +8945,9 @@ export const pokemon_list = [
       name_ja: "メレシー",
       hp: 50,
       attack: 50,
-      deffense: 150,
+      defense: 150,
       special_attack: 50,
-      special_deffense: 150,
+      special_defense: 150,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/703.png",
@@ -9296,7 +8963,6 @@ export const pokemon_list = [
         605, 707, 776, 800, 802, 805, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 704,
@@ -9305,9 +8971,9 @@ export const pokemon_list = [
       name_ja: "ヌメラ",
       hp: 45,
       attack: 50,
-      deffense: 35,
+      defense: 35,
       special_attack: 55,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/704.png",
@@ -9321,7 +8987,6 @@ export const pokemon_list = [
         590, 611, 791, 806, 851, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 705,
@@ -9330,9 +8995,9 @@ export const pokemon_list = [
       name_ja: "ヌメイル",
       hp: 68,
       attack: 75,
-      deffense: 53,
+      defense: 53,
       special_attack: 83,
-      special_deffense: 113,
+      special_defense: 113,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/705.png",
@@ -9346,7 +9011,6 @@ export const pokemon_list = [
         491, 496, 590, 611, 806, 851, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 706,
@@ -9355,9 +9019,9 @@ export const pokemon_list = [
       name_ja: "ヌメルゴン",
       hp: 90,
       attack: 100,
-      deffense: 70,
+      defense: 70,
       special_attack: 110,
-      special_deffense: 150,
+      special_defense: 150,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/706.png",
@@ -9373,7 +9037,6 @@ export const pokemon_list = [
         611, 673, 693, 707, 715, 776, 784, 806, 851, 886, 913,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 707,
@@ -9382,9 +9045,9 @@ export const pokemon_list = [
       name_ja: "クレッフィ",
       hp: 57,
       attack: 80,
-      deffense: 91,
+      defense: 91,
       special_attack: 80,
-      special_deffense: 87,
+      special_defense: 87,
       speed: 75,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/707.png",
@@ -9399,7 +9062,6 @@ export const pokemon_list = [
         583, 584, 587, 590, 605, 796, 806, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 708,
@@ -9408,9 +9070,9 @@ export const pokemon_list = [
       name_ja: "ボクレー",
       hp: 43,
       attack: 70,
-      deffense: 48,
+      defense: 48,
       special_attack: 50,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 38,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/708.png",
@@ -9426,7 +9088,6 @@ export const pokemon_list = [
         571, 580, 590, 599, 612, 785, 803, 806, 808, 809, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 709,
@@ -9435,9 +9096,9 @@ export const pokemon_list = [
       name_ja: "オーロット",
       hp: 85,
       attack: 110,
-      deffense: 76,
+      defense: 76,
       special_attack: 65,
-      special_deffense: 82,
+      special_defense: 82,
       speed: 56,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/709.png",
@@ -9454,7 +9115,6 @@ export const pokemon_list = [
         599, 612, 693, 785, 803, 806, 807, 808, 809, 851, 885, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 713,
@@ -9463,9 +9123,9 @@ export const pokemon_list = [
       name_ja: "クレベース",
       hp: 95,
       attack: 117,
-      deffense: 184,
+      defense: 184,
       special_attack: 44,
-      special_deffense: 46,
+      special_defense: 46,
       speed: 28,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/713.png",
@@ -9481,7 +9141,6 @@ export const pokemon_list = [
         886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 714,
@@ -9490,9 +9149,9 @@ export const pokemon_list = [
       name_ja: "オンバット",
       hp: 40,
       attack: 30,
-      deffense: 35,
+      defense: 35,
       special_attack: 45,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/714.png",
@@ -9507,7 +9166,6 @@ export const pokemon_list = [
         407, 415, 421, 432, 434, 496, 497, 512, 528, 542, 590, 814, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 715,
@@ -9516,9 +9174,9 @@ export const pokemon_list = [
       name_ja: "オンバーン",
       hp: 85,
       attack: 70,
-      deffense: 80,
+      defense: 80,
       special_attack: 97,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 123,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/715.png",
@@ -9534,7 +9192,6 @@ export const pokemon_list = [
         512, 525, 528, 542, 586, 590, 673, 784, 814, 851, 913, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 722,
@@ -9543,9 +9200,9 @@ export const pokemon_list = [
       name_ja: "モクロー",
       hp: 68,
       attack: 55,
-      deffense: 55,
+      defense: 55,
       special_attack: 50,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 42,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/722.png",
@@ -9561,7 +9218,6 @@ export const pokemon_list = [
         814, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 723,
@@ -9570,9 +9226,9 @@ export const pokemon_list = [
       name_ja: "フクスロー",
       hp: 78,
       attack: 75,
-      deffense: 75,
+      defense: 75,
       special_attack: 70,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 52,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/723.png",
@@ -9588,7 +9244,6 @@ export const pokemon_list = [
         814, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 724,
@@ -9597,9 +9252,9 @@ export const pokemon_list = [
       name_ja: "ジュナイパー",
       hp: 78,
       attack: 107,
-      deffense: 75,
+      defense: 75,
       special_attack: 100,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/724.png",
@@ -9617,7 +9272,6 @@ export const pokemon_list = [
         803, 806, 809, 811, 814, 851, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 725,
@@ -9626,9 +9280,9 @@ export const pokemon_list = [
       name_ja: "ニャビー",
       hp: 45,
       attack: 65,
-      deffense: 40,
+      defense: 40,
       special_attack: 60,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/725.png",
@@ -9643,7 +9297,6 @@ export const pokemon_list = [
         681, 851, 885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 726,
@@ -9652,9 +9305,9 @@ export const pokemon_list = [
       name_ja: "ニャヒート",
       hp: 65,
       attack: 85,
-      deffense: 50,
+      defense: 50,
       special_attack: 80,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 90,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/726.png",
@@ -9669,7 +9322,6 @@ export const pokemon_list = [
         590, 681, 851, 885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 727,
@@ -9678,9 +9330,9 @@ export const pokemon_list = [
       name_ja: "ガオガエン",
       hp: 95,
       attack: 115,
-      deffense: 90,
+      defense: 90,
       special_attack: 80,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/727.png",
@@ -9698,7 +9350,6 @@ export const pokemon_list = [
         885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 728,
@@ -9707,9 +9358,9 @@ export const pokemon_list = [
       name_ja: "アシマリ",
       hp: 50,
       attack: 54,
-      deffense: 54,
+      defense: 54,
       special_attack: 66,
-      special_deffense: 56,
+      special_defense: 56,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/728.png",
@@ -9724,7 +9375,6 @@ export const pokemon_list = [
         597, 608, 791, 812, 813, 851, 861, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 730,
@@ -9733,9 +9383,9 @@ export const pokemon_list = [
       name_ja: "アシレーヌ",
       hp: 80,
       attack: 74,
-      deffense: 74,
+      defense: 74,
       special_attack: 126,
-      special_deffense: 116,
+      special_defense: 116,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/730.png",
@@ -9752,7 +9402,6 @@ export const pokemon_list = [
         917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 733,
@@ -9761,9 +9410,9 @@ export const pokemon_list = [
       name_ja: "ドデカバシ",
       hp: 80,
       attack: 120,
-      deffense: 75,
+      defense: 75,
       special_attack: 75,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/733.png",
@@ -9778,7 +9427,6 @@ export const pokemon_list = [
         488, 496, 497, 512, 526, 542, 586, 590, 675, 690, 814, 851, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 734,
@@ -9787,9 +9435,9 @@ export const pokemon_list = [
       name_ja: "ヤングース",
       hp: 48,
       attack: 70,
-      deffense: 30,
+      defense: 30,
       special_attack: 30,
-      special_deffense: 30,
+      special_defense: 30,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/734.png",
@@ -9804,7 +9452,6 @@ export const pokemon_list = [
         526, 528, 590, 706, 707, 851, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 735,
@@ -9813,9 +9460,9 @@ export const pokemon_list = [
       name_ja: "デカグース",
       hp: 88,
       attack: 110,
-      deffense: 60,
+      defense: 60,
       special_attack: 55,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/735.png",
@@ -9831,7 +9478,6 @@ export const pokemon_list = [
         590, 706, 707, 851, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 737,
@@ -9840,9 +9486,9 @@ export const pokemon_list = [
       name_ja: "デンヂムシ",
       hp: 57,
       attack: 82,
-      deffense: 95,
+      defense: 95,
       special_attack: 55,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 36,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/737.png",
@@ -9856,7 +9502,6 @@ export const pokemon_list = [
         522, 527, 528, 564, 590, 598, 604, 679, 804, 806, 851, 884,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 738,
@@ -9865,9 +9510,9 @@ export const pokemon_list = [
       name_ja: "クワガノン",
       hp: 77,
       attack: 70,
-      deffense: 90,
+      defense: 90,
       special_attack: 145,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 43,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/738.png",
@@ -9883,7 +9528,6 @@ export const pokemon_list = [
         884, 916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 740,
@@ -9892,9 +9536,9 @@ export const pokemon_list = [
       name_ja: "ケケンカニ",
       hp: 97,
       attack: 132,
-      deffense: 77,
+      defense: 77,
       special_attack: 62,
-      special_deffense: 67,
+      special_defense: 67,
       speed: 43,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/740.png",
@@ -9910,7 +9554,6 @@ export const pokemon_list = [
         693, 707, 710, 776, 811, 851, 861, 883, 886, 912, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 741,
@@ -9919,9 +9562,9 @@ export const pokemon_list = [
       name_ja: "オドリドリ(めらめらスタイル)",
       hp: 75,
       attack: 70,
-      deffense: 70,
+      defense: 70,
       special_attack: 98,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 93,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/741.png",
@@ -9936,7 +9579,6 @@ export const pokemon_list = [
         542, 590, 686, 814, 851, 885, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 743,
@@ -9945,9 +9587,9 @@ export const pokemon_list = [
       name_ja: "アブリボン",
       hp: 60,
       attack: 55,
-      deffense: 60,
+      defense: 60,
       special_attack: 95,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 124,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/743.png",
@@ -9963,7 +9605,6 @@ export const pokemon_list = [
         590, 597, 605, 611, 676, 679, 683, 806, 814, 851, 884, 885, 914, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 745,
@@ -9972,9 +9613,9 @@ export const pokemon_list = [
       name_ja: "ルガルガン(まひるのすがた)",
       hp: 75,
       attack: 115,
-      deffense: 65,
+      defense: 65,
       special_attack: 55,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 112,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/745.png",
@@ -9990,7 +9631,6 @@ export const pokemon_list = [
         709, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 747,
@@ -9999,9 +9639,9 @@ export const pokemon_list = [
       name_ja: "ヒドイデ",
       hp: 50,
       attack: 53,
-      deffense: 62,
+      defense: 62,
       special_attack: 43,
-      special_deffense: 52,
+      special_defense: 52,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/747.png",
@@ -10016,7 +9656,6 @@ export const pokemon_list = [
         599, 611, 679, 710, 851, 861, 884, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 748,
@@ -10025,9 +9664,9 @@ export const pokemon_list = [
       name_ja: "ドヒドイデ",
       hp: 50,
       attack: 63,
-      deffense: 152,
+      defense: 152,
       special_attack: 53,
-      special_deffense: 142,
+      special_defense: 142,
       speed: 35,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/748.png",
@@ -10043,7 +9682,6 @@ export const pokemon_list = [
         886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 750,
@@ -10052,9 +9690,9 @@ export const pokemon_list = [
       name_ja: "バンバドロ",
       hp: 100,
       attack: 125,
-      deffense: 100,
+      defense: 100,
       special_attack: 55,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 35,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/750.png",
@@ -10069,7 +9707,6 @@ export const pokemon_list = [
         776, 808, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 752,
@@ -10078,9 +9715,9 @@ export const pokemon_list = [
       name_ja: "オニシズクモ",
       hp: 68,
       attack: 70,
-      deffense: 92,
+      defense: 92,
       special_attack: 50,
-      special_deffense: 132,
+      special_defense: 132,
       speed: 42,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/752.png",
@@ -10095,7 +9732,6 @@ export const pokemon_list = [
         524, 564, 590, 611, 673, 679, 710, 806, 851, 884, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 754,
@@ -10104,9 +9740,9 @@ export const pokemon_list = [
       name_ja: "ラランテス",
       hp: 70,
       attack: 105,
-      deffense: 90,
+      defense: 90,
       special_attack: 80,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/754.png",
@@ -10121,7 +9757,6 @@ export const pokemon_list = [
         496, 530, 572, 580, 590, 669, 670, 673, 676, 803, 806, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 757,
@@ -10130,9 +9765,9 @@ export const pokemon_list = [
       name_ja: "ヤトウモリ",
       hp: 48,
       attack: 44,
-      deffense: 40,
+      defense: 40,
       special_attack: 71,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 77,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/757.png",
@@ -10148,7 +9783,6 @@ export const pokemon_list = [
         806, 807, 851, 885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 758,
@@ -10157,9 +9791,9 @@ export const pokemon_list = [
       name_ja: "エンニュート",
       hp: 68,
       attack: 64,
-      deffense: 60,
+      defense: 60,
       special_attack: 111,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 117,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/758.png",
@@ -10176,7 +9810,6 @@ export const pokemon_list = [
         810, 851, 885, 913, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 763,
@@ -10185,9 +9818,9 @@ export const pokemon_list = [
       name_ja: "アマージョ",
       hp: 72,
       attack: 120,
-      deffense: 98,
+      defense: 98,
       special_attack: 50,
-      special_deffense: 98,
+      special_defense: 98,
       speed: 72,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/763.png",
@@ -10203,7 +9836,6 @@ export const pokemon_list = [
         688, 803, 813, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 764,
@@ -10212,9 +9844,9 @@ export const pokemon_list = [
       name_ja: "キュワワー",
       hp: 51,
       attack: 52,
-      deffense: 90,
+      defense: 90,
       special_attack: 82,
-      special_deffense: 110,
+      special_defense: 110,
       speed: 100,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/764.png",
@@ -10230,7 +9862,6 @@ export const pokemon_list = [
         580, 583, 590, 605, 666, 676, 803, 851, 885, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 765,
@@ -10239,9 +9870,9 @@ export const pokemon_list = [
       name_ja: "ヤレユータン",
       hp: 90,
       attack: 60,
-      deffense: 80,
+      defense: 80,
       special_attack: 90,
-      special_deffense: 110,
+      special_defense: 110,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/765.png",
@@ -10258,7 +9889,6 @@ export const pokemon_list = [
         851, 885, 886, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 766,
@@ -10267,9 +9897,9 @@ export const pokemon_list = [
       name_ja: "ナゲツケサル",
       hp: 100,
       attack: 120,
-      deffense: 90,
+      defense: 90,
       special_attack: 40,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/766.png",
@@ -10286,7 +9916,6 @@ export const pokemon_list = [
         851, 885, 886, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 770,
@@ -10295,9 +9924,9 @@ export const pokemon_list = [
       name_ja: "シロデスナ",
       hp: 85,
       attack: 75,
-      deffense: 110,
+      defense: 110,
       special_attack: 100,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 35,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/770.png",
@@ -10313,7 +9942,6 @@ export const pokemon_list = [
         886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 774,
@@ -10322,9 +9950,9 @@ export const pokemon_list = [
       name_ja: "メテノ(りゅうせいのすがた)",
       hp: 60,
       attack: 60,
-      deffense: 100,
+      defense: 100,
       special_attack: 60,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/774.png",
@@ -10339,7 +9967,6 @@ export const pokemon_list = [
         523, 590, 605, 800, 815, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 775,
@@ -10348,9 +9975,9 @@ export const pokemon_list = [
       name_ja: "ネッコアラ",
       hp: 65,
       attack: 115,
-      deffense: 65,
+      defense: 65,
       special_attack: 75,
-      special_deffense: 95,
+      special_defense: 95,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/775.png",
@@ -10366,7 +9993,6 @@ export const pokemon_list = [
         885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 778,
@@ -10375,9 +10001,9 @@ export const pokemon_list = [
       name_ja: "ミミッキュ(ばけたすがた)",
       hp: 55,
       attack: 90,
-      deffense: 80,
+      defense: 80,
       special_attack: 50,
-      special_deffense: 105,
+      special_defense: 105,
       speed: 96,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/778.png",
@@ -10394,7 +10020,6 @@ export const pokemon_list = [
         885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 779,
@@ -10403,9 +10028,9 @@ export const pokemon_list = [
       name_ja: "ハギギシリ",
       hp: 68,
       attack: 105,
-      deffense: 70,
+      defense: 70,
       special_attack: 70,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 92,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/779.png",
@@ -10421,7 +10046,6 @@ export const pokemon_list = [
         524, 590, 678, 706, 710, 797, 812, 834, 851, 886, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 782,
@@ -10430,9 +10054,9 @@ export const pokemon_list = [
       name_ja: "ジャラコ",
       hp: 45,
       attack: 55,
-      deffense: 65,
+      defense: 65,
       special_attack: 45,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/782.png",
@@ -10447,7 +10071,6 @@ export const pokemon_list = [
         526, 530, 568, 590, 784, 799, 851, 913,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 783,
@@ -10456,9 +10079,9 @@ export const pokemon_list = [
       name_ja: "ジャランゴ",
       hp: 55,
       attack: 75,
-      deffense: 90,
+      defense: 90,
       special_attack: 65,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/783.png",
@@ -10474,7 +10097,6 @@ export const pokemon_list = [
         693, 784, 799, 811, 851, 913, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 784,
@@ -10483,9 +10105,9 @@ export const pokemon_list = [
       name_ja: "ジャラランガ",
       hp: 75,
       attack: 110,
-      deffense: 125,
+      defense: 125,
       special_attack: 100,
-      special_deffense: 105,
+      special_defense: 105,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/784.png",
@@ -10503,7 +10125,6 @@ export const pokemon_list = [
         811, 851, 913, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 810,
@@ -10512,9 +10133,9 @@ export const pokemon_list = [
       name_ja: "サルノリ",
       hp: 50,
       attack: 65,
-      deffense: 50,
+      defense: 50,
       special_attack: 40,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/810.png",
@@ -10528,7 +10149,6 @@ export const pokemon_list = [
         437, 447, 452, 496, 512, 520, 526, 580, 669, 785, 803, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 811,
@@ -10537,9 +10157,9 @@ export const pokemon_list = [
       name_ja: "バチンキー",
       hp: 70,
       attack: 85,
-      deffense: 70,
+      defense: 70,
       special_attack: 55,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 80,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/811.png",
@@ -10554,7 +10174,6 @@ export const pokemon_list = [
         885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 812,
@@ -10563,9 +10182,9 @@ export const pokemon_list = [
       name_ja: "ゴリランダー",
       hp: 100,
       attack: 125,
-      deffense: 90,
+      defense: 90,
       special_attack: 60,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/812.png",
@@ -10581,7 +10200,6 @@ export const pokemon_list = [
         669, 693, 707, 776, 778, 785, 803, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 813,
@@ -10590,9 +10208,9 @@ export const pokemon_list = [
       name_ja: "ヒバニー",
       hp: 50,
       attack: 71,
-      deffense: 40,
+      defense: 40,
       special_attack: 40,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 69,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/813.png",
@@ -10606,7 +10224,6 @@ export const pokemon_list = [
         488, 490, 496, 502, 512, 519, 526, 807, 851, 885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 814,
@@ -10615,9 +10232,9 @@ export const pokemon_list = [
       name_ja: "ラビフット",
       hp: 65,
       attack: 86,
-      deffense: 60,
+      defense: 60,
       special_attack: 55,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 94,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/814.png",
@@ -10631,7 +10248,6 @@ export const pokemon_list = [
         424, 441, 486, 488, 490, 496, 502, 512, 519, 526, 807, 851, 885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 815,
@@ -10640,9 +10256,9 @@ export const pokemon_list = [
       name_ja: "エースバーン",
       hp: 80,
       attack: 116,
-      deffense: 75,
+      defense: 75,
       special_attack: 65,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 119,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/815.png",
@@ -10658,7 +10274,6 @@ export const pokemon_list = [
         815, 851, 885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 816,
@@ -10667,9 +10282,9 @@ export const pokemon_list = [
       name_ja: "メッソン",
       hp: 50,
       attack: 40,
-      deffense: 40,
+      defense: 40,
       special_attack: 70,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/816.png",
@@ -10683,7 +10298,6 @@ export const pokemon_list = [
         851, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 818,
@@ -10692,9 +10306,9 @@ export const pokemon_list = [
       name_ja: "インテレオン",
       hp: 70,
       attack: 85,
-      deffense: 65,
+      defense: 65,
       special_attack: 125,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 120,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/818.png",
@@ -10710,7 +10324,6 @@ export const pokemon_list = [
         886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 820,
@@ -10719,9 +10332,9 @@ export const pokemon_list = [
       name_ja: "ヨクバリス",
       hp: 120,
       attack: 95,
-      deffense: 95,
+      defense: 95,
       special_attack: 55,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 20,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/820.png",
@@ -10736,7 +10349,6 @@ export const pokemon_list = [
         776, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 822,
@@ -10745,9 +10357,9 @@ export const pokemon_list = [
       name_ja: "アオガラス",
       hp: 68,
       attack: 67,
-      deffense: 55,
+      defense: 55,
       special_attack: 43,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 77,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/822.png",
@@ -10760,7 +10372,6 @@ export const pokemon_list = [
         369, 371, 372, 403, 413, 417, 468, 496, 514, 526, 542, 681, 814, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 823,
@@ -10769,9 +10380,9 @@ export const pokemon_list = [
       name_ja: "アーマーガア",
       hp: 98,
       attack: 87,
-      deffense: 105,
+      defense: 105,
       special_attack: 53,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 67,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/823.png",
@@ -10786,7 +10397,6 @@ export const pokemon_list = [
         681, 776, 796, 814, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 834,
@@ -10795,9 +10405,9 @@ export const pokemon_list = [
       name_ja: "カジリガメ",
       hp: 90,
       attack: 115,
-      deffense: 90,
+      defense: 90,
       special_attack: 48,
-      special_deffense: 68,
+      special_defense: 68,
       speed: 74,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/834.png",
@@ -10812,7 +10422,6 @@ export const pokemon_list = [
         667, 675, 684, 707, 710, 746, 776, 799, 800, 806, 851, 861, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 838,
@@ -10821,9 +10430,9 @@ export const pokemon_list = [
       name_ja: "トロッゴン",
       hp: 80,
       attack: 60,
-      deffense: 90,
+      defense: 90,
       special_attack: 60,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/838.png",
@@ -10837,7 +10446,6 @@ export const pokemon_list = [
         496, 503, 510, 523, 535, 667, 682, 776, 800, 815, 851, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 839,
@@ -10846,9 +10454,9 @@ export const pokemon_list = [
       name_ja: "セキタンザン",
       hp: 110,
       attack: 80,
-      deffense: 120,
+      defense: 120,
       special_attack: 80,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/839.png",
@@ -10863,7 +10471,6 @@ export const pokemon_list = [
         800, 815, 851, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 841,
@@ -10872,9 +10479,9 @@ export const pokemon_list = [
       name_ja: "アップリュー",
       hp: 70,
       attack: 110,
-      deffense: 80,
+      defense: 80,
       special_attack: 95,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/841.png",
@@ -10888,7 +10495,6 @@ export const pokemon_list = [
         512, 580, 788, 803, 814, 851, 884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 842,
@@ -10897,9 +10503,9 @@ export const pokemon_list = [
       name_ja: "タルップル",
       hp: 110,
       attack: 85,
-      deffense: 80,
+      defense: 80,
       special_attack: 100,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/842.png",
@@ -10914,7 +10520,6 @@ export const pokemon_list = [
         884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 844,
@@ -10923,9 +10528,9 @@ export const pokemon_list = [
       name_ja: "サダイジャ",
       hp: 72,
       attack: 107,
-      deffense: 125,
+      defense: 125,
       special_attack: 65,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 71,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/844.png",
@@ -10939,7 +10544,6 @@ export const pokemon_list = [
         529, 542, 667, 693, 776, 799, 806, 815, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 845,
@@ -10948,9 +10552,9 @@ export const pokemon_list = [
       name_ja: "ウッウ",
       hp: 70,
       attack: 85,
-      deffense: 55,
+      defense: 55,
       special_attack: 85,
-      special_deffense: 95,
+      special_defense: 95,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/845.png",
@@ -10965,7 +10569,6 @@ export const pokemon_list = [
         886, 895,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 847,
@@ -10974,9 +10577,9 @@ export const pokemon_list = [
       name_ja: "カマスジョー",
       hp: 61,
       attack: 123,
-      deffense: 60,
+      defense: 60,
       special_attack: 60,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 136,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/847.png",
@@ -10990,7 +10593,6 @@ export const pokemon_list = [
         812, 851, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 849,
@@ -10999,9 +10601,9 @@ export const pokemon_list = [
       name_ja: "ストリンダー(ハイなすがた)",
       hp: 75,
       attack: 98,
-      deffense: 70,
+      defense: 70,
       special_attack: 114,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 75,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/849.png",
@@ -11017,7 +10619,6 @@ export const pokemon_list = [
         715, 786, 804, 851, 885, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 855,
@@ -11026,9 +10627,9 @@ export const pokemon_list = [
       name_ja: "ポットデス(がんさくフォルム)",
       hp: 60,
       attack: 65,
-      deffense: 65,
+      defense: 65,
       special_attack: 134,
-      special_deffense: 114,
+      special_defense: 114,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/855.png",
@@ -11042,7 +10643,6 @@ export const pokemon_list = [
         496, 500, 502, 504, 506, 566, 597, 668, 752, 809, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 857,
@@ -11051,9 +10651,9 @@ export const pokemon_list = [
       name_ja: "テブリム",
       hp: 57,
       attack: 40,
-      deffense: 65,
+      defense: 65,
       special_attack: 86,
-      special_deffense: 73,
+      special_defense: 73,
       speed: 49,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/857.png",
@@ -11067,7 +10667,6 @@ export const pokemon_list = [
         605, 678, 693, 791, 797, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 858,
@@ -11076,9 +10675,9 @@ export const pokemon_list = [
       name_ja: "ブリムオン",
       hp: 57,
       attack: 90,
-      deffense: 95,
+      defense: 95,
       special_attack: 136,
-      special_deffense: 103,
+      special_defense: 103,
       speed: 29,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/858.png",
@@ -11093,7 +10692,6 @@ export const pokemon_list = [
         678, 693, 750, 791, 797, 802, 851, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 860,
@@ -11102,9 +10700,9 @@ export const pokemon_list = [
       name_ja: "ギモー",
       hp: 65,
       attack: 60,
-      deffense: 45,
+      defense: 45,
       special_attack: 75,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/860.png",
@@ -11118,7 +10716,6 @@ export const pokemon_list = [
         605, 675, 793, 807, 808, 851, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 861,
@@ -11127,9 +10724,9 @@ export const pokemon_list = [
       name_ja: "オーロンゲ",
       hp: 95,
       attack: 120,
-      deffense: 65,
+      defense: 65,
       special_attack: 95,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/861.png",
@@ -11145,7 +10742,6 @@ export const pokemon_list = [
         885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 863,
@@ -11154,9 +10750,9 @@ export const pokemon_list = [
       name_ja: "ニャイキング",
       hp: 70,
       attack: 110,
-      deffense: 100,
+      defense: 100,
       special_attack: 50,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/863.png",
@@ -11172,7 +10768,6 @@ export const pokemon_list = [
         796, 808, 851, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 869,
@@ -11181,9 +10776,9 @@ export const pokemon_list = [
       name_ja: "マホイップ(ミルキィバニラ)",
       hp: 65,
       attack: 60,
-      deffense: 75,
+      defense: 75,
       special_attack: 110,
-      special_deffense: 121,
+      special_defense: 121,
       speed: 64,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/869.png",
@@ -11197,7 +10792,6 @@ export const pokemon_list = [
         574, 577, 581, 583, 595, 597, 605, 608, 777, 802, 851, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 870,
@@ -11206,9 +10800,9 @@ export const pokemon_list = [
       name_ja: "タイレーツ",
       hp: 65,
       attack: 100,
-      deffense: 100,
+      defense: 100,
       special_attack: 70,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 75,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/870.png",
@@ -11222,7 +10816,6 @@ export const pokemon_list = [
         496, 514, 660, 667, 675, 679, 684, 748, 776, 811, 851, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 871,
@@ -11231,9 +10824,9 @@ export const pokemon_list = [
       name_ja: "バチンウニ",
       hp: 48,
       attack: 101,
-      deffense: 95,
+      defense: 95,
       special_attack: 91,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 15,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/871.png",
@@ -11248,7 +10841,6 @@ export const pokemon_list = [
         916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 873,
@@ -11257,9 +10849,9 @@ export const pokemon_list = [
       name_ja: "モスノウ",
       hp: 70,
       attack: 65,
-      deffense: 60,
+      defense: 60,
       special_attack: 125,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/873.png",
@@ -11273,7 +10865,6 @@ export const pokemon_list = [
         583, 605, 611, 679, 694, 806, 813, 814, 851, 861, 883, 884,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 874,
@@ -11282,9 +10873,9 @@ export const pokemon_list = [
       name_ja: "イシヘンジン",
       hp: 100,
       attack: 125,
-      deffense: 135,
+      defense: 135,
       special_attack: 20,
-      special_deffense: 20,
+      special_defense: 20,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/874.png",
@@ -11298,7 +10889,6 @@ export const pokemon_list = [
         490, 496, 523, 535, 667, 693, 707, 776, 800, 851, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 875,
@@ -11307,9 +10897,9 @@ export const pokemon_list = [
       name_ja: "コオリッポ(アイスフェイス)",
       hp: 75,
       attack: 80,
-      deffense: 110,
+      defense: 110,
       special_attack: 65,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/875.png",
@@ -11323,7 +10913,6 @@ export const pokemon_list = [
         496, 556, 573, 694, 710, 812, 851, 861, 883, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 876,
@@ -11332,9 +10921,9 @@ export const pokemon_list = [
       name_ja: "イエッサン(オスのすがた)",
       hp: 60,
       attack: 65,
-      deffense: 55,
+      defense: 55,
       special_attack: 105,
-      special_deffense: 95,
+      special_defense: 95,
       speed: 95,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/876.png",
@@ -11348,7 +10937,6 @@ export const pokemon_list = [
         496, 500, 502, 574, 577, 583, 589, 595, 605, 678, 797, 805, 851, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 877,
@@ -11357,9 +10945,9 @@ export const pokemon_list = [
       name_ja: "モルペコ(まんぷくもよう)",
       hp: 58,
       attack: 95,
-      deffense: 58,
+      defense: 58,
       special_attack: 70,
-      special_deffense: 58,
+      special_defense: 58,
       speed: 97,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/877.png",
@@ -11375,7 +10963,6 @@ export const pokemon_list = [
         851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 878,
@@ -11384,9 +10971,9 @@ export const pokemon_list = [
       name_ja: "ゾウドウ",
       hp: 72,
       attack: 80,
-      deffense: 49,
+      defense: 49,
       special_attack: 40,
-      special_deffense: 49,
+      special_defense: 49,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/878.png",
@@ -11400,7 +10987,6 @@ export const pokemon_list = [
         496, 523, 526, 562, 583, 667, 693, 707, 776, 796, 798, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 879,
@@ -11409,9 +10995,9 @@ export const pokemon_list = [
       name_ja: "ダイオウドウ",
       hp: 122,
       attack: 130,
-      deffense: 69,
+      defense: 69,
       special_attack: 80,
-      special_deffense: 69,
+      special_defense: 69,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/879.png",
@@ -11426,7 +11012,6 @@ export const pokemon_list = [
         776, 796, 798, 851, 912, 916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 884,
@@ -11435,9 +11020,9 @@ export const pokemon_list = [
       name_ja: "ジュラルドン",
       hp: 70,
       attack: 95,
-      deffense: 115,
+      defense: 115,
       special_attack: 120,
-      special_deffense: 50,
+      special_defense: 50,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/884.png",
@@ -11452,7 +11037,6 @@ export const pokemon_list = [
         851, 913,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 887,
@@ -11461,9 +11045,9 @@ export const pokemon_list = [
       name_ja: "ドラパルト",
       hp: 88,
       attack: 120,
-      deffense: 75,
+      defense: 75,
       special_attack: 100,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 142,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/887.png",
@@ -11478,7 +11062,6 @@ export const pokemon_list = [
         512, 525, 566, 611, 706, 751, 784, 851, 884, 913,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 899,
@@ -11487,9 +11070,9 @@ export const pokemon_list = [
       name_ja: "アヤシシ",
       hp: 103,
       attack: 105,
-      deffense: 72,
+      defense: 72,
       special_attack: 105,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/899.png",
@@ -11504,7 +11087,6 @@ export const pokemon_list = [
         679, 797, 828, 851, 885, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 900,
@@ -11513,9 +11095,9 @@ export const pokemon_list = [
       name_ja: "バサギリ",
       hp: 70,
       attack: 135,
-      deffense: 95,
+      defense: 95,
       special_attack: 45,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/900.png",
@@ -11529,7 +11111,6 @@ export const pokemon_list = [
         458, 479, 512, 522, 679, 806, 814, 830, 851, 884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 901,
@@ -11538,9 +11119,9 @@ export const pokemon_list = [
       name_ja: "ガチグマ",
       hp: 130,
       attack: 140,
-      deffense: 105,
+      defense: 105,
       special_attack: 45,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/901.png",
@@ -11556,7 +11137,6 @@ export const pokemon_list = [
         916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 902,
@@ -11565,9 +11145,9 @@ export const pokemon_list = [
       name_ja: "イダイトウ(オスのすがた)",
       hp: 120,
       attack: 112,
-      deffense: 65,
+      defense: 65,
       special_attack: 80,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 78,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/902.png",
@@ -11581,7 +11161,6 @@ export const pokemon_list = [
         710, 799, 812, 834, 851, 854, 883, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 903,
@@ -11590,9 +11169,9 @@ export const pokemon_list = [
       name_ja: "オオニューラ",
       hp: 80,
       attack: 130,
-      deffense: 60,
+      defense: 60,
       special_attack: 40,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 120,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/903.png",
@@ -11607,7 +11186,6 @@ export const pokemon_list = [
         808, 811, 827, 851, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 904,
@@ -11616,9 +11194,9 @@ export const pokemon_list = [
       name_ja: "ハリーマン",
       hp: 85,
       attack: 115,
-      deffense: 95,
+      defense: 95,
       special_attack: 65,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/904.png",
@@ -11633,7 +11211,6 @@ export const pokemon_list = [
         886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 906,
@@ -11642,9 +11219,9 @@ export const pokemon_list = [
       name_ja: "ニャオハ",
       hp: 40,
       attack: 61,
-      deffense: 54,
+      defense: 54,
       special_attack: 45,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/906.png",
@@ -11658,7 +11235,6 @@ export const pokemon_list = [
         851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 907,
@@ -11667,9 +11243,9 @@ export const pokemon_list = [
       name_ja: "ニャローテ",
       hp: 61,
       attack: 80,
-      deffense: 63,
+      defense: 63,
       special_attack: 60,
-      special_deffense: 63,
+      special_defense: 63,
       speed: 83,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/907.png",
@@ -11683,7 +11259,6 @@ export const pokemon_list = [
         803, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 908,
@@ -11692,9 +11267,9 @@ export const pokemon_list = [
       name_ja: "マスカーニャ",
       hp: 76,
       attack: 110,
-      deffense: 70,
+      defense: 70,
       special_attack: 81,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 123,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/908.png",
@@ -11709,7 +11284,6 @@ export const pokemon_list = [
         572, 574, 580, 583, 670, 675, 676, 803, 808, 813, 851, 870, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 909,
@@ -11718,9 +11292,9 @@ export const pokemon_list = [
       name_ja: "ホゲータ",
       hp: 67,
       attack: 45,
-      deffense: 59,
+      defense: 59,
       special_attack: 63,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 36,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/909.png",
@@ -11734,7 +11308,6 @@ export const pokemon_list = [
         915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 910,
@@ -11743,9 +11316,9 @@ export const pokemon_list = [
       name_ja: "アチゲータ",
       hp: 81,
       attack: 55,
-      deffense: 78,
+      defense: 78,
       special_attack: 90,
-      special_deffense: 58,
+      special_defense: 58,
       speed: 49,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/910.png",
@@ -11758,7 +11331,6 @@ export const pokemon_list = [
         402, 422, 424, 428, 488, 496, 510, 519, 555, 574, 707, 851, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 911,
@@ -11767,9 +11339,9 @@ export const pokemon_list = [
       name_ja: "ラウドボーン",
       hp: 104,
       attack: 75,
-      deffense: 100,
+      defense: 100,
       special_attack: 110,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 66,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/911.png",
@@ -11784,7 +11356,6 @@ export const pokemon_list = [
         914, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 912,
@@ -11793,9 +11364,9 @@ export const pokemon_list = [
       name_ja: "クワッス",
       hp: 55,
       attack: 65,
-      deffense: 45,
+      defense: 45,
       special_attack: 50,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/912.png",
@@ -11808,7 +11379,6 @@ export const pokemon_list = [
         512, 518, 526, 574, 581, 710, 851, 886, 895,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 913,
@@ -11817,9 +11387,9 @@ export const pokemon_list = [
       name_ja: "ウェルカモ",
       hp: 70,
       attack: 85,
-      deffense: 65,
+      defense: 65,
       special_attack: 65,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/913.png",
@@ -11832,7 +11402,6 @@ export const pokemon_list = [
         518, 526, 574, 581, 710, 812, 813, 851, 886, 895,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 914,
@@ -11841,9 +11410,9 @@ export const pokemon_list = [
       name_ja: "ウェーニバル",
       hp: 85,
       attack: 120,
-      deffense: 80,
+      defense: 80,
       special_attack: 85,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/914.png",
@@ -11858,7 +11427,6 @@ export const pokemon_list = [
         851, 861, 872, 886, 895, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 915,
@@ -11867,9 +11435,9 @@ export const pokemon_list = [
       name_ja: "グルトン",
       hp: 54,
       attack: 45,
-      deffense: 40,
+      defense: 40,
       special_attack: 35,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 35,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/915.png",
@@ -11882,7 +11450,6 @@ export const pokemon_list = [
         402, 428, 442, 497, 523, 526, 574, 583, 747, 851, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 916,
@@ -11891,9 +11458,9 @@ export const pokemon_list = [
       name_ja: "パフュートン(オスのすがた)",
       hp: 110,
       attack: 100,
-      deffense: 75,
+      defense: 75,
       special_attack: 59,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/916.png",
@@ -11907,7 +11474,6 @@ export const pokemon_list = [
         851, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 918,
@@ -11916,9 +11482,9 @@ export const pokemon_list = [
       name_ja: "ワナイダー",
       hp: 60,
       attack: 79,
-      deffense: 92,
+      defense: 92,
       special_attack: 52,
-      special_deffense: 86,
+      special_defense: 86,
       speed: 35,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/918.png",
@@ -11932,7 +11498,6 @@ export const pokemon_list = [
         522, 527, 564, 675, 679, 806, 851, 852, 884, 885, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 920,
@@ -11941,9 +11506,9 @@ export const pokemon_list = [
       name_ja: "エクスレッグ",
       hp: 71,
       attack: 102,
-      deffense: 78,
+      defense: 78,
       special_attack: 52,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 92,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/920.png",
@@ -11957,7 +11522,6 @@ export const pokemon_list = [
         806, 808, 851, 853, 884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 921,
@@ -11966,9 +11530,9 @@ export const pokemon_list = [
       name_ja: "パモ",
       hp: 45,
       attack: 50,
-      deffense: 20,
+      defense: 20,
       special_attack: 40,
-      special_deffense: 25,
+      special_defense: 25,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/921.png",
@@ -11982,7 +11546,6 @@ export const pokemon_list = [
         598, 604, 609, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 922,
@@ -11991,9 +11554,9 @@ export const pokemon_list = [
       name_ja: "パモット",
       hp: 60,
       attack: 75,
-      deffense: 40,
+      defense: 40,
       special_attack: 50,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/922.png",
@@ -12007,7 +11570,6 @@ export const pokemon_list = [
         528, 583, 598, 604, 609, 811, 851, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 923,
@@ -12016,9 +11578,9 @@ export const pokemon_list = [
       name_ja: "パーモット",
       hp: 70,
       attack: 115,
-      deffense: 70,
+      defense: 70,
       special_attack: 70,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 105,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/923.png",
@@ -12033,7 +11595,6 @@ export const pokemon_list = [
         598, 604, 609, 675, 776, 811, 851, 863, 892, 916, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 925,
@@ -12042,9 +11603,9 @@ export const pokemon_list = [
       name_ja: "イッカネズミ(４ひきかぞく)",
       hp: 74,
       attack: 75,
-      deffense: 70,
+      defense: 70,
       special_attack: 65,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 111,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/925.png",
@@ -12058,7 +11619,6 @@ export const pokemon_list = [
         851, 860, 882, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 927,
@@ -12067,9 +11627,9 @@ export const pokemon_list = [
       name_ja: "バウッツェル",
       hp: 57,
       attack: 80,
-      deffense: 115,
+      defense: 115,
       special_attack: 50,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 95,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/927.png",
@@ -12083,7 +11643,6 @@ export const pokemon_list = [
         776, 851, 885, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 928,
@@ -12092,9 +11651,9 @@ export const pokemon_list = [
       name_ja: "ミニーブ",
       hp: 41,
       attack: 35,
-      deffense: 45,
+      defense: 45,
       special_attack: 58,
-      special_deffense: 51,
+      special_defense: 51,
       speed: 30,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/928.png",
@@ -12107,7 +11666,6 @@ export const pokemon_list = [
         580, 668, 669, 805, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 929,
@@ -12116,9 +11674,9 @@ export const pokemon_list = [
       name_ja: "オリーニョ",
       hp: 52,
       attack: 53,
-      deffense: 60,
+      defense: 60,
       special_attack: 78,
-      special_deffense: 78,
+      special_defense: 78,
       speed: 33,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/929.png",
@@ -12131,7 +11689,6 @@ export const pokemon_list = [
         805, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 930,
@@ -12140,9 +11697,9 @@ export const pokemon_list = [
       name_ja: "オリーヴァ",
       hp: 78,
       attack: 69,
-      deffense: 90,
+      defense: 90,
       special_attack: 125,
-      special_deffense: 109,
+      special_defense: 109,
       speed: 39,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/930.png",
@@ -12156,7 +11713,6 @@ export const pokemon_list = [
         676, 805, 851, 885, 914,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 931,
@@ -12165,9 +11721,9 @@ export const pokemon_list = [
       name_ja: "イキリンコ(グリーンフェザー)",
       hp: 82,
       attack: 96,
-      deffense: 51,
+      defense: 51,
       special_attack: 45,
-      special_deffense: 51,
+      special_defense: 51,
       speed: 92,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/931.png",
@@ -12181,7 +11737,6 @@ export const pokemon_list = [
         814, 851, 884,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 932,
@@ -12190,9 +11745,9 @@ export const pokemon_list = [
       name_ja: "コジオ",
       hp: 55,
       attack: 55,
-      deffense: 75,
+      defense: 75,
       special_attack: 35,
-      special_deffense: 35,
+      special_defense: 35,
       speed: 25,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/932.png",
@@ -12205,7 +11760,6 @@ export const pokemon_list = [
         442, 444, 446, 479, 484, 523, 707, 800, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 933,
@@ -12214,9 +11768,9 @@ export const pokemon_list = [
       name_ja: "ジオヅム",
       hp: 60,
       attack: 60,
-      deffense: 100,
+      defense: 100,
       special_attack: 35,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 35,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/933.png",
@@ -12229,7 +11783,6 @@ export const pokemon_list = [
         430, 442, 444, 446, 479, 484, 523, 707, 776, 800, 851, 864,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 934,
@@ -12238,9 +11791,9 @@ export const pokemon_list = [
       name_ja: "キョジオーン",
       hp: 100,
       attack: 100,
-      deffense: 130,
+      defense: 130,
       special_attack: 45,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 35,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/934.png",
@@ -12254,7 +11807,6 @@ export const pokemon_list = [
         444, 446, 469, 479, 484, 523, 707, 776, 800, 851, 864, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 936,
@@ -12263,9 +11815,9 @@ export const pokemon_list = [
       name_ja: "グレンアルマ",
       hp: 85,
       attack: 60,
-      deffense: 100,
+      defense: 100,
       special_attack: 125,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 75,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/936.png",
@@ -12279,7 +11831,6 @@ export const pokemon_list = [
         473, 488, 491, 499, 500, 502, 510, 595, 678, 797, 800, 815, 851, 890,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 937,
@@ -12288,9 +11839,9 @@ export const pokemon_list = [
       name_ja: "ソウブレイズ",
       hp: 75,
       attack: 125,
-      deffense: 80,
+      defense: 80,
       special_attack: 60,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/937.png",
@@ -12305,7 +11856,6 @@ export const pokemon_list = [
         891,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 938,
@@ -12314,9 +11864,9 @@ export const pokemon_list = [
       name_ja: "ズピカ",
       hp: 61,
       attack: 31,
-      deffense: 41,
+      defense: 41,
       special_attack: 59,
-      special_deffense: 35,
+      special_defense: 35,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/938.png",
@@ -12329,7 +11879,6 @@ export const pokemon_list = [
         486, 487, 491, 521, 527, 528, 570, 598, 604, 851, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 939,
@@ -12338,9 +11887,9 @@ export const pokemon_list = [
       name_ja: "ハラバリー",
       hp: 109,
       attack: 64,
-      deffense: 91,
+      defense: 91,
       special_attack: 103,
-      special_deffense: 83,
+      special_defense: 83,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/939.png",
@@ -12353,7 +11902,6 @@ export const pokemon_list = [
         416, 435, 451, 486, 491, 521, 527, 528, 598, 604, 851, 886, 916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 940,
@@ -12362,9 +11910,9 @@ export const pokemon_list = [
       name_ja: "カイデン",
       hp: 40,
       attack: 40,
-      deffense: 35,
+      defense: 35,
       special_attack: 55,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/940.png",
@@ -12378,7 +11926,6 @@ export const pokemon_list = [
         814, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 941,
@@ -12387,9 +11934,9 @@ export const pokemon_list = [
       name_ja: "タイカイデン",
       hp: 70,
       attack: 70,
-      deffense: 60,
+      defense: 60,
       special_attack: 105,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 125,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/941.png",
@@ -12403,7 +11950,6 @@ export const pokemon_list = [
         814, 851, 916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 943,
@@ -12412,9 +11958,9 @@ export const pokemon_list = [
       name_ja: "マフィティフ",
       hp: 80,
       attack: 120,
-      deffense: 90,
+      defense: 90,
       special_attack: 60,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/943.png",
@@ -12428,7 +11974,6 @@ export const pokemon_list = [
         706, 746, 808, 851, 885, 894,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 945,
@@ -12437,9 +11982,9 @@ export const pokemon_list = [
       name_ja: "タギングル",
       hp: 63,
       attack: 95,
-      deffense: 65,
+      defense: 65,
       special_attack: 80,
-      special_deffense: 72,
+      special_defense: 72,
       speed: 110,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/945.png",
@@ -12453,7 +11998,6 @@ export const pokemon_list = [
         474, 482, 490, 491, 492, 512, 675, 806, 851, 867, 884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 947,
@@ -12462,9 +12006,9 @@ export const pokemon_list = [
       name_ja: "アノホラグサ",
       hp: 55,
       attack: 115,
-      deffense: 70,
+      defense: 70,
       special_attack: 80,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 90,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/947.png",
@@ -12477,7 +12021,6 @@ export const pokemon_list = [
         437, 438, 447, 506, 566, 580, 611, 803, 806, 809, 851, 884, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 948,
@@ -12486,9 +12029,9 @@ export const pokemon_list = [
       name_ja: "ノノクラゲ",
       hp: 40,
       attack: 40,
-      deffense: 35,
+      defense: 35,
       special_attack: 50,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/948.png",
@@ -12502,7 +12045,6 @@ export const pokemon_list = [
         437, 438, 447, 474, 476, 491, 492, 506, 580, 605, 679, 803, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 949,
@@ -12511,9 +12053,9 @@ export const pokemon_list = [
       name_ja: "リククラゲ",
       hp: 80,
       attack: 70,
-      deffense: 65,
+      defense: 65,
       special_attack: 80,
-      special_deffense: 120,
+      special_defense: 120,
       speed: 100,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/949.png",
@@ -12527,7 +12069,6 @@ export const pokemon_list = [
         474, 491, 492, 506, 513, 580, 605, 679, 803, 806, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 950,
@@ -12536,9 +12077,9 @@ export const pokemon_list = [
       name_ja: "ガケガニ",
       hp: 70,
       attack: 100,
-      deffense: 115,
+      defense: 115,
       special_attack: 35,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 75,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/950.png",
@@ -12552,7 +12093,6 @@ export const pokemon_list = [
         523, 667, 675, 707, 800, 806, 851, 885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 951,
@@ -12561,9 +12101,9 @@ export const pokemon_list = [
       name_ja: "カプサイジ",
       hp: 50,
       attack: 62,
-      deffense: 40,
+      defense: 40,
       special_attack: 62,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/951.png",
@@ -12576,7 +12116,6 @@ export const pokemon_list = [
         437, 447, 476, 580, 670, 707, 803, 851, 885,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 952,
@@ -12585,9 +12124,9 @@ export const pokemon_list = [
       name_ja: "スコヴィラン",
       hp: 65,
       attack: 108,
-      deffense: 65,
+      defense: 65,
       special_attack: 108,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 75,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/952.png",
@@ -12601,7 +12140,6 @@ export const pokemon_list = [
         858, 885, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 954,
@@ -12610,9 +12148,9 @@ export const pokemon_list = [
       name_ja: "ベラカス",
       hp: 75,
       attack: 50,
-      deffense: 85,
+      defense: 85,
       special_attack: 115,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 45,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/954.png",
@@ -12627,7 +12165,6 @@ export const pokemon_list = [
         678, 679, 683, 797, 806, 809, 851, 863, 884, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 956,
@@ -12636,9 +12173,9 @@ export const pokemon_list = [
       name_ja: "クエスパトラ",
       hp: 95,
       attack: 60,
-      deffense: 60,
+      defense: 60,
       special_attack: 101,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 105,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/956.png",
@@ -12653,7 +12190,6 @@ export const pokemon_list = [
         851, 855, 884,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 958,
@@ -12662,9 +12198,9 @@ export const pokemon_list = [
       name_ja: "ナカヌチャン",
       hp: 65,
       attack: 55,
-      deffense: 55,
+      defense: 55,
       special_attack: 45,
-      special_deffense: 82,
+      special_defense: 82,
       speed: 78,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/958.png",
@@ -12678,7 +12214,6 @@ export const pokemon_list = [
         884,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 959,
@@ -12687,9 +12222,9 @@ export const pokemon_list = [
       name_ja: "デカヌチャン",
       hp: 85,
       attack: 75,
-      deffense: 77,
+      defense: 77,
       special_attack: 70,
-      special_deffense: 105,
+      special_defense: 105,
       speed: 94,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/959.png",
@@ -12703,7 +12238,6 @@ export const pokemon_list = [
         796, 806, 851, 884, 893, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 961,
@@ -12712,9 +12246,9 @@ export const pokemon_list = [
       name_ja: "ウミトリオ",
       hp: 35,
       attack: 100,
-      deffense: 50,
+      defense: 50,
       special_attack: 50,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 120,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/961.png",
@@ -12727,7 +12261,6 @@ export const pokemon_list = [
         416, 453, 492, 523, 675, 707, 710, 851, 865, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 962,
@@ -12736,9 +12269,9 @@ export const pokemon_list = [
       name_ja: "オトシドリ",
       hp: 70,
       attack: 103,
-      deffense: 85,
+      defense: 85,
       special_attack: 60,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 82,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/962.png",
@@ -12753,7 +12286,6 @@ export const pokemon_list = [
         814, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 963,
@@ -12762,9 +12294,9 @@ export const pokemon_list = [
       name_ja: "ナミイルカ",
       hp: 70,
       attack: 45,
-      deffense: 40,
+      defense: 40,
       special_attack: 45,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 75,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/963.png",
@@ -12777,7 +12309,6 @@ export const pokemon_list = [
         340, 352, 374, 401, 428, 453, 458, 512, 574, 577, 586, 710, 851, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 964,
@@ -12786,9 +12317,9 @@ export const pokemon_list = [
       name_ja: "イルカマン(ナイーブフォルム)",
       hp: 100,
       attack: 70,
-      deffense: 72,
+      defense: 72,
       special_attack: 53,
-      special_deffense: 62,
+      special_defense: 62,
       speed: 100,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/964.png",
@@ -12803,7 +12334,6 @@ export const pokemon_list = [
         857, 886, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 965,
@@ -12812,9 +12342,9 @@ export const pokemon_list = [
       name_ja: "ブロロン",
       hp: 45,
       attack: 70,
-      deffense: 63,
+      defense: 63,
       special_attack: 30,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 47,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/965.png",
@@ -12828,7 +12358,6 @@ export const pokemon_list = [
         796, 851, 859,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 966,
@@ -12837,9 +12366,9 @@ export const pokemon_list = [
       name_ja: "ブロロローム",
       hp: 80,
       attack: 119,
-      deffense: 90,
+      defense: 90,
       special_attack: 54,
-      special_deffense: 67,
+      special_defense: 67,
       speed: 90,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/966.png",
@@ -12853,7 +12382,6 @@ export const pokemon_list = [
         482, 484, 491, 508, 523, 667, 796, 808, 851, 859, 912, 915,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 967,
@@ -12862,9 +12390,9 @@ export const pokemon_list = [
       name_ja: "モトトカゲ",
       hp: 70,
       attack: 95,
-      deffense: 65,
+      defense: 65,
       special_attack: 85,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 121,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/967.png",
@@ -12878,7 +12406,6 @@ export const pokemon_list = [
         512, 525, 528, 784, 799, 851, 861, 880, 885, 913, 915, 916,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 968,
@@ -12887,9 +12414,9 @@ export const pokemon_list = [
       name_ja: "ミミズズ",
       hp: 70,
       attack: 85,
-      deffense: 145,
+      defense: 145,
       special_attack: 60,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 65,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/968.png",
@@ -12902,7 +12429,6 @@ export const pokemon_list = [
         416, 430, 442, 446, 479, 484, 489, 523, 667, 707, 776, 796, 851, 880,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 969,
@@ -12911,9 +12437,9 @@ export const pokemon_list = [
       name_ja: "キラーメ",
       hp: 48,
       attack: 35,
-      deffense: 42,
+      defense: 42,
       special_attack: 105,
-      special_deffense: 60,
+      special_defense: 60,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/969.png",
@@ -12926,7 +12452,6 @@ export const pokemon_list = [
         397, 408, 441, 444, 446, 474, 479, 482, 491, 605, 800, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 970,
@@ -12935,9 +12460,9 @@ export const pokemon_list = [
       name_ja: "キラフロル",
       hp: 83,
       attack: 55,
-      deffense: 90,
+      defense: 90,
       special_attack: 130,
-      special_deffense: 81,
+      special_defense: 81,
       speed: 86,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/970.png",
@@ -12951,7 +12476,6 @@ export const pokemon_list = [
         605, 800, 851, 866,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 971,
@@ -12960,9 +12484,9 @@ export const pokemon_list = [
       name_ja: "ボチ",
       hp: 50,
       attack: 61,
-      deffense: 60,
+      defense: 60,
       special_attack: 30,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 34,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/971.png",
@@ -12976,7 +12500,6 @@ export const pokemon_list = [
         523, 555, 566, 583, 706, 707, 809, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 972,
@@ -12985,9 +12508,9 @@ export const pokemon_list = [
       name_ja: "ハカドッグ",
       hp: 72,
       attack: 101,
-      deffense: 100,
+      defense: 100,
       special_attack: 50,
-      special_deffense: 97,
+      special_defense: 97,
       speed: 68,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/972.png",
@@ -13001,7 +12524,6 @@ export const pokemon_list = [
         706, 707, 776, 809, 851, 854,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 973,
@@ -13010,9 +12532,9 @@ export const pokemon_list = [
       name_ja: "カラミンゴ",
       hp: 82,
       attack: 115,
-      deffense: 74,
+      defense: 74,
       special_attack: 75,
-      special_deffense: 64,
+      special_defense: 64,
       speed: 90,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/973.png",
@@ -13026,7 +12548,6 @@ export const pokemon_list = [
         512, 542, 675, 679, 710, 814, 851, 884, 886, 918,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 974,
@@ -13035,9 +12556,9 @@ export const pokemon_list = [
       name_ja: "アルクジラ",
       hp: 108,
       attack: 68,
-      deffense: 45,
+      defense: 45,
       special_attack: 30,
-      special_deffense: 40,
+      special_defense: 40,
       speed: 43,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/974.png",
@@ -13051,7 +12572,6 @@ export const pokemon_list = [
         851, 861, 883, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 975,
@@ -13060,9 +12580,9 @@ export const pokemon_list = [
       name_ja: "ハルクジラ",
       hp: 170,
       attack: 113,
-      deffense: 65,
+      defense: 65,
       special_attack: 45,
-      special_deffense: 55,
+      special_defense: 55,
       speed: 73,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/975.png",
@@ -13076,7 +12596,6 @@ export const pokemon_list = [
         886, 912,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 976,
@@ -13085,9 +12604,9 @@ export const pokemon_list = [
       name_ja: "ミガルーサ",
       hp: 90,
       attack: 102,
-      deffense: 73,
+      defense: 73,
       special_attack: 78,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/976.png",
@@ -13101,7 +12620,6 @@ export const pokemon_list = [
         883, 886, 895,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 977,
@@ -13110,9 +12628,9 @@ export const pokemon_list = [
       name_ja: "ヘイラッシャ",
       hp: 150,
       attack: 100,
-      deffense: 115,
+      defense: 115,
       special_attack: 65,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 35,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/977.png",
@@ -13126,7 +12644,6 @@ export const pokemon_list = [
         886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 978,
@@ -13135,9 +12652,9 @@ export const pokemon_list = [
       name_ja: "シャリタツ(そったすがた)",
       hp: 68,
       attack: 50,
-      deffense: 60,
+      defense: 60,
       special_attack: 120,
-      special_deffense: 95,
+      special_defense: 95,
       speed: 82,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/978.png",
@@ -13150,7 +12667,6 @@ export const pokemon_list = [
         417, 434, 487, 679, 851, 886, 913,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 979,
@@ -13159,9 +12675,9 @@ export const pokemon_list = [
       name_ja: "コノヨザル",
       hp: 110,
       attack: 115,
-      deffense: 80,
+      defense: 80,
       special_attack: 50,
-      special_deffense: 90,
+      special_defense: 90,
       speed: 90,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/979.png",
@@ -13177,7 +12693,6 @@ export const pokemon_list = [
         808, 811, 889,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 980,
@@ -13186,9 +12701,9 @@ export const pokemon_list = [
       name_ja: "ドオー",
       hp: 130,
       attack: 75,
-      deffense: 60,
+      defense: 60,
       special_attack: 45,
-      special_deffense: 100,
+      special_defense: 100,
       speed: 20,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/980.png",
@@ -13202,7 +12717,6 @@ export const pokemon_list = [
         446, 474, 482, 484, 491, 523, 667, 707, 710, 776, 851, 885, 886,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 981,
@@ -13211,9 +12725,9 @@ export const pokemon_list = [
       name_ja: "リキキリン",
       hp: 120,
       attack: 90,
-      deffense: 70,
+      defense: 70,
       special_attack: 110,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 60,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/981.png",
@@ -13228,7 +12742,6 @@ export const pokemon_list = [
         473, 492, 500, 523, 605, 667, 678, 706, 707, 797, 851, 885, 888, 917,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 982,
@@ -13237,9 +12750,9 @@ export const pokemon_list = [
       name_ja: "ノココッチ(ふたふしフォルム)",
       hp: 125,
       attack: 100,
-      deffense: 80,
+      defense: 80,
       special_attack: 85,
-      special_deffense: 75,
+      special_defense: 75,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/982.png",
@@ -13255,7 +12768,6 @@ export const pokemon_list = [
         679, 684, 707, 776, 784, 799, 806, 814, 851, 861, 884, 886, 887,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 983,
@@ -13264,9 +12776,9 @@ export const pokemon_list = [
       name_ja: "ドドゲザン",
       hp: 100,
       attack: 135,
-      deffense: 120,
+      defense: 120,
       special_attack: 60,
-      special_deffense: 85,
+      special_defense: 85,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/983.png",
@@ -13280,7 +12792,6 @@ export const pokemon_list = [
         430, 442, 444, 446, 447, 490, 492, 514, 555, 675, 796, 808, 851, 869,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 996,
@@ -13289,9 +12800,9 @@ export const pokemon_list = [
       name_ja: "セビエ",
       hp: 65,
       attack: 75,
-      deffense: 45,
+      defense: 45,
       special_attack: 35,
-      special_deffense: 45,
+      special_defense: 45,
       speed: 55,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/996.png",
@@ -13304,7 +12815,6 @@ export const pokemon_list = [
         525, 556, 573, 851, 883,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 998,
@@ -13313,9 +12823,9 @@ export const pokemon_list = [
       name_ja: "セグレイブ",
       hp: 115,
       attack: 145,
-      deffense: 92,
+      defense: 92,
       special_attack: 75,
-      special_deffense: 86,
+      special_defense: 86,
       speed: 87,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/998.png",
@@ -13329,7 +12839,6 @@ export const pokemon_list = [
         707, 776, 784, 799, 851, 862, 883, 913,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 999,
@@ -13338,9 +12847,9 @@ export const pokemon_list = [
       name_ja: "コレクレー(はこフォルム)",
       hp: 45,
       attack: 30,
-      deffense: 70,
+      defense: 70,
       special_attack: 75,
-      special_deffense: 70,
+      special_defense: 70,
       speed: 10,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/999.png",
@@ -13352,7 +12861,6 @@ export const pokemon_list = [
         417, 506, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 1000,
@@ -13361,9 +12869,9 @@ export const pokemon_list = [
       name_ja: "サーフゴー",
       hp: 87,
       attack: 60,
-      deffense: 95,
+      defense: 95,
       special_attack: 133,
-      special_deffense: 91,
+      special_defense: 91,
       speed: 84,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1000.png",
@@ -13377,7 +12885,6 @@ export const pokemon_list = [
         874,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 1011,
@@ -13386,9 +12893,9 @@ export const pokemon_list = [
       name_ja: "カミッチュ",
       hp: 80,
       attack: 80,
-      deffense: 110,
+      defense: 110,
       special_attack: 95,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 40,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1011.png",
@@ -13402,7 +12909,6 @@ export const pokemon_list = [
         913,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 1012,
@@ -13411,9 +12917,9 @@ export const pokemon_list = [
       name_ja: "チャデス(マガイモノのすがた)",
       hp: 40,
       attack: 45,
-      deffense: 45,
+      defense: 45,
       special_attack: 74,
-      special_deffense: 54,
+      special_defense: 54,
       speed: 50,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1012.png",
@@ -13426,7 +12932,6 @@ export const pokemon_list = [
         476, 492, 503, 506, 566, 580, 791, 809, 851,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 1013,
@@ -13435,9 +12940,9 @@ export const pokemon_list = [
       name_ja: "ヤバソチャ(ボンサクのすがた)",
       hp: 71,
       attack: 60,
-      deffense: 106,
+      defense: 106,
       special_attack: 121,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 70,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1013.png",
@@ -13450,7 +12955,6 @@ export const pokemon_list = [
         437, 476, 492, 503, 506, 566, 580, 668, 791, 809, 851, 902,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 1018,
@@ -13459,9 +12963,9 @@ export const pokemon_list = [
       name_ja: "ブリジュラス",
       hp: 90,
       attack: 105,
-      deffense: 130,
+      defense: 130,
       special_attack: 125,
-      special_deffense: 65,
+      special_defense: 65,
       speed: 85,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1018.png",
@@ -13475,7 +12979,6 @@ export const pokemon_list = [
         468, 479, 484, 492, 525, 555, 776, 784, 796, 800, 851, 905, 912, 913,
       ],
     },
-    often_used_move: null,
   },
   {
     id: 1019,
@@ -13484,9 +12987,9 @@ export const pokemon_list = [
       name_ja: "カミツオロチ",
       hp: 106,
       attack: 80,
-      deffense: 110,
+      defense: 110,
       special_attack: 120,
-      special_deffense: 80,
+      special_defense: 80,
       speed: 44,
       picture_url:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1019.png",
@@ -13501,7 +13004,6 @@ export const pokemon_list = [
         913,
       ],
     },
-    often_used_move: null,
   },
 ] as Array<Pokemon>;
 export interface PokemonBase {
@@ -13509,9 +13011,9 @@ export interface PokemonBase {
   name_ja: string;
   hp: number;
   attack: number;
-  deffense: number;
+  defense: number;
   special_attack: number;
-  special_deffense: number;
+  special_defense: number;
   speed: number;
   picture_url: string;
   species_id: number;
@@ -13522,13 +13024,34 @@ export interface PokemonBase {
 export interface Pokemon {
   id: number;
   base: PokemonBase;
-  often_used_move: Array<number>|undefined|null;
+  effective_value: EffectiveValue;
+  effective_slider_step: EffortSlider;
+  personality:Personality;
 }
-// export default pokemon_list;
 
 export const pokemon_array = [] as Array<Array<Pokemon>>;
 let temp_list = [] as Array<Pokemon>;
 pokemon_list.forEach((p, i) => {
+  p.effective_slider_step = {
+    hp: 0,
+    attack: 0,
+    defense: 0,
+    special_attack: 0,
+    special_defense: 0,
+  };
+  p.effective_value = {
+    hp: 0,
+    attack: 0,
+    defense: 0,
+    special_attack: 0,
+    special_defense: 0,
+  };
+  p.personality={
+    attack:1.0,
+defense:1.0,
+special_attack:1.0,
+special_defense:1.0,
+  }
   temp_list.push(p);
   if (temp_list.length >= 15) {
     pokemon_array.push(temp_list);

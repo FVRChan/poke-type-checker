@@ -439,6 +439,7 @@ class PokemonMove:
     type: int
     accuracy: int
     power: int
+    damage_class_number:int
     is_renzoku: bool = False
     min_renzoku: int = 0
     max_renzoku: int = 0
@@ -580,9 +581,9 @@ class Pokemon:
     name_ja: str
     hp: int
     attack: int
-    deffense: int
+    defense: int
     special_attack: int
-    special_deffense: int
+    special_defense: int
     speed: int
     picture_url: str
     species_id: str
@@ -684,9 +685,9 @@ def decode_pokemon(data: dict) -> Pokemon:
         name_ja=data["name_ja"],
         hp=data["hp"],
         attack=data["attack"],
-        deffense=data["deffense"],
+        defense=data["defense"],
         special_attack=data["special_attack"],
-        special_deffense=data["special_deffense"],
+        special_defense=data["special_defense"],
         speed=data["speed"],
         picture_url=data["picture_url"],
         species_id=data["species_id"],
@@ -840,11 +841,11 @@ def get_pokemon_list():
                   ["name"] == "hp"][0]["base_stat"]
             attack = [s for s in detail_res["stats"] if s["stat"]
                       ["name"] == "attack"][0]["base_stat"]
-            deffense = [s for s in detail_res["stats"]
+            defense = [s for s in detail_res["stats"]
                         if s["stat"]["name"] == "defense"][0]["base_stat"]
             special_attack = [s for s in detail_res["stats"]
                               if s["stat"]["name"] == "special-attack"][0]["base_stat"]
-            special_deffense = [s for s in detail_res["stats"]
+            special_defense = [s for s in detail_res["stats"]
                                 if s["stat"]["name"] == "special-defense"][0]["base_stat"]
             speed = [s for s in detail_res["stats"] if s["stat"]
                      ["name"] == "speed"][0]["base_stat"]
@@ -862,7 +863,7 @@ def get_pokemon_list():
             if form_name!="":
                 name_ja="%s(%s)"%(name_ja,form_name)
             pokemon = Pokemon(
-                detail_res["id"], name_ja, hp, attack, deffense, special_attack, special_deffense, speed, picture_url,species_id
+                detail_res["id"], name_ja, hp, attack, defense, special_attack, special_defense, speed, picture_url,species_id
             )
             pokemon.move_id_list = moves
             pokemon.type_id_list = types
@@ -1018,6 +1019,12 @@ def get_move_list():
             type = int(detail_res["type"]["url"].split("/")[6])
             accuracy = detail_res["accuracy"]
             power = detail_res["power"]
+            damage_class=detail_res["damage_class"]["name"]
+            damage_class_number=1
+            if damage_class=="physical":
+                damage_class_number=2
+            elif damage_class=="special":
+                damage_class_number=3
             temp_move = PokemonMove(
                 id=id,
                 name_ja=name_ja,
@@ -1025,6 +1032,7 @@ def get_move_list():
                 type=type,
                 accuracy=accuracy,
                 power=power,
+                damage_class_number=damage_class_number,
             )
             move_list.append(temp_move)
         except:
@@ -1171,9 +1179,9 @@ def get_personality_list():
 #     name_en:str
 #     hp: int
 #     attack: int
-#     deffense: int
+#     defense: int
 #     special_attack: int
-#     special_deffense: int
+#     special_defense: int
 #     speed: int
 #     picture_url: str
 
