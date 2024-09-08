@@ -163,16 +163,14 @@ function calc({
       ? deffencePokemon.effective_value.defense
       : deffencePokemon.effective_value.special_defense;
 
+  // 基本
   let a = Math.floor((50 * 2) / 5 + 2);
   a = Math.floor((a * power * attack) / defense);
-  if (deffencePokemon.id === 983) console.log(a);
   a = Math.floor(a / 50 + 2);
-  if (deffencePokemon.id === 983) console.log(a);
 
+  // 順番を守る
   a = Math.floor(a * rateMapper.randRate);
-
   a = Math.floor(a * rateMapper.sameTypeRate);
-
   a = Math.floor(a * rateMapper.compatibilityRate);
 
   return a;

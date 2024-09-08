@@ -196,3 +196,61 @@ interface typeRelationMapper {
 }
 
 export default type_map;
+
+export function type_id_to_kanji(t: number): string {
+  if (t === 1) {
+    return "無";
+  }
+  if (t === 2) {
+    return "闘";
+  }
+  if (t === 3) {
+    return "飛";
+  }
+  if (t === 4) {
+    return "毒";
+  }
+  if (t === 5) {
+    return "地";
+  }
+  if (t === 6) {
+    return "岩";
+  }
+  if (t === 7) {
+    return "虫";
+  }
+  if (t === 8) {
+    return "霊";
+  }
+  if (t === 9) {
+    return "鋼";
+  }
+  if (t === 10) {
+    return "炎";
+  }
+  if (t === 11) {
+    return "水";
+  }
+  if (t === 12) {
+    return "草";
+  }
+  if (t === 13) {
+    return "電";
+  }
+  if (t === 14) {
+    return "超";
+  }
+  if (t === 15) {
+    return "氷";
+  }
+  if (t === 16) {
+    return "龍";
+  }
+  if (t === 17) {
+    return "悪";
+  }
+  if (t === 18) {
+    return "妖";
+  }
+  return "";
+}

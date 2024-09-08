@@ -14521,19 +14521,6 @@ export function pokemon_array(separate_number: number) {
   return ret_matrix;
 }
 
-// export const pokemon_array = [] as Array<Array<Pokemon>>;
-// let temp_list = [] as Array<Pokemon>;
-// pokemon_list.forEach((p, i) => {
-//   temp_list.push(p);
-//   if (temp_list.length >= 8) {
-//     pokemon_array.push(temp_list);
-//     temp_list = [];
-//   }
-// });
-// if (temp_list.length > 0) {
-//   pokemon_array.push(temp_list);
-//   temp_list = [];
-// }
 export function dummyPokemon(): Pokemon {
   const p = {
     id: 9999999,

@@ -20,6 +20,7 @@ import { calc_interface } from "./calc_damage";
 import Effort from "./Effort";
 import { sortMoveList } from "./util";
 import { useWindowSize } from "./useWindowSize";
+import { type_id_to_kanji } from "./type-map";
 export default function App() {
   const [offencePokemon, setOffencePokemon] = React.useState<Pokemon>(
     pokemon_list[0]
@@ -62,9 +63,10 @@ export default function App() {
               options={sortMoveList(offencePokemon)}
               sx={{ width: 300 }}
               renderInput={(params) => <TextField {...params} />}
-              getOptionLabel={(m) => m.name_ja}
+              getOptionLabel={(m) =>
+                `${m.name_ja}(${type_id_to_kanji(m.type)} : ${m.power})`
+              }
             />
-            威力{offenceMove.power}({offenceMove.type})
           </Grid>
           <Grid>
             <h2>攻撃側</h2>
@@ -86,7 +88,7 @@ export default function App() {
         <TableContainer>
           <Table stickyHeader aria-label="sticky table">
             <TableBody>
-              {pokemon_array((useWindowSize().width - 50) / 120).map((list) => {
+              {pokemon_array((useWindowSize().width - 50) / 110).map((list) => {
                 return (
                   <TableRow
                     key={list
