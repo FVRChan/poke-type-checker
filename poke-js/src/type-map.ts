@@ -1,224 +1,181 @@
 const type_map = {
-  normal: {
+  1: {
     damage_relations: {
-      double_damage_from: ["fighting"],
+      double_damage_from: [2],
       double_damage_to: [],
       half_damage_from: [],
-      half_damage_to: ["rock", "steel"],
-      no_damage_from: ["ghost"],
-      no_damage_to: ["ghost"],
+      half_damage_to: [6, 9],
+      no_damage_from: [8],
+      no_damage_to: [8],
     },
   },
-  fighting: {
+  2: {
     damage_relations: {
-      double_damage_from: ["flying", "psychic", "fairy"],
-      double_damage_to: ["normal", "rock", "steel", "ice", "freezedry", "dark"],
-      half_damage_from: ["rock", "bug", "dark"],
-      half_damage_to: ["flying", "poison", "bug", "psychic", "fairy"],
+      double_damage_from: [3, 14, 18],
+      double_damage_to: [1, 6, 9, 15, 17],
+      half_damage_from: [6, 7, 17],
+      half_damage_to: [3, 4, 7, 14, 18],
       no_damage_from: [],
-      no_damage_to: ["ghost"],
+      no_damage_to: [8],
     },
   },
-  flying: {
+  3: {
     damage_relations: {
-      double_damage_from: ["rock", "electric", "ice", "freezedry"],
-      double_damage_to: ["fighting", "bug", "grass"],
-      half_damage_from: ["fighting", "bug", "grass"],
-      half_damage_to: ["rock", "steel", "electric"],
-      no_damage_from: ["ground"],
+      double_damage_from: [6, 13, 15],
+      double_damage_to: [2, 7, 12],
+      half_damage_from: [2, 7, 12],
+      half_damage_to: [6, 9, 13],
+      no_damage_from: [5],
       no_damage_to: [],
     },
   },
-  poison: {
+  4: {
     damage_relations: {
-      double_damage_from: ["ground", "psychic"],
-      double_damage_to: ["grass", "fairy"],
-      half_damage_from: ["fighting", "poison", "bug", "grass", "fairy"],
-      half_damage_to: ["poison", "ground", "rock", "ghost"],
+      double_damage_from: [5, 14],
+      double_damage_to: [12, 18],
+      half_damage_from: [2, 4, 7, 12, 18],
+      half_damage_to: [4, 5, 6, 8],
       no_damage_from: [],
-      no_damage_to: ["steel"],
+      no_damage_to: [9],
     },
   },
-  ground: {
+  5: {
     damage_relations: {
-      double_damage_from: ["water", "grass", "ice", "freezedry"],
-      double_damage_to: ["poison", "rock", "steel", "fire", "electric"],
-      half_damage_from: ["poison", "rock"],
-      half_damage_to: ["bug", "grass"],
-      no_damage_from: ["electric"],
-      no_damage_to: ["flying"],
+      double_damage_from: [11, 12, 15],
+      double_damage_to: [4, 6, 9, 10, 13],
+      half_damage_from: [4, 6],
+      half_damage_to: [7, 12],
+      no_damage_from: [13],
+      no_damage_to: [3],
     },
   },
-  rock: {
+  6: {
     damage_relations: {
-      double_damage_from: ["fighting", "ground", "steel", "water", "grass"],
-      double_damage_to: ["flying", "bug", "fire", "ice", "freezedry"],
-      half_damage_from: ["normal", "flying", "poison", "fire"],
-      half_damage_to: ["fighting", "ground", "steel"],
-      no_damage_from: [],
-      no_damage_to: [],
-    },
-  },
-  bug: {
-    damage_relations: {
-      double_damage_from: ["flying", "rock", "fire"],
-      double_damage_to: ["grass", "psychic", "dark"],
-      half_damage_from: ["fighting", "ground", "grass"],
-      half_damage_to: [
-        "fighting",
-        "flying",
-        "poison",
-        "ghost",
-        "steel",
-        "fire",
-        "fairy",
-      ],
+      double_damage_from: [2, 5, 9, 11, 12],
+      double_damage_to: [3, 7, 10, 15],
+      half_damage_from: [1, 3, 4, 10],
+      half_damage_to: [2, 5, 9],
       no_damage_from: [],
       no_damage_to: [],
     },
   },
-  ghost: {
+  7: {
     damage_relations: {
-      double_damage_from: ["ghost", "dark"],
-      double_damage_to: ["ghost", "psychic"],
-      half_damage_from: ["poison", "bug"],
-      half_damage_to: ["dark"],
-      no_damage_from: ["normal", "fighting"],
-      no_damage_to: ["normal"],
-    },
-  },
-  steel: {
-    damage_relations: {
-      double_damage_from: ["fighting", "ground", "fire"],
-      double_damage_to: ["rock", "ice", "freezedry", "fairy"],
-      half_damage_from: [
-        "normal",
-        "flying",
-        "rock",
-        "bug",
-        "steel",
-        "grass",
-        "psychic",
-        "ice",
-        "freezedry",
-        "dragon",
-        "fairy",
-      ],
-      half_damage_to: ["steel", "fire", "water", "electric"],
-      no_damage_from: ["poison"],
-      no_damage_to: [],
-    },
-  },
-  fire: {
-    damage_relations: {
-      double_damage_from: ["ground", "rock", "water"],
-      double_damage_to: ["bug", "steel", "grass", "ice", "freezedry"],
-      half_damage_from: [
-        "bug",
-        "steel",
-        "fire",
-        "grass",
-        "ice",
-        "freezedry",
-        "fairy",
-      ],
-      half_damage_to: ["rock", "fire", "water", "dragon"],
+      double_damage_from: [3, 6, 10],
+      double_damage_to: [12, 14, 17],
+      half_damage_from: [2, 5, 12],
+      half_damage_to: [2, 3, 4, 8, 9, 10, 18],
       no_damage_from: [],
       no_damage_to: [],
     },
   },
-  water: {
+  8: {
     damage_relations: {
-      double_damage_from: ["grass", "electric", "freezedry"],
-      double_damage_to: ["ground", "rock", "fire"],
-      half_damage_from: ["steel", "fire", "water", "ice"],
-      half_damage_to: ["water", "grass", "dragon"],
+      double_damage_from: [8, 17],
+      double_damage_to: [8, 14],
+      half_damage_from: [4, 7],
+      half_damage_to: [17],
+      no_damage_from: [1, 2],
+      no_damage_to: [1],
+    },
+  },
+  9: {
+    damage_relations: {
+      double_damage_from: [2, 5, 10],
+      double_damage_to: [6, 15, 18],
+      half_damage_from: [1, 3, 6, 7, 9, 12, 14, 15, 16, 18],
+      half_damage_to: [9, 10, 11, 13],
+      no_damage_from: [4],
+      no_damage_to: [],
+    },
+  },
+  10: {
+    damage_relations: {
+      double_damage_from: [5, 6, 11],
+      double_damage_to: [7, 9, 12, 15],
+      half_damage_from: [7, 9, 10, 12, 15, 18],
+      half_damage_to: [6, 10, 11, 16],
       no_damage_from: [],
       no_damage_to: [],
     },
   },
-  grass: {
+  11: {
     damage_relations: {
-      double_damage_from: [
-        "flying",
-        "poison",
-        "bug",
-        "fire",
-        "ice",
-        "freezedry",
-      ],
-      double_damage_to: ["ground", "rock", "water"],
-      half_damage_from: ["ground", "water", "grass", "electric"],
-      half_damage_to: [
-        "flying",
-        "poison",
-        "bug",
-        "steel",
-        "fire",
-        "grass",
-        "dragon",
-      ],
+      double_damage_from: [12, 13],
+      double_damage_to: [5, 6, 10],
+      half_damage_from: [9, 10, 11, 15],
+      half_damage_to: [11, 12, 16],
       no_damage_from: [],
       no_damage_to: [],
     },
   },
-  electric: {
+  12: {
     damage_relations: {
-      double_damage_from: ["ground"],
-      double_damage_to: ["flying", "water"],
-      half_damage_from: ["flying", "steel", "electric"],
-      half_damage_to: ["grass", "electric", "dragon"],
-      no_damage_from: [],
-      no_damage_to: ["ground"],
-    },
-  },
-  psychic: {
-    damage_relations: {
-      double_damage_from: ["bug", "ghost", "dark"],
-      double_damage_to: ["fighting", "poison"],
-      half_damage_from: ["fighting", "psychic"],
-      half_damage_to: ["steel", "psychic"],
-      no_damage_from: [],
-      no_damage_to: ["dark"],
-    },
-  },
-  ice: {
-    damage_relations: {
-      double_damage_from: ["fighting", "rock", "steel", "fire"],
-      double_damage_to: ["flying", "ground", "grass", "dragon"],
-      half_damage_from: ["ice", "freezedry"],
-      half_damage_to: ["steel", "fire", "water", "ice", "freezedry"],
+      double_damage_from: [3, 4, 7, 10, 15],
+      double_damage_to: [5, 6, 11],
+      half_damage_from: [5, 11, 12, 13],
+      half_damage_to: [3, 4, 7, 9, 10, 12, 16],
       no_damage_from: [],
       no_damage_to: [],
     },
   },
-  dragon: {
+  13: {
     damage_relations: {
-      double_damage_from: ["ice", "freezedry", "dragon", "fairy"],
-      double_damage_to: ["dragon"],
-      half_damage_from: ["fire", "water", "grass", "electric"],
-      half_damage_to: ["steel"],
+      double_damage_from: [5],
+      double_damage_to: [3, 11],
+      half_damage_from: [3, 9, 13],
+      half_damage_to: [12, 13, 16],
       no_damage_from: [],
-      no_damage_to: ["fairy"],
+      no_damage_to: [5],
     },
   },
-  dark: {
+  14: {
     damage_relations: {
-      double_damage_from: ["fighting", "bug", "fairy"],
-      double_damage_to: ["ghost", "psychic"],
-      half_damage_from: ["ghost", "dark"],
-      half_damage_to: ["fighting", "dark", "fairy"],
-      no_damage_from: ["psychic"],
+      double_damage_from: [7, 8, 17],
+      double_damage_to: [2, 4],
+      half_damage_from: [2, 14],
+      half_damage_to: [9, 14],
+      no_damage_from: [],
+      no_damage_to: [17],
+    },
+  },
+  15: {
+    damage_relations: {
+      double_damage_from: [2, 6, 9, 10],
+      double_damage_to: [3, 5, 12, 16],
+      half_damage_from: [15],
+      half_damage_to: [9, 10, 11, 15],
+      no_damage_from: [],
       no_damage_to: [],
     },
   },
-  fairy: {
+  16: {
     damage_relations: {
-      double_damage_from: ["poison", "steel"],
-      double_damage_to: ["fighting", "dragon", "dark"],
-      half_damage_from: ["fighting", "bug", "dark"],
-      half_damage_to: ["poison", "steel", "fire"],
-      no_damage_from: ["dragon"],
+      double_damage_from: [15, 16, 18],
+      double_damage_to: [16],
+      half_damage_from: [10, 11, 12, 13],
+      half_damage_to: [9],
+      no_damage_from: [],
+      no_damage_to: [18],
+    },
+  },
+  17: {
+    damage_relations: {
+      double_damage_from: [2, 7, 18],
+      double_damage_to: [8, 14],
+      half_damage_from: [8, 17],
+      half_damage_to: [2, 17, 18],
+      no_damage_from: [14],
+      no_damage_to: [],
+    },
+  },
+  18: {
+    damage_relations: {
+      double_damage_from: [4, 9],
+      double_damage_to: [2, 16, 17],
+      half_damage_from: [2, 7, 17],
+      half_damage_to: [4, 9, 10],
+      no_damage_from: [16],
       no_damage_to: [],
     },
   },
@@ -226,16 +183,16 @@ const type_map = {
 
 interface typeRelation {
   damage_relations: {
-    double_damage_from: Array<string>;
-    double_damage_to: Array<string>;
-    half_damage_from: Array<string>;
-    half_damage_to: Array<string>;
-    no_damage_from: Array<string>;
-    no_damage_to: Array<string>;
+    double_damage_from: Array<number>;
+    double_damage_to: Array<number>;
+    half_damage_from: Array<number>;
+    half_damage_to: Array<number>;
+    no_damage_from: Array<number>;
+    no_damage_to: Array<number>;
   };
 }
 interface typeRelationMapper {
-  [index: string]: typeRelation;
+  [index: number]: typeRelation;
 }
 
 export default type_map;
