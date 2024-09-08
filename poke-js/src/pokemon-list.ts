@@ -1,3 +1,4 @@
+import { isMobile } from "react-device-detect";
 import { EffectiveValue, EffortSlider, Personality } from "./calc_damage";
 
 export const all_pokemon_list = [
@@ -14497,7 +14498,6 @@ pokemon_list.forEach((p) => {
     special_defense: 1.0,
   };
 });
-import { isMobile } from "react-device-detect";
 
 export function pokemon_array(separate_number: number) {
   let t = 10;
