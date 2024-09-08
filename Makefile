@@ -6,3 +6,6 @@ basic_create:
 	mv ./docs/index.html .
 	rm -rf ./docs
 	python3 ./replace.py
+	git add .
+	git commit -mtemp
+	git push

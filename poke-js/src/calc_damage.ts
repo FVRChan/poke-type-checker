@@ -172,10 +172,8 @@ function calc({
   a = Math.floor(a * rateMapper.randRate);
 
   a = Math.floor(a * rateMapper.sameTypeRate);
-  // if (deffencePokemon.id === 983) console.log(a);
 
   a = Math.floor(a * rateMapper.compatibilityRate);
-  // if (deffencePokemon.id === 983) console.log(a, rateMapper.compatibilityRate);
 
   return a;
 }
