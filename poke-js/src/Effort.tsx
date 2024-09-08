@@ -1,6 +1,6 @@
 import React from "react";
 import EffortSlider from "./EffortSlider";
-import { Pokemon } from "./pokemon-list";
+import { Pokemon } from "./pokemon";
 
 export default function Effort({
   pokemon,

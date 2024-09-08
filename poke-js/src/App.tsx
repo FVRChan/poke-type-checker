@@ -4,7 +4,7 @@ import {
   pokemon_array,
   Pokemon,
   dummyPokemon,
-} from "./pokemon-list";
+} from "./pokemon";
 import move_list, { Move, MOVE_DAMAGE_CLASS_PHYSICAL } from "./move";
 import {
   Table,

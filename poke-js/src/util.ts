@@ -1,5 +1,5 @@
 import move_list, { Move, MOVE_DAMAGE_CLASS_STATUS } from "./move";
-import { Pokemon } from "./pokemon-list";
+import { Pokemon } from "./pokemon";
 
 // 努力値計算(SliderのStep設定に苦戦した)
 export function calcEffort(step: number): number {

@@ -27,10 +27,24 @@ TYPE_ID_DARK = 17
 TYPE_ID_FAIRY = 18
 
 def form_mapping(pokemon_id:int,form_number:int):
-    if pokemon_id==479 and form_number>0:
-        return 10007+form_number
-    if pokemon_id==901 and form_number==1:
-        return 10272
+    mapper={
+        38:{1:10104},
+        110:{1:10167},
+        128:{1:10250,2:10251,3:10252},
+        199:{1:10172},
+        479:{1:10008,2:10009,3:10010,4:10011,5:10012},
+        503:{1:10236},
+        571:{1:10239},
+        628:{1:10240},
+        706:{1:10242},
+        876:{1:10186},
+        901:{1:10272},
+        902:{1:10248},
+    }
+    try:
+        return mapper[pokemon_id][form_number]
+    except:
+        1
     return pokemon_id
 
 MOVE_RENZOKU_DICT = {
@@ -814,10 +828,11 @@ def decode_pokemon_move(data: dict) -> PokemonMove:
 
 
 def get_pokemon_list():
-    if os.path.exists("./pokemon.json"):
+    if os.path.exists("./tmp/pokemon.json"):
         loaded_list = json.loads(
-            open("./pokemon.json").read(), object_hook=decode_pokemon)
+            open("./tmp/pokemon.json").read(), object_hook=decode_pokemon)
         return loaded_list
+    print("download start get_pokemon_list")
     url = "https://pokeapi.co/api/v2/pokemon?limit=2000"
     res = json.loads(requests.get(url).text)
     results = res["results"]
@@ -878,16 +893,17 @@ def get_pokemon_list():
             print(result["url"])
             raise "wwww"
 
-    writer = open("./pokemon.json", "w")
+    writer = open("./tmp/pokemon.json", "w")
     writer.write(json.dumps(ret_list, default=default, ensure_ascii=False))
     writer.close()
 
 
 def get_type_list():
-    if os.path.exists("./type.json"):
+    if os.path.exists("./tmp/type.json"):
         loaded_list = json.loads(
-            open("./type.json").read(), object_hook=decode_pokemon_type)
+            open("./tmp/type.json").read(), object_hook=decode_pokemon_type)
         return loaded_list
+    print("download start get_type_list")
     url = "https://pokeapi.co/api/v2/type?limit=50"
     res = json.loads(requests.get(url).text)
     result_list = res["results"]
@@ -911,14 +927,14 @@ def get_type_list():
         except:
             _ = 1
 
-    writer = open("./type.json", "w")
+    writer = open("./tmp/type.json", "w")
     writer.write(json.dumps(type_list, default=default, ensure_ascii=False))
     writer.close()
 
 
 def get_ability_list():
-    if os.path.exists("./ability.json"):
-        temp_list=json.loads(open("./ability.json").read())
+    if os.path.exists("./tmp/ability.json"):
+        temp_list=json.loads(open("./tmp/ability.json").read())
 
         loaded_list=list()
         for temp_row in temp_list:
@@ -973,6 +989,7 @@ def get_ability_list():
             loaded_list.append(tttt)
             # print(tttt)
         return loaded_list
+    print("download start get_ability_list")
     url = "https://pokeapi.co/api/v2/ability?limit=500"
     res = json.loads(requests.get(url).text)
     result_list = res["results"]
@@ -995,16 +1012,17 @@ def get_ability_list():
         except:
             _ = 1
 
-    writer = open("./ability.json", "w")
+    writer = open("./tmp/ability.json", "w")
     writer.write(json.dumps(ability_list, default=default, ensure_ascii=False))
     writer.close()
 
 
 def get_move_list():
-    if os.path.exists("./move.json"):
+    if os.path.exists("./tmp/move.json"):
         loaded_list = json.loads(
-            open("./move.json").read(), object_hook=decode_pokemon_move)
+            open("./tmp/move.json").read(), object_hook=decode_pokemon_move)
         return loaded_list
+    print("download start get_move_list")
     url = "https://pokeapi.co/api/v2/move?limit=1000"
     res = json.loads(requests.get(url).text)
     result_list = res["results"]
@@ -1041,14 +1059,14 @@ def get_move_list():
         except:
             _ = 1
 
-    writer = open("./move.json", "w")
+    writer = open("./tmp/move.json", "w")
     writer.write(json.dumps(move_list, default=default, ensure_ascii=False))
     writer.close()
 
 
 def get_item_list():
-    if os.path.exists("./item.json"):
-        temp_list=json.loads(open("./item.json").read())
+    if os.path.exists("./tmp/item.json"):
+        temp_list=json.loads(open("./tmp/item.json").read())
         ret_item_list=list()
         for temp in temp_list:
             ret_item_list.append(PokemonItem(
@@ -1058,6 +1076,7 @@ def get_item_list():
                 picture_url=temp["picture_url"],
             ))
         return ret_item_list
+    print("download start get_item_list")
     url = "https://pokeapi.co/api/v2/item?limit=2500"
     res = json.loads(requests.get(url).text)
     result_list = res["results"]
@@ -1083,14 +1102,14 @@ def get_item_list():
         except:
             _ = 1
 
-    writer = open("./item.json", "w")
+    writer = open("./tmp/item.json", "w")
     writer.write(json.dumps(move_list, default=default, ensure_ascii=False))
     writer.close()
 
 
 def get_season_detail_info():
-    if os.path.exists("./single_season_info.json"):
-        return json.loads(open("./single_season_info.json").read())
+    if os.path.exists("./tmp/single_season_info.json"):
+        return json.loads(open("./tmp/single_season_info.json").read())
     single_season_list=get_rankmatch_season_list()
     ret_dict=dict()
     for single_season in single_season_list:
@@ -1105,7 +1124,7 @@ def get_season_detail_info():
             except:
                 1
         ret_dict[single_season.season]=detail_dict
-    writer = open("./single_season_info.json", "w")
+    writer = open("./tmp/single_season_info.json", "w")
     writer.write(json.dumps(ret_dict, default=default, ensure_ascii=False))
     writer.close()
 
@@ -1114,8 +1133,8 @@ def get_season_detail_info():
 # https://pokeapi.co/api/v2/nature?limit=33
 
 def get_personality_list():
-    if os.path.exists("./personality.json"):
-        temp_list=json.loads(open("./personality.json").read())
+    if os.path.exists("./tmp/personality.json"):
+        temp_list=json.loads(open("./tmp/personality.json").read())
         ret_item_list=list()
         for temp in temp_list:
             ret_item_list.append(PokemonPersonality(
@@ -1147,7 +1166,7 @@ def get_personality_list():
         except:
             _ = 1
 
-    writer = open("./personality.json", "w")
+    writer = open("./tmp/personality.json", "w")
     writer.write(json.dumps(ret_list, default=default, ensure_ascii=False))
     writer.close()
 
@@ -1306,8 +1325,8 @@ for single_season in single_season_list:
                     detail_mapper[pokemon_id]=temp_info
                     detail_list.append(temp_info)
 
-    takashi=open("kusatuonsen.json","w")
-    takashi.write(json.dumps(detail_list, default=default, ensure_ascii=False))
+    takashi=open("./poke-js/src/pokemon-list.ts","w")
+    takashi.write('import { Pokemon } from "./pokemon";export const all_pokemon_list ='+json.dumps(detail_list, default=default, ensure_ascii=False)+' as Array<Pokemon>;')
     takashi.close()
     break
 

@@ -1,5 +1,5 @@
 import { Move, MOVE_DAMAGE_CLASS_PHYSICAL } from "./move";
-import { Pokemon } from "./pokemon-list";
+import { Pokemon } from "./pokemon";
 import type_map from "./type-map";
 import { calcRealValueHPStat, calcRealValueOtherStat } from "./util";
 
