@@ -19,6 +19,7 @@ import {
 import { calc_interface } from "./calc_damage";
 import Effort from "./Effort";
 import { sortMoveList } from "./util";
+import { useWindowSize } from "./useWindowSize";
 export default function App() {
   const [offencePokemon, setOffencePokemon] = React.useState<Pokemon>(
     pokemon_list[0]
@@ -28,6 +29,8 @@ export default function App() {
   const [offenceMove, setOffenceMove] = React.useState<Move>(
     sortMoveList(offencePokemon)[0]
   );
+
+
 
   return (
     <div className="App">
@@ -85,7 +88,7 @@ export default function App() {
         <TableContainer>
           <Table stickyHeader aria-label="sticky table">
             <TableBody>
-              {pokemon_array.map((list) => {
+              {pokemon_array((useWindowSize().width - 50) / 120).map((list) => {
                 return (
                   <TableRow
                     key={list

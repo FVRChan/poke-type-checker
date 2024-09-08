@@ -14475,10 +14475,7 @@ export const pokemon_list = all_pokemon_list
     return a.id - b.id;
   })
   .filter((p) => p.usage_rate < 999);
-
-export const pokemon_array = [] as Array<Array<Pokemon>>;
-let temp_list = [] as Array<Pokemon>;
-pokemon_list.forEach((p, i) => {
+pokemon_list.forEach((p) => {
   p.effective_slider_step = {
     hp: 0,
     attack: 32,
@@ -14499,16 +14496,39 @@ pokemon_list.forEach((p, i) => {
     special_attack: 1.0,
     special_defense: 1.0,
   };
-  temp_list.push(p);
-  if (temp_list.length >= 8) {
-    pokemon_array.push(temp_list);
+});
+
+export function pokemon_array(separate_number: number) {
+  const local_separate_number = Math.min(15, separate_number);
+  let ret_matrix = [] as Array<Array<Pokemon>>;
+  let temp_list = [] as Array<Pokemon>;
+  pokemon_list.forEach((p, i) => {
+    temp_list.push(p);
+    if (temp_list.length >= local_separate_number) {
+      ret_matrix.push(temp_list);
+      temp_list = [];
+    }
+  });
+  if (temp_list.length > 0) {
+    ret_matrix.push(temp_list);
     temp_list = [];
   }
-});
-if (temp_list.length > 0) {
-  pokemon_array.push(temp_list);
-  temp_list = [];
+  return ret_matrix;
 }
+
+// export const pokemon_array = [] as Array<Array<Pokemon>>;
+// let temp_list = [] as Array<Pokemon>;
+// pokemon_list.forEach((p, i) => {
+//   temp_list.push(p);
+//   if (temp_list.length >= 8) {
+//     pokemon_array.push(temp_list);
+//     temp_list = [];
+//   }
+// });
+// if (temp_list.length > 0) {
+//   pokemon_array.push(temp_list);
+//   temp_list = [];
+// }
 export function dummyPokemon(): Pokemon {
   const p = {
     id: 9999999,
