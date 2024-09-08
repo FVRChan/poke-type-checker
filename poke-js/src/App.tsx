@@ -87,10 +87,12 @@ export default function App() {
         </Grid>
         <TableContainer>
           <Table stickyHeader aria-label="sticky table">
-            <TableBody>
+            <TableBody 
+            style={{maxWidth:`${useWindowSize()}px`}}
+            >
               {pokemon_array((useWindowSize().width - 50) / 110).map((list) => {
                 return (
-                  <TableRow
+                  <TableRow 
                     key={list
                       .map((p) => {
                         return p.base.name_ja;
