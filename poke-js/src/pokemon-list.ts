@@ -14499,7 +14499,7 @@ pokemon_list.forEach((p) => {
 });
 
 export function pokemon_array(separate_number: number) {
-  const local_separate_number = Math.min(15, separate_number);
+  const local_separate_number = Math.min(10, separate_number);
   let ret_matrix = [] as Array<Array<Pokemon>>;
   let temp_list = [] as Array<Pokemon>;
   pokemon_list.forEach((p, i) => {

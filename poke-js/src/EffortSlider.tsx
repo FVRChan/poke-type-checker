@@ -1,4 +1,5 @@
 import React from "react";
+// import {South} from '@mui/icons-material';
 import { Button, Slider, Stack } from "@mui/material";
 import { calcEffort, calcRealValueHPStat } from "./util";
 export default function EffortSlider({
@@ -22,13 +23,13 @@ export default function EffortSlider({
         sx={{ alignItems: "center", mb: 1 }}
         style={{ marginLeft: "10px" }}
       >
+        
         <div>{label}</div>
         {label !== "HP" && personalitySetter && personality && (
           <>
             <Button
               color={personality === 0.9 ? "success" : undefined}
-              variant="contained"
-              size="small"
+              variant="contained" size={"small"} style={{margin:"1px"}}
               onClick={() => {
                 personalitySetter(0.9);
               }}
@@ -37,8 +38,7 @@ export default function EffortSlider({
             </Button>
             <Button
               color={personality === 1.0 ? "success" : undefined}
-              variant="contained"
-              size="small"
+              variant="contained" size={"small"} style={{margin:"1px"}}
               onClick={() => {
                 personalitySetter(1.0);
               }}
@@ -47,8 +47,7 @@ export default function EffortSlider({
             </Button>
             <Button
               color={personality === 1.1 ? "success" : undefined}
-              variant="contained"
-              size="small"
+              variant="contained" size={"small"} style={{margin:"1px"}}
               onClick={() => {
                 personalitySetter(1.1);
               }}
@@ -68,7 +67,7 @@ export default function EffortSlider({
           valueLabelDisplay="auto"
           min={0}
           max={32}
-          style={{ width: "400px" }}
+          style={{ maxWidth: "150px" }}
         />
         <div>{calcEffort(step)}</div>
       </Stack>

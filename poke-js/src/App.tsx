@@ -30,8 +30,6 @@ export default function App() {
     sortMoveList(offencePokemon)[0]
   );
 
-
-
   return (
     <div className="App">
       <div>
