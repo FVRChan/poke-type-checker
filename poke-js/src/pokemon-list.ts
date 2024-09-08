@@ -56,7 +56,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [73, 92, 235, 182, 202, 46, 188, 164, 204, 851],
+    often_used_move: [73, 92, 235, 182, 202, 46, 188, 164, 851, 204],
   },
   {
     id: 3,
@@ -114,7 +114,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [45, 10],
+    often_used_move: [10, 45],
   },
   {
     id: 5,
@@ -143,7 +143,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [108, 53, 52, 45],
+    often_used_move: [53, 52, 108, 45],
   },
   {
     id: 6,
@@ -173,8 +173,8 @@ export const all_pokemon_list = [
         590, 595, 612, 693, 784, 799, 814, 815, 851, 913, 915,
       ],
     },
-    usage_rate: 125,
-    often_used_move: [403, 53, 76, 406, 126, 815, 307, 315, 851, 311],
+    usage_rate: 128,
+    often_used_move: [403, 53, 76, 406, 126, 815, 315, 307, 851, 311],
   },
   {
     id: 7,
@@ -204,7 +204,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [58, 504, 243, 56],
+    often_used_move: [56, 58, 504, 243],
   },
   {
     id: 8,
@@ -233,7 +233,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [250, 243, 281, 812, 334, 57, 323, 58, 164],
+    often_used_move: [175, 252, 203, 453, 281, 250, 243, 334, 812, 323],
   },
   {
     id: 9,
@@ -264,7 +264,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [504, 58, 56, 851, 57, 430, 396, 323, 399, 812],
+    often_used_move: [504, 58, 56, 851, 57, 430, 396, 323, 399, 453],
   },
   {
     id: 24,
@@ -293,7 +293,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [137, 390, 525, 282, 415, 441, 489, 89, 423, 555],
+    often_used_move: [137, 390, 525, 282, 415, 441, 489, 89, 555, 114],
   },
   {
     id: 25,
@@ -322,7 +322,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [344, 447, 252, 583, 851, 85, 227, 918, 57, 609],
+    often_used_move: [344, 447, 252, 583, 851, 85, 227, 57, 918, 609],
   },
   {
     id: 26,
@@ -352,7 +352,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [609, 113, 115, 521, 227, 85, 447, 283, 57, 282],
+    often_used_move: [609, 113, 115, 521, 227, 85, 447, 57, 283, 417],
   },
   {
     id: 27,
@@ -381,7 +381,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [446, 398, 317, 280, 283, 229, 523, 210, 360, 14],
+    often_used_move: [446, 317, 398, 280, 523, 229, 283, 89, 210, 360],
   },
   {
     id: 28,
@@ -410,7 +410,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [89, 68, 283, 282, 851, 14, 317, 280, 444, 229],
+    often_used_move: [89, 68, 282, 14, 283, 851, 317, 444, 229, 280],
   },
   {
     id: 35,
@@ -443,7 +443,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [322, 47, 447, 236, 791, 500, 585],
+    often_used_move: [322, 447, 47, 236, 791, 585, 500],
   },
   {
     id: 36,
@@ -504,7 +504,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [98, 175, 261, 311],
+    often_used_move: [311, 261, 98, 175],
   },
   {
     id: 38,
@@ -532,8 +532,8 @@ export const all_pokemon_list = [
         541, 555, 590, 595, 608, 673, 807, 815, 851,
       ],
     },
-    usage_rate: 134,
-    often_used_move: [261, 227, 76, 262, 315, 53, 311, 417, 815, 361],
+    usage_rate: 136,
+    often_used_move: [261, 227, 76, 262, 315, 53, 311, 815, 417, 361],
   },
   {
     id: 39,
@@ -566,7 +566,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [182, 195, 273, 446, 304, 50, 38, 47, 226, 34],
+    often_used_move: [446, 195, 182, 273, 226, 347, 164, 38, 50, 304],
   },
   {
     id: 40,
@@ -599,7 +599,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [446, 914, 58, 227, 86, 577, 226, 195, 304, 182],
+    often_used_move: [446, 914, 58, 227, 86, 577, 304, 226, 195, 605],
   },
   {
     id: 44,
@@ -627,7 +627,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [668, 73, 92, 202, 585, 236, 182, 78, 885, 491],
+    often_used_move: [668, 92, 73, 202, 585, 236, 851, 182, 78, 491],
   },
   {
     id: 45,
@@ -655,7 +655,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [668, 202, 73, 92, 585, 188, 482, 851, 491, 236],
+    often_used_move: [668, 202, 73, 92, 585, 188, 851, 482, 491, 236],
   },
   {
     id: 48,
@@ -682,7 +682,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [79, 97, 283, 884, 226, 164, 78, 141, 109, 428],
+    often_used_move: [79, 97, 884, 283, 164, 226, 78, 77, 48, 109],
   },
   {
     id: 49,
@@ -711,7 +711,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [483, 405, 234, 79, 226, 164, 50, 491, 188, 403],
+    often_used_move: [483, 405, 234, 164, 226, 79, 50, 491, 188, 403],
   },
   {
     id: 50,
@@ -739,7 +739,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [310, 45, 28, 10, 163, 89, 389, 523],
+    often_used_move: [310, 28, 45, 10, 163, 523, 389, 89],
   },
   {
     id: 51,
@@ -767,7 +767,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [89, 446, 262, 317, 389, 283, 179, 523, 14, 189],
+    often_used_move: [89, 446, 262, 317, 389, 283, 179, 523, 14, 164],
   },
   {
     id: 52,
@@ -797,7 +797,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [252, 283, 203, 364, 269, 86, 247, 44, 372, 6],
+    often_used_move: [252, 283, 364, 203, 269, 86, 247, 372, 6, 44],
   },
   {
     id: 53,
@@ -827,7 +827,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [269, 283, 252, 44, 364, 175, 885, 492, 86, 441],
+    often_used_move: [269, 283, 252, 44, 364, 175, 885, 492, 441, 86],
   },
   {
     id: 54,
@@ -857,7 +857,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [410, 283, 227, 282, 56, 285, 281, 499, 94, 50],
+    often_used_move: [410, 283, 227, 56, 282, 499, 94, 118, 812, 285],
   },
   {
     id: 55,
@@ -888,7 +888,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [56, 58, 417, 410, 473, 57, 851, 227, 886, 94],
+    often_used_move: [58, 56, 410, 417, 57, 473, 851, 227, 94, 411],
   },
   {
     id: 56,
@@ -918,7 +918,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [707, 103, 515, 200],
+    often_used_move: [67, 343, 154, 69, 103, 200, 515, 707],
   },
   {
     id: 57,
@@ -948,7 +948,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [409, 889, 339, 269, 227, 446, 203, 174, 68, 398],
+    often_used_move: [889, 409, 339, 269, 227, 446, 203, 174, 68, 398],
   },
   {
     id: 58,
@@ -976,7 +976,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [83, 261, 555, 234],
+    often_used_move: [555, 261, 83, 234],
   },
   {
     id: 59,
@@ -1004,7 +1004,7 @@ export const all_pokemon_list = [
         851, 915,
       ],
     },
-    usage_rate: 102,
+    usage_rate: 103,
     often_used_move: [245, 394, 234, 261, 583, 370, 53, 174, 555, 46],
   },
   {
@@ -1033,7 +1033,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [187, 203, 95, 283, 164, 196, 710, 227],
+    often_used_move: [187, 95, 710, 283, 164, 227, 203, 196],
   },
   {
     id: 61,
@@ -1061,7 +1061,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [710, 187, 8, 89, 227, 283, 240, 250, 196, 95],
+    often_used_move: [187, 710, 56, 38, 89, 414, 8, 227, 283, 240],
   },
   {
     id: 62,
@@ -1119,7 +1119,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [282, 438, 78, 14],
+    often_used_move: [438, 78, 14, 282],
   },
   {
     id: 70,
@@ -1147,7 +1147,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [241, 227, 79, 282],
+    often_used_move: [282, 227, 241, 79],
   },
   {
     id: 71,
@@ -1175,7 +1175,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [311, 76, 851, 188, 74, 491, 668, 437, 482, 282],
+    often_used_move: [311, 76, 851, 188, 668, 282, 74, 389, 491, 437],
   },
   {
     id: 72,
@@ -1204,7 +1204,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [151, 92, 282, 392],
+    often_used_move: [282, 151, 392, 92, 352, 40, 51, 61],
   },
   {
     id: 73,
@@ -1233,7 +1233,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [491, 57, 243, 282, 390, 92, 812, 202, 482, 56],
+    often_used_move: [491, 57, 243, 282, 92, 390, 812, 202, 482, 56],
   },
   {
     id: 74,
@@ -1261,7 +1261,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [444, 350, 446, 89],
+    often_used_move: [350, 444, 89, 446],
   },
   {
     id: 75,
@@ -1290,7 +1290,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [446, 350, 397, 89],
+    often_used_move: [350, 446, 397, 89],
   },
   {
     id: 76,
@@ -1319,7 +1319,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [89, 446, 153, 350, 374, 397, 157, 317, 444, 280],
+    often_used_move: [89, 446, 153, 350, 397, 374, 317, 157, 280, 444],
   },
   {
     id: 79,
@@ -1349,7 +1349,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [303, 281, 492, 851, 347, 500, 240, 133, 271, 285],
+    often_used_move: [303, 281, 492, 347, 500, 851, 240, 133, 271, 285],
   },
   {
     id: 80,
@@ -1381,7 +1381,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [503, 303, 917, 776, 334, 58, 94, 347, 433, 281],
+    often_used_move: [303, 503, 917, 776, 334, 58, 94, 347, 281, 433],
   },
   {
     id: 81,
@@ -1409,7 +1409,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [241, 153, 113, 115, 430, 87, 435, 796, 360, 103],
+    often_used_move: [113, 153, 115, 241, 796, 430, 435, 521, 87, 103],
   },
   {
     id: 82,
@@ -1465,7 +1465,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [175, 98, 283, 14],
+    often_used_move: [98, 283, 175, 14],
   },
   {
     id: 85,
@@ -1493,7 +1493,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [413, 37, 14, 529, 98, 282, 283, 175, 97, 707],
+    often_used_move: [37, 98, 413, 14, 529, 283, 282, 175, 164, 707],
   },
   {
     id: 86,
@@ -1521,7 +1521,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [227, 195, 32, 812, 420, 29],
+    often_used_move: [195, 32, 227, 812, 420, 29],
   },
   {
     id: 87,
@@ -1579,8 +1579,8 @@ export const all_pokemon_list = [
         851,
       ],
     },
-    usage_rate: 84,
-    often_used_move: [409, 425, 107, 441, 174, 7, 282, 92, 164, 8],
+    usage_rate: 85,
+    often_used_move: [409, 107, 425, 441, 7, 174, 282, 92, 164, 182],
   },
   {
     id: 90,
@@ -1608,7 +1608,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [110, 55, 33, 420],
+    often_used_move: [33, 420, 55, 110],
   },
   {
     id: 91,
@@ -1635,8 +1635,37 @@ export const all_pokemon_list = [
         496, 504, 524, 529, 534, 556, 590, 684, 710, 798, 851, 861, 883, 886,
       ],
     },
-    usage_rate: 85,
-    often_used_move: [333, 504, 350, 420, 851, 529, 57, 710, 56, 127],
+    usage_rate: 84,
+    often_used_move: [333, 504, 350, 420, 851, 529, 57, 710, 127, 56],
+  },
+  {
+    id: 92,
+    base: {
+      id: 92,
+      name_ja: "ゴース",
+      hp: 30,
+      attack: 35,
+      defense: 30,
+      special_attack: 100,
+      special_defense: 35,
+      speed: 80,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png",
+      species_id: 92,
+      type_id_list: [8, 4],
+      ability_id_list: [26],
+      move_id_list: [
+        7, 8, 9, 29, 50, 72, 85, 87, 92, 94, 95, 99, 101, 102, 104, 109, 114,
+        117, 120, 122, 123, 138, 139, 149, 153, 156, 164, 168, 171, 173, 174,
+        180, 182, 184, 188, 192, 194, 195, 196, 202, 203, 207, 212, 213, 214,
+        216, 218, 220, 237, 240, 241, 244, 247, 253, 259, 261, 263, 269, 271,
+        282, 285, 286, 288, 289, 290, 310, 363, 371, 373, 389, 398, 399, 412,
+        417, 433, 441, 445, 466, 472, 474, 477, 482, 491, 492, 496, 499, 502,
+        506, 513, 590, 605, 611, 806, 809, 810, 851,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [271, 491, 194, 247],
   },
   {
     id: 93,
@@ -1695,8 +1724,8 @@ export const all_pokemon_list = [
         806, 809, 810, 851, 917,
       ],
     },
-    usage_rate: 70,
-    often_used_move: [247, 194, 188, 227, 506, 86, 196, 411, 95, 390],
+    usage_rate: 68,
+    often_used_move: [247, 194, 188, 227, 506, 86, 196, 411, 95, 482],
   },
   {
     id: 96,
@@ -1726,7 +1755,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [50, 93, 1, 95],
+    often_used_move: [93, 1, 95, 50],
   },
   {
     id: 97,
@@ -1756,7 +1785,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [86, 415, 227, 95, 94, 50, 101, 917, 92, 417],
+    often_used_move: [86, 415, 227, 94, 917, 95, 50, 347, 101, 285],
   },
   {
     id: 100,
@@ -1783,7 +1812,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [492, 269, 86, 243],
+    often_used_move: [269, 243, 492, 86],
   },
   {
     id: 101,
@@ -1810,7 +1839,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [851, 269, 521, 87, 492, 113, 243, 486, 85, 435],
+    often_used_move: [269, 521, 851, 87, 85, 113, 492, 86, 243, 240],
   },
   {
     id: 102,
@@ -1838,7 +1867,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [236, 182, 73, 388],
+    often_used_move: [236, 73, 388, 182],
   },
   {
     id: 103,
@@ -1896,7 +1925,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [282, 370, 252, 179, 918, 203, 389, 851, 418, 136],
+    often_used_move: [282, 370, 179, 252, 918, 203, 389, 851, 418, 136],
   },
   {
     id: 107,
@@ -1925,7 +1954,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [418, 7, 8, 409, 370, 183, 283, 9, 252, 264],
+    often_used_move: [418, 7, 8, 409, 183, 370, 283, 9, 252, 264],
   },
   {
     id: 109,
@@ -1953,7 +1982,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [261, 220, 92, 499, 360, 262, 254, 194, 53, 491],
+    often_used_move: [261, 499, 220, 92, 360, 262, 194, 254, 390, 53],
   },
   {
     id: 110,
@@ -1981,7 +2010,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 92,
-    often_used_move: [92, 261, 53, 220, 499, 390, 182, 257, 188, 262],
+    often_used_move: [92, 261, 53, 220, 499, 188, 390, 257, 182, 262],
   },
   {
     id: 112,
@@ -2013,7 +2042,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [89, 32, 350, 368, 14, 334, 419, 156, 214, 776],
+    often_used_move: [89, 32, 350, 368, 14, 334, 419, 156, 916, 214],
   },
   {
     id: 113,
@@ -2044,8 +2073,8 @@ export const all_pokemon_list = [
         707, 791, 851, 883, 885, 886,
       ],
     },
-    usage_rate: 131,
-    often_used_move: [135, 69, 446, 347, 247, 86, 53, 204, 113, 47],
+    usage_rate: 134,
+    often_used_move: [135, 69, 446, 347, 247, 86, 204, 53, 113, 47],
   },
   {
     id: 117,
@@ -2072,7 +2101,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [499, 406, 56, 311, 250, 156, 182, 349, 127, 240],
+    often_used_move: [499, 406, 56, 311, 250, 156, 182, 349, 240, 108],
   },
   {
     id: 123,
@@ -2130,7 +2159,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [282, 86, 851, 435, 94, 85, 8, 269, 411, 113],
+    often_used_move: [282, 86, 269, 8, 851, 435, 94, 85, 411, 113],
   },
   {
     id: 126,
@@ -2159,7 +2188,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [436, 491, 851, 109, 261, 269, 187, 183, 282, 499],
+    often_used_move: [491, 436, 851, 109, 261, 269, 282, 183, 187, 499],
   },
   {
     id: 128,
@@ -2187,8 +2216,8 @@ export const all_pokemon_list = [
         707, 808, 851, 873, 885,
       ],
     },
-    usage_rate: 74,
-    often_used_move: [442, 34, 675, 370, 89, 873, 39, 444, 247, 85],
+    usage_rate: 72,
+    often_used_move: [442, 34, 370, 675, 89, 247, 873, 58, 85, 39],
   },
   {
     id: 129,
@@ -2237,7 +2266,7 @@ export const all_pokemon_list = [
         523, 525, 542, 590, 693, 799, 808, 851, 886, 913, 915,
       ],
     },
-    usage_rate: 59,
+    usage_rate: 60,
     often_used_move: [127, 89, 349, 269, 86, 423, 851, 401, 419, 799],
   },
   {
@@ -2267,7 +2296,7 @@ export const all_pokemon_list = [
         776, 791, 851, 883, 886, 913, 914, 917,
       ],
     },
-    usage_rate: 103,
+    usage_rate: 104,
     often_used_move: [329, 573, 664, 195, 420, 90, 156, 250, 32, 89],
   },
   {
@@ -2316,7 +2345,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [226, 98, 273, 174, 851, 175, 281, 347, 608, 885],
+    often_used_move: [226, 98, 175, 281, 174, 851, 273, 608, 347, 885],
   },
   {
     id: 134,
@@ -2344,7 +2373,7 @@ export const all_pokemon_list = [
         673, 710, 812, 851, 885, 886, 914,
       ],
     },
-    usage_rate: 115,
+    usage_rate: 113,
     often_used_move: [503, 58, 273, 347, 182, 151, 812, 281, 57, 247],
   },
   {
@@ -2373,8 +2402,8 @@ export const all_pokemon_list = [
         598, 604, 608, 673, 804, 851, 885, 914,
       ],
     },
-    usage_rate: 128,
-    often_used_move: [85, 851, 521, 247, 914, 281, 87, 86, 164, 347],
+    usage_rate: 129,
+    often_used_move: [85, 851, 521, 247, 914, 281, 87, 86, 347, 164],
   },
   {
     id: 136,
@@ -2403,7 +2432,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [394, 851, 98, 261, 182, 273, 283, 263, 885, 436],
+    often_used_move: [394, 98, 851, 261, 182, 273, 283, 885, 263, 436],
   },
   {
     id: 143,
@@ -2434,7 +2463,7 @@ export const all_pokemon_list = [
         912, 916,
       ],
     },
-    usage_rate: 120,
+    usage_rate: 118,
     often_used_move: [89, 34, 281, 484, 90, 174, 8, 278, 359, 263],
   },
   {
@@ -2463,7 +2492,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [219, 407, 349, 240, 21, 401],
+    often_used_move: [349, 407, 219, 240, 245, 442, 21, 200, 401, 799],
   },
   {
     id: 148,
@@ -2491,7 +2520,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [156, 349, 407, 83, 86, 214, 525, 113, 442, 35],
+    often_used_move: [156, 349, 407, 83, 86, 525, 214, 113, 442, 35],
   },
   {
     id: 149,
@@ -2551,7 +2580,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [73, 235, 68, 182, 174, 851, 282, 115, 227, 113],
+    often_used_move: [73, 235, 174, 68, 182, 851, 164, 282, 115, 227],
   },
   {
     id: 154,
@@ -2580,7 +2609,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [73, 227, 202, 115, 113, 282, 776, 235, 572, 68],
+    often_used_move: [73, 227, 202, 115, 113, 776, 282, 235, 572, 174],
   },
   {
     id: 156,
@@ -2608,7 +2637,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [129, 326, 315, 284, 442, 528, 583, 394],
+    often_used_move: [326, 315, 284, 129, 528, 442, 394, 583],
   },
   {
     id: 157,
@@ -2637,8 +2666,8 @@ export const all_pokemon_list = [
         707, 807, 809, 815, 851, 915,
       ],
     },
-    usage_rate: 104,
-    often_used_move: [284, 247, 283, 815, 126, 315, 851, 261, 53, 307],
+    usage_rate: 102,
+    often_used_move: [284, 247, 283, 815, 315, 851, 126, 261, 53, 307],
   },
   {
     id: 159,
@@ -2667,7 +2696,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [242, 706, 710, 14],
+    often_used_move: [242, 14, 706, 710],
   },
   {
     id: 160,
@@ -2697,7 +2726,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [710, 8, 349, 242, 851, 453, 89, 706, 67, 423],
+    often_used_move: [710, 8, 349, 242, 851, 453, 89, 706, 423, 67],
   },
   {
     id: 161,
@@ -2726,7 +2755,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [304, 226, 133, 38],
+    often_used_move: [304, 226, 38, 133],
   },
   {
     id: 162,
@@ -2756,7 +2785,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [882, 271, 226, 369, 282, 38, 389, 162, 283, 97],
+    often_used_move: [271, 882, 226, 369, 282, 38, 389, 162, 851, 283],
   },
   {
     id: 164,
@@ -2785,7 +2814,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [347, 95, 403, 355, 138, 115, 542, 585, 257, 304],
+    often_used_move: [347, 403, 95, 355, 542, 585, 138, 257, 115, 304],
   },
   {
     id: 167,
@@ -2813,7 +2842,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [101, 425, 154, 389, 440, 672, 398, 564],
+    often_used_move: [425, 564, 101, 154, 389, 440, 71, 672, 398, 611],
   },
   {
     id: 168,
@@ -2872,6 +2901,63 @@ export const all_pokemon_list = [
     often_used_move: [435, 521, 503, 58, 812, 56, 196, 605, 85, 86],
   },
   {
+    id: 172,
+    base: {
+      id: 172,
+      name_ja: "ピチュー",
+      hp: 20,
+      attack: 40,
+      defense: 15,
+      special_attack: 35,
+      special_defense: 35,
+      speed: 60,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/172.png",
+      species_id: 172,
+      type_id_list: [13],
+      ability_id_list: [9, 31],
+      move_id_list: [
+        3, 5, 9, 25, 29, 34, 36, 38, 39, 57, 68, 69, 84, 85, 86, 87, 92, 102,
+        104, 111, 113, 115, 117, 129, 148, 156, 164, 173, 174, 175, 179, 182,
+        186, 189, 192, 197, 203, 204, 205, 207, 213, 214, 216, 217, 218, 227,
+        231, 237, 240, 252, 253, 263, 266, 268, 270, 273, 290, 321, 324, 343,
+        344, 351, 363, 374, 381, 393, 417, 445, 447, 451, 486, 496, 497, 516,
+        521, 527, 528, 574, 583, 589, 590, 604, 609, 851, 885,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [609, 57, 85, 447],
+  },
+  {
+    id: 174,
+    base: {
+      id: 174,
+      name_ja: "ププリン",
+      hp: 90,
+      attack: 30,
+      defense: 15,
+      special_attack: 40,
+      special_defense: 20,
+      speed: 15,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/174.png",
+      species_id: 174,
+      type_id_list: [1, 18],
+      ability_id_list: [56, 172, 132],
+      move_id_list: [
+        1, 5, 25, 29, 34, 36, 38, 47, 50, 53, 68, 69, 76, 86, 91, 92, 94, 102,
+        103, 104, 111, 113, 115, 126, 129, 138, 148, 156, 164, 171, 173, 174,
+        182, 185, 186, 189, 192, 195, 196, 197, 203, 204, 205, 207, 213, 214,
+        215, 216, 217, 218, 219, 220, 227, 237, 240, 241, 244, 247, 253, 263,
+        270, 272, 273, 277, 278, 283, 290, 304, 313, 340, 343, 351, 352, 356,
+        363, 374, 383, 386, 387, 445, 447, 496, 497, 505, 510, 526, 528, 574,
+        577, 581, 583, 590, 605, 851, 885, 914,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [86, 227, 203, 283],
+  },
+  {
     id: 180,
     base: {
       id: 180,
@@ -2926,7 +3012,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [605, 411, 87, 521, 851, 408, 538, 435, 85, 156],
+    often_used_move: [605, 411, 521, 87, 851, 538, 408, 435, 85, 156],
   },
   {
     id: 182,
@@ -2954,7 +3040,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [483, 226, 668, 202, 164, 275, 585, 851, 79, 92],
+    often_used_move: [483, 226, 668, 202, 164, 585, 275, 851, 92, 227],
   },
   {
     id: 183,
@@ -2984,7 +3070,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [195, 182, 250, 282],
+    often_used_move: [182, 250, 195, 282],
   },
   {
     id: 184,
@@ -3013,7 +3099,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 41,
-    often_used_move: [583, 453, 710, 276, 282, 187, 851, 195, 227, 250],
+    often_used_move: [583, 453, 710, 276, 187, 282, 851, 195, 227, 250],
   },
   {
     id: 185,
@@ -3070,8 +3156,8 @@ export const all_pokemon_list = [
         886,
       ],
     },
-    usage_rate: 88,
-    often_used_move: [227, 195, 182, 311, 57, 58, 414, 196, 56, 411],
+    usage_rate: 87,
+    often_used_move: [227, 195, 182, 311, 57, 58, 414, 196, 250, 56],
   },
   {
     id: 188,
@@ -3099,7 +3185,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [415, 369, 262, 79, 668, 538, 73, 226, 78, 851],
+    often_used_move: [538, 668, 73, 369, 415, 262, 79, 226, 78, 851],
   },
   {
     id: 189,
@@ -3127,7 +3213,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [73, 668, 538, 164, 226, 227, 113, 79, 369, 262],
+    often_used_move: [73, 668, 538, 164, 226, 227, 79, 113, 369, 262],
   },
   {
     id: 191,
@@ -3154,7 +3240,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [76, 283, 241, 227, 74, 202, 235, 33],
+    often_used_move: [76, 283, 227, 241, 74, 235, 202, 33],
   },
   {
     id: 192,
@@ -3181,7 +3267,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [414, 76, 605, 311, 851, 73, 202, 74, 188],
+    often_used_move: [414, 76, 311, 605, 851, 202, 73, 74, 188, 388],
   },
   {
     id: 193,
@@ -3208,7 +3294,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [141, 14, 95, 164],
+    often_used_move: [164, 141, 95, 14],
   },
   {
     id: 194,
@@ -3237,7 +3323,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [68, 227, 240, 446, 92, 89, 281],
+    often_used_move: [68, 446, 227, 240, 89, 92, 281],
   },
   {
     id: 195,
@@ -3266,7 +3352,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [105, 89, 92, 446, 281, 133, 68, 174, 254, 127],
+    often_used_move: [105, 89, 446, 92, 281, 133, 68, 174, 254, 8],
   },
   {
     id: 196,
@@ -3294,8 +3380,8 @@ export const all_pokemon_list = [
         577, 590, 605, 608, 673, 678, 706, 797, 851, 885, 914, 917,
       ],
     },
-    usage_rate: 72,
-    often_used_move: [94, 914, 247, 347, 271, 851, 234, 917, 447, 473],
+    usage_rate: 73,
+    often_used_move: [94, 247, 914, 271, 347, 851, 234, 447, 917, 473],
   },
   {
     id: 197,
@@ -3324,7 +3410,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 64,
-    often_used_move: [492, 182, 273, 92, 236, 281, 555, 285, 269, 347],
+    often_used_move: [492, 182, 273, 92, 236, 281, 555, 285, 269, 86],
   },
   {
     id: 198,
@@ -3353,7 +3439,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [366, 114, 492, 86, 269, 240, 413, 164, 403, 399],
+    often_used_move: [366, 492, 86, 269, 114, 240, 403, 369, 399, 417],
   },
   {
     id: 199,
@@ -3384,8 +3470,8 @@ export const all_pokemon_list = [
         917,
       ],
     },
-    usage_rate: 119,
-    often_used_move: [881, 281, 57, 94, 433, 503, 303, 58, 917, 126],
+    usage_rate: 120,
+    often_used_move: [881, 281, 57, 94, 433, 503, 58, 303, 126, 53],
   },
   {
     id: 200,
@@ -3415,7 +3501,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [220, 261, 247, 506, 195, 212, 174, 86, 433, 347],
+    often_used_move: [220, 261, 247, 506, 212, 174, 195, 86, 433, 269],
   },
   {
     id: 203,
@@ -3445,7 +3531,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [347, 500, 156, 304, 243, 433, 94, 605, 67, 851],
+    often_used_move: [500, 347, 156, 304, 94, 433, 243, 605, 851, 67],
   },
   {
     id: 204,
@@ -3473,7 +3559,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [446, 153, 390, 203, 205, 174, 220, 229, 191],
+    often_used_move: [153, 446, 390, 203, 220, 174, 205, 191, 229],
   },
   {
     id: 205,
@@ -3502,7 +3588,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [446, 776, 521, 390, 360, 229, 153, 334, 86, 350],
+    often_used_move: [446, 776, 521, 390, 360, 153, 229, 334, 86, 350],
   },
   {
     id: 206,
@@ -3532,7 +3618,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [355, 226, 489, 137, 446, 133, 281, 283, 29, 34],
+    often_used_move: [355, 226, 489, 137, 446, 133, 281, 29, 317, 283],
   },
   {
     id: 207,
@@ -3562,7 +3648,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [446, 282, 269, 89, 92, 68, 317, 390, 369, 523],
+    often_used_move: [446, 282, 269, 92, 89, 68, 317, 390, 369, 523],
   },
   {
     id: 209,
@@ -3592,7 +3678,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [242, 371, 387, 583],
+    often_used_move: [371, 242, 583, 387],
   },
   {
     id: 210,
@@ -3622,7 +3708,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [583, 227, 86, 89, 707, 915, 204, 162, 370, 67],
+    often_used_move: [583, 86, 227, 89, 707, 915, 204, 162, 67, 370],
   },
   {
     id: 211,
@@ -3651,7 +3737,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [812, 194, 269, 92, 86, 390, 839, 886, 441, 191],
+    often_used_move: [812, 194, 269, 92, 390, 86, 839, 886, 441, 191],
   },
   {
     id: 212,
@@ -3709,7 +3795,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [370, 89, 350, 885, 42, 851, 331, 282, 675, 263],
+    often_used_move: [370, 89, 350, 885, 42, 851, 331, 675, 263, 282],
   },
   {
     id: 215,
@@ -3768,7 +3854,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [89, 187, 34, 164, 154, 371, 230, 608],
+    often_used_move: [187, 89, 34, 164, 371, 608, 154, 230],
   },
   {
     id: 217,
@@ -3798,7 +3884,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [89, 583, 263, 359, 269, 339, 156, 14, 7, 885],
+    often_used_move: [89, 583, 263, 359, 269, 339, 156, 885, 14, 7],
   },
   {
     id: 218,
@@ -3826,7 +3912,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [182, 105, 436, 281],
+    often_used_move: [105, 281, 182, 436],
   },
   {
     id: 219,
@@ -3855,7 +3941,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [504, 53, 408, 851, 446, 281, 105, 414, 262, 83],
+    often_used_move: [53, 504, 408, 851, 446, 281, 105, 414, 499, 517],
   },
   {
     id: 220,
@@ -3883,7 +3969,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [420, 446, 283, 90, 203, 89, 179, 174],
+    often_used_move: [420, 446, 283, 90, 203, 89, 174, 179],
   },
   {
     id: 221,
@@ -3911,7 +3997,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [420, 89, 446, 333, 90, 46, 556, 479, 851, 174],
+    often_used_move: [420, 89, 446, 333, 90, 556, 46, 479, 133, 174],
   },
   {
     id: 225,
@@ -3940,7 +4026,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [194, 68, 420, 366, 252, 97, 573, 283, 333, 413],
+    often_used_move: [194, 68, 420, 366, 252, 97, 573, 283, 413, 333],
   },
   {
     id: 227,
@@ -3968,8 +4054,8 @@ export const all_pokemon_list = [
         814, 851,
       ],
     },
-    usage_rate: 65,
-    often_used_move: [355, 446, 18, 776, 191, 334, 269, 442, 413, 46],
+    usage_rate: 66,
+    often_used_move: [355, 446, 18, 776, 191, 334, 269, 442, 46, 413],
   },
   {
     id: 229,
@@ -3998,7 +4084,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [399, 315, 194, 53, 389, 269, 851, 283, 894, 261],
+    often_used_move: [399, 315, 194, 53, 389, 269, 851, 261, 283, 894],
   },
   {
     id: 230,
@@ -4025,7 +4111,7 @@ export const all_pokemon_list = [
         812, 834, 851, 883, 886,
       ],
     },
-    usage_rate: 133,
+    usage_rate: 132,
     often_used_move: [434, 311, 542, 56, 58, 430, 812, 406, 57, 164],
   },
   {
@@ -4054,8 +4140,8 @@ export const all_pokemon_list = [
         684, 693, 707, 776, 851, 861, 885,
       ],
     },
-    usage_rate: 136,
-    often_used_move: [89, 420, 446, 282, 283, 229, 861, 227, 68, 317],
+    usage_rate: 135,
+    often_used_move: [89, 420, 446, 282, 283, 229, 861, 227, 68, 583],
   },
   {
     id: 233,
@@ -4112,7 +4198,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [271, 224, 433, 38, 851, 675, 86, 356, 115, 113],
+    often_used_move: [271, 38, 433, 224, 851, 86, 675, 113, 356, 115],
   },
   {
     id: 235,
@@ -4133,7 +4219,7 @@ export const all_pokemon_list = [
       move_id_list: [166],
     },
     usage_rate: 124,
-    often_used_move: [147, 226, 107, 748, 609, 164, 564, 908, 504, 596],
+    often_used_move: [147, 226, 107, 748, 609, 564, 164, 908, 830, 596],
   },
   {
     id: 237,
@@ -4162,7 +4248,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [813, 418, 183, 136, 252, 182, 370, 523, 389, 167],
+    often_used_move: [813, 418, 183, 252, 136, 370, 523, 182, 389, 167],
   },
   {
     id: 242,
@@ -4192,7 +4278,7 @@ export const all_pokemon_list = [
         528, 574, 590, 604, 605, 612, 673, 707, 791, 851, 883, 885, 886, 914,
       ],
     },
-    usage_rate: 68,
+    usage_rate: 69,
     often_used_move: [135, 347, 53, 374, 247, 58, 69, 85, 446, 304],
   },
   {
@@ -4221,7 +4307,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [157, 89, 184, 707, 103, 280, 349, 242, 37, 444],
+    often_used_move: [157, 89, 184, 707, 103, 349, 280, 37, 444, 242],
   },
   {
     id: 247,
@@ -4249,7 +4335,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [174, 350, 156, 89, 446, 523, 189, 34],
+    often_used_move: [174, 156, 350, 89, 446, 371, 180, 523, 34, 242],
   },
   {
     id: 248,
@@ -4309,7 +4395,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [203, 98, 283, 437],
+    often_used_move: [203, 283, 437, 98],
   },
   {
     id: 253,
@@ -4338,7 +4424,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [437, 410, 283, 164, 918],
+    often_used_move: [410, 437, 283, 164, 918],
   },
   {
     id: 254,
@@ -4369,7 +4455,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [880, 283, 437, 410, 851, 348, 14, 202, 203, 412],
+    often_used_move: [880, 283, 437, 410, 851, 348, 14, 203, 202, 412],
   },
   {
     id: 255,
@@ -4397,7 +4483,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [197, 297, 179, 14, 261, 851, 315],
+    often_used_move: [197, 851, 14, 179, 297, 315, 261],
   },
   {
     id: 256,
@@ -4426,7 +4512,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [226, 339, 182, 197, 488, 297, 261, 299, 14, 116],
+    often_used_move: [226, 339, 182, 197, 488, 297, 299, 261, 164, 116],
   },
   {
     id: 257,
@@ -4457,7 +4543,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 53,
-    often_used_move: [370, 394, 182, 226, 14, 851, 339, 197, 918, 299],
+    often_used_move: [370, 394, 182, 226, 14, 339, 851, 197, 918, 299],
   },
   {
     id: 258,
@@ -4485,7 +4571,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [283, 68, 243, 281, 182, 103, 56, 157, 196],
+    often_used_move: [283, 243, 68, 56, 281, 182, 157, 103, 196],
   },
   {
     id: 259,
@@ -4514,7 +4600,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [250, 243, 89, 156, 446, 281, 174, 214, 182, 133],
+    often_used_move: [250, 243, 89, 156, 281, 446, 174, 214, 419, 133],
   },
   {
     id: 260,
@@ -4543,8 +4629,8 @@ export const all_pokemon_list = [
         526, 590, 612, 663, 667, 707, 710, 776, 812, 851, 886, 912,
       ],
     },
-    usage_rate: 58,
-    often_used_move: [812, 446, 281, 89, 282, 710, 46, 8, 419, 243],
+    usage_rate: 59,
+    often_used_move: [812, 446, 281, 89, 282, 710, 46, 8, 243, 419],
   },
   {
     id: 262,
@@ -4572,7 +4658,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [281, 162, 269, 389, 492, 583, 182, 555, 184, 263],
+    often_used_move: [281, 162, 389, 269, 583, 492, 182, 263, 555, 242],
   },
   {
     id: 270,
@@ -4599,7 +4685,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [73, 202, 59, 68],
+    often_used_move: [68, 59, 202, 73],
   },
   {
     id: 271,
@@ -4628,7 +4714,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [68, 282, 252, 428],
+    often_used_move: [282, 252, 428, 68],
   },
   {
     id: 272,
@@ -4657,7 +4743,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [58, 202, 311, 412, 56, 227, 851, 57, 164, 411],
+    often_used_move: [58, 202, 311, 56, 412, 227, 851, 57, 164, 411],
   },
   {
     id: 273,
@@ -4715,7 +4801,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [348, 241, 14, 389],
+    often_used_move: [241, 348, 389, 14],
   },
   {
     id: 275,
@@ -4747,7 +4833,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [366, 153, 348, 389, 252, 282, 675, 317, 240, 390],
+    often_used_move: [366, 153, 348, 389, 252, 282, 675, 390, 14, 317],
   },
   {
     id: 279,
@@ -4778,6 +4864,65 @@ export const all_pokemon_list = [
     often_used_move: [542, 369, 311, 58, 98, 366, 355, 57, 56, 851],
   },
   {
+    id: 280,
+    base: {
+      id: 280,
+      name_ja: "ラルトス",
+      hp: 28,
+      attack: 25,
+      defense: 25,
+      special_attack: 45,
+      special_defense: 35,
+      speed: 40,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/280.png",
+      species_id: 280,
+      type_id_list: [14, 18],
+      ability_id_list: [28, 36, 140],
+      move_id_list: [
+        5, 7, 8, 9, 25, 29, 34, 38, 45, 50, 60, 85, 86, 92, 93, 94, 95, 100,
+        102, 104, 109, 111, 113, 115, 118, 129, 138, 148, 156, 164, 168, 171,
+        173, 182, 189, 194, 196, 203, 204, 207, 212, 213, 214, 216, 218, 219,
+        220, 227, 237, 240, 241, 244, 247, 248, 259, 261, 262, 263, 269, 270,
+        271, 277, 278, 282, 285, 286, 288, 289, 290, 304, 324, 345, 347, 351,
+        363, 374, 381, 425, 428, 433, 445, 447, 451, 472, 473, 477, 478, 485,
+        496, 497, 500, 502, 505, 574, 577, 581, 590, 595, 605, 678, 791, 797,
+        851, 914,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [196, 194, 262, 433],
+  },
+  {
+    id: 281,
+    base: {
+      id: 281,
+      name_ja: "キルリア",
+      hp: 38,
+      attack: 35,
+      defense: 35,
+      special_attack: 65,
+      special_defense: 55,
+      speed: 50,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/281.png",
+      species_id: 281,
+      type_id_list: [14, 18],
+      ability_id_list: [28, 36, 140],
+      move_id_list: [
+        5, 7, 8, 9, 25, 29, 34, 38, 45, 60, 63, 85, 86, 92, 93, 94, 95, 100,
+        102, 104, 109, 111, 113, 115, 118, 129, 138, 148, 156, 164, 168, 171,
+        173, 182, 189, 196, 203, 204, 207, 213, 214, 216, 218, 219, 220, 227,
+        237, 240, 241, 244, 247, 248, 259, 261, 263, 269, 270, 271, 277, 278,
+        282, 285, 286, 289, 290, 304, 324, 345, 347, 351, 363, 374, 381, 428,
+        433, 445, 447, 451, 472, 473, 477, 478, 496, 497, 500, 502, 505, 574,
+        577, 581, 590, 605, 678, 791, 797, 813, 851, 914,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [261, 94, 577, 347],
+  },
+  {
     id: 282,
     base: {
       id: 282,
@@ -4804,7 +4949,7 @@ export const all_pokemon_list = [
         590, 595, 605, 673, 678, 791, 797, 802, 813, 851, 914, 917,
       ],
     },
-    usage_rate: 48,
+    usage_rate: 49,
     often_used_move: [917, 347, 227, 577, 585, 595, 473, 271, 410, 94],
   },
   {
@@ -4833,7 +4978,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [240, 196, 56, 564],
+    often_used_move: [564, 196, 56, 240],
   },
   {
     id: 284,
@@ -4862,7 +5007,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [564, 483, 196, 403, 18, 58, 542, 226, 311, 405],
+    often_used_move: [564, 483, 196, 403, 18, 58, 542, 226, 405, 311],
   },
   {
     id: 285,
@@ -4889,7 +5034,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [74, 29, 77, 202],
+    often_used_move: [74, 202, 29, 77],
   },
   {
     id: 286,
@@ -4918,7 +5063,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 26,
-    often_used_move: [147, 331, 183, 317, 523, 164, 14, 851, 73, 264],
+    often_used_move: [147, 331, 183, 317, 523, 164, 851, 14, 73, 264],
   },
   {
     id: 288,
@@ -4948,7 +5093,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [282, 86, 339, 409, 675, 280, 227, 116, 303, 851],
+    often_used_move: [282, 86, 339, 409, 675, 303, 280, 227, 116, 851],
   },
   {
     id: 289,
@@ -4979,7 +5124,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [416, 89, 389, 421, 912, 38, 227, 7, 583, 282],
+    often_used_move: [416, 89, 389, 421, 38, 912, 227, 7, 583, 282],
   },
   {
     id: 297,
@@ -5036,7 +5181,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [61, 55, 270, 150],
+    often_used_move: [55, 270, 150, 61],
   },
   {
     id: 299,
@@ -5064,7 +5209,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [776, 220, 86, 446, 157, 174, 484, 350, 182, 33],
+    often_used_move: [776, 220, 86, 446, 174, 157, 484, 350, 33, 182],
   },
   {
     id: 302,
@@ -5095,7 +5240,7 @@ export const all_pokemon_list = [
         808, 809, 851,
       ],
     },
-    usage_rate: 129,
+    usage_rate: 130,
     often_used_move: [227, 492, 261, 113, 105, 115, 282, 50, 368, 182],
   },
   {
@@ -5126,7 +5271,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [428, 433, 179, 918, 136, 364, 182, 252, 418, 270],
+    often_used_move: [428, 179, 433, 851, 8, 370, 918, 136, 364, 270],
   },
   {
     id: 308,
@@ -5184,7 +5329,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [415, 609, 851, 227, 521, 435, 85, 226, 417, 87],
+    often_used_move: [415, 521, 609, 851, 85, 227, 226, 417, 435, 914],
   },
   {
     id: 312,
@@ -5212,7 +5357,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [521, 415, 609, 447, 162, 914, 98, 227, 283],
+    often_used_move: [415, 521, 609, 447, 162, 914, 98, 283, 227],
   },
   {
     id: 313,
@@ -5241,7 +5386,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [227, 226, 294, 68, 611, 113, 269, 86, 236, 355],
+    often_used_move: [227, 226, 294, 68, 611, 86, 113, 269, 236, 355],
   },
   {
     id: 314,
@@ -5270,7 +5415,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [227, 611, 355, 86, 204, 369, 213, 236, 164, 283],
+    often_used_move: [227, 611, 355, 204, 86, 369, 213, 236, 164, 366],
   },
   {
     id: 316,
@@ -5298,7 +5443,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [92, 227, 281, 220, 174],
+    often_used_move: [220, 92, 227, 281, 174],
   },
   {
     id: 317,
@@ -5327,7 +5472,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [227, 194, 390, 282, 776, 86, 92, 747, 281, 491],
+    often_used_move: [227, 194, 390, 282, 776, 92, 86, 747, 281, 491],
   },
   {
     id: 322,
@@ -5356,7 +5501,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [156, 83, 776, 254],
+    often_used_move: [776, 83, 254, 156],
   },
   {
     id: 323,
@@ -5385,7 +5530,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [414, 446, 281, 436, 90, 182, 83, 157, 851, 284],
+    often_used_move: [414, 446, 281, 436, 90, 83, 182, 157, 851, 284],
   },
   {
     id: 324,
@@ -5443,7 +5588,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [433, 101, 227, 493, 115, 243, 113, 241],
+    often_used_move: [101, 433, 227, 493, 243, 115, 113, 241],
   },
   {
     id: 326,
@@ -5474,7 +5619,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [473, 411, 417, 414, 243, 433, 917, 269, 605, 248],
+    often_used_move: [473, 243, 417, 414, 411, 269, 917, 605, 433, 412],
   },
   {
     id: 328,
@@ -5501,7 +5646,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [89, 660, 276, 90, 242, 446, 851, 157, 364, 444],
+    often_used_move: [89, 660, 90, 276, 242, 182, 446, 851, 157, 444],
   },
   {
     id: 330,
@@ -5531,7 +5676,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [89, 349, 799, 851, 917, 90, 164, 586, 369, 200],
+    often_used_move: [89, 349, 799, 851, 917, 90, 164, 586, 200, 369],
   },
   {
     id: 331,
@@ -5561,7 +5706,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [402, 437, 851, 389],
+    often_used_move: [389, 437, 402, 851],
   },
   {
     id: 332,
@@ -5591,7 +5736,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [389, 437, 282, 68, 399, 851, 194, 596, 283, 335],
+    often_used_move: [389, 437, 282, 68, 399, 194, 851, 596, 335, 331],
   },
   {
     id: 334,
@@ -5620,7 +5765,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [355, 195, 538, 83, 512, 261, 349, 89, 583, 434],
+    often_used_move: [355, 195, 538, 83, 512, 261, 349, 583, 89, 585],
   },
   {
     id: 335,
@@ -5651,7 +5796,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [263, 98, 370, 282, 415, 400, 187, 364, 67, 681],
+    often_used_move: [263, 98, 370, 282, 400, 415, 14, 187, 364, 421],
   },
   {
     id: 336,
@@ -5709,7 +5854,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [414, 58, 90, 56, 446, 851, 89, 349, 886, 710],
+    often_used_move: [58, 414, 90, 56, 446, 851, 89, 886, 349, 133],
   },
   {
     id: 341,
@@ -5766,7 +5911,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [282, 453, 152, 283, 12, 14, 370, 349, 710, 851],
+    often_used_move: [282, 453, 152, 283, 12, 14, 710, 349, 370, 851],
   },
   {
     id: 350,
@@ -5794,7 +5939,7 @@ export const all_pokemon_list = [
         886, 913, 914,
       ],
     },
-    usage_rate: 95,
+    usage_rate: 94,
     often_used_move: [503, 105, 58, 243, 114, 577, 914, 812, 525, 851],
   },
   {
@@ -5824,7 +5969,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [433, 194, 261, 87],
+    often_used_move: [87, 433, 194, 261],
   },
   {
     id: 354,
@@ -5853,7 +5998,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [433, 227, 194, 809, 282, 174, 425, 389, 421, 261],
+    often_used_move: [433, 809, 227, 194, 282, 174, 425, 389, 14, 261],
   },
   {
     id: 355,
@@ -5881,7 +6026,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [174, 220, 212, 156, 425, 433, 101, 506, 261, 285],
+    often_used_move: [174, 220, 212, 156, 433, 285, 425, 371, 141, 101],
   },
   {
     id: 356,
@@ -5910,7 +6055,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [220, 174, 261, 433, 101, 262, 425, 50, 809, 506],
+    often_used_move: [220, 174, 261, 433, 101, 262, 425, 809, 50, 506],
   },
   {
     id: 357,
@@ -5939,7 +6084,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [73, 182, 164, 235, 369, 202, 18, 403, 19, 347],
+    often_used_move: [73, 182, 164, 235, 202, 369, 18, 403, 347, 19],
   },
   {
     id: 358,
@@ -5968,7 +6113,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [105, 322, 500, 227, 361, 433, 269, 94, 35, 347],
+    often_used_move: [105, 322, 227, 500, 361, 433, 269, 94, 35, 347],
   },
   {
     id: 361,
@@ -5995,7 +6140,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [164, 524, 182, 851],
+    often_used_move: [524, 164, 851, 182],
   },
   {
     id: 362,
@@ -6023,7 +6168,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [182, 164, 573, 851, 329, 89, 104, 524, 415, 58],
+    often_used_move: [182, 164, 573, 851, 329, 89, 104, 524, 58, 415],
   },
   {
     id: 370,
@@ -6050,7 +6195,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [453, 283, 196, 204, 710, 812, 240, 851, 799],
+    often_used_move: [453, 283, 196, 710, 812, 204, 240, 851, 799],
   },
   {
     id: 371,
@@ -6077,7 +6222,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [428, 116, 53, 225, 184, 44, 337, 29, 200],
+    often_used_move: [53, 428, 116, 225, 184, 44, 29, 337, 200],
   },
   {
     id: 372,
@@ -6104,7 +6249,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [200, 38, 126, 349],
+    often_used_move: [126, 38, 349, 200],
   },
   {
     id: 373,
@@ -6183,7 +6328,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [418, 8, 89, 309],
+    often_used_move: [418, 89, 8, 309, 113, 796, 446, 115],
   },
   {
     id: 376,
@@ -6241,7 +6386,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [235, 189, 73, 446, 174, 447, 133, 328, 254, 242],
+    often_used_move: [235, 73, 446, 189, 174, 133, 447, 328, 254, 242],
   },
   {
     id: 389,
@@ -6272,6 +6417,35 @@ export const all_pokemon_list = [
     },
     usage_rate: 117,
     often_used_move: [504, 350, 331, 838, 89, 851, 452, 73, 334, 776],
+  },
+  {
+    id: 390,
+    base: {
+      id: 390,
+      name_ja: "ヒコザル",
+      hp: 44,
+      attack: 58,
+      defense: 44,
+      special_attack: 58,
+      special_defense: 44,
+      speed: 61,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/390.png",
+      species_id: 390,
+      type_id_list: [10],
+      ability_id_list: [66, 89],
+      move_id_list: [
+        7, 9, 10, 14, 15, 24, 29, 36, 38, 43, 52, 53, 66, 67, 68, 70, 83, 91,
+        92, 97, 104, 116, 118, 126, 129, 154, 156, 157, 164, 168, 172, 173, 182,
+        189, 203, 205, 207, 213, 214, 216, 218, 227, 231, 237, 241, 244, 249,
+        252, 253, 257, 259, 261, 263, 264, 269, 270, 272, 274, 280, 282, 283,
+        290, 299, 303, 313, 315, 317, 332, 339, 343, 363, 369, 374, 394, 398,
+        410, 415, 417, 421, 428, 431, 441, 445, 446, 447, 468, 488, 490, 496,
+        501, 510, 512, 519, 526, 590, 612, 807, 851, 915,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [317, 446, 410, 283, 415, 441, 394, 264],
   },
   {
     id: 392,
@@ -6330,7 +6504,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [281, 250, 355, 812, 886, 447, 58, 56, 97],
+    often_used_move: [250, 355, 281, 812, 56, 97, 886, 61, 861, 58],
   },
   {
     id: 394,
@@ -6359,7 +6533,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [812, 355, 182, 281],
+    often_used_move: [812, 355, 281, 250, 182],
   },
   {
     id: 395,
@@ -6388,8 +6562,8 @@ export const all_pokemon_list = [
         673, 675, 681, 710, 796, 808, 812, 813, 814, 834, 851, 861, 883, 886,
       ],
     },
-    usage_rate: 99,
-    often_used_move: [446, 430, 57, 812, 58, 281, 56, 46, 410, 282],
+    usage_rate: 98,
+    often_used_move: [446, 430, 812, 57, 281, 58, 56, 46, 410, 282],
   },
   {
     id: 398,
@@ -6416,7 +6590,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 110,
-    often_used_move: [413, 370, 369, 38, 98, 515, 851, 283, 814, 366],
+    often_used_move: [413, 370, 369, 38, 98, 515, 851, 283, 814, 18],
   },
   {
     id: 402,
@@ -6444,7 +6618,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [564, 269, 195, 884, 565, 210, 280, 226, 404, 47],
+    often_used_move: [269, 564, 195, 884, 210, 226, 565, 280, 404, 47],
   },
   {
     id: 405,
@@ -6472,7 +6646,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [521, 86, 608, 916, 423, 263, 885, 528, 46, 598],
+    often_used_move: [521, 86, 608, 916, 263, 423, 885, 528, 598, 97],
   },
   {
     id: 408,
@@ -6500,7 +6674,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [428, 350, 89, 457],
+    often_used_move: [457, 89, 350, 428, 9, 851],
   },
   {
     id: 409,
@@ -6529,7 +6703,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [457, 89, 916, 428, 359, 442, 350, 851, 885, 280],
+    often_used_move: [457, 89, 916, 359, 428, 442, 350, 851, 242, 885],
   },
   {
     id: 410,
@@ -6557,7 +6731,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [368, 203, 446, 184],
+    often_used_move: [368, 184, 203, 446],
   },
   {
     id: 411,
@@ -6585,7 +6759,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [776, 368, 334, 90, 446, 46, 492, 479, 164, 269],
+    often_used_move: [776, 368, 334, 90, 446, 46, 492, 164, 479, 269],
   },
   {
     id: 415,
@@ -6609,7 +6783,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [283, 522, 450, 679],
+    often_used_move: [450, 283, 522, 679],
   },
   {
     id: 416,
@@ -6638,7 +6812,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [355, 455, 92, 506, 474, 194, 390, 454, 565, 814],
+    often_used_move: [355, 455, 92, 506, 474, 390, 194, 454, 565, 814],
   },
   {
     id: 417,
@@ -6667,7 +6841,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [609, 162, 369, 204, 598, 283, 227, 521, 341, 604],
+    often_used_move: [609, 162, 369, 204, 227, 521, 598, 283, 341, 604],
   },
   {
     id: 418,
@@ -6695,7 +6869,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [33, 453, 710, 487, 834],
+    often_used_move: [33, 453, 834, 240, 269, 710, 487],
   },
   {
     id: 419,
@@ -6723,7 +6897,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [834, 453, 861, 812, 127, 423, 242, 710, 280, 56],
+    often_used_move: [834, 453, 861, 812, 127, 242, 423, 710, 280, 56],
   },
   {
     id: 422,
@@ -6751,7 +6925,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [68, 243, 281, 446, 105],
+    often_used_move: [68, 281, 243, 105, 446],
   },
   {
     id: 423,
@@ -6778,8 +6952,8 @@ export const all_pokemon_list = [
         710, 806, 851, 883, 886,
       ],
     },
-    usage_rate: 127,
-    often_used_move: [414, 281, 58, 446, 105, 57, 243, 886, 196, 482],
+    usage_rate: 125,
+    often_used_move: [414, 281, 58, 446, 105, 57, 243, 886, 196, 851],
   },
   {
     id: 424,
@@ -6836,8 +7010,8 @@ export const all_pokemon_list = [
         512, 566, 590, 668, 693, 851, 915,
       ],
     },
-    usage_rate: 90,
-    often_used_move: [107, 226, 164, 285, 668, 254, 403, 133, 247, 95],
+    usage_rate: 89,
+    often_used_move: [107, 226, 164, 668, 285, 254, 403, 133, 247, 95],
   },
   {
     id: 429,
@@ -6865,8 +7039,8 @@ export const all_pokemon_list = [
         502, 506, 566, 577, 590, 595, 605, 673, 807, 808, 809, 851, 883, 917,
       ],
     },
-    usage_rate: 144,
-    often_used_move: [247, 261, 269, 194, 595, 285, 212, 195, 506, 271],
+    usage_rate: 143,
+    often_used_move: [247, 261, 194, 595, 269, 285, 212, 195, 271, 506],
   },
   {
     id: 430,
@@ -6895,7 +7069,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [389, 894, 400, 413, 512, 269, 814, 86, 555, 369],
+    often_used_move: [389, 894, 400, 413, 512, 269, 814, 555, 86, 369],
   },
   {
     id: 435,
@@ -6924,7 +7098,35 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [282, 389, 390, 283, 92, 492, 398, 269, 441, 262],
+    often_used_move: [282, 389, 390, 492, 92, 283, 398, 269, 114, 262],
+  },
+  {
+    id: 436,
+    base: {
+      id: 436,
+      name_ja: "ドーミラー",
+      hp: 57,
+      attack: 24,
+      defense: 86,
+      special_attack: 24,
+      special_defense: 86,
+      speed: 23,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/436.png",
+      species_id: 436,
+      type_id_list: [9, 14],
+      ability_id_list: [26, 85, 134],
+      move_id_list: [
+        33, 34, 36, 76, 89, 92, 93, 94, 95, 104, 109, 113, 115, 138, 148, 149,
+        156, 157, 164, 173, 182, 185, 201, 203, 205, 207, 214, 216, 218, 219,
+        237, 240, 241, 244, 246, 247, 248, 263, 270, 271, 278, 285, 286, 290,
+        317, 319, 324, 326, 334, 347, 350, 356, 360, 363, 371, 377, 384, 385,
+        397, 408, 428, 430, 433, 442, 446, 447, 451, 472, 473, 477, 484, 496,
+        500, 502, 506, 523, 590, 678, 683, 707, 796, 797, 798, 851, 861,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [796, 95, 433, 446],
   },
   {
     id: 437,
@@ -6952,8 +7154,8 @@ export const all_pokemon_list = [
         683, 707, 776, 796, 797, 798, 800, 851, 861, 912, 917,
       ],
     },
-    usage_rate: 69,
-    often_used_move: [776, 360, 334, 917, 446, 433, 271, 861, 347, 89],
+    usage_rate: 70,
+    often_used_move: [776, 360, 917, 334, 446, 433, 271, 861, 347, 89],
   },
   {
     id: 438,
@@ -6981,7 +7183,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [446, 335, 68, 715, 157, 389, 851, 175],
+    often_used_move: [68, 715, 335, 446, 851, 389, 157, 175],
   },
   {
     id: 442,
@@ -7009,7 +7211,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [174, 433, 261, 492, 262, 425, 194, 220, 271, 399],
+    often_used_move: [174, 433, 492, 261, 262, 425, 220, 194, 271, 399],
   },
   {
     id: 444,
@@ -7037,7 +7239,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [523, 44, 200, 851],
+    often_used_move: [851, 523, 200, 44],
   },
   {
     id: 445,
@@ -7095,7 +7297,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [90, 280, 9, 428, 156, 214, 174, 68, 387, 227],
+    often_used_move: [90, 280, 9, 428, 89, 157, 441, 263, 156, 214],
   },
   {
     id: 447,
@@ -7124,7 +7326,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [383, 91, 179, 182, 418, 918, 515, 410, 14, 214],
+    often_used_move: [383, 91, 179, 182, 418, 918, 98, 515, 410, 14],
   },
   {
     id: 448,
@@ -7153,8 +7355,8 @@ export const all_pokemon_list = [
         612, 673, 791, 796, 805, 811, 851, 885, 918,
       ],
     },
-    usage_rate: 94,
-    often_used_move: [245, 370, 14, 418, 89, 396, 410, 8, 399, 796],
+    usage_rate: 95,
+    often_used_move: [245, 370, 14, 418, 396, 410, 89, 8, 399, 796],
   },
   {
     id: 449,
@@ -7181,7 +7383,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [281, 446, 90, 46],
+    often_used_move: [446, 90, 281, 46],
   },
   {
     id: 450,
@@ -7208,7 +7410,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 50,
-    often_used_move: [89, 446, 281, 46, 18, 303, 423, 90, 317, 851],
+    often_used_move: [89, 446, 281, 46, 18, 303, 423, 90, 317, 328],
   },
   {
     id: 454,
@@ -7265,7 +7467,35 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [164, 227, 250, 58, 213, 57, 109, 240, 56, 369],
+    often_used_move: [227, 164, 250, 57, 58, 213, 240, 109, 56, 369],
+  },
+  {
+    id: 459,
+    base: {
+      id: 459,
+      name_ja: "ユキカブリ",
+      hp: 60,
+      attack: 62,
+      defense: 50,
+      special_attack: 62,
+      special_defense: 60,
+      speed: 40,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/459.png",
+      species_id: 459,
+      type_id_list: [12, 15],
+      ability_id_list: [117, 43],
+      move_id_list: [
+        5, 8, 14, 23, 29, 34, 36, 38, 43, 54, 58, 59, 73, 74, 75, 76, 92, 104,
+        113, 130, 148, 156, 164, 173, 174, 181, 182, 189, 196, 202, 203, 207,
+        213, 214, 216, 218, 219, 231, 235, 237, 240, 247, 258, 263, 270, 272,
+        275, 290, 311, 320, 329, 331, 333, 345, 352, 363, 388, 402, 412, 419,
+        420, 437, 445, 447, 452, 496, 524, 590, 670, 803, 851, 861, 883, 885,
+        886,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [164, 73, 59, 329],
   },
   {
     id: 460,
@@ -7294,7 +7524,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [59, 694, 329, 73, 414, 420, 437, 202, 164, 412],
+    often_used_move: [59, 694, 73, 329, 414, 420, 437, 202, 412, 164],
   },
   {
     id: 461,
@@ -7323,7 +7553,7 @@ export const all_pokemon_list = [
         851, 861, 883, 885, 886, 918,
       ],
     },
-    usage_rate: 89,
+    usage_rate: 91,
     often_used_move: [282, 813, 420, 67, 918, 68, 179, 252, 14, 556],
   },
   {
@@ -7352,7 +7582,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 55,
-    often_used_move: [430, 521, 85, 851, 243, 435, 776, 796, 334, 86],
+    often_used_move: [430, 521, 85, 851, 243, 435, 776, 334, 796, 86],
   },
   {
     id: 464,
@@ -7383,7 +7613,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [89, 350, 32, 851, 444, 916, 8, 915, 439, 14],
+    often_used_move: [89, 350, 32, 851, 916, 444, 8, 915, 14, 439],
   },
   {
     id: 466,
@@ -7412,7 +7642,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [916, 8, 89, 67, 282, 280, 98, 7, 9, 851],
+    often_used_move: [916, 89, 8, 67, 282, 280, 98, 851, 7, 9],
   },
   {
     id: 467,
@@ -7441,7 +7671,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [85, 815, 53, 126, 851, 411, 499, 304, 183, 241],
+    often_used_move: [85, 815, 53, 411, 126, 851, 499, 183, 304, 94],
   },
   {
     id: 469,
@@ -7468,8 +7698,8 @@ export const all_pokemon_list = [
         806, 814, 851, 884, 917,
       ],
     },
-    usage_rate: 145,
-    often_used_move: [403, 405, 247, 182, 851, 369, 917, 197, 202, 164],
+    usage_rate: 148,
+    often_used_move: [403, 405, 247, 182, 851, 369, 917, 197, 202, 246],
   },
   {
     id: 470,
@@ -7524,8 +7754,8 @@ export const all_pokemon_list = [
         526, 573, 590, 608, 673, 694, 813, 851, 883, 886, 914,
       ],
     },
-    usage_rate: 146,
-    often_used_move: [573, 851, 420, 243, 59, 247, 58, 341, 281, 347],
+    usage_rate: 149,
+    often_used_move: [573, 851, 420, 243, 59, 341, 247, 58, 281, 347],
   },
   {
     id: 472,
@@ -7584,7 +7814,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 67,
-    often_used_move: [89, 420, 333, 446, 885, 556, 851, 350, 282, 317],
+    often_used_move: [89, 420, 333, 446, 885, 556, 282, 851, 350, 317],
   },
   {
     id: 474,
@@ -7673,7 +7903,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [776, 430, 334, 521, 446, 164, 86, 414, 408, 796],
+    often_used_move: [776, 334, 430, 521, 446, 164, 86, 414, 192, 408],
   },
   {
     id: 477,
@@ -7702,7 +7932,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [809, 425, 174, 271, 261, 194, 8, 433, 7, 89],
+    often_used_move: [809, 425, 174, 261, 271, 8, 194, 433, 7, 89],
   },
   {
     id: 478,
@@ -7731,7 +7961,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [194, 261, 196, 86, 506, 419, 809, 174, 813, 247],
+    often_used_move: [194, 261, 196, 419, 809, 813, 86, 174, 506, 247],
   },
   {
     id: 479,
@@ -7757,8 +7987,143 @@ export const all_pokemon_list = [
         506, 521, 527, 590, 598, 604, 804, 809, 851,
       ],
     },
-    usage_rate: 45,
-    often_used_move: [521, 506, 261, 271, 86, 268, 220, 247, 435, 492],
+    usage_rate: 999,
+    often_used_move: [521, 506, 261, 86, 271, 268, 220, 247, 492, 435],
+  },
+  {
+    id: 10008,
+    base: {
+      id: 10008,
+      name_ja: "ロトム(ヒートロトム)",
+      hp: 50,
+      attack: 65,
+      defense: 107,
+      special_attack: 105,
+      special_defense: 107,
+      speed: 86,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10008.png",
+      species_id: 479,
+      type_id_list: [13, 10],
+      ability_id_list: [26],
+      move_id_list: [
+        84, 85, 86, 87, 92, 101, 104, 109, 113, 115, 129, 138, 148, 156, 164,
+        168, 173, 180, 182, 189, 203, 207, 214, 216, 218, 220, 237, 240, 241,
+        244, 247, 253, 261, 263, 268, 270, 271, 289, 290, 304, 310, 315, 324,
+        351, 363, 389, 399, 417, 432, 435, 451, 466, 477, 486, 492, 496, 500,
+        502, 506, 521, 527, 590, 598, 604, 804, 809, 851,
+      ],
+    },
+    usage_rate: 46,
+    often_used_move: [521, 315, 261, 271, 492, 435, 85, 220, 851, 86],
+  },
+  {
+    id: 10009,
+    base: {
+      id: 10009,
+      name_ja: "ロトム(ウォッシュロトム)",
+      hp: 50,
+      attack: 65,
+      defense: 107,
+      special_attack: 105,
+      special_defense: 107,
+      speed: 86,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10009.png",
+      species_id: 479,
+      type_id_list: [13, 11],
+      ability_id_list: [26],
+      move_id_list: [
+        56, 84, 85, 86, 87, 92, 101, 104, 109, 113, 115, 129, 138, 148, 156,
+        164, 168, 173, 180, 182, 189, 203, 207, 214, 216, 218, 220, 237, 240,
+        241, 244, 247, 253, 261, 263, 268, 270, 271, 289, 290, 304, 310, 324,
+        351, 363, 389, 399, 417, 432, 435, 451, 466, 477, 486, 492, 496, 500,
+        502, 506, 521, 527, 590, 598, 604, 804, 809, 851,
+      ],
+    },
+    usage_rate: 31,
+    often_used_move: [56, 521, 271, 261, 85, 435, 851, 492, 86, 220],
+  },
+  {
+    id: 10010,
+    base: {
+      id: 10010,
+      name_ja: "ロトム(フロストロトム)",
+      hp: 50,
+      attack: 65,
+      defense: 107,
+      special_attack: 105,
+      special_defense: 107,
+      speed: 86,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10010.png",
+      species_id: 479,
+      type_id_list: [13, 15],
+      ability_id_list: [26],
+      move_id_list: [
+        59, 84, 85, 86, 87, 92, 101, 104, 109, 113, 115, 129, 138, 148, 156,
+        164, 168, 173, 180, 182, 189, 203, 207, 214, 216, 218, 220, 237, 240,
+        241, 244, 247, 253, 261, 263, 268, 270, 271, 289, 290, 304, 310, 324,
+        351, 363, 389, 399, 417, 432, 435, 451, 466, 477, 486, 492, 496, 500,
+        502, 506, 521, 527, 590, 598, 604, 804, 809, 851,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [59, 271, 85, 521, 435, 261, 247, 417, 604, 164],
+  },
+  {
+    id: 10011,
+    base: {
+      id: 10011,
+      name_ja: "ロトム(スピンロトム)",
+      hp: 50,
+      attack: 65,
+      defense: 107,
+      special_attack: 105,
+      special_defense: 107,
+      speed: 86,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10011.png",
+      species_id: 479,
+      type_id_list: [13, 3],
+      ability_id_list: [26],
+      move_id_list: [
+        84, 85, 86, 87, 92, 101, 104, 109, 113, 115, 129, 138, 148, 156, 164,
+        168, 173, 180, 182, 189, 203, 207, 214, 216, 218, 220, 237, 240, 241,
+        244, 247, 253, 261, 263, 268, 270, 271, 289, 290, 304, 310, 324, 351,
+        363, 389, 399, 403, 417, 432, 435, 451, 466, 477, 486, 492, 496, 500,
+        502, 506, 521, 527, 590, 598, 604, 804, 809, 851,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [403, 85, 521, 851, 261, 86, 271, 435, 492, 417],
+  },
+  {
+    id: 10012,
+    base: {
+      id: 10012,
+      name_ja: "ロトム(カットロトム)",
+      hp: 50,
+      attack: 65,
+      defense: 107,
+      special_attack: 105,
+      special_defense: 107,
+      speed: 86,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10012.png",
+      species_id: 479,
+      type_id_list: [13, 12],
+      ability_id_list: [26],
+      move_id_list: [
+        84, 85, 86, 87, 92, 101, 104, 109, 113, 115, 129, 138, 148, 156, 164,
+        168, 173, 180, 182, 189, 203, 207, 214, 216, 218, 220, 237, 240, 241,
+        244, 247, 253, 261, 263, 268, 270, 271, 289, 290, 304, 310, 324, 351,
+        363, 389, 399, 417, 432, 435, 437, 451, 466, 477, 486, 492, 496, 500,
+        502, 506, 521, 527, 590, 598, 604, 804, 809, 851,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [437, 521, 271, 85, 261, 851, 87, 435, 506, 86],
   },
   {
     id: 495,
@@ -7786,7 +8151,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [243, 137, 437, 380, 115],
+    often_used_move: [137, 437, 243, 380, 115],
   },
   {
     id: 496,
@@ -7814,7 +8179,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [437, 137, 851, 235, 73, 269, 202, 243, 282, 164],
+    often_used_move: [437, 137, 851, 235, 73, 269, 202, 243, 282, 35],
   },
   {
     id: 497,
@@ -7869,7 +8234,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [394, 389, 283, 281],
+    often_used_move: [283, 389, 394, 281],
   },
   {
     id: 499,
@@ -7898,7 +8263,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [409, 339, 261, 915, 394, 851, 282, 389, 484, 281],
+    often_used_move: [409, 339, 261, 915, 394, 851, 282, 389, 281, 484],
   },
   {
     id: 500,
@@ -7927,7 +8292,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [394, 457, 528, 370, 389, 409, 282, 851, 915, 276],
+    often_used_move: [394, 457, 528, 389, 370, 409, 282, 851, 915, 276],
   },
   {
     id: 501,
@@ -7955,7 +8320,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [514, 401, 56, 14, 33, 895, 400],
+    often_used_move: [14, 401, 56, 514, 453, 374, 33, 812, 400, 895],
   },
   {
     id: 503,
@@ -7984,7 +8349,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 43,
-    often_used_move: [58, 453, 227, 447, 56, 410, 533, 57, 400, 710],
+    often_used_move: [453, 58, 227, 447, 56, 410, 533, 57, 400, 710],
   },
   {
     id: 523,
@@ -8011,7 +8376,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [916, 667, 86, 488, 851, 67, 269, 226, 283, 164],
+    often_used_move: [916, 667, 86, 488, 851, 226, 67, 269, 283, 164],
   },
   {
     id: 530,
@@ -8038,8 +8403,8 @@ export const all_pokemon_list = [
         851,
       ],
     },
-    usage_rate: 51,
-    often_used_move: [89, 442, 851, 14, 32, 157, 229, 446, 164, 317],
+    usage_rate: 52,
+    often_used_move: [89, 442, 851, 14, 32, 157, 229, 164, 446, 280],
   },
   {
     id: 532,
@@ -8067,7 +8432,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [264, 276, 444, 223],
+    often_used_move: [264, 444, 223, 276],
   },
   {
     id: 533,
@@ -8095,7 +8460,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [339, 8, 409, 282, 370, 7, 164, 269, 264, 276],
+    often_used_move: [339, 8, 409, 282, 370, 269, 7, 164, 264, 276],
   },
   {
     id: 534,
@@ -8122,7 +8487,7 @@ export const all_pokemon_list = [
         523, 526, 590, 612, 667, 693, 707, 811, 851, 912, 918,
       ],
     },
-    usage_rate: 108,
+    usage_rate: 107,
     often_used_move: [183, 409, 8, 282, 339, 89, 9, 7, 398, 263],
   },
   {
@@ -8150,7 +8515,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [564, 334, 202, 204, 81, 235, 806, 679, 226, 241],
+    often_used_move: [564, 235, 806, 202, 334, 204, 81, 226, 679, 241],
   },
   {
     id: 542,
@@ -8205,7 +8570,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [283, 78, 203, 262, 269, 851, 605, 227, 270, 241],
+    often_used_move: [283, 262, 203, 78, 270, 269, 605, 851, 313, 241],
   },
   {
     id: 547,
@@ -8231,7 +8596,7 @@ export const all_pokemon_list = [
         496, 538, 542, 580, 581, 583, 584, 585, 590, 605, 803, 851,
       ],
     },
-    usage_rate: 46,
+    usage_rate: 45,
     often_used_move: [585, 73, 227, 164, 538, 366, 262, 113, 182, 269],
   },
   {
@@ -8258,8 +8623,8 @@ export const all_pokemon_list = [
         590, 669, 673, 676, 803, 851, 885, 914,
       ],
     },
-    usage_rate: 126,
-    often_used_move: [202, 483, 851, 311, 79, 914, 76, 73, 227, 235],
+    usage_rate: 123,
+    often_used_move: [483, 202, 851, 311, 79, 914, 227, 76, 73, 235],
   },
   {
     id: 550,
@@ -8316,7 +8681,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [89, 282, 446, 269, 799, 441, 370, 317, 67, 374],
+    often_used_move: [89, 282, 446, 269, 799, 441, 370, 317, 67, 851],
   },
   {
     id: 559,
@@ -8345,7 +8710,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [339, 409, 133, 156, 242, 918, 283, 269, 442],
+    often_used_move: [339, 409, 133, 156, 242, 269, 918, 283, 442],
   },
   {
     id: 560,
@@ -8375,7 +8740,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [282, 409, 349, 227, 398, 136, 442, 133, 242, 269],
+    often_used_move: [282, 409, 349, 227, 398, 442, 136, 242, 133, 339],
   },
   {
     id: 570,
@@ -8403,7 +8768,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [68, 492, 282, 227, 269, 262, 220, 203],
+    often_used_move: [68, 492, 282, 227, 269, 262, 203, 220],
   },
   {
     id: 571,
@@ -8432,7 +8797,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 56,
-    often_used_move: [539, 53, 271, 389, 282, 369, 447, 851, 67, 262],
+    often_used_move: [539, 53, 271, 389, 282, 447, 369, 851, 269, 262],
   },
   {
     id: 573,
@@ -8488,7 +8853,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [347, 156, 204, 500, 917],
+    often_used_move: [347, 156, 500, 204, 433, 917],
   },
   {
     id: 576,
@@ -8545,7 +8910,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [94, 433, 283, 227, 285, 248, 472],
+    often_used_move: [94, 283, 433, 227, 105, 285, 472, 248],
   },
   {
     id: 578,
@@ -8573,7 +8938,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [151, 247, 227, 105, 347, 433, 500, 283],
+    often_used_move: [433, 247, 283, 105, 500, 227, 347, 151, 473],
   },
   {
     id: 579,
@@ -8601,7 +8966,7 @@ export const all_pokemon_list = [
         496, 500, 502, 590, 611, 612, 673, 678, 797, 798, 851, 917,
       ],
     },
-    usage_rate: 113,
+    usage_rate: 116,
     often_used_move: [105, 917, 347, 411, 247, 851, 433, 94, 473, 271],
   },
   {
@@ -8629,7 +8994,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [355, 57, 196, 886],
+    often_used_move: [57, 196, 355, 886],
   },
   {
     id: 581,
@@ -8656,7 +9021,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [413, 282, 453, 366, 283, 812, 914, 56, 710, 355],
+    often_used_move: [413, 282, 453, 366, 812, 283, 914, 56, 710, 355],
   },
   {
     id: 586,
@@ -8684,7 +9049,33 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [532, 29, 73, 34, 86, 428, 164, 583, 675, 38],
+    often_used_move: [29, 532, 73, 34, 86, 428, 164, 204, 583, 675],
+  },
+  {
+    id: 590,
+    base: {
+      id: 590,
+      name_ja: "タマゲタケ",
+      hp: 69,
+      attack: 55,
+      defense: 45,
+      special_attack: 55,
+      special_defense: 55,
+      speed: 15,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/590.png",
+      species_id: 590,
+      type_id_list: [12, 4],
+      ability_id_list: [27, 144],
+      move_id_list: [
+        34, 71, 72, 74, 76, 77, 78, 92, 104, 111, 117, 147, 148, 156, 164, 173,
+        182, 185, 188, 202, 203, 205, 207, 213, 214, 216, 218, 230, 235, 237,
+        240, 241, 263, 267, 275, 290, 310, 331, 345, 371, 380, 388, 402, 412,
+        437, 447, 474, 476, 492, 495, 496, 499, 580, 590, 676, 851,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [676, 147, 235, 275],
   },
   {
     id: 591,
@@ -8709,7 +9100,7 @@ export const all_pokemon_list = [
         437, 447, 474, 476, 492, 495, 496, 499, 506, 580, 590, 676, 707, 851,
       ],
     },
-    usage_rate: 66,
+    usage_rate: 65,
     often_used_move: [147, 492, 437, 235, 188, 202, 499, 92, 707, 851],
   },
   {
@@ -8741,6 +9132,33 @@ export const all_pokemon_list = [
     often_used_move: [812, 243, 453, 503, 196, 273, 583, 182, 914, 710],
   },
   {
+    id: 595,
+    base: {
+      id: 595,
+      name_ja: "バチュル",
+      hp: 50,
+      attack: 47,
+      defense: 50,
+      special_attack: 57,
+      special_defense: 50,
+      speed: 65,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/595.png",
+      species_id: 595,
+      type_id_list: [7, 13],
+      ability_id_list: [14, 127, 68],
+      move_id_list: [
+        15, 40, 42, 50, 71, 81, 85, 86, 87, 92, 97, 103, 104, 113, 129, 141,
+        148, 156, 163, 164, 168, 169, 173, 182, 185, 202, 203, 207, 210, 213,
+        214, 216, 218, 228, 237, 240, 263, 270, 290, 293, 324, 340, 351, 380,
+        389, 393, 398, 404, 405, 412, 431, 435, 440, 450, 451, 486, 496, 521,
+        522, 527, 528, 590, 611, 679, 683, 804, 806, 851, 884,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [380, 435, 103, 405],
+  },
+  {
     id: 596,
     base: {
       id: 596,
@@ -8765,7 +9183,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [564, 87, 86, 405, 527, 412, 851, 389, 521, 81],
+    often_used_move: [564, 87, 86, 405, 527, 412, 851, 521, 389, 81],
   },
   {
     id: 603,
@@ -8792,7 +9210,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [282, 162, 369, 86, 491, 521],
+    often_used_move: [282, 162, 369, 86, 491, 521, 156, 214],
   },
   {
     id: 604,
@@ -8821,7 +9239,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [409, 489, 282, 916, 53, 521, 369, 435, 85, 280],
+    often_used_move: [409, 489, 282, 916, 53, 521, 85, 369, 192, 202],
   },
   {
     id: 608,
@@ -8848,7 +9266,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [271, 53, 851, 247],
+    often_used_move: [247, 53, 271, 851],
   },
   {
     id: 609,
@@ -8875,8 +9293,8 @@ export const all_pokemon_list = [
         851, 885, 915,
       ],
     },
-    usage_rate: 73,
-    often_used_move: [247, 412, 315, 271, 53, 851, 261, 126, 174, 399],
+    usage_rate: 74,
+    often_used_move: [247, 412, 271, 315, 53, 851, 261, 126, 174, 399],
   },
   {
     id: 612,
@@ -8903,8 +9321,8 @@ export const all_pokemon_list = [
         525, 530, 555, 590, 673, 693, 707, 784, 799, 851, 885, 913,
       ],
     },
-    usage_rate: 76,
-    often_used_move: [89, 442, 200, 349, 799, 14, 370, 851, 660, 12],
+    usage_rate: 77,
+    often_used_move: [89, 442, 200, 349, 799, 370, 14, 851, 660, 12],
   },
   {
     id: 614,
@@ -8933,7 +9351,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [556, 89, 453, 710, 370, 14, 329, 333, 227, 912],
+    often_used_move: [556, 89, 710, 453, 370, 14, 329, 333, 227, 8],
   },
   {
     id: 615,
@@ -8988,7 +9406,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [369, 409, 444, 282],
+    often_used_move: [409, 282, 444, 369],
   },
   {
     id: 620,
@@ -9075,7 +9493,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [12, 389, 86, 280, 514, 400, 163, 14, 334, 442],
+    often_used_move: [12, 280, 86, 389, 514, 334, 442, 400, 163, 14],
   },
   {
     id: 625,
@@ -9103,7 +9521,34 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [442, 389, 14, 12, 446, 280, 400, 269, 86, 675],
+    often_used_move: [442, 389, 14, 12, 446, 400, 280, 86, 269, 675],
+  },
+  {
+    id: 627,
+    base: {
+      id: 627,
+      name_ja: "ワシボン",
+      hp: 70,
+      attack: 83,
+      defense: 50,
+      special_attack: 37,
+      special_defense: 50,
+      speed: 60,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/627.png",
+      species_id: 627,
+      type_id_list: [1, 3],
+      ability_id_list: [51, 125, 55],
+      move_id_list: [
+        15, 17, 18, 19, 31, 34, 36, 37, 38, 43, 64, 70, 92, 97, 104, 129, 156,
+        157, 163, 164, 173, 182, 184, 203, 207, 211, 213, 214, 216, 218, 237,
+        240, 241, 249, 257, 263, 270, 276, 290, 297, 306, 314, 317, 332, 339,
+        355, 365, 366, 369, 370, 372, 403, 413, 421, 428, 432, 468, 496, 507,
+        512, 514, 526, 542, 590, 814, 851,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [370, 38, 413, 369],
   },
   {
     id: 628,
@@ -9129,7 +9574,7 @@ export const all_pokemon_list = [
         428, 432, 442, 468, 496, 507, 512, 514, 526, 542, 590, 673, 814, 851,
       ],
     },
-    usage_rate: 111,
+    usage_rate: 108,
     often_used_move: [370, 413, 442, 512, 369, 366, 421, 276, 339, 143],
   },
   {
@@ -9158,7 +9603,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [92, 492, 355, 213, 432, 399, 365],
+    often_used_move: [92, 492, 355, 213, 432, 365, 399],
   },
   {
     id: 630,
@@ -9185,8 +9630,35 @@ export const all_pokemon_list = [
         514, 542, 555, 590, 675, 808, 814, 851,
       ],
     },
-    usage_rate: 141,
-    often_used_move: [355, 92, 492, 269, 282, 369, 334, 555, 18, 182],
+    usage_rate: 139,
+    often_used_move: [355, 92, 492, 269, 282, 369, 555, 334, 18, 182],
+  },
+  {
+    id: 633,
+    base: {
+      id: 633,
+      name_ja: "モノズ",
+      hp: 52,
+      attack: 65,
+      defense: 50,
+      special_attack: 45,
+      special_defense: 50,
+      speed: 38,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/633.png",
+      species_id: 633,
+      type_id_list: [17, 16],
+      ability_id_list: [55],
+      move_id_list: [
+        21, 29, 33, 34, 36, 44, 46, 70, 82, 86, 92, 103, 104, 116, 156, 164,
+        168, 173, 180, 182, 184, 200, 203, 207, 213, 214, 216, 218, 225, 237,
+        240, 241, 242, 244, 249, 253, 259, 263, 269, 276, 290, 304, 310, 351,
+        372, 399, 401, 406, 407, 414, 417, 422, 423, 424, 428, 434, 457, 458,
+        496, 510, 525, 526, 555, 562, 590, 851, 913,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [21, 242, 225, 555],
   },
   {
     id: 634,
@@ -9213,7 +9685,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [242, 200, 707, 457, 851, 407, 34, 428, 46, 304],
+    often_used_move: [242, 200, 707, 457, 851, 407, 46, 34, 86, 808],
   },
   {
     id: 635,
@@ -9270,7 +9742,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [203, 806, 394, 261, 522, 172, 488, 450, 81],
+    often_used_move: [806, 261, 203, 394, 172, 488, 522, 450, 81],
   },
   {
     id: 637,
@@ -9327,7 +9799,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [523, 402, 220, 264],
+    often_used_move: [220, 264, 523, 402],
   },
   {
     id: 651,
@@ -9356,7 +9828,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [73, 164, 182, 220, 339, 452, 235],
+    often_used_move: [73, 182, 164, 220, 339, 452, 235],
   },
   {
     id: 652,
@@ -9386,7 +9858,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [776, 334, 282, 235, 73, 596, 409, 187, 803, 851],
+    often_used_move: [776, 282, 334, 235, 73, 596, 409, 187, 803, 339],
   },
   {
     id: 653,
@@ -9414,7 +9886,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [241, 261, 94, 126],
+    often_used_move: [126, 241, 94, 261],
   },
   {
     id: 654,
@@ -9442,7 +9914,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [261, 273, 492, 182, 83, 433, 95, 227, 94, 271],
+    often_used_move: [261, 273, 182, 492, 83, 433, 94, 95, 227, 126],
   },
   {
     id: 655,
@@ -9472,7 +9944,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [595, 227, 261, 53, 917, 473, 605, 94, 126, 415],
+    often_used_move: [595, 227, 261, 473, 53, 917, 94, 605, 126, 415],
   },
   {
     id: 658,
@@ -9504,6 +9976,32 @@ export const all_pokemon_list = [
     often_used_move: [58, 399, 594, 56, 447, 482, 57, 369, 415, 390],
   },
   {
+    id: 661,
+    base: {
+      id: 661,
+      name_ja: "ヤヤコマ",
+      hp: 45,
+      attack: 50,
+      defense: 43,
+      special_attack: 40,
+      special_defense: 38,
+      speed: 62,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/661.png",
+      species_id: 661,
+      type_id_list: [1, 3],
+      ability_id_list: [145, 177],
+      move_id_list: [
+        13, 14, 19, 33, 36, 38, 45, 52, 64, 92, 97, 98, 104, 129, 156, 164, 168,
+        173, 175, 182, 203, 207, 211, 213, 214, 216, 218, 237, 240, 241, 257,
+        261, 263, 269, 289, 290, 297, 314, 315, 332, 355, 363, 366, 369, 382,
+        394, 403, 413, 432, 488, 496, 501, 512, 526, 542, 590, 814, 851,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [366, 269],
+  },
+  {
     id: 662,
     base: {
       id: 662,
@@ -9528,7 +10026,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [297, 355, 413, 261],
+    often_used_move: [261, 413, 355, 297],
   },
   {
     id: 663,
@@ -9554,8 +10052,8 @@ export const all_pokemon_list = [
         496, 510, 512, 526, 542, 590, 814, 851, 915, 918,
       ],
     },
-    usage_rate: 150,
-    often_used_move: [394, 413, 369, 261, 269, 355, 366, 512, 814, 403],
+    usage_rate: 145,
+    often_used_move: [394, 413, 369, 261, 269, 355, 366, 814, 512, 403],
   },
   {
     id: 666,
@@ -9581,7 +10079,7 @@ export const all_pokemon_list = [
         577, 590, 600, 611, 673, 676, 806, 851, 884,
       ],
     },
-    usage_rate: 139,
+    usage_rate: 142,
     often_used_move: [79, 483, 542, 164, 405, 851, 577, 403, 202, 78],
   },
   {
@@ -9609,7 +10107,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [851, 304, 53, 399, 261, 315, 269, 126, 283, 257],
+    often_used_move: [304, 851, 53, 399, 315, 261, 126, 269, 283, 281],
   },
   {
     id: 671,
@@ -9635,7 +10133,7 @@ export const all_pokemon_list = [
         579, 580, 581, 585, 590, 605, 676, 802, 851, 885, 886, 914, 917,
       ],
     },
-    usage_rate: 140,
+    usage_rate: 141,
     often_used_move: [347, 585, 235, 202, 917, 851, 577, 500, 412, 271],
   },
   {
@@ -9664,7 +10162,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [89, 532, 208, 73, 332, 339, 38, 182, 75, 583],
+    often_used_move: [89, 532, 73, 208, 339, 332, 38, 182, 583, 235],
   },
   {
     id: 677,
@@ -9692,7 +10190,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [113, 115, 473, 252],
+    often_used_move: [115, 473, 252, 113, 399, 86, 94, 271],
   },
   {
     id: 678,
@@ -9721,7 +10219,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [113, 115, 281, 226, 86, 347, 914, 94, 252, 204],
+    often_used_move: [113, 115, 281, 226, 86, 914, 347, 94, 252, 204],
   },
   {
     id: 686,
@@ -9749,7 +10247,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [492, 194, 433, 500, 35, 182, 276, 679, 282],
+    often_used_move: [492, 194, 433, 35, 182, 500, 276, 679, 282],
   },
   {
     id: 687,
@@ -9778,7 +10276,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [276, 282, 427, 576, 851, 226, 194, 285, 269, 433],
+    often_used_move: [276, 282, 427, 576, 851, 226, 194, 269, 415, 285],
   },
   {
     id: 691,
@@ -9806,7 +10304,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [434, 188, 56, 482, 491, 812, 503, 851, 92, 406],
+    often_used_move: [434, 188, 56, 482, 812, 491, 503, 85, 851, 406],
   },
   {
     id: 693,
@@ -9860,7 +10358,7 @@ export const all_pokemon_list = [
         673, 802, 851, 885, 914,
       ],
     },
-    usage_rate: 63,
+    usage_rate: 62,
     often_used_move: [304, 851, 98, 473, 247, 281, 347, 63, 182, 273],
   },
   {
@@ -9891,7 +10389,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [512, 14, 227, 370, 136, 143, 675, 339, 409, 413],
+    often_used_move: [14, 512, 227, 370, 136, 143, 675, 339, 409, 413],
   },
   {
     id: 702,
@@ -9919,7 +10417,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [609, 162, 598, 605, 204, 447, 521, 85, 369, 87],
+    often_used_move: [609, 162, 598, 605, 204, 447, 85, 521, 369, 87],
   },
   {
     id: 703,
@@ -9947,7 +10445,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [446, 433, 802, 776, 283, 285, 113, 115, 240, 585],
+    often_used_move: [433, 446, 802, 776, 283, 113, 285, 115, 240, 585],
   },
   {
     id: 704,
@@ -9973,7 +10471,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [406, 352, 330, 34, 174, 204, 806, 434],
+    often_used_move: [406, 34, 330, 174, 352, 204, 806, 434],
   },
   {
     id: 705,
@@ -9999,7 +10497,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [341, 330, 434, 85, 92, 156, 240],
+    often_used_move: [341, 85, 330, 434, 92, 156, 240],
   },
   {
     id: 706,
@@ -10026,8 +10524,8 @@ export const all_pokemon_list = [
         611, 673, 693, 707, 715, 776, 784, 806, 851, 886, 913,
       ],
     },
-    usage_rate: 142,
-    often_used_move: [53, 491, 434, 85, 406, 58, 57, 482, 503, 126],
+    usage_rate: 144,
+    often_used_move: [53, 491, 434, 406, 85, 58, 57, 482, 503, 126],
   },
   {
     id: 707,
@@ -10082,7 +10580,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [73, 182, 532, 174, 506, 261, 194],
+    often_used_move: [73, 182, 532, 174, 261, 506, 194],
   },
   {
     id: 709,
@@ -10111,7 +10609,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [532, 73, 809, 182, 174, 261, 285, 566, 433, 164],
+    often_used_move: [532, 73, 809, 182, 174, 261, 285, 433, 164, 566],
   },
   {
     id: 713,
@@ -10138,8 +10636,8 @@ export const all_pokemon_list = [
         886,
       ],
     },
-    usage_rate: 114,
-    often_used_move: [776, 105, 334, 333, 243, 419, 556, 89, 360, 861],
+    usage_rate: 115,
+    often_used_move: [776, 105, 334, 333, 243, 419, 89, 556, 360, 861],
   },
   {
     id: 714,
@@ -10166,7 +10664,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [162, 168, 366, 542],
+    often_used_move: [542, 366, 168, 162],
   },
   {
     id: 715,
@@ -10194,7 +10692,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [586, 53, 403, 434, 415, 369, 269, 542, 406, 257],
+    often_used_move: [586, 53, 403, 434, 415, 369, 269, 542, 406, 162],
   },
   {
     id: 722,
@@ -10222,7 +10720,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [389, 348, 814, 282, 413, 297, 114, 432],
+    often_used_move: [389, 348, 814, 282, 297, 413, 114, 851, 403, 202],
   },
   {
     id: 723,
@@ -10250,7 +10748,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [226, 104, 355, 297, 113, 425, 14],
+    often_used_move: [226, 355, 104, 297, 113, 425, 14],
   },
   {
     id: 724,
@@ -10280,7 +10778,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 82,
-    often_used_move: [662, 348, 425, 355, 174, 67, 164, 247, 412, 297],
+    often_used_move: [662, 348, 425, 355, 174, 67, 297, 164, 412, 247],
   },
   {
     id: 725,
@@ -10307,7 +10805,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [207, 394, 37, 53],
+    often_used_move: [53, 394, 207, 37],
   },
   {
     id: 726,
@@ -10334,7 +10832,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [575, 261, 269, 315, 283, 394, 681, 488, 339, 83],
+    often_used_move: [575, 269, 261, 283, 315, 394, 83, 681, 488, 53],
   },
   {
     id: 727,
@@ -10391,7 +10889,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [581, 56, 304, 585],
+    often_used_move: [304, 56, 585, 581],
   },
   {
     id: 730,
@@ -10447,7 +10945,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [690, 350, 331, 282, 355, 915, 366, 488, 369, 227],
+    often_used_move: [690, 331, 350, 282, 355, 915, 488, 366, 369, 227],
   },
   {
     id: 734,
@@ -10474,7 +10972,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [281, 242, 179, 283],
+    often_used_move: [242, 179, 281, 283],
   },
   {
     id: 735,
@@ -10505,6 +11003,32 @@ export const all_pokemon_list = [
     often_used_move: [281, 37, 282, 264, 387, 242, 162, 89, 34, 369],
   },
   {
+    id: 736,
+    base: {
+      id: 736,
+      name_ja: "アゴジムシ",
+      hp: 47,
+      attack: 62,
+      defense: 45,
+      special_attack: 55,
+      special_defense: 45,
+      speed: 46,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/736.png",
+      species_id: 736,
+      type_id_list: [7],
+      ability_id_list: [68],
+      move_id_list: [
+        11, 36, 44, 81, 85, 86, 91, 92, 103, 104, 106, 113, 156, 164, 173, 182,
+        189, 203, 207, 209, 213, 214, 216, 218, 226, 237, 240, 242, 263, 268,
+        341, 351, 393, 398, 404, 435, 450, 451, 496, 512, 521, 522, 527, 528,
+        564, 590, 604, 679, 804, 806, 851, 884,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [851, 564, 86, 679],
+  },
+  {
     id: 737,
     base: {
       id: 737,
@@ -10528,7 +11052,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [86, 564, 521, 341, 884, 113, 334, 81, 679, 450],
+    often_used_move: [564, 86, 521, 341, 884, 113, 334, 679, 81, 450],
   },
   {
     id: 738,
@@ -10555,7 +11079,7 @@ export const all_pokemon_list = [
         884, 916,
       ],
     },
-    usage_rate: 116,
+    usage_rate: 114,
     often_used_move: [405, 85, 521, 12, 564, 430, 412, 86, 435, 851],
   },
   {
@@ -10584,7 +11108,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [409, 665, 9, 89, 339, 710, 419, 370, 152, 282],
+    often_used_move: [409, 665, 9, 89, 339, 710, 419, 370, 152, 8],
   },
   {
     id: 741,
@@ -10639,7 +11163,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [585, 564, 415, 483, 204, 884, 851, 226, 405, 369],
+    often_used_move: [585, 564, 415, 483, 204, 884, 851, 226, 366, 405],
   },
   {
     id: 745,
@@ -10667,7 +11191,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [583, 446, 709, 529, 317, 283, 370, 157, 389, 269],
+    often_used_move: [583, 709, 446, 529, 317, 370, 283, 269, 157, 389],
   },
   {
     id: 747,
@@ -10694,7 +11218,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [105, 611, 254, 92, 474, 469, 44],
+    often_used_move: [105, 611, 92, 254, 44, 474, 469],
   },
   {
     id: 748,
@@ -10722,7 +11246,33 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 71,
-    often_used_move: [105, 92, 390, 114, 661, 710, 611, 886, 398, 474],
+    often_used_move: [105, 92, 390, 114, 661, 710, 611, 886, 398, 182],
+  },
+  {
+    id: 749,
+    base: {
+      id: 749,
+      name_ja: "ドロバンコ",
+      hp: 70,
+      attack: 100,
+      defense: 70,
+      special_attack: 45,
+      special_defense: 55,
+      speed: 45,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/749.png",
+      species_id: 749,
+      type_id_list: [5],
+      ability_id_list: [20, 192, 39],
+      move_id_list: [
+        23, 24, 25, 34, 36, 38, 46, 67, 68, 70, 89, 90, 92, 104, 117, 156, 157,
+        164, 173, 174, 182, 189, 201, 203, 207, 213, 214, 216, 218, 222, 237,
+        241, 249, 263, 276, 283, 300, 317, 328, 334, 370, 371, 414, 426, 442,
+        444, 446, 479, 484, 490, 496, 523, 563, 590, 667, 707, 851,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [317, 89, 446, 46],
   },
   {
     id: 750,
@@ -10749,7 +11299,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [776, 89, 446, 46, 156, 484, 90, 334, 479, 68],
+    often_used_move: [776, 89, 446, 46, 156, 484, 334, 90, 479, 851],
   },
   {
     id: 752,
@@ -10776,7 +11326,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 97,
-    often_used_move: [710, 243, 564, 141, 679, 283, 57, 58, 203, 202],
+    often_used_move: [710, 243, 564, 141, 679, 283, 57, 58, 202, 203],
   },
   {
     id: 754,
@@ -10831,7 +11381,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [269, 92, 283, 53],
+    often_used_move: [269, 92, 53, 283, 474],
   },
   {
     id: 758,
@@ -10859,7 +11409,7 @@ export const all_pokemon_list = [
         810, 851, 885, 913, 915,
       ],
     },
-    usage_rate: 132,
+    usage_rate: 131,
     often_used_move: [92, 53, 227, 283, 390, 164, 315, 50, 261, 474],
   },
   {
@@ -10887,8 +11437,8 @@ export const all_pokemon_list = [
         688, 803, 813, 851, 885,
       ],
     },
-    usage_rate: 109,
-    often_used_move: [813, 136, 282, 438, 688, 229, 851, 583, 369, 885],
+    usage_rate: 111,
+    often_used_move: [813, 136, 282, 438, 688, 851, 229, 583, 369, 885],
   },
   {
     id: 764,
@@ -10915,8 +11465,8 @@ export const all_pokemon_list = [
         580, 583, 590, 605, 666, 676, 803, 851, 885, 914,
       ],
     },
-    usage_rate: 107,
-    often_used_move: [577, 347, 73, 235, 202, 271, 164, 369, 500, 851],
+    usage_rate: 109,
+    often_used_move: [577, 347, 235, 73, 202, 271, 164, 369, 500, 851],
   },
   {
     id: 765,
@@ -10945,7 +11495,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [433, 917, 417, 492, 304, 689, 227, 248, 271, 285],
+    often_used_move: [433, 492, 304, 417, 917, 227, 689, 248, 851, 281],
   },
   {
     id: 766,
@@ -10974,7 +11524,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [370, 374, 512, 282, 409, 442, 168, 339, 369, 918],
+    often_used_move: [374, 512, 370, 409, 282, 339, 442, 369, 168, 851],
   },
   {
     id: 769,
@@ -11001,7 +11551,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [71, 106],
+    often_used_move: [106, 71],
   },
   {
     id: 770,
@@ -11029,7 +11579,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [659, 247, 414, 202, 174, 815, 133, 446, 271, 188],
+    often_used_move: [659, 414, 247, 202, 174, 446, 815, 194, 133, 188],
   },
   {
     id: 774,
@@ -11056,7 +11606,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [504, 512, 89, 350, 164, 414, 851, 157, 408, 800],
+    often_used_move: [504, 512, 89, 350, 164, 414, 851, 408, 157, 800],
   },
   {
     id: 775,
@@ -11084,7 +11634,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [89, 229, 282, 441, 389, 861, 47, 14, 452, 583],
+    often_used_move: [89, 229, 282, 441, 389, 861, 47, 452, 14, 583],
   },
   {
     id: 778,
@@ -11168,7 +11718,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [337, 349, 568, 200, 523, 404],
+    often_used_move: [349, 337, 200, 568, 523, 404],
   },
   {
     id: 783,
@@ -11225,8 +11775,8 @@ export const all_pokemon_list = [
         811, 851, 913, 918,
       ],
     },
-    usage_rate: 75,
-    often_used_move: [775, 409, 691, 53, 164, 430, 586, 396, 442, 410],
+    usage_rate: 76,
+    often_used_move: [775, 409, 691, 53, 164, 430, 586, 410, 396, 442],
   },
   {
     id: 810,
@@ -11252,7 +11802,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [803, 282, 283, 269, 452, 369, 21, 345, 206, 253],
+    often_used_move: [282, 803, 283, 269, 452, 369, 74, 206, 21, 253],
   },
   {
     id: 811,
@@ -11333,7 +11883,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [136, 45, 33],
+    often_used_move: [136, 33, 45],
   },
   {
     id: 814,
@@ -11387,7 +11937,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 81,
-    often_used_move: [780, 136, 369, 389, 441, 442, 851, 756, 261, 269],
+    often_used_move: [780, 136, 369, 389, 441, 442, 851, 756, 261, 67],
   },
   {
     id: 816,
@@ -11441,7 +11991,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [745, 58, 410, 399, 851, 389, 314, 247, 369, 403],
+    often_used_move: [745, 58, 410, 389, 399, 314, 851, 247, 369, 403],
   },
   {
     id: 819,
@@ -11467,7 +12017,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [34, 255, 256, 254],
+    often_used_move: [34, 255, 254, 256],
   },
   {
     id: 820,
@@ -11494,7 +12044,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [360, 282, 776, 68, 89, 34, 187, 174, 706, 423],
+    often_used_move: [360, 282, 776, 89, 68, 34, 187, 174, 706, 423],
   },
   {
     id: 822,
@@ -11519,7 +12069,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [269, 681, 43, 64],
+    often_used_move: [681, 43, 269, 64],
   },
   {
     id: 823,
@@ -11573,7 +12123,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [504, 350, 710, 127, 89, 242, 423, 861, 457, 14],
+    often_used_move: [504, 350, 710, 127, 89, 242, 423, 861, 14, 457],
   },
   {
     id: 838,
@@ -11599,7 +12149,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [261, 83, 126, 915, 444, 776, 334, 350, 317, 446],
+    often_used_move: [261, 83, 126, 444, 915, 776, 334, 350, 317, 446],
   },
   {
     id: 839,
@@ -11626,7 +12176,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [800, 53, 414, 261, 503, 350, 446, 394, 408, 315],
+    often_used_move: [800, 261, 53, 414, 350, 503, 394, 446, 442, 408],
   },
   {
     id: 840,
@@ -11647,7 +12197,7 @@ export const all_pokemon_list = [
       move_id_list: [110, 111, 205, 213, 278, 310, 389, 434, 803, 851, 884],
     },
     usage_rate: 999,
-    often_used_move: [310, 110, 278, 389],
+    often_used_move: [110, 310, 389, 278],
   },
   {
     id: 841,
@@ -11673,7 +12223,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [788, 389, 851, 349, 407, 200, 332, 814, 110, 310],
+    often_used_move: [788, 389, 851, 349, 407, 200, 332, 283, 814, 310],
   },
   {
     id: 842,
@@ -11700,7 +12250,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [787, 73, 105, 334, 434, 776, 851, 278, 389, 182],
+    often_used_move: [787, 73, 105, 334, 776, 851, 434, 278, 182, 389],
   },
   {
     id: 843,
@@ -11725,7 +12275,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [446, 317, 137, 523],
+    often_used_move: [446, 137, 523, 317],
   },
   {
     id: 844,
@@ -11804,7 +12354,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [710, 370, 453, 812, 423, 242, 706, 851, 529, 675],
+    often_used_move: [710, 370, 453, 812, 423, 242, 706, 529, 851, 675],
   },
   {
     id: 849,
@@ -11831,8 +12381,8 @@ export const all_pokemon_list = [
         715, 786, 804, 851, 885, 917,
       ],
     },
-    usage_rate: 149,
-    often_used_move: [586, 786, 609, 521, 506, 917, 188, 227, 491, 508],
+    usage_rate: 150,
+    often_used_move: [586, 786, 609, 521, 506, 917, 188, 491, 227, 508],
   },
   {
     id: 855,
@@ -11857,8 +12407,8 @@ export const all_pokemon_list = [
         496, 500, 502, 504, 506, 566, 597, 668, 752, 809, 851,
       ],
     },
-    usage_rate: 118,
-    often_used_move: [504, 500, 851, 247, 668, 226, 202, 285, 389, 203],
+    usage_rate: 119,
+    often_used_move: [504, 500, 247, 851, 668, 226, 202, 285, 389, 203],
   },
   {
     id: 857,
@@ -11884,7 +12434,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [609, 595, 202, 473, 361, 226, 433, 347, 851, 94],
+    often_used_move: [609, 595, 202, 473, 361, 226, 347, 433, 115, 851],
   },
   {
     id: 858,
@@ -11910,8 +12460,8 @@ export const all_pokemon_list = [
         678, 693, 750, 791, 797, 802, 851, 917,
       ],
     },
-    usage_rate: 77,
-    often_used_move: [433, 595, 577, 802, 917, 347, 605, 94, 473, 361],
+    usage_rate: 75,
+    often_used_move: [433, 595, 802, 577, 917, 347, 605, 94, 361, 473],
   },
   {
     id: 860,
@@ -11937,7 +12487,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [590, 115, 492, 86],
+    often_used_move: [492, 86, 590, 115],
   },
   {
     id: 861,
@@ -11965,7 +12515,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 27,
-    often_used_move: [789, 115, 113, 575, 269, 86, 492, 252, 271, 389],
+    often_used_move: [789, 115, 113, 575, 269, 86, 492, 252, 389, 271],
   },
   {
     id: 863,
@@ -11993,7 +12543,31 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [442, 252, 370, 368, 269, 280, 226, 360, 468, 583],
+    often_used_move: [442, 252, 370, 368, 269, 226, 280, 360, 468, 583],
+  },
+  {
+    id: 868,
+    base: {
+      id: 868,
+      name_ja: "マホミル",
+      hp: 45,
+      attack: 40,
+      defense: 40,
+      special_attack: 50,
+      special_defense: 61,
+      speed: 34,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/868.png",
+      species_id: 868,
+      type_id_list: [18],
+      ability_id_list: [175, 165],
+      move_id_list: [
+        33, 105, 151, 156, 164, 173, 182, 186, 203, 204, 213, 214, 230, 263,
+        270, 312, 374, 387, 494, 496, 500, 577, 581, 597, 605, 608, 851,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [581, 494, 605, 105],
   },
   {
     id: 869,
@@ -12018,7 +12592,7 @@ export const all_pokemon_list = [
         574, 577, 581, 583, 595, 597, 605, 608, 777, 802, 851, 914,
       ],
     },
-    usage_rate: 137,
+    usage_rate: 138,
     often_used_move: [347, 151, 105, 914, 577, 500, 851, 605, 202, 213],
   },
   {
@@ -12045,7 +12619,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [748, 675, 370, 776, 334, 851, 283, 398, 282, 442],
+    often_used_move: [748, 370, 675, 851, 776, 334, 282, 442, 283, 398],
   },
   {
     id: 871,
@@ -12072,7 +12646,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [262, 389, 390, 916, 716, 86, 191, 174, 886, 398],
+    often_used_move: [262, 389, 390, 916, 716, 86, 191, 435, 398, 851],
   },
   {
     id: 873,
@@ -12097,7 +12671,7 @@ export const all_pokemon_list = [
         583, 605, 611, 679, 694, 806, 813, 814, 851, 861, 883, 884,
       ],
     },
-    usage_rate: 93,
+    usage_rate: 90,
     often_used_move: [483, 58, 851, 202, 164, 405, 59, 297, 611, 369],
   },
   {
@@ -12124,7 +12698,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [67, 350, 535, 397, 89, 851, 444, 523, 317, 334],
+    often_used_move: [397, 67, 350, 535, 89, 851, 334, 776, 444, 484],
   },
   {
     id: 875,
@@ -12150,7 +12724,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [187, 556, 851, 812, 883, 694, 710, 333, 127, 573],
+    often_used_move: [187, 556, 851, 883, 812, 694, 333, 710, 127, 861],
   },
   {
     id: 876,
@@ -12175,8 +12749,8 @@ export const all_pokemon_list = [
         496, 500, 502, 574, 577, 583, 589, 595, 605, 678, 797, 805, 851, 917,
       ],
     },
-    usage_rate: 148,
-    often_used_move: [797, 227, 605, 361, 271, 247, 473, 433, 304, 851],
+    usage_rate: 147,
+    often_used_move: [797, 227, 605, 361, 271, 247, 473, 304, 433, 851],
   },
   {
     id: 877,
@@ -12204,7 +12778,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [783, 575, 283, 282, 98, 331, 226, 182, 492, 269],
+    often_used_move: [783, 575, 283, 282, 98, 331, 182, 226, 252, 492],
   },
   {
     id: 878,
@@ -12230,7 +12804,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [89, 350, 442, 583, 164],
+    often_used_move: [89, 442, 350, 583, 164],
   },
   {
     id: 879,
@@ -12257,7 +12831,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [583, 442, 535, 89, 157, 484, 916, 851, 430, 414],
+    often_used_move: [583, 442, 535, 89, 157, 484, 851, 430, 555, 414],
   },
   {
     id: 884,
@@ -12284,7 +12858,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [446, 430, 86, 525, 46, 434, 85, 243, 368, 796],
+    often_used_move: [446, 430, 86, 525, 46, 434, 85, 243, 796, 368],
   },
   {
     id: 887,
@@ -12338,7 +12912,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [828, 851, 95, 113, 675, 917, 679, 414, 224, 433],
+    often_used_move: [828, 851, 95, 113, 917, 675, 414, 679, 271, 89],
   },
   {
     id: 900,
@@ -12363,7 +12937,7 @@ export const all_pokemon_list = [
         458, 479, 512, 522, 679, 806, 814, 830, 851, 884, 885,
       ],
     },
-    usage_rate: 39,
+    usage_rate: 38,
     often_used_move: [830, 404, 400, 370, 364, 369, 885, 98, 280, 14],
   },
   {
@@ -12391,8 +12965,36 @@ export const all_pokemon_list = [
         916,
       ],
     },
-    usage_rate: 38,
-    often_used_move: [263, 89, 885, 409, 838, 14, 182, 916, 583, 8],
+    usage_rate: 39,
+    often_used_move: [263, 89, 885, 409, 14, 838, 182, 583, 916, 8],
+  },
+  {
+    id: 10272,
+    base: {
+      id: 10272,
+      name_ja: "ガチグマ(アカツキ)",
+      hp: 113,
+      attack: 70,
+      defense: 120,
+      special_attack: 135,
+      special_defense: 65,
+      speed: 52,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10272.png",
+      species_id: 901,
+      type_id_list: [5, 1],
+      ability_id_list: [299],
+      move_id_list: [
+        7, 8, 9, 10, 14, 34, 36, 38, 43, 46, 63, 67, 89, 91, 106, 118, 122, 129,
+        154, 156, 157, 163, 164, 168, 173, 182, 184, 203, 204, 214, 232, 236,
+        240, 241, 242, 253, 263, 264, 269, 270, 280, 304, 313, 317, 332, 339,
+        341, 347, 359, 370, 371, 374, 402, 409, 410, 411, 414, 416, 419, 421,
+        441, 444, 479, 484, 523, 555, 583, 585, 589, 667, 707, 776, 838, 851,
+        885, 901, 912,
+      ],
+    },
+    usage_rate: 3,
+    often_used_move: [901, 414, 410, 304, 236, 281, 347, 585, 269, 851],
   },
   {
     id: 902,
@@ -12417,7 +13019,7 @@ export const all_pokemon_list = [
         710, 799, 812, 834, 851, 854, 883, 886,
       ],
     },
-    usage_rate: 135,
+    usage_rate: 133,
     often_used_move: [854, 453, 834, 812, 164, 97, 203, 851, 710, 457],
   },
   {
@@ -12444,7 +13046,7 @@ export const all_pokemon_list = [
         808, 811, 827, 851, 885, 918,
       ],
     },
-    usage_rate: 15,
+    usage_rate: 14,
     often_used_move: [370, 827, 421, 14, 252, 512, 675, 390, 369, 851],
   },
   {
@@ -12471,8 +13073,8 @@ export const all_pokemon_list = [
         886,
       ],
     },
-    usage_rate: 130,
-    often_used_move: [242, 839, 390, 92, 107, 194, 164, 14, 182, 675],
+    usage_rate: 127,
+    often_used_move: [242, 839, 390, 92, 107, 194, 164, 14, 675, 182],
   },
   {
     id: 906,
@@ -12498,7 +13100,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [583, 369, 572, 389, 10, 670, 39],
+    often_used_move: [572, 389, 583, 369, 670, 10, 39, 345, 98],
   },
   {
     id: 907,
@@ -12524,7 +13126,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [73, 182, 202, 313, 369, 389, 572, 583],
+    often_used_move: [202, 73, 182, 313, 369, 572, 389, 421, 583, 332],
   },
   {
     id: 908,
@@ -12577,7 +13179,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [303, 52, 281, 33, 53, 227, 43, 261],
+    often_used_move: [303, 52, 281, 33, 53, 227, 261, 43],
   },
   {
     id: 910,
@@ -12602,7 +13204,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [303, 83, 261, 227, 281, 53, 46, 555, 851, 174],
+    often_used_move: [303, 83, 261, 281, 227, 53, 46, 555, 851, 174],
   },
   {
     id: 911,
@@ -12629,7 +13231,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 17,
-    often_used_move: [871, 303, 261, 506, 247, 281, 414, 851, 914, 164],
+    often_used_move: [871, 303, 261, 506, 247, 281, 851, 414, 914, 164],
   },
   {
     id: 912,
@@ -12654,7 +13256,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [886, 355, 227, 512],
+    often_used_move: [355, 512, 227, 886],
   },
   {
     id: 913,
@@ -12679,7 +13281,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [250, 355, 812, 297],
+    often_used_move: [355, 812, 250, 297],
   },
   {
     id: 914,
@@ -12705,8 +13307,8 @@ export const all_pokemon_list = [
         851, 861, 872, 886, 895, 918,
       ],
     },
-    usage_rate: 60,
-    often_used_move: [872, 370, 813, 453, 861, 227, 918, 339, 851, 14],
+    usage_rate: 58,
+    often_used_move: [872, 370, 813, 453, 861, 227, 918, 851, 339, 14],
   },
   {
     id: 915,
@@ -12731,7 +13333,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [281, 203, 283, 162, 497, 574, 39, 33],
+    often_used_move: [281, 283, 162, 203, 497, 574, 39, 33],
   },
   {
     id: 916,
@@ -12757,7 +13359,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [776, 747, 281, 707, 254, 851, 583, 442, 667, 34],
+    often_used_move: [776, 747, 281, 707, 583, 442, 254, 851, 162, 34],
   },
   {
     id: 918,
@@ -12783,7 +13385,32 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [509, 564, 369, 191, 660, 390, 269, 852, 156, 335],
+    often_used_move: [509, 564, 369, 191, 390, 660, 852, 269, 202, 335],
+  },
+  {
+    id: 919,
+    base: {
+      id: 919,
+      name_ja: "マメバッタ",
+      hp: 33,
+      attack: 46,
+      defense: 40,
+      special_attack: 21,
+      special_defense: 25,
+      speed: 45,
+      picture_url:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/919.png",
+      species_id: 919,
+      type_id_list: [7],
+      ability_id_list: [68, 110],
+      move_id_list: [
+        24, 33, 36, 43, 68, 97, 103, 141, 156, 164, 168, 182, 203, 214, 240,
+        241, 263, 310, 364, 369, 372, 389, 404, 405, 450, 522, 660, 806, 851,
+        884, 885,
+      ],
+    },
+    usage_rate: 999,
+    often_used_move: [241, 389, 364, 203],
   },
   {
     id: 920,
@@ -12835,7 +13462,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [609, 162, 583, 227, 209, 91, 44, 84, 45, 10],
+    often_used_move: [609, 162, 227, 583, 91, 209, 44, 84, 10, 45],
   },
   {
     id: 922,
@@ -12861,7 +13488,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [164, 242, 97, 226, 609, 91, 44, 268, 98, 521],
+    often_used_move: [97, 164, 226, 242, 609, 268, 44, 91, 162, 521],
   },
   {
     id: 923,
@@ -12888,7 +13515,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 78,
-    often_used_move: [370, 892, 183, 8, 863, 609, 252, 227, 918, 282],
+    often_used_move: [370, 892, 8, 183, 863, 609, 252, 227, 918, 282],
   },
   {
     id: 925,
@@ -12965,7 +13592,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [412, 805, 580, 73],
+    often_used_move: [73, 805, 412, 580, 668, 182, 164],
   },
   {
     id: 929,
@@ -12990,7 +13617,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [73, 202, 851, 668],
+    often_used_move: [851, 202, 73, 668],
   },
   {
     id: 930,
@@ -13015,8 +13642,8 @@ export const all_pokemon_list = [
         676, 805, 851, 885, 914,
       ],
     },
-    usage_rate: 87,
-    often_used_move: [414, 202, 668, 243, 73, 914, 851, 412, 304, 605],
+    usage_rate: 88,
+    often_used_move: [414, 202, 668, 73, 243, 914, 851, 412, 304, 605],
   },
   {
     id: 931,
@@ -13042,7 +13669,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [369, 575, 515, 413, 269, 263, 98, 366, 416, 355],
+    often_used_move: [369, 413, 575, 515, 269, 263, 98, 808, 366, 416],
   },
   {
     id: 932,
@@ -13067,7 +13694,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [89, 90, 851, 484, 174, 157, 105, 446],
+    often_used_move: [89, 851, 90, 484, 174, 105, 444, 157, 442, 446],
   },
   {
     id: 933,
@@ -13143,8 +13770,8 @@ export const all_pokemon_list = [
         473, 488, 491, 499, 500, 502, 510, 595, 678, 797, 800, 815, 851, 890,
       ],
     },
-    usage_rate: 52,
-    often_used_move: [890, 797, 203, 194, 851, 678, 396, 473, 412, 800],
+    usage_rate: 51,
+    often_used_move: [890, 797, 203, 194, 851, 678, 396, 412, 473, 800],
   },
   {
     id: 937,
@@ -13196,7 +13823,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [268, 55, 341, 84],
+    often_used_move: [341, 55, 268, 84],
   },
   {
     id: 939,
@@ -13220,8 +13847,8 @@ export const all_pokemon_list = [
         416, 435, 451, 486, 491, 521, 527, 528, 598, 604, 851, 886, 916,
       ],
     },
-    usage_rate: 143,
-    often_used_move: [570, 521, 491, 389, 851, 330, 92, 303, 487, 886],
+    usage_rate: 140,
+    often_used_move: [570, 491, 521, 389, 851, 330, 92, 303, 886, 487],
   },
   {
     id: 940,
@@ -13247,7 +13874,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [366, 98, 283, 521],
+    often_used_move: [366, 521, 98, 283],
   },
   {
     id: 941,
@@ -13272,8 +13899,8 @@ export const all_pokemon_list = [
         814, 851, 916,
       ],
     },
-    usage_rate: 147,
-    often_used_move: [521, 403, 851, 85, 542, 87, 366, 435, 311, 283],
+    usage_rate: 146,
+    often_used_move: [521, 403, 851, 85, 542, 87, 435, 366, 311, 283],
   },
   {
     id: 943,
@@ -13299,7 +13926,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [583, 242, 706, 746, 194, 269, 46, 894, 851, 204],
+    often_used_move: [583, 242, 746, 706, 194, 46, 269, 894, 851, 885],
   },
   {
     id: 945,
@@ -13324,7 +13951,7 @@ export const all_pokemon_list = [
         474, 482, 490, 491, 492, 512, 675, 806, 851, 867, 884, 885,
       ],
     },
-    usage_rate: 123,
+    usage_rate: 126,
     often_used_move: [227, 575, 282, 92, 164, 415, 269, 383, 67, 162],
   },
   {
@@ -13350,7 +13977,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [438, 425, 809, 851, 416, 668, 566, 174, 73, 220],
+    often_used_move: [438, 425, 809, 416, 851, 668, 174, 566, 73, 220],
   },
   {
     id: 948,
@@ -13376,7 +14003,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [147, 73, 164, 220, 182, 191, 92, 189, 492, 269],
+    often_used_move: [147, 73, 164, 220, 182, 191, 92, 189, 269, 492],
   },
   {
     id: 949,
@@ -13401,8 +14028,8 @@ export const all_pokemon_list = [
         474, 491, 492, 506, 513, 580, 605, 679, 803, 806, 851, 885,
       ],
     },
-    usage_rate: 138,
-    often_used_move: [147, 414, 73, 202, 164, 491, 188, 851, 92, 506],
+    usage_rate: 137,
+    often_used_move: [147, 414, 73, 202, 164, 188, 491, 851, 605, 92],
   },
   {
     id: 950,
@@ -13428,7 +14055,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [350, 179, 203, 282, 667, 446, 12, 14, 317, 283],
+    often_used_move: [179, 203, 350, 282, 667, 446, 12, 14, 283, 317],
   },
   {
     id: 951,
@@ -13453,7 +14080,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [580, 803, 283, 241],
+    often_used_move: [580, 283, 241, 803],
   },
   {
     id: 952,
@@ -13479,7 +14106,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [53, 164, 182, 73, 315, 76, 851, 388, 126, 202],
+    often_used_move: [53, 164, 182, 73, 76, 315, 851, 388, 202, 126],
   },
   {
     id: 953,
@@ -13504,7 +14131,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [105, 441, 679, 322],
+    often_used_move: [105, 441, 322, 679],
   },
   {
     id: 954,
@@ -13531,7 +14158,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [863, 433, 262, 405, 94, 414, 917, 605, 679, 105],
+    often_used_move: [863, 433, 262, 405, 917, 94, 414, 105, 322, 500],
   },
   {
     id: 956,
@@ -13557,7 +14184,7 @@ export const all_pokemon_list = [
         851, 855, 884,
       ],
     },
-    usage_rate: 31,
+    usage_rate: 30,
     often_used_move: [347, 226, 855, 182, 500, 851, 355, 605, 164, 247],
   },
   {
@@ -13584,7 +14211,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [86, 446, 283, 364, 227, 282, 608, 583, 14],
+    often_used_move: [86, 446, 364, 283, 227, 282, 608, 583, 14],
   },
   {
     id: 959,
@@ -13635,7 +14262,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [865, 220, 453, 262, 164, 35, 182, 851, 389, 203],
+    often_used_move: [865, 453, 220, 262, 164, 35, 389, 182, 851, 203],
   },
   {
     id: 962,
@@ -13662,7 +14289,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [282, 446, 575, 814, 317, 262, 444, 157, 389, 413],
+    often_used_move: [282, 446, 575, 814, 317, 262, 444, 157, 269, 413],
   },
   {
     id: 963,
@@ -13687,7 +14314,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [54, 227, 401, 56, 512],
+    often_used_move: [227, 401, 54, 56, 512],
   },
   {
     id: 964,
@@ -13740,7 +14367,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [398, 103, 168, 859, 441, 442, 372],
+    often_used_move: [103, 269, 124, 92, 575, 29, 114, 360, 398, 859],
   },
   {
     id: 966,
@@ -13792,7 +14419,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [880, 369, 434, 315, 200, 282, 38, 269, 442, 508],
+    often_used_move: [880, 369, 434, 315, 200, 282, 38, 269, 442, 784],
   },
   {
     id: 968,
@@ -13816,8 +14443,8 @@ export const all_pokemon_list = [
         416, 430, 442, 446, 479, 484, 489, 523, 667, 707, 776, 796, 851, 880,
       ],
     },
-    usage_rate: 91,
-    often_used_move: [776, 880, 334, 446, 442, 156, 484, 89, 368, 317],
+    usage_rate: 93,
+    often_used_move: [776, 880, 334, 446, 442, 156, 89, 484, 368, 317],
   },
   {
     id: 969,
@@ -13842,7 +14469,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [408, 92, 151, 474, 482, 157, 341],
+    often_used_move: [408, 151, 92, 157, 341, 482, 474],
   },
   {
     id: 970,
@@ -13894,7 +14521,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [101, 281, 262, 201, 194, 809, 425, 283],
+    often_used_move: [262, 201, 101, 281, 425, 809, 194, 283, 203],
   },
   {
     id: 972,
@@ -13920,7 +14547,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [854, 425, 583, 851, 164, 261, 271, 776, 220, 809],
+    often_used_move: [854, 425, 583, 851, 261, 164, 776, 271, 242, 220],
   },
   {
     id: 973,
@@ -13946,7 +14573,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 112,
-    often_used_move: [370, 413, 369, 364, 283, 814, 918, 269, 675, 851],
+    often_used_move: [370, 413, 369, 364, 814, 283, 918, 269, 675, 851],
   },
   {
     id: 974,
@@ -13972,7 +14599,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [340, 34, 175, 419],
+    often_used_move: [175, 34, 340, 419],
   },
   {
     id: 975,
@@ -13998,7 +14625,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [420, 89, 187, 556, 861, 710, 276, 583, 333, 851],
+    often_used_move: [420, 89, 187, 556, 710, 861, 276, 583, 851, 333],
   },
   {
     id: 976,
@@ -14024,7 +14651,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [868, 500, 851, 164, 56, 57, 427, 895, 453, 515],
+    often_used_move: [868, 500, 851, 57, 164, 427, 895, 56, 105, 453],
   },
   {
     id: 977,
@@ -14103,7 +14730,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 11,
-    often_used_move: [889, 409, 269, 339, 446, 515, 374, 317, 227, 370],
+    often_used_move: [889, 409, 269, 339, 446, 515, 374, 317, 370, 227],
   },
   {
     id: 980,
@@ -14184,7 +14811,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [137, 586, 446, 355, 489, 226, 525, 58, 414, 53],
+    often_used_move: [137, 586, 446, 355, 525, 489, 226, 58, 414, 53],
   },
   {
     id: 983,
@@ -14209,7 +14836,7 @@ export const all_pokemon_list = [
         430, 442, 444, 446, 447, 490, 492, 514, 555, 675, 796, 808, 851, 869,
       ],
     },
-    usage_rate: 14,
+    usage_rate: 15,
     often_used_move: [389, 869, 442, 14, 12, 67, 280, 851, 446, 164],
   },
   {
@@ -14235,7 +14862,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [196, 525, 200, 556],
+    often_used_move: [556, 525, 196, 200],
   },
   {
     id: 998,
@@ -14285,7 +14912,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [156, 113, 109, 115, 310, 408, 36, 506, 33, 247],
+    often_used_move: [506, 36, 408, 310, 113, 115, 109, 156, 247, 33],
   },
   {
     id: 1000,
@@ -14362,7 +14989,7 @@ export const all_pokemon_list = [
       ],
     },
     usage_rate: 999,
-    often_used_move: [262, 78, 506, 492],
+    often_used_move: [262, 492, 506, 78],
   },
   {
     id: 1013,
@@ -14386,8 +15013,8 @@ export const all_pokemon_list = [
         437, 476, 492, 503, 506, 566, 580, 668, 791, 809, 851, 902,
       ],
     },
-    usage_rate: 62,
-    often_used_move: [902, 668, 247, 347, 503, 851, 437, 506, 164, 433],
+    usage_rate: 63,
+    often_used_move: [902, 668, 247, 347, 503, 851, 437, 506, 433, 164],
   },
   {
     id: 1018,
@@ -14439,7 +15066,7 @@ export const all_pokemon_list = [
         913,
       ],
     },
-    usage_rate: 98,
+    usage_rate: 99,
     often_used_move: [414, 907, 437, 434, 281, 202, 851, 278, 412, 105],
   },
 ] as Array<Pokemon>;
@@ -14500,7 +15127,7 @@ pokemon_list.forEach((p) => {
 });
 
 export function pokemon_array(separate_number: number) {
-  let t = 10;
+  let t = 12;
   // なんかisMobileがうまく動かない
   // console.log("isMobile => ",isMobile )
   // if (isMobile) {

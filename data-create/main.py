@@ -27,6 +27,8 @@ TYPE_ID_DARK = 17
 TYPE_ID_FAIRY = 18
 
 def form_mapping(pokemon_id:int,form_number:int):
+    if pokemon_id==479 and form_number>0:
+        return 10007+form_number
     if pokemon_id==901 and form_number==1:
         return 10272
     return pokemon_id
@@ -1262,7 +1264,8 @@ for single_season in single_season_list:
         if len(pokemon)==0:
             raise "kusa"
         pokemon=pokemon[0]
-        usage_rate_mapper[pokemon.id]=loop_usage_rate
+        pokemon_id=form_mapping(int(usage_info["id"]),int(usage_info["form"]))
+        usage_rate_mapper[pokemon_id]=loop_usage_rate
         loop_usage_rate+=1
     # ###
     # print(usage_rate_mapper)
@@ -1286,10 +1289,9 @@ for single_season in single_season_list:
         res_dict=json.loads(res.text)
         for pokemon_number in res_dict.keys():
             for pokemon_form in res_dict[pokemon_number].keys():
-                # print(res_dict[pokemon_number][pokemon_form])
                 usage_info=res_dict[pokemon_number][pokemon_form]
                 often_usage_move_list=[int(move["id"]) for move in usage_info["temoti"]["waza"]]
-                pokemon_id=form_mapping(pokemon_id=pokemon_number,form_number=pokemon_form)
+                pokemon_id=form_mapping(pokemon_id=int(pokemon_number),form_number=int(pokemon_form))
                 pokemon=[p for p in pokemon_list if int(p.id)==int(pokemon_id)]
                 temp_info=PokemonForRankMatch(
                     id=int(pokemon_id),
@@ -1300,24 +1302,11 @@ for single_season in single_season_list:
                     temp_info.usage_rate=usage_rate_mapper[pokemon_id]
                 if int(pokemon_id) in usage_rate_mapper:
                     temp_info.usage_rate=usage_rate_mapper[int(pokemon_id)]
-                # rank_list.append(pokemon_id)
                 if pokemon_id not in detail_mapper:
                     detail_mapper[pokemon_id]=temp_info
                     detail_list.append(temp_info)
 
-    # print(detail_mapper)
-    # detail_list=detail_mapper.keys()
     takashi=open("kusatuonsen.json","w")
-    # takashi.write(json.dumps(list(detail_mapper.values())))
-    # takashi.write(json.dumps(json.loads(json.dumps({"detail_mapper":detail_mapper}, default=default, ensure_ascii=False))["detail_mapper"].values(), default=default, ensure_ascii=False))
-    # takashi.write(json.dumps({
-    #     # "usage_rate_mapper":usage_rate_mapper,
-    #     "detail_mapper":detail_mapper,
-    #     # "rank_list":rank_list,
-    # }, default=default, ensure_ascii=False))
-    # takashi.write(json.dumps({
-    #     "detail_list":detail_list,
-    # }, default=default, ensure_ascii=False))
     takashi.write(json.dumps(detail_list, default=default, ensure_ascii=False))
     takashi.close()
     break
