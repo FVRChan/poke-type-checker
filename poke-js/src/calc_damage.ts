@@ -2,6 +2,12 @@ import { Move, MOVE_DAMAGE_CLASS_PHYSICAL } from "./move";
 import { Pokemon } from "./pokemon-list";
 import type_map from "./type-map";
 import { calcRealValueHPStat, calcRealValueOtherStat } from "./util";
+
+interface damageRateMapper {
+  compatibilityRate: number;
+  sameTypeRate: number;
+  randRate: number;
+}
 export interface Effort {
   hp: number;
   attack: number;
@@ -56,12 +62,12 @@ export function calc_interface({
       offencePokemon.personality.defense
     ),
     special_attack: calcRealValueOtherStat(
-      offencePokemon.base.attack,
+      offencePokemon.base.special_attack,
       offencePokemon.effective_slider_step.special_attack,
       offencePokemon.personality.special_attack
     ),
     special_defense: calcRealValueOtherStat(
-      offencePokemon.base.attack,
+      offencePokemon.base.special_defense,
       offencePokemon.effective_slider_step.special_defense,
       offencePokemon.personality.special_defense
     ),
@@ -82,25 +88,30 @@ export function calc_interface({
       deffenceDummyPokemon.personality.defense
     ),
     special_attack: calcRealValueOtherStat(
-      deffencePokemon.base.attack,
+      deffencePokemon.base.special_attack,
       deffenceDummyPokemon.effective_slider_step.special_attack,
       deffenceDummyPokemon.personality.special_attack
     ),
     special_defense: calcRealValueOtherStat(
-      deffencePokemon.base.attack,
+      deffencePokemon.base.special_defense,
       deffenceDummyPokemon.effective_slider_step.special_defense,
       deffenceDummyPokemon.personality.special_defense
     ),
   };
-  const rateList = [];
+  // const rateList = [];
   const compatibilityTypeRate = getCompatibilityTypeRate(move, deffencePokemon);
-  const movePokemonTypeRate = getMovePokemonTypeRate(move, offencePokemon);
-  rateList.push(compatibilityTypeRate, movePokemonTypeRate);
+  // const movePokemonTypeRate = getMovePokemonTypeRate(move, offencePokemon);
+  // rateList.push(compatibilityTypeRate, movePokemonTypeRate);
+  const rateMapper = {
+    compatibilityRate: getCompatibilityTypeRate(move, deffencePokemon),
+    sameTypeRate: getMovePokemonTypeRate(move, offencePokemon),
+  } as damageRateMapper;
   const calcedList = calcWithRand(
     move,
     offencePokemon,
     deffencePokemon,
-    rateList
+    rateMapper
+    // rateList
   );
   const maxDamage = Math.max(...calcedList);
   const minDamage = Math.min(...calcedList);
@@ -110,7 +121,7 @@ export function calc_interface({
     })
     .filter((v) => v);
   if (counter.length === calcedList.length) {
-    return `確定1発(${minDamage}~${maxDamage})`;
+    return `(${minDamage}~${maxDamage})`;
   }
   return `(${minDamage}~${maxDamage})`;
 }
@@ -119,12 +130,14 @@ function calcWithRand(
   move: Move,
   offencePokemon: Pokemon,
   deffencePokemon: Pokemon,
-  rateList: number[]
+  // rateList: number[]
+  rateMapper: damageRateMapper
 ): Array<number> {
-  const base = calc({ move, offencePokemon, deffencePokemon, rateList });
   const retList = [] as Array<number>;
-  for (let loop = 0.85; loop <= 1.0; loop += 0.01) {
-    retList.push(Math.floor(base * loop));
+  for (let rand = 0.85; rand <= 1.0; rand += 0.01) {
+    rateMapper.randRate = rand;
+    const base = calc({ move, offencePokemon, deffencePokemon, rateMapper });
+    retList.push(base);
   }
   return retList;
 }
@@ -133,12 +146,12 @@ function calc({
   move,
   offencePokemon,
   deffencePokemon,
-  rateList,
+  rateMapper,
 }: {
   move: Move;
   offencePokemon: Pokemon;
   deffencePokemon: Pokemon;
-  rateList: number[];
+  rateMapper: damageRateMapper;
 }) {
   const power = move.power;
   const attack =
@@ -149,13 +162,21 @@ function calc({
     move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL
       ? deffencePokemon.effective_value.defense
       : deffencePokemon.effective_value.special_defense;
-  let a = (((50 * 2) / 5 + 2) * power * attack) / defense / 50 + 2;
-  a = Math.floor(a);
-  // 倍率順番が変になるからダメかも。。。
-  rateList.forEach((r) => {
-    a *= r;
-    a = Math.floor(a);
-  });
+
+  let a = Math.floor((50 * 2) / 5 + 2);
+  a = Math.floor((a * power * attack) / defense);
+  if (deffencePokemon.id === 983) console.log(a);
+  a = Math.floor(a / 50 + 2);
+  if (deffencePokemon.id === 983) console.log(a);
+
+  a = Math.floor(a * rateMapper.randRate);
+
+  a = Math.floor(a * rateMapper.sameTypeRate);
+  // if (deffencePokemon.id === 983) console.log(a);
+
+  a = Math.floor(a * rateMapper.compatibilityRate);
+  // if (deffencePokemon.id === 983) console.log(a, rateMapper.compatibilityRate);
+
   return a;
 }
 
