@@ -103,8 +103,8 @@ export default function App() {
                           {poke.base.picture_url ? (
                             <img
                               src={poke.base.picture_url}
-                              width={65}
-                              height={65}
+                              width={55}
+                              height={55}
                             ></img>
                           ) : (
                             <>
