@@ -85,6 +85,8 @@ export default function App() {
             />
           </Grid>
         </Grid>
+        <Grid container direction="column">
+
         <TableContainer>
           <Table stickyHeader aria-label="sticky table">
             <TableBody 
@@ -130,6 +132,7 @@ export default function App() {
             </TableBody>
           </Table>
         </TableContainer>
+        </Grid>
       </div>
     </div>
   );
