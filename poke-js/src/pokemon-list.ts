@@ -14501,9 +14501,11 @@ pokemon_list.forEach((p) => {
 
 export function pokemon_array(separate_number: number) {
   let t = 10;
-  if (isMobile) {
-    t = 5;
-  }
+  // なんかisMobileがうまく動かない
+  // console.log("isMobile => ",isMobile )
+  // if (isMobile) {
+  //   t = 5;
+  // }
   const local_separate_number = Math.min(t, separate_number);
   let ret_matrix = [] as Array<Array<Pokemon>>;
   let temp_list = [] as Array<Pokemon>;
