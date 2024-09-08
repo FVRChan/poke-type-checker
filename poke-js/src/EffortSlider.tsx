@@ -5,10 +5,9 @@ export default function EffortSlider({
   label,
   step,
   stepSetter,
- personality,
-personalitySetter,
-}:
-{
+  personality,
+  personalitySetter,
+}: {
   label: string;
   step: number;
   stepSetter: (newValue: number) => void;
@@ -26,21 +25,30 @@ personalitySetter,
         <div>{label}</div>
         {label !== "HP" && personalitySetter && personality && (
           <>
-            <Button color={personality===0.9 ? "success": undefined} variant="contained" size="small" 
+            <Button
+              color={personality === 0.9 ? "success" : undefined}
+              variant="contained"
+              size="small"
               onClick={() => {
                 personalitySetter(0.9);
               }}
             >
               0.9
             </Button>
-            <Button color={personality===1.0 ? "success": undefined} variant="contained" size="small" 
+            <Button
+              color={personality === 1.0 ? "success" : undefined}
+              variant="contained"
+              size="small"
               onClick={() => {
                 personalitySetter(1.0);
               }}
             >
               1.0
             </Button>
-            <Button color={personality===1.1 ? "success": undefined} variant="contained" size="small" 
+            <Button
+              color={personality === 1.1 ? "success" : undefined}
+              variant="contained"
+              size="small"
               onClick={() => {
                 personalitySetter(1.1);
               }}

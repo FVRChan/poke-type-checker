@@ -764,6 +764,7 @@ def decode_pokemon_move(data: dict) -> PokemonMove:
         type=data["type"],
         accuracy=data["accuracy"],
         power=data["power"],
+        damage_class_number=data["damage_class_number"],
         is_renzoku=data["is_renzoku"],
         min_renzoku=data["min_renzoku"],
         max_renzoku=data["max_renzoku"],
@@ -1224,6 +1225,7 @@ def get_personality_list():
 class PokemonForRankMatch:
     id:int
     base:Pokemon
+    usage_rate:int=999
     # base_ability:PokemonForRankMatchBaseAbility
     # 特性とかはJS側で合わせればいいのでは
     # type_id_list: List[int] = List
@@ -1237,7 +1239,7 @@ class PokemonForRankMatch:
     # often_used_terasutaru:List[int]= List
     # often_used_personality:List[int]= List# ダメージ計算には無くてもいいかも
     # often_used_item:List[int]= List # ダメージ計算には無くてもいいかも
-    # often_used_move:List[int]= List
+    often_used_move:List[int]= List
     # often_used_ability:List[int]= List# ダメージ計算には無くてもいいかも
 
 pokemon_list=get_pokemon_list()
@@ -1255,14 +1257,16 @@ for single_season in single_season_list:
     loop_usage_rate=1
     # 使用率は後で
     # 後で使用率圏外のポケモンも補完する
-    # for usage_info in usage_info_list:
-    #     pokemon=[p for p in pokemon_list if p.id==usage_info["id"]]
-    #     if len(pokemon)==0:
-    #         raise "kusa"
-    #     pokemon=pokemon[0]
-    #     usage_rate_mapper[loop_usage_rate]=pokemon
-    #     loop_usage_rate+=1
+    for usage_info in usage_info_list:
+        pokemon=[p for p in pokemon_list if p.id==usage_info["id"]]
+        if len(pokemon)==0:
+            raise "kusa"
+        pokemon=pokemon[0]
+        usage_rate_mapper[pokemon.id]=loop_usage_rate
+        loop_usage_rate+=1
     # ###
+    # print(usage_rate_mapper)
+    # raise 1
     poke_detail_url_list = [
         'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,1),
         'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,2),
@@ -1283,15 +1287,19 @@ for single_season in single_season_list:
         for pokemon_number in res_dict.keys():
             for pokemon_form in res_dict[pokemon_number].keys():
                 # print(res_dict[pokemon_number][pokemon_form])
-                # usage_info=res_dict[pokemon_number][pokemon_form]
-                # often_usage_move_list=[move["id"] for move in usage_info["temoti"]["waza"]]
+                usage_info=res_dict[pokemon_number][pokemon_form]
+                often_usage_move_list=[int(move["id"]) for move in usage_info["temoti"]["waza"]]
                 pokemon_id=form_mapping(pokemon_id=pokemon_number,form_number=pokemon_form)
                 pokemon=[p for p in pokemon_list if int(p.id)==int(pokemon_id)]
                 temp_info=PokemonForRankMatch(
                     id=int(pokemon_id),
                     base=pokemon[0],
-                    # often_used_move=often_usage_move_list,
+                    often_used_move=often_usage_move_list,
                 )
+                if pokemon_id in usage_rate_mapper:
+                    temp_info.usage_rate=usage_rate_mapper[pokemon_id]
+                if int(pokemon_id) in usage_rate_mapper:
+                    temp_info.usage_rate=usage_rate_mapper[int(pokemon_id)]
                 # rank_list.append(pokemon_id)
                 if pokemon_id not in detail_mapper:
                     detail_mapper[pokemon_id]=temp_info

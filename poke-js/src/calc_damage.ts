@@ -57,13 +57,13 @@ export function calc_interface({
     ),
     special_attack: calcRealValueOtherStat(
       offencePokemon.base.attack,
-      offencePokemon.effective_slider_step.attack,
-      offencePokemon.personality.attack
+      offencePokemon.effective_slider_step.special_attack,
+      offencePokemon.personality.special_attack
     ),
     special_defense: calcRealValueOtherStat(
       offencePokemon.base.attack,
-      offencePokemon.effective_slider_step.attack,
-      offencePokemon.personality.attack
+      offencePokemon.effective_slider_step.special_defense,
+      offencePokemon.personality.special_defense
     ),
   };
   deffencePokemon.effective_value = {
@@ -83,13 +83,13 @@ export function calc_interface({
     ),
     special_attack: calcRealValueOtherStat(
       deffencePokemon.base.attack,
-      deffenceDummyPokemon.effective_slider_step.attack,
-      deffenceDummyPokemon.personality.attack
+      deffenceDummyPokemon.effective_slider_step.special_attack,
+      deffenceDummyPokemon.personality.special_attack
     ),
     special_defense: calcRealValueOtherStat(
       deffencePokemon.base.attack,
-      deffenceDummyPokemon.effective_slider_step.attack,
-      deffenceDummyPokemon.personality.attack
+      deffenceDummyPokemon.effective_slider_step.special_defense,
+      deffenceDummyPokemon.personality.special_defense
     ),
   };
   const rateList = [];
@@ -112,7 +112,7 @@ export function calc_interface({
   if (counter.length === calcedList.length) {
     return `確定1発(${minDamage}~${maxDamage})`;
   }
-  return `計算失敗(${minDamage}~${maxDamage})`;
+  return `(${minDamage}~${maxDamage})`;
 }
 
 function calcWithRand(
@@ -150,8 +150,11 @@ function calc({
       ? deffencePokemon.effective_value.defense
       : deffencePokemon.effective_value.special_defense;
   let a = (((50 * 2) / 5 + 2) * power * attack) / defense / 50 + 2;
+  a = Math.floor(a);
+  // 倍率順番が変になるからダメかも。。。
   rateList.forEach((r) => {
     a *= r;
+    a = Math.floor(a);
   });
   return a;
 }

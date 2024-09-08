@@ -47841,5 +47841,6 @@ export interface Move {
   is_tutakon: boolean;
 }
 export default move_list;
-export const MOVE_DAMAGE_CLASS_PHYSICAL=2
-export const MOVE_DAMAGE_CLASS_SPECIAL=3
+export const MOVE_DAMAGE_CLASS_STATUS = 1;
+export const MOVE_DAMAGE_CLASS_PHYSICAL = 2;
+export const MOVE_DAMAGE_CLASS_SPECIAL = 3;

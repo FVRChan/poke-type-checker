@@ -18,13 +18,16 @@ import {
 } from "@mui/material";
 import { calc_interface } from "./calc_damage";
 import Effort from "./Effort";
+import { sortMoveList } from "./util";
 export default function App() {
   const [offencePokemon, setOffencePokemon] = React.useState<Pokemon>(
     pokemon_list[0]
   );
   const [deffenceDummyPokemon, setDeffenceDummyPokemon] =
     React.useState<Pokemon>(dummyPokemon);
-  const [offenceMove, setOffenceMove] = React.useState<Move>(move_list[0]);
+  const [offenceMove, setOffenceMove] = React.useState<Move>(
+    sortMoveList(offencePokemon)[0]
+  );
 
   return (
     <div className="App">
@@ -36,6 +39,7 @@ export default function App() {
               onChange={(_, p) => {
                 if (p) {
                   setOffencePokemon(p);
+                  setOffenceMove(sortMoveList(p)[0]);
                 }
               }}
               disablePortal
@@ -54,7 +58,7 @@ export default function App() {
                 }
               }}
               disablePortal
-              options={move_list}
+              options={sortMoveList(offencePokemon)}
               sx={{ width: 300 }}
               renderInput={(params) => <TextField {...params} />}
               getOptionLabel={(m) => m.name_ja}
@@ -62,19 +66,22 @@ export default function App() {
             威力{offenceMove.power}({offenceMove.type})
           </Grid>
           <Grid>
-            <h2>攻撃側努力値</h2>
+            <h2>攻撃側</h2>
             <Effort
               pokemon={offencePokemon}
               pokemonSetter={setOffencePokemon}
+              isOffense
+              isDefense={false}
             />
-            <h2>守備側努力値</h2>
+            <h2>守備側</h2>
             <Effort
               pokemon={deffenceDummyPokemon}
               pokemonSetter={setDeffenceDummyPokemon}
+              isOffense={false}
+              isDefense
             />
           </Grid>
         </Grid>
-        <h2>ポケモン表</h2>
         <TableContainer>
           <Table stickyHeader aria-label="sticky table">
             <TableBody>
