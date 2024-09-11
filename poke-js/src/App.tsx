@@ -23,6 +23,7 @@ import { sortMoveList } from "./util";
 import { useWindowSize } from "./useWindowSize";
 import { type_id_to_kanji } from "./type-map";
 import SideBar from "./Sidebar";
+import TemporaryDrawer from "./Drawer";
 export default function App() {
   const [offencePokemon, setOffencePokemon] = React.useState<Pokemon>(
     pokemon_list[0]
@@ -94,6 +95,7 @@ export default function App() {
               </>
             }
           ></SideBar>
+          {/* <TemporaryDrawer></TemporaryDrawer> */}
           <Grid container direction="column">
             <TableContainer>
               <Table stickyHeader aria-label="sticky table">
