@@ -603,27 +603,10 @@ class Pokemon:
     speed: int
     picture_url: str
     species_id: str
+    weight: int
     type_id_list: List[int] = List
     ability_id_list: List[int] = List
     move_id_list: List[int] = List
-    # def set_type_list(self,arg_list):
-    #     temp_list=list()
-    #     for arg in arg_list:
-    #         id=int(arg["url"].split("/")[6])
-    #         temp_list.append(PokemonType(id,arg["name"]))
-    #     self.type_list=temp_list
-    # def set_ability_list_list(self,arg_list):
-    #     temp_list=list()
-    #     for arg in arg_list:
-    #         id=int(arg["url"].split("/")[6])
-    #         temp_list.append(PokemonAbility(id,arg["name"]))
-    #     self.ability_list=temp_list
-    # def set_move_list_list(self,arg_list):
-    #     temp_list=list()
-    #     for arg in arg_list:
-    #         id=int(arg["url"].split("/")[6])
-    #         temp_list.append(PokemonAbility(id,arg["name"]))
-    #     self.move_list=temp_list
 
 
 @dataclass
@@ -692,7 +675,6 @@ def get_rankmatch_season_list() -> List[RankmatchSeason]:
                 ))
     return single_season_list
 
-# https://pokeapi.co/api/v2/pokemon-species/38/
 
 
 def decode_pokemon(data: dict) -> Pokemon:
@@ -881,7 +863,17 @@ def get_pokemon_list():
             if form_name!="":
                 name_ja="%s(%s)"%(name_ja,form_name)
             pokemon = Pokemon(
-                detail_res["id"], name_ja, hp, attack, defense, special_attack, special_defense, speed, picture_url,species_id
+                id=detail_res["id"],
+                name_ja=name_ja,
+                hp=hp,
+                attack=attack,
+                defense=defense,
+                special_attack=special_attack,
+                special_defense=special_defense,
+                speed=speed,
+                picture_url=picture_url,
+                species_id=species_id,
+                weight=detail_res["weight"],
             )
             pokemon.move_id_list = moves
             pokemon.type_id_list = types
@@ -1171,97 +1163,16 @@ def get_personality_list():
     writer.close()
 
 
-# pokemon_list=get_pokemon_list()
-# ability_list=get_ability_list()
-# move_list=get_move_list()
-# type_list=get_type_list()
-# item_list=get_item_list()
-# single_season_list=get_rankmatch_season_list()
-# personality_list=get_personality_list()
-
-# for single_season in single_season_list:
-#     usege_info_list=single_season.set_usage_rank_list()
-#     for usage_info in usege_info_list:
-#         pokemon=[p for p in pokemon_list if p.id==usage_info["id"]]
-#         if len(pokemon)==0:
-#             raise "kusa"
-#         pokemon=pokemon[0]
-#         poke_detail_url = 'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,pokemon.id)
-#         print(single_season.season,poke_detail_url)
-#         break
-
-#     break
 
 
 
-
-# @dataclass
-# class PokemonForRankMatchBaseAbility:
-#     name_ja:str
-#     name_en:str
-#     hp: int
-#     attack: int
-#     defense: int
-#     special_attack: int
-#     special_defense: int
-#     speed: int
-#     picture_url: str
-
-# @dataclass
-# class PokemonForRankMatchOftenUsedTerasutaru:
-#     type_id: int
-#     type_name_ja: str
-#     type_name_en: str
-#     usage_rate:float
-
-# @dataclass
-# class PokemonForRankMatchOftenUsedPersonality:
-#     type_id: int
-#     type_name_ja: str
-#     type_name_en: str
-#     usage_rate:float
-
-# @dataclass
-# class PokemonForRankMatchOftenUsedItem:
-#     id:int
-#     name_ja:str
-#     name_en:str
-#     usage_rate:float
-
-# @dataclass
-# class PokemonForRankMatchOftenUsedMove:
-#     id:int
-#     name_ja:str
-#     name_en:str
-#     usage_rate:float
-
-# @dataclass
-# class PokemonForRankMatchOftenUsedAbility:
-#     id:int
-#     name_ja:str
-#     name_en:str
-#     usage_rate:float
 
 @dataclass
 class PokemonForRankMatch:
     id:int
     base:Pokemon
     usage_rate:int=999
-    # base_ability:PokemonForRankMatchBaseAbility
-    # 特性とかはJS側で合わせればいいのでは
-    # type_id_list: List[int] = List
-    # ability_id_list: List[int] = List
-    # move_id_list: List[int] = List
-    # often_used_terasutaru:List[PokemonForRankMatchOftenUsedTerasutaru]= List
-    # often_used_personality:List[PokemonForRankMatchOftenUsedPersonality]= List# ダメージ計算には無くてもいいかも
-    # often_used_item:List[PokemonForRankMatchOftenUsedItem]= List # ダメージ計算には無くてもいいかも
-    # often_used_move:List[PokemonForRankMatchOftenUsedMove]= List
-    # often_used_ability:List[PokemonForRankMatchOftenUsedAbility]= List# ダメージ計算には無くてもいいかも
-    # often_used_terasutaru:List[int]= List
-    # often_used_personality:List[int]= List# ダメージ計算には無くてもいいかも
-    # often_used_item:List[int]= List # ダメージ計算には無くてもいいかも
     often_used_move:List[int]= List
-    # often_used_ability:List[int]= List# ダメージ計算には無くてもいいかも
 
 pokemon_list=get_pokemon_list()
 ability_list=get_ability_list()

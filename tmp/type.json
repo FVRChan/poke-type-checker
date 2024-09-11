@@ -1,0 +1,23 @@
+[
+  { "id": 1, "name_ja": "ノーマル", "name_en": "Normal" },
+  { "id": 2, "name_ja": "かくとう", "name_en": "Fighting" },
+  { "id": 3, "name_ja": "ひこう", "name_en": "Flying" },
+  { "id": 4, "name_ja": "どく", "name_en": "Poison" },
+  { "id": 5, "name_ja": "じめん", "name_en": "Ground" },
+  { "id": 6, "name_ja": "いわ", "name_en": "Rock" },
+  { "id": 7, "name_ja": "むし", "name_en": "Bug" },
+  { "id": 8, "name_ja": "ゴースト", "name_en": "Ghost" },
+  { "id": 9, "name_ja": "はがね", "name_en": "Steel" },
+  { "id": 10, "name_ja": "ほのお", "name_en": "Fire" },
+  { "id": 11, "name_ja": "みず", "name_en": "Water" },
+  { "id": 12, "name_ja": "くさ", "name_en": "Grass" },
+  { "id": 13, "name_ja": "でんき", "name_en": "Electric" },
+  { "id": 14, "name_ja": "エスパー", "name_en": "Psychic" },
+  { "id": 15, "name_ja": "こおり", "name_en": "Ice" },
+  { "id": 16, "name_ja": "ドラゴン", "name_en": "Dragon" },
+  { "id": 17, "name_ja": "あく", "name_en": "Dark" },
+  { "id": 18, "name_ja": "フェアリー", "name_en": "Fairy" },
+  { "id": 19, "name_ja": "ステラ", "name_en": "Stellar" },
+  { "id": 10001, "name_ja": "？？？", "name_en": "???" },
+  { "id": 10002, "name_ja": "ダーク", "name_en": "Shadow" }
+]
