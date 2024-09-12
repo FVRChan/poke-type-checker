@@ -23,39 +23,22 @@ export default function EffortSlider({
         sx={{ alignItems: "center", mb: 1 }}
         style={{ marginLeft: "10px" }}
       >
-        
         <div>{label}</div>
         {label !== "HP" && personalitySetter && personality && (
           <>
             <button
-              // color={personality === 0.9 ? "success" : undefined}
-              // variant="contained" size={"small"} 
-              style={{margin:"1px"}}
+              style={{ margin: "1px" }}
               onClick={() => {
-                personalitySetter(0.9);
+                if (personality === 0.9) {
+                  personalitySetter(1.0);
+                } else if (personality === 1.0) {
+                  personalitySetter(1.1);
+                } else if (personality === 1.1) {
+                  personalitySetter(0.9);
+                }
               }}
             >
-              0.9
-            </button>
-            <button
-              // color={personality === 1.0 ? "success" : undefined}
-              // variant="contained" size={"small"} 
-              style={{margin:"1px"}}
-              onClick={() => {
-                personalitySetter(1.0);
-              }}
-            >
-              1.0
-            </button>
-            <button
-              // color={personality === 1.1 ? "success" : undefined}
-              // variant="contained" size={"small"} 
-              style={{margin:"1px"}}
-              onClick={() => {
-                personalitySetter(1.1);
-              }}
-            >
-              1.1
+              {personality === 1.0 ? "1.0" : personality}
             </button>
           </>
         )}

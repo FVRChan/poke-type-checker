@@ -26,6 +26,14 @@ TYPE_ID_DRAGON = 16
 TYPE_ID_DARK = 17
 TYPE_ID_FAIRY = 18
 
+
+POKEMON_JSON_FILENAME="./tmp/pokemon.json"
+ITEM_JSON_FILENAME="./tmp/item.json"
+MOVE_JSON_FILENAME="./tmp/move.json"
+ABILITY_JSON_FILENAME="./tmp/ability.json"
+TYPE_JSON_FILENAME="./tmp/type.json"
+
+# リージョンフォームなどのマッピング
 def form_mapping(pokemon_id:int,form_number:int):
     mapper={
         38:{1:10104},
@@ -230,8 +238,6 @@ pokemon_home_api_header = {
 }
 
 # dataclass => JSONに使う関数(これを指定しないとシリアライズできない)
-
-
 def default(item: Any):
     if type(item) == date:
         return {"__type__": "date", "args": (item.year, item.month, item.day)}
@@ -543,7 +549,7 @@ class PokemonMove:
         if self.name_ja in ["ウェザーボール"]:
             self.is_weather_ball = True
         # 条件下で2倍
-        if self.name_ja in ["アクロバット", "ベノムショック", "どくばりセンボン", "たたりめ", "しっぺがえし", "ゆきなだれ", "でんげきくちばし", "エラがみ",]:
+        if self.name_ja in ["アクロバット", "ベノムショック", "どくばりセンボン", "たたりめ", "しっぺがえし", "ゆきなだれ", "でんげきくちばし", "エラがみ", "うっぷんばらし"]:
             self.is_2x_under_condition = True
         if self.name_ja in ["しぼりとる", "にぎりつぶす", "ハードプレス"]:
             self.is_wring_out = True
@@ -561,7 +567,7 @@ class PokemonMove:
             self.is_through_rank = True
         if self.name_ja in ["おはかまいり"]:
             self.is_ohakamairi = True
-        if self.name_ja in ["やまあらし", "こおりのいぶき", "ばちばちアクセル", "あんこくきょうだ", "すいりゅうれんだ", "トリックフラワー", "うっぷんばらし"]:
+        if self.name_ja in ["やまあらし", "こおりのいぶき", "ばちばちアクセル", "あんこくきょうだ", "すいりゅうれんだ", "トリックフラワー"]:
             self.is_kakutei_critical = True
         if self.name_ja in ["さばきのつぶて", "テクノバスター", "マルチアタック", "めざめるダンス"]:
             self.is_type_changeable = True
@@ -631,9 +637,6 @@ class RankmatchSeason:
         )
         usage_rank = json.loads(res.text)
         return usage_rank
-        # print(usage_rank)
-        # temp_list = list()
-        # for i, usage in enumerate(usage_rank):
 
 
 
@@ -692,6 +695,7 @@ def decode_pokemon(data: dict) -> Pokemon:
         type_id_list=data["type_id_list"],
         ability_id_list=data["ability_id_list"],
         move_id_list=data["move_id_list"],
+        weight=data["weight"],
     )
 
 
@@ -810,9 +814,9 @@ def decode_pokemon_move(data: dict) -> PokemonMove:
 
 
 def get_pokemon_list():
-    if os.path.exists("./tmp/pokemon.json"):
+    if os.path.exists(POKEMON_JSON_FILENAME):
         loaded_list = json.loads(
-            open("./tmp/pokemon.json").read(), object_hook=decode_pokemon)
+            open(POKEMON_JSON_FILENAME).read(), object_hook=decode_pokemon)
         return loaded_list
     print("download start get_pokemon_list")
     url = "https://pokeapi.co/api/v2/pokemon?limit=2000"
@@ -885,15 +889,14 @@ def get_pokemon_list():
             print(result["url"])
             raise "wwww"
 
-    writer = open("./tmp/pokemon.json", "w")
+    writer = open(POKEMON_JSON_FILENAME, "w")
     writer.write(json.dumps(ret_list, default=default, ensure_ascii=False))
     writer.close()
 
-
 def get_type_list():
-    if os.path.exists("./tmp/type.json"):
+    if os.path.exists(TYPE_JSON_FILENAME):
         loaded_list = json.loads(
-            open("./tmp/type.json").read(), object_hook=decode_pokemon_type)
+            open(TYPE_JSON_FILENAME).read(), object_hook=decode_pokemon_type)
         return loaded_list
     print("download start get_type_list")
     url = "https://pokeapi.co/api/v2/type?limit=50"
@@ -919,14 +922,14 @@ def get_type_list():
         except:
             _ = 1
 
-    writer = open("./tmp/type.json", "w")
+    writer = open(TYPE_JSON_FILENAME, "w")
     writer.write(json.dumps(type_list, default=default, ensure_ascii=False))
     writer.close()
 
 
 def get_ability_list():
-    if os.path.exists("./tmp/ability.json"):
-        temp_list=json.loads(open("./tmp/ability.json").read())
+    if os.path.exists(ABILITY_JSON_FILENAME):
+        temp_list=json.loads(open(ABILITY_JSON_FILENAME).read())
 
         loaded_list=list()
         for temp_row in temp_list:
@@ -1004,15 +1007,29 @@ def get_ability_list():
         except:
             _ = 1
 
-    writer = open("./tmp/ability.json", "w")
+    writer = open(ABILITY_JSON_FILENAME, "w")
     writer.write(json.dumps(ability_list, default=default, ensure_ascii=False))
+    writer.close()
+
+def update_move_list():
+    if os.path.exists(MOVE_JSON_FILENAME)==False:
+        raise "file not found"
+    reader_opener=open(MOVE_JSON_FILENAME)
+    reader=reader_opener.read()
+    # print(reader)
+    move_list=json.loads(reader, object_hook=decode_pokemon_move)
+    reader_opener.close()
+    for move in move_list:
+        move.set_extra_value()
+    writer=open(MOVE_JSON_FILENAME,"w")
+    writer.write(json.dumps(move_list, default=default, ensure_ascii=False))
     writer.close()
 
 
 def get_move_list():
-    if os.path.exists("./tmp/move.json"):
+    if os.path.exists(MOVE_JSON_FILENAME):
         loaded_list = json.loads(
-            open("./tmp/move.json").read(), object_hook=decode_pokemon_move)
+            open(MOVE_JSON_FILENAME).read(), object_hook=decode_pokemon_move)
         return loaded_list
     print("download start get_move_list")
     url = "https://pokeapi.co/api/v2/move?limit=1000"
@@ -1051,14 +1068,13 @@ def get_move_list():
         except:
             _ = 1
 
-    writer = open("./tmp/move.json", "w")
+    writer = open(MOVE_JSON_FILENAME, "w")
     writer.write(json.dumps(move_list, default=default, ensure_ascii=False))
     writer.close()
 
-
 def get_item_list():
-    if os.path.exists("./tmp/item.json"):
-        temp_list=json.loads(open("./tmp/item.json").read())
+    if os.path.exists(ITEM_JSON_FILENAME):
+        temp_list=json.loads(open(ITEM_JSON_FILENAME).read())
         ret_item_list=list()
         for temp in temp_list:
             ret_item_list.append(PokemonItem(
@@ -1094,7 +1110,7 @@ def get_item_list():
         except:
             _ = 1
 
-    writer = open("./tmp/item.json", "w")
+    writer = open(ITEM_JSON_FILENAME, "w")
     writer.write(json.dumps(move_list, default=default, ensure_ascii=False))
     writer.close()
 
@@ -1174,72 +1190,73 @@ class PokemonForRankMatch:
     usage_rate:int=999
     often_used_move:List[int]= List
 
-pokemon_list=get_pokemon_list()
-ability_list=get_ability_list()
-move_list=get_move_list()
-type_list=get_type_list()
-item_list=get_item_list()
-single_season_list=get_rankmatch_season_list()
-personality_list=get_personality_list()
 
-for single_season in single_season_list:
-    usage_info_list=single_season.set_usage_rank_list()
-    ### 使用率TOP150抽出
-    usage_rate_mapper=dict()
-    loop_usage_rate=1
-    # 使用率は後で
-    # 後で使用率圏外のポケモンも補完する
-    for usage_info in usage_info_list:
-        pokemon=[p for p in pokemon_list if p.id==usage_info["id"]]
-        if len(pokemon)==0:
-            raise "kusa"
-        pokemon=pokemon[0]
-        pokemon_id=form_mapping(int(usage_info["id"]),int(usage_info["form"]))
-        usage_rate_mapper[pokemon_id]=loop_usage_rate
-        loop_usage_rate+=1
-    # ###
-    # print(usage_rate_mapper)
-    # raise 1
-    poke_detail_url_list = [
-        'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,1),
-        'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,2),
-        'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,3),
-        'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,4),
-        'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,5),
-        'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,6),
-    ]
+def update_pokemon_data():
+    pokemon_list=get_pokemon_list()
+    # ability_list=get_ability_list()
+    # move_list=get_move_list()
+    # type_list=get_type_list()
+    # item_list=get_item_list()
+    single_season_list=get_rankmatch_season_list()
+    # personality_list=get_personality_list()
 
-    #
-    detail_mapper=dict()
-    detail_list=list()
-    # rank_list=list()
-    for poke_detail_url in poke_detail_url_list:
-        res=requests.get(poke_detail_url,headers=pokemon_home_api_header)
-        time.sleep(1)
-        res_dict=json.loads(res.text)
-        for pokemon_number in res_dict.keys():
-            for pokemon_form in res_dict[pokemon_number].keys():
-                usage_info=res_dict[pokemon_number][pokemon_form]
-                often_usage_move_list=[int(move["id"]) for move in usage_info["temoti"]["waza"]]
-                pokemon_id=form_mapping(pokemon_id=int(pokemon_number),form_number=int(pokemon_form))
-                pokemon=[p for p in pokemon_list if int(p.id)==int(pokemon_id)]
-                temp_info=PokemonForRankMatch(
-                    id=int(pokemon_id),
-                    base=pokemon[0],
-                    often_used_move=often_usage_move_list,
-                )
-                if pokemon_id in usage_rate_mapper:
-                    temp_info.usage_rate=usage_rate_mapper[pokemon_id]
-                if int(pokemon_id) in usage_rate_mapper:
-                    temp_info.usage_rate=usage_rate_mapper[int(pokemon_id)]
-                if pokemon_id not in detail_mapper:
-                    detail_mapper[pokemon_id]=temp_info
-                    detail_list.append(temp_info)
+    for single_season in single_season_list:
+        usage_info_list=single_season.set_usage_rank_list()
+        ### 使用率TOP150抽出
+        usage_rate_mapper=dict()
+        loop_usage_rate=1
+        # 使用率は後で
+        # 後で使用率圏外のポケモンも補完する
+        for usage_info in usage_info_list:
+            pokemon=[p for p in pokemon_list if p.id==usage_info["id"]]
+            if len(pokemon)==0:
+                raise "kusa"
+            pokemon=pokemon[0]
+            pokemon_id=form_mapping(int(usage_info["id"]),int(usage_info["form"]))
+            usage_rate_mapper[pokemon_id]=loop_usage_rate
+            loop_usage_rate+=1
+        # ###
+        # print(usage_rate_mapper)
+        # raise 1
+        poke_detail_url_list = [
+            'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,1),
+            'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,2),
+            'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,3),
+            'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,4),
+            'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,5),
+            'https://resource.pokemon-home.com/battledata/ranking/scvi/%s/%d/%d/pdetail-%d' %(single_season.id,single_season.rst,single_season.ts2,6),
+        ]
 
-    takashi=open("./poke-js/src/pokemon-list.ts","w")
-    takashi.write('import { Pokemon } from "./pokemon";export const all_pokemon_list ='+json.dumps(detail_list, default=default, ensure_ascii=False)+' as Array<Pokemon>;')
-    takashi.close()
-    break
+        #
+        detail_mapper=dict()
+        detail_list=list()
+        # rank_list=list()
+        for poke_detail_url in poke_detail_url_list:
+            res=requests.get(poke_detail_url,headers=pokemon_home_api_header)
+            time.sleep(1)
+            res_dict=json.loads(res.text)
+            for pokemon_number in res_dict.keys():
+                for pokemon_form in res_dict[pokemon_number].keys():
+                    usage_info=res_dict[pokemon_number][pokemon_form]
+                    often_usage_move_list=[int(move["id"]) for move in usage_info["temoti"]["waza"]]
+                    pokemon_id=form_mapping(pokemon_id=int(pokemon_number),form_number=int(pokemon_form))
+                    pokemon=[p for p in pokemon_list if int(p.id)==int(pokemon_id)]
+                    temp_info=PokemonForRankMatch(
+                        id=int(pokemon_id),
+                        base=pokemon[0],
+                        often_used_move=often_usage_move_list,
+                    )
+                    if pokemon_id in usage_rate_mapper:
+                        temp_info.usage_rate=usage_rate_mapper[pokemon_id]
+                    if int(pokemon_id) in usage_rate_mapper:
+                        temp_info.usage_rate=usage_rate_mapper[int(pokemon_id)]
+                    if pokemon_id not in detail_mapper:
+                        detail_mapper[pokemon_id]=temp_info
+                        detail_list.append(temp_info)
 
+        takashi=open("./poke-js/src/pokemon-list.ts","w")
+        takashi.write('import { Pokemon } from "./pokemon";export const all_pokemon_list ='+json.dumps(detail_list, default=default, ensure_ascii=False)+' as Array<Pokemon>;')
+        takashi.close()
+        break
 
-
+update_move_list()

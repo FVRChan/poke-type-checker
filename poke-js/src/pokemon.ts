@@ -16,6 +16,7 @@ export interface PokemonBase {
   type_id_list: Array<number>;
   ability_id_list: Array<number>;
   move_id_list: Array<number>;
+  weight:number;
 }
 export interface Pokemon {
   id: number;
@@ -99,6 +100,7 @@ export function dummyPokemon(): Pokemon {
       type_id_list: [],
       ability_id_list: [],
       move_id_list: [],
+      weight:1,
     },
     often_used_move: [],
     usage_rate: 999,

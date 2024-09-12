@@ -2,6 +2,7 @@ import move_list, { Move, MOVE_DAMAGE_CLASS_STATUS } from "./move";
 import { Pokemon } from "./pokemon";
 
 // 努力値計算(SliderのStep設定に苦戦した)
+// 50レベル前提で考えているので1振りで4、2以上は4+8(n-1)で返す
 export function calcEffort(step: number): number {
   if (step === 0) {
     return 0;
@@ -11,7 +12,7 @@ export function calcEffort(step: number): number {
   return 4 + (step - 1) * 8;
 }
 
-// 個体値31前提で計算している
+// 個体値31前提で種族値と努力値、性格補正を加味したABCD実数値を計算する
 export function calcRealValueOtherStat(
   b: number,
   es: number,
@@ -20,11 +21,13 @@ export function calcRealValueOtherStat(
   return Math.floor(p * (20 + b + es));
 }
 
-// 個体値31前提で計算している
+// 個体値31前提で種族値と努力値を加味したH実数値を計算する
 export function calcRealValueHPStat(b: number, es: number) {
   return 75 + b + es;
 }
 
+// 指定したポケモンが覚える技(変化技除く)の一覧を返す。
+// 使用率の高い技があればそれを優先
 export function sortMoveList(p: Pokemon): Move[] {
   return move_list
     .filter((m) => {
