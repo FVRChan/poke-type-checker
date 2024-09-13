@@ -1,6 +1,8 @@
 import { isMobile } from "react-device-detect";
 import { EffectiveValue, EffortSlider, Personality } from "./calc_damage";
 import { all_pokemon_list } from "./pokemon-list";
+import { Move } from "./move";
+import { sortMoveList } from "./util";
 
 export interface PokemonBase {
   id: number;
@@ -16,7 +18,7 @@ export interface PokemonBase {
   type_id_list: Array<number>;
   ability_id_list: Array<number>;
   move_id_list: Array<number>;
-  weight:number;
+  weight: number;
 }
 export interface Pokemon {
   id: number;
@@ -26,6 +28,8 @@ export interface Pokemon {
   personality: Personality;
   usage_rate: number;
   often_used_move: Array<number>;
+  selected_move?: Move;
+  move_list?: Move[];
 }
 
 export const pokemon_list = all_pokemon_list
@@ -57,10 +61,12 @@ pokemon_list.forEach((p) => {
     special_attack: 1.0,
     special_defense: 1.0,
   };
+  p.selected_move = sortMoveList(p)[0];
+  p.move_list = sortMoveList(p);
 });
 
 export function pokemon_array(separate_number: number) {
-  let t = 12;
+  let t = 6;
   // なんかisMobileがうまく動かない
   // console.log("isMobile => ",isMobile )
   // if (isMobile) {
@@ -100,7 +106,7 @@ export function dummyPokemon(): Pokemon {
       type_id_list: [],
       ability_id_list: [],
       move_id_list: [],
-      weight:1,
+      weight: 1,
     },
     often_used_move: [],
     usage_rate: 999,

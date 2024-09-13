@@ -57,12 +57,12 @@ export function calc_interface({
   offencePokemon,
   deffencePokemon,
   deffenceDummyPokemon,
-  moveList,
-}: {
+}: // moveList,
+{
   offencePokemon: Pokemon;
   deffencePokemon: Pokemon;
   deffenceDummyPokemon: Pokemon;
-  moveList: Move[];
+  // moveList: Move[];
 }) {
   offencePokemon.effective_value = {
     hp: calcRealValueHPStat(
@@ -118,7 +118,9 @@ export function calc_interface({
   };
 
   const vectorList: number[][] = [];
-  moveList.forEach((move) => {
+  // moveList.forEach((move) => {
+  const move = offencePokemon.selected_move;
+  if (move) {
     const rateMapper = {
       compatibilityRate: getCompatibilityTypeRate(move, deffencePokemon),
       sameTypeRate: getMovePokemonTypeRate(move, offencePokemon),
@@ -130,16 +132,20 @@ export function calc_interface({
       rateMapper
     );
     vectorList.push(calcedList);
-  });
+  }
+  // });
 
   // const resList:number[]=[]
   // vectorList.forEach((v)=>{
   //   // v[0][0-15]
   //   // v[1][0-15]
   // })
-  const calcedList = kusatu(vectorList);
-  const maxDamage = Math.max(...calcedList);
-  const minDamage = Math.min(...calcedList);
+  if (vectorList.length === 0) {
+    return `0~0`;
+  }
+  const finalCalcedList = kusatu(vectorList);
+  const maxDamage = Math.max(...finalCalcedList);
+  const minDamage = Math.min(...finalCalcedList);
   return `(${minDamage}~${maxDamage})`;
 
   // 最後に確定なんちゃら～で出したい
