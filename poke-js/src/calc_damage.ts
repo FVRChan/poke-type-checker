@@ -1,5 +1,5 @@
 import { Move, MOVE_DAMAGE_CLASS_PHYSICAL } from "./move";
-import { Pokemon } from "./pokemon";
+import { Pokemon, pokemon_list } from "./pokemon";
 import type_map from "./type-map";
 import { calcRealValueHPStat, calcRealValueOtherStat } from "./util";
 
@@ -54,42 +54,17 @@ function kusatu(numberArray: number[][]): number[] {
 }
 
 export function calc_interface({
-  offencePokemon,
+  offencePokemonList,
   deffencePokemon,
   deffenceDummyPokemon,
 }: // moveList,
 {
-  offencePokemon: Pokemon;
+  offencePokemonList: Pokemon[];
   deffencePokemon: Pokemon;
   deffenceDummyPokemon: Pokemon;
   // moveList: Move[];
 }) {
-  offencePokemon.effective_value = {
-    hp: calcRealValueHPStat(
-      offencePokemon.base.hp,
-      offencePokemon.effective_slider_step.hp
-    ),
-    attack: calcRealValueOtherStat(
-      offencePokemon.base.attack,
-      offencePokemon.effective_slider_step.attack,
-      offencePokemon.personality.attack
-    ),
-    defense: calcRealValueOtherStat(
-      offencePokemon.base.defense,
-      offencePokemon.effective_slider_step.defense,
-      offencePokemon.personality.defense
-    ),
-    special_attack: calcRealValueOtherStat(
-      offencePokemon.base.special_attack,
-      offencePokemon.effective_slider_step.special_attack,
-      offencePokemon.personality.special_attack
-    ),
-    special_defense: calcRealValueOtherStat(
-      offencePokemon.base.special_defense,
-      offencePokemon.effective_slider_step.special_defense,
-      offencePokemon.personality.special_defense
-    ),
-  };
+  const vectorList: number[][] = [];
   deffencePokemon.effective_value = {
     hp: calcRealValueHPStat(
       deffencePokemon.base.hp,
@@ -116,23 +91,51 @@ export function calc_interface({
       deffenceDummyPokemon.personality.special_defense
     ),
   };
+  offencePokemonList.forEach((offencePokemon) => {
+    offencePokemon.effective_value = {
+      hp: calcRealValueHPStat(
+        offencePokemon.base.hp,
+        offencePokemon.effective_slider_step.hp
+      ),
+      attack: calcRealValueOtherStat(
+        offencePokemon.base.attack,
+        offencePokemon.effective_slider_step.attack,
+        offencePokemon.personality.attack
+      ),
+      defense: calcRealValueOtherStat(
+        offencePokemon.base.defense,
+        offencePokemon.effective_slider_step.defense,
+        offencePokemon.personality.defense
+      ),
+      special_attack: calcRealValueOtherStat(
+        offencePokemon.base.special_attack,
+        offencePokemon.effective_slider_step.special_attack,
+        offencePokemon.personality.special_attack
+      ),
+      special_defense: calcRealValueOtherStat(
+        offencePokemon.base.special_defense,
+        offencePokemon.effective_slider_step.special_defense,
+        offencePokemon.personality.special_defense
+      ),
+    };
 
-  const vectorList: number[][] = [];
+    const move = offencePokemon.selected_move;
+    if (move) {
+      const rateMapper = {
+        compatibilityRate: getCompatibilityTypeRate(move, deffencePokemon),
+        sameTypeRate: getMovePokemonTypeRate(move, offencePokemon),
+      } as damageRateMapper;
+      const calcedList = calcWithRand(
+        move,
+        offencePokemon,
+        deffencePokemon,
+        rateMapper
+      );
+      vectorList.push(calcedList);
+    }
+  });
+
   // moveList.forEach((move) => {
-  const move = offencePokemon.selected_move;
-  if (move) {
-    const rateMapper = {
-      compatibilityRate: getCompatibilityTypeRate(move, deffencePokemon),
-      sameTypeRate: getMovePokemonTypeRate(move, offencePokemon),
-    } as damageRateMapper;
-    const calcedList = calcWithRand(
-      move,
-      offencePokemon,
-      deffencePokemon,
-      rateMapper
-    );
-    vectorList.push(calcedList);
-  }
   // });
 
   // const resList:number[]=[]

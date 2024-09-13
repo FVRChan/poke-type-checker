@@ -7,11 +7,13 @@ export default function Effort({
   pokemonSetter,
   isOffense,
   isDefense,
+  index,
 }: {
   pokemon: Pokemon;
-  pokemonSetter: (p: Pokemon) => void;
+  pokemonSetter: (i: number, p: Pokemon) => void;
   isOffense: boolean;
   isDefense: boolean;
+  index: number;
 }) {
   const [effortStepHP, setEffortStepHP] = React.useState<number>(
     pokemon.effective_slider_step.hp
@@ -30,31 +32,31 @@ export default function Effort({
     setEffortStepHP(newValue);
     const temp = { ...pokemon };
     temp.effective_slider_step.hp = newValue;
-    pokemonSetter(temp);
+    pokemonSetter(index, temp);
   };
   const handleSetPokemonEffortStepAttack = (newValue: number) => {
     setEffortStepAttack(newValue);
     const temp = { ...pokemon };
     temp.effective_slider_step.attack = newValue;
-    pokemonSetter(temp);
+    pokemonSetter(index, temp);
   };
   const handleSetPokemonEffortStepDeffence = (newValue: number) => {
     setEffortStepDeffence(newValue);
     const temp = { ...pokemon };
     temp.effective_slider_step.defense = newValue;
-    pokemonSetter(temp);
+    pokemonSetter(index, temp);
   };
   const handleSetPokemonEffortStepSpecialAttack = (newValue: number) => {
     setEffortStepSpecialAttack(newValue);
     const temp = { ...pokemon };
     temp.effective_slider_step.special_attack = newValue;
-    pokemonSetter(temp);
+    pokemonSetter(index, temp);
   };
   const handleSetPokemonEffortStepSpecialDeffence = (newValue: number) => {
     setEffortStepSpecialDeffence(newValue);
     const temp = { ...pokemon };
     temp.effective_slider_step.special_defense = newValue;
-    pokemonSetter(temp);
+    pokemonSetter(index, temp);
   };
   const [personalityAttack, setPersonalityAttack] = React.useState<
     0.9 | 1.0 | 1.1
@@ -70,25 +72,25 @@ export default function Effort({
     setPersonalityAttack(newValue);
     const temp = { ...pokemon };
     temp.personality.attack = newValue;
-    pokemonSetter(temp);
+    pokemonSetter(index, temp);
   };
   const handleSetPersonalityDeffence = (newValue: 0.9 | 1.0 | 1.1) => {
     setPersonalityDeffence(newValue);
     const temp = { ...pokemon };
     temp.personality.defense = newValue;
-    pokemonSetter(temp);
+    pokemonSetter(index, temp);
   };
   const handleSetPersonalitySpecialAttack = (newValue: 0.9 | 1.0 | 1.1) => {
     setPersonalitySpecialAttack(newValue);
     const temp = { ...pokemon };
     temp.personality.special_attack = newValue;
-    pokemonSetter(temp);
+    pokemonSetter(index, temp);
   };
   const handleSetPersonalitySpecialDeffence = (newValue: 0.9 | 1.0 | 1.1) => {
     setPersonalitySpecialDeffence(newValue);
     const temp = { ...pokemon };
     temp.personality.special_defense = newValue;
-    pokemonSetter(temp);
+    pokemonSetter(index, temp);
   };
   return (
     <>

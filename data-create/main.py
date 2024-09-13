@@ -37,6 +37,7 @@ TYPE_JSON_FILENAME="./tmp/type.json"
 def form_mapping(pokemon_id:int,form_number:int):
     mapper={
         38:{1:10104},
+        89:{1:10113},
         110:{1:10167},
         128:{1:10250,2:10251,3:10252},
         199:{1:10172},
@@ -45,6 +46,8 @@ def form_mapping(pokemon_id:int,form_number:int):
         571:{1:10239},
         628:{1:10240},
         706:{1:10242},
+        713:{1:10243},
+        724:{1:10244},
         876:{1:10186},
         901:{1:10272},
         902:{1:10248},
@@ -1239,24 +1242,33 @@ def update_pokemon_data():
                 for pokemon_form in res_dict[pokemon_number].keys():
                     usage_info=res_dict[pokemon_number][pokemon_form]
                     often_usage_move_list=[int(move["id"]) for move in usage_info["temoti"]["waza"]]
-                    pokemon_id=form_mapping(pokemon_id=int(pokemon_number),form_number=int(pokemon_form))
-                    pokemon=[p for p in pokemon_list if int(p.id)==int(pokemon_id)]
-                    temp_info=PokemonForRankMatch(
-                        id=int(pokemon_id),
-                        base=pokemon[0],
-                        often_used_move=often_usage_move_list,
-                    )
-                    if pokemon_id in usage_rate_mapper:
-                        temp_info.usage_rate=usage_rate_mapper[pokemon_id]
-                    if int(pokemon_id) in usage_rate_mapper:
-                        temp_info.usage_rate=usage_rate_mapper[int(pokemon_id)]
-                    if pokemon_id not in detail_mapper:
-                        detail_mapper[pokemon_id]=temp_info
-                        detail_list.append(temp_info)
+                    pokemon_id_list=[form_mapping(pokemon_id=int(pokemon_number),form_number=int(pokemon_form))]
+                    if len(pokemon_id_list)==1 :
+                        if pokemon_id_list[0]==964:
+                            pokemon_id_list.append(10256)
+                        elif pokemon_id_list[0]==1017:
+                            pokemon_id_list.append(10273,10274,10275)
+                        elif pokemon_id_list[0]==1024:
+                            pokemon_id_list.append(10276,10277)
+
+                    for pokemon_id in pokemon_id_list:
+                        pokemon=[p for p in pokemon_list if int(p.id)==int(pokemon_id)]
+                        temp_info=PokemonForRankMatch(
+                            id=int(pokemon_id),
+                            base=pokemon[0],
+                            often_used_move=often_usage_move_list,
+                        )
+                        if pokemon_id in usage_rate_mapper:
+                            temp_info.usage_rate=usage_rate_mapper[pokemon_id]
+                        if int(pokemon_id) in usage_rate_mapper:
+                            temp_info.usage_rate=usage_rate_mapper[int(pokemon_id)]
+                        if pokemon_id not in detail_mapper:
+                            detail_mapper[pokemon_id]=temp_info
+                            detail_list.append(temp_info)
 
         takashi=open("./poke-js/src/pokemon-list.ts","w")
         takashi.write('import { Pokemon } from "./pokemon";export const all_pokemon_list ='+json.dumps(detail_list, default=default, ensure_ascii=False)+' as Array<Pokemon>;')
         takashi.close()
         break
 
-update_move_list()
+update_pokemon_data()

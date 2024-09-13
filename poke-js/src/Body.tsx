@@ -10,10 +10,10 @@ import { Pokemon, pokemon_array } from "./pokemon";
 import { useWindowSize } from "./useWindowSize";
 
 function Body({
-  offencePokemon,
+  offencePokemonList,
   deffenceDummyPokemon,
 }: {
-  offencePokemon: Pokemon;
+  offencePokemonList: Pokemon[];
   deffenceDummyPokemon: Pokemon;
 }) {
   return (
@@ -21,7 +21,7 @@ function Body({
       <TableContainer>
         <Table stickyHeader aria-label="sticky table">
           <TableBody style={{ maxWidth: `${useWindowSize()}px` }}>
-            {pokemon_array((useWindowSize().width - 50) / 110).map(
+            {pokemon_array((useWindowSize().width - 50) / 144).map(
               (deffencePokemonList) => {
                 return (
                   <TableRow
@@ -47,7 +47,7 @@ function Body({
                           )}
                           <div>
                             {calc_interface({
-                              offencePokemon,
+                              offencePokemonList,
                               deffencePokemon: deffencePokemon,
                               deffenceDummyPokemon,
                             })}

@@ -1,21 +1,24 @@
 import Effort from "./Effort";
 import { Pokemon } from "./pokemon";
 
+// index もダミー
 function DefencePokemon({
   deffenceDummyPokemon,
   setDeffenceDummyPokemon,
+  index = 0,
 }: {
   deffenceDummyPokemon: Pokemon;
-  setDeffenceDummyPokemon: React.Dispatch<React.SetStateAction<Pokemon>>;
+  setDeffenceDummyPokemon: (i: number, p: Pokemon) => void;
+  index?: number;
 }) {
   return (
     <>
-      <h2>守備側</h2>
       <Effort
         pokemon={deffenceDummyPokemon}
         pokemonSetter={setDeffenceDummyPokemon}
         isOffense={false}
         isDefense
+        index={index}
       />
     </>
   );

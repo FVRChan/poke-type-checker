@@ -1,33 +1,38 @@
-import React, { useRef } from "react";
-import { pokemon_list, pokemon_array, Pokemon, dummyPokemon } from "./pokemon";
-import move_list, { Move, MOVE_DAMAGE_CLASS_PHYSICAL } from "./move";
-import {
-  Table,
-  TableContainer,
-  TableRow,
-  TableBody,
-  TableCell,
-  Autocomplete,
-  TextField,
-  Grid,
-  Box,
-} from "@mui/material";
-import { calc_interface } from "./calc_damage";
-import Effort from "./Effort";
-import { sortMoveList } from "./util";
-import { useWindowSize } from "./useWindowSize";
-import { type_id_to_kanji } from "./type-map";
+import React from "react";
+import { pokemon_list, Pokemon, dummyPokemon } from "./pokemon";
+import { Grid, Box } from "@mui/material";
 import SideBar from "./Sidebar";
-import TemporaryDrawer from "./Drawer";
 import OffencePokemon from "./OffencePokemon";
 import DefencePokemon from "./DefencePokemon";
 import Body from "./Body";
+// 負けた気はするがとりあえず行ける
+function copyPokemon(p: Pokemon): Pokemon {
+  return JSON.parse(JSON.stringify(p));
+}
 export default function App() {
-  const [offencePokemon, setOffencePokemon] = React.useState<Pokemon>(
-    pokemon_list[0]
+  const [offencePokemonList, setOffencePokemonList] = React.useState<Pokemon[]>(
+    [copyPokemon(pokemon_list[0])]
   );
+  const handleAddOffencePokemonList = () => {
+    const temp = offencePokemonList;
+    temp.splice(temp.length, 0, copyPokemon(pokemon_list[0]));
+    setOffencePokemonList([...temp]);
+  };
+  const handleRemoveOffencePokemonList = (i: number) => {
+    const temp = offencePokemonList;
+    temp.splice(i, 1);
+    setOffencePokemonList([...temp]);
+  };
+  const handleSaveOffencePokemonList = (i: number, p: Pokemon) => {
+    const temp = offencePokemonList;
+    temp.splice(i, 1, p);
+    setOffencePokemonList([...temp]);
+  };
   const [deffenceDummyPokemon, setDeffenceDummyPokemon] =
     React.useState<Pokemon>(dummyPokemon);
+  const handleSaveDeffenceDummyPokemon = (i: number, p: Pokemon) => {
+    setDeffenceDummyPokemon((prev) => ({ ...prev }));
+  };
 
   return (
     <div className="App">
@@ -37,15 +42,46 @@ export default function App() {
             children={
               <Grid container direction="column">
                 <Grid>
-                  <OffencePokemon
-                    offencePokemon={offencePokemon}
-                    setOffencePokemon={setOffencePokemon}
-                  ></OffencePokemon>
+                  <h2>攻撃側</h2>
+                  {offencePokemonList.map((offencePokemon, i) => {
+                    return (
+                      <>
+                        <OffencePokemon
+                          offencePokemon={offencePokemon}
+                          setOffencePokemon={handleSaveOffencePokemonList}
+                          index={i}
+                        ></OffencePokemon>
+                        {offencePokemonList.length > 1 && (
+                          <div style={{ textAlign: "center" }}>
+                            <button
+                              onClick={() => {
+                                handleRemoveOffencePokemonList(i);
+                              }}
+                            >
+                              -
+                            </button>
+                          </div>
+                        )}
+                      </>
+                    );
+                  })}
+                  <div style={{ textAlign: "center" }}>
+                    {offencePokemonList.length < 3 && (
+                      <button
+                        onClick={() => {
+                          handleAddOffencePokemonList();
+                        }}
+                      >
+                        +
+                      </button>
+                    )}
+                  </div>
                 </Grid>
                 <Grid>
+                  <h2>防御側</h2>
                   <DefencePokemon
                     deffenceDummyPokemon={deffenceDummyPokemon}
-                    setDeffenceDummyPokemon={setDeffenceDummyPokemon}
+                    setDeffenceDummyPokemon={handleSaveDeffenceDummyPokemon}
                   ></DefencePokemon>
                 </Grid>
               </Grid>
@@ -55,7 +91,7 @@ export default function App() {
           {/* <TemporaryDrawer></TemporaryDrawer> */}
           <Grid container direction="column">
             <Body
-              offencePokemon={offencePokemon}
+              offencePokemonList={offencePokemonList}
               deffenceDummyPokemon={deffenceDummyPokemon}
             ></Body>
           </Grid>
