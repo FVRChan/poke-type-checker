@@ -1217,6 +1217,16 @@ def update_pokemon_data():
             pokemon=pokemon[0]
             pokemon_id=form_mapping(int(usage_info["id"]),int(usage_info["form"]))
             usage_rate_mapper[pokemon_id]=loop_usage_rate
+            if pokemon_id==964:
+                usage_rate_mapper[10256]=loop_usage_rate
+            elif pokemon_id==1017:
+                usage_rate_mapper[10273]=loop_usage_rate
+                usage_rate_mapper[10274]=loop_usage_rate
+                usage_rate_mapper[10275]=loop_usage_rate
+            elif pokemon_id==1024:
+                usage_rate_mapper[10276]=loop_usage_rate
+                usage_rate_mapper[10277]=loop_usage_rate
+
             loop_usage_rate+=1
         # ###
         # print(usage_rate_mapper)

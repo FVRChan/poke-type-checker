@@ -1,10 +1,14 @@
 import React from "react";
 import { pokemon_list, Pokemon, dummyPokemon } from "./pokemon";
-import { Grid, Box } from "@mui/material";
+import { Grid, Box, AppBar } from "@mui/material";
 import SideBar from "./Sidebar";
 import OffencePokemon from "./OffencePokemon";
 import DefencePokemon from "./DefencePokemon";
 import Body from "./Body";
+import TemporaryDrawer from "./Drawer";
+import SideMenu from "./SideMenu";
+import { isMobile } from "react-device-detect";
+import { useWindowSize } from "./useWindowSize";
 // 負けた気はするがとりあえず行ける
 function copyPokemon(p: Pokemon): Pokemon {
   return JSON.parse(JSON.stringify(p));
@@ -34,62 +38,68 @@ export default function App() {
     setDeffenceDummyPokemon((prev) => ({ ...prev }));
   };
 
+  const [open, setopen] = React.useState(false);
+  const toggleOpen = () => {
+    setopen(!open);
+  };
+
   return (
     <div className="App">
       <div>
         <Box sx={{ display: "flex" }}>
-          <SideBar
-            children={
-              <Grid container direction="column">
-                <Grid>
-                  <h2>攻撃側</h2>
-                  {offencePokemonList.map((offencePokemon, i) => {
-                    return (
-                      <>
-                        <OffencePokemon
-                          offencePokemon={offencePokemon}
-                          setOffencePokemon={handleSaveOffencePokemonList}
-                          index={i}
-                        ></OffencePokemon>
-                        {offencePokemonList.length > 1 && (
-                          <div style={{ textAlign: "center" }}>
-                            <button
-                              onClick={() => {
-                                handleRemoveOffencePokemonList(i);
-                              }}
-                            >
-                              -
-                            </button>
-                          </div>
-                        )}
-                      </>
-                    );
-                  })}
-                  <div style={{ textAlign: "center" }}>
-                    {offencePokemonList.length < 3 && (
-                      <button
-                        onClick={() => {
-                          handleAddOffencePokemonList();
-                        }}
-                      >
-                        +
-                      </button>
-                    )}
-                  </div>
-                </Grid>
-                <Grid>
-                  <h2>防御側</h2>
-                  <DefencePokemon
+          {isMobile ? (
+            <>
+              <TemporaryDrawer
+                open={open}
+                toggleOpen={toggleOpen}
+                children={
+                  <SideMenu
+                    offencePokemonList={offencePokemonList}
+                    handleSaveOffencePokemonList={handleSaveOffencePokemonList}
+                    handleRemoveOffencePokemonList={
+                      handleRemoveOffencePokemonList
+                    }
+                    handleAddOffencePokemonList={handleAddOffencePokemonList}
                     deffenceDummyPokemon={deffenceDummyPokemon}
-                    setDeffenceDummyPokemon={handleSaveDeffenceDummyPokemon}
-                  ></DefencePokemon>
-                </Grid>
-              </Grid>
-            }
-          ></SideBar>
+                    handleSaveDeffenceDummyPokemon={
+                      handleSaveDeffenceDummyPokemon
+                    }
+                  />
+                }
+              ></TemporaryDrawer>
+            </>
+          ) : (
+            <>
+              {" "}
+              <SideBar
+                children={
+                  <SideMenu
+                    offencePokemonList={offencePokemonList}
+                    handleSaveOffencePokemonList={handleSaveOffencePokemonList}
+                    handleRemoveOffencePokemonList={
+                      handleRemoveOffencePokemonList
+                    }
+                    handleAddOffencePokemonList={handleAddOffencePokemonList}
+                    deffenceDummyPokemon={deffenceDummyPokemon}
+                    handleSaveDeffenceDummyPokemon={
+                      handleSaveDeffenceDummyPokemon
+                    }
+                  />
+                }
+              ></SideBar>
+            </>
+          )}
           {/* 入れ替えたい(スマフォ対応的な感じで) */}
           {/* <TemporaryDrawer></TemporaryDrawer> */}
-          <Grid container direction="column">
+          <Grid container direction="column" style={{ width: "95%" }}>
+            {isMobile && (
+                <button
+                  // style={{width:"95%"}}
+                  onClick={toggleOpen}
+                >
+                  menu open
+                </button>
+            )}
             <Body
               offencePokemonList={offencePokemonList}
               deffenceDummyPokemon={deffenceDummyPokemon}
