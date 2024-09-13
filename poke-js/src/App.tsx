@@ -89,17 +89,8 @@ export default function App() {
               ></SideBar>
             </>
           )}
-          {/* 入れ替えたい(スマフォ対応的な感じで) */}
-          {/* <TemporaryDrawer></TemporaryDrawer> */}
           <Grid container direction="column" style={{ width: "95%" }}>
-            {isMobile && (
-                <button
-                  // style={{width:"95%"}}
-                  onClick={toggleOpen}
-                >
-                  menu open
-                </button>
-            )}
+            {isMobile && <button onClick={toggleOpen}>menu open</button>}
             <Body
               offencePokemonList={offencePokemonList}
               deffenceDummyPokemon={deffenceDummyPokemon}

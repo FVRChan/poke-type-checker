@@ -68,7 +68,7 @@ pokemon_list.forEach((p) => {
 export function pokemon_array(separate_number: number) {
   let t = 7;
   // なんかisMobileがうまく動かない
-  console.log("isMobile => ",isMobile )
+  // console.log("isMobile => ",isMobile )
   if (isMobile) {
     t = 5;
   }

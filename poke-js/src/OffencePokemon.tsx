@@ -2,6 +2,7 @@ import { Grid, Autocomplete, TextField } from "@mui/material";
 import Effort from "./Effort";
 import { Pokemon, pokemon_list } from "./pokemon";
 import { type_id_to_kanji } from "./type-map";
+import { isMobile } from "react-device-detect";
 
 function OffencePokemon({
   offencePokemon,
@@ -17,7 +18,9 @@ function OffencePokemon({
       <Grid container direction="column">
         <Grid container direction="column">
           <Grid>
-            <Autocomplete
+            {isMobile?<>
+            <select>{pokemon_list.map((pokemon)=>{return(<option>{pokemon.base.name_ja}</option>)})}</select>
+            </>:<><Autocomplete
               value={offencePokemon}
               onChange={(_, p) => {
                 if (p) {
@@ -29,11 +32,14 @@ function OffencePokemon({
               sx={{ width: 200 }}
               renderInput={(params) => <TextField {...params} />}
               getOptionLabel={(p) => p.base.name_ja}
-            />
+            /></>}
           </Grid>
           <Grid>
             <div>
-              <Autocomplete
+              {isMobile?<><select>
+                {offencePokemon.move_list?.map((move)=>{return(<option>{`${move.name_ja}(${type_id_to_kanji(move.type)} : ${move.power})`}</option>)})}
+              </select>
+              </>:<>              <Autocomplete
                 style={{ float: "left" }}
                 value={offencePokemon.selected_move}
                 onChange={(_, m) => {
@@ -47,10 +53,11 @@ function OffencePokemon({
                 options={offencePokemon.move_list || []}
                 sx={{ width: 200 }}
                 renderInput={(params) => <TextField {...params} />}
-                getOptionLabel={(m) =>
-                  `${m.name_ja}(${type_id_to_kanji(m.type)} : ${m.power})`
+                getOptionLabel={(move) =>
+                  `${move.name_ja}(${type_id_to_kanji(move.type)} : ${move.power})`
                 }
               />
+</>}
             </div>
           </Grid>
         </Grid>

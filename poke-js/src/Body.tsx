@@ -21,7 +21,7 @@ function Body({
       <TableContainer>
         <Table stickyHeader aria-label="sticky table">
           <TableBody style={{ maxWidth: `${useWindowSize()}px` }}>
-            {pokemon_array((useWindowSize().width - 50) / 144).map(
+            {pokemon_array((useWindowSize().width - 50) / 150).map(
               (deffencePokemonList) => {
                 return (
                   <TableRow
