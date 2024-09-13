@@ -35,16 +35,34 @@ export interface EffectiveValue {
   special_attack: number;
   special_defense: number;
 }
+
+// 名前
+// 効率良い方法が欲しい。。。(4以上はもうクソ重い)
+function kusatu(numberArray: number[][]): number[] {
+  if (numberArray.length === 1) {
+    return numberArray[0];
+  }
+  const newList: number[] = [];
+  numberArray[0].forEach((a) => {
+    numberArray[1].forEach((b) => {
+      newList.push(a + b);
+    });
+  });
+  const newArray = numberArray;
+  newArray.splice(0, 2, newList);
+  return kusatu(newArray);
+}
+
 export function calc_interface({
   offencePokemon,
   deffencePokemon,
   deffenceDummyPokemon,
-  move,
+  moveList,
 }: {
   offencePokemon: Pokemon;
   deffencePokemon: Pokemon;
   deffenceDummyPokemon: Pokemon;
-  move: Move;
+  moveList: Move[];
 }) {
   offencePokemon.effective_value = {
     hp: calcRealValueHPStat(
@@ -98,32 +116,42 @@ export function calc_interface({
       deffenceDummyPokemon.personality.special_defense
     ),
   };
-  // const rateList = [];
-  const compatibilityTypeRate = getCompatibilityTypeRate(move, deffencePokemon);
-  // const movePokemonTypeRate = getMovePokemonTypeRate(move, offencePokemon);
-  // rateList.push(compatibilityTypeRate, movePokemonTypeRate);
-  const rateMapper = {
-    compatibilityRate: getCompatibilityTypeRate(move, deffencePokemon),
-    sameTypeRate: getMovePokemonTypeRate(move, offencePokemon),
-  } as damageRateMapper;
-  const calcedList = calcWithRand(
-    move,
-    offencePokemon,
-    deffencePokemon,
-    rateMapper
-    // rateList
-  );
+
+  const vectorList: number[][] = [];
+  moveList.forEach((move) => {
+    const rateMapper = {
+      compatibilityRate: getCompatibilityTypeRate(move, deffencePokemon),
+      sameTypeRate: getMovePokemonTypeRate(move, offencePokemon),
+    } as damageRateMapper;
+    const calcedList = calcWithRand(
+      move,
+      offencePokemon,
+      deffencePokemon,
+      rateMapper
+    );
+    vectorList.push(calcedList);
+  });
+
+  // const resList:number[]=[]
+  // vectorList.forEach((v)=>{
+  //   // v[0][0-15]
+  //   // v[1][0-15]
+  // })
+  const calcedList = kusatu(vectorList);
   const maxDamage = Math.max(...calcedList);
   const minDamage = Math.min(...calcedList);
-  const counter = calcedList
-    .map((v) => {
-      return deffencePokemon.effective_value.hp - v < 0;
-    })
-    .filter((v) => v);
-  if (counter.length === calcedList.length) {
-    return `(${minDamage}~${maxDamage})`;
-  }
   return `(${minDamage}~${maxDamage})`;
+
+  // 最後に確定なんちゃら～で出したい
+  // const counter = calcedList
+  //   .map((v) => {
+  //     return deffencePokemon.effective_value.hp - v < 0;
+  //   })
+  //   .filter((v) => v);
+  // if (counter.length === calcedList.length) {
+  //   return `(${minDamage}~${maxDamage})`;
+  // }
+  // return `(${minDamage}~${maxDamage})`;
 }
 
 function calcWithRand(

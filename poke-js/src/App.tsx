@@ -1,10 +1,5 @@
 import React, { useRef } from "react";
-import {
-  pokemon_list,
-  pokemon_array,
-  Pokemon,
-  dummyPokemon,
-} from "./pokemon";
+import { pokemon_list, pokemon_array, Pokemon, dummyPokemon } from "./pokemon";
 import move_list, { Move, MOVE_DAMAGE_CLASS_PHYSICAL } from "./move";
 import {
   Table,
@@ -24,15 +19,16 @@ import { useWindowSize } from "./useWindowSize";
 import { type_id_to_kanji } from "./type-map";
 import SideBar from "./Sidebar";
 import TemporaryDrawer from "./Drawer";
+// import Takashi from "./Takashi";
 export default function App() {
   const [offencePokemon, setOffencePokemon] = React.useState<Pokemon>(
     pokemon_list[0]
   );
   const [deffenceDummyPokemon, setDeffenceDummyPokemon] =
     React.useState<Pokemon>(dummyPokemon);
-  const [offenceMove, setOffenceMove] = React.useState<Move>(
-    sortMoveList(offencePokemon)[0]
-  );
+  const [offenceMoveList, setOffenceMoveList] = React.useState<Move[]>([
+    sortMoveList(offencePokemon)[0],
+  ]);
 
   return (
     <div className="App">
@@ -48,7 +44,7 @@ export default function App() {
                       onChange={(_, p) => {
                         if (p) {
                           setOffencePokemon(p);
-                          setOffenceMove(sortMoveList(p)[0]);
+                          setOffenceMoveList([sortMoveList(p)[0]]);
                         }
                       }}
                       disablePortal
@@ -59,21 +55,67 @@ export default function App() {
                     />
                   </Grid>
                   <Grid>
-                    <Autocomplete
-                      value={offenceMove}
-                      onChange={(_, m) => {
-                        if (m) {
-                          setOffenceMove(m);
-                        }
-                      }}
-                      disablePortal
-                      options={sortMoveList(offencePokemon)}
-                      sx={{ width: 300 }}
-                      renderInput={(params) => <TextField {...params} />}
-                      getOptionLabel={(m) =>
-                        `${m.name_ja}(${type_id_to_kanji(m.type)} : ${m.power})`
-                      }
-                    />
+                    {offenceMoveList.map((offenceMove, i) => {
+                      return (
+                        <>
+                          <div>
+                            <Autocomplete
+                              style={{ float: "left" }}
+                              value={offenceMove}
+                              onChange={(_, m) => {
+                                if (m) {
+                                  const newList = offenceMoveList;
+                                  newList.splice(i, 1, m);
+                                  setOffenceMoveList([...newList]);
+                                }
+                              }}
+                              disablePortal
+                              options={sortMoveList(offencePokemon)}
+                              sx={{ width: 300 }}
+                              renderInput={(params) => (
+                                <TextField {...params} />
+                              )}
+                              getOptionLabel={(m) =>
+                                `${m.name_ja}(${type_id_to_kanji(m.type)} : ${
+                                  m.power
+                                })`
+                              }
+                            />
+                            {offenceMoveList.length > 1 && (
+                              <button
+                                style={{ float: "left" }}
+                                onClick={() => {
+                                  if (offenceMoveList.length > 1) {
+                                    const newList = offenceMoveList;
+                                    newList.splice(i, 1);
+                                    setOffenceMoveList([...newList]);
+                                  }
+                                }}
+                              >
+                                x
+                              </button>
+                            )}
+                          </div>
+                        </>
+                      );
+                    })}
+                  </Grid>
+                  <Grid>
+                    {offenceMoveList.length < 3 && (
+                      <button
+                        onClick={() => {
+                          const newList = offenceMoveList;
+                          newList.splice(
+                            offenceMoveList.length,
+                            0,
+                            sortMoveList(offencePokemon)[0]
+                          );
+                          setOffenceMoveList([...newList]);
+                        }}
+                      >
+                        +
+                      </button>
+                    )}
                   </Grid>
                   <Grid>
                     <h2>攻撃側</h2>
@@ -129,7 +171,7 @@ export default function App() {
                                     offencePokemon,
                                     deffencePokemon: poke,
                                     deffenceDummyPokemon,
-                                    move: offenceMove,
+                                    moveList: offenceMoveList,
                                   })}
                                 </div>
                               </TableCell>
