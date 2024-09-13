@@ -9,3 +9,4 @@ basic_create:
 	git add .
 	git commit -mtemp
 	git push
+	cp -r index.html static/ ../poke-matomete-damekei/
