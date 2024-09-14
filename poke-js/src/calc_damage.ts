@@ -1,3 +1,4 @@
+import { ClickAwayListener } from "@mui/material";
 import { Move, MOVE_DAMAGE_CLASS_PHYSICAL } from "./move";
 import { Pokemon, pokemon_list } from "./pokemon";
 import type_map from "./type-map";
@@ -38,19 +39,65 @@ export interface EffectiveValue {
 
 // 名前
 // 効率良い方法が欲しい。。。(4以上はもうクソ重い)
-function kusatu(numberArray: number[][]): number[] {
-  if (numberArray.length === 1) {
-    return numberArray[0];
+// function kusatu(numberArray: number[][]): number[] {
+//   if (numberArray.length === 1) {
+//     return numberArray[0];
+//   }
+//   const newList: number[] = [];
+//   numberArray[0].forEach((a) => {
+//     numberArray[1].forEach((b) => {
+//       newList.push(a + b);
+//     });
+//   });
+//   const newArray = numberArray;
+//   newArray.splice(0, 2, newList);
+//   return kusatu(newArray);
+// }
+
+function tatamikomi(dictList: { [name: number]: number }[]): {
+  [name: number]: number;
+} {
+  if (dictList.length === 1) {
+    return dictList[0];
   }
-  const newList: number[] = [];
-  numberArray[0].forEach((a) => {
-    numberArray[1].forEach((b) => {
-      newList.push(a + b);
+  const [m1, m2, newD] = [
+    dictList.shift(),
+    dictList.shift(),
+    {} as { [name: number]: number },
+  ];
+  if (m1 && m2) {
+    Object.keys(m1).forEach((k1) => {
+      Object.keys(m2).forEach((k2) => {
+        const [m1i, m2i] = [parseInt(k1), parseInt(k2)];
+        if (!Object.hasOwn(newD, m1i + m2i)) {
+          newD[m1i + m2i] = 0;
+        }
+        newD[m1i + m2i] += m1[m1i] * m2[m2i];
+      });
     });
+    dictList.unshift(newD);
+    return tatamikomi(dictList);
+  } else {
+    return dictList[0];
+  }
+}
+
+function listToMapper(
+  i: number,
+  numberList: number[]
+): { [name: number]: number }[] {
+  const temp: { [name: number]: number } = {};
+  numberList.forEach((w: number) => {
+    if (!Object.hasOwn(temp, w)) {
+      temp[w] = 0;
+    }
+    temp[w] += 1;
   });
-  const newArray = numberArray;
-  newArray.splice(0, 2, newList);
-  return kusatu(newArray);
+  const retList: { [name: number]: number }[] = [];
+  for (let j = 0; j < i; j++) {
+    retList.push(temp);
+  }
+  return retList;
 }
 
 export function calc_interface({
@@ -64,7 +111,6 @@ export function calc_interface({
   deffenceDummyPokemon: Pokemon;
   // moveList: Move[];
 }) {
-  const vectorList: number[][] = [];
   deffencePokemon.effective_value = {
     hp: calcRealValueHPStat(
       deffencePokemon.base.hp,
@@ -91,6 +137,8 @@ export function calc_interface({
       deffenceDummyPokemon.personality.special_defense
     ),
   };
+  // const vectorList: number[][] = [];
+  const kusatuonsenList: { [name: number]: number }[] = [];
   offencePokemonList.forEach((offencePokemon) => {
     offencePokemon.effective_value = {
       hp: calcRealValueHPStat(
@@ -131,9 +179,15 @@ export function calc_interface({
         deffencePokemon,
         rateMapper
       );
-      vectorList.push(calcedList);
+      // vectorList.push(calcedList);
+      const hitNumber = move.is_renzoku ? move.max_renzoku : 1;
+      kusatuonsenList.push(...listToMapper(hitNumber, calcedList));
     }
   });
+  const retTatamikomi = tatamikomi(kusatuonsenList);
+  const damageList = Object.keys(retTatamikomi).map((v) => parseInt(v));
+  const maxDamage = Math.max(...damageList);
+  const minDamage = Math.min(...damageList);
 
   // moveList.forEach((move) => {
   // });
@@ -143,12 +197,12 @@ export function calc_interface({
   //   // v[0][0-15]
   //   // v[1][0-15]
   // })
-  if (vectorList.length === 0) {
-    return `0~0`;
-  }
-  const finalCalcedList = kusatu(vectorList);
-  const maxDamage = Math.max(...finalCalcedList);
-  const minDamage = Math.min(...finalCalcedList);
+  // if (vectorList.length === 0) {
+  //   return `0~0`;
+  // }
+  // const finalCalcedList = kusatu(vectorList);
+  // const maxDamage = Math.max(...finalCalcedList);
+  // const minDamage = Math.min(...finalCalcedList);
   return `(${minDamage}~${maxDamage})`;
 
   // 最後に確定なんちゃら～で出したい
