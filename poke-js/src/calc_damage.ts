@@ -83,7 +83,7 @@ function tatamikomi(dictList: { [name: number]: number }[]): {
 }
 
 function listToMapper(
-  i: number,
+  // i: number,
   numberList: number[]
 ): { [name: number]: number }[] {
   const temp: { [name: number]: number } = {};
@@ -93,10 +93,10 @@ function listToMapper(
     }
     temp[w] += 1;
   });
-  const retList: { [name: number]: number }[] = [];
-  for (let j = 0; j < i; j++) {
-    retList.push(temp);
-  }
+  const retList: { [name: number]: number }[] = [temp];
+  // for (let j = 0; j < i; j++) {
+  //   retList.push(temp);
+  // }
   return retList;
 }
 
@@ -170,20 +170,32 @@ export function calc_interface({
     const move = offencePokemon.selected_move;
     if (move) {
       const rateMapper = {
-        compatibilityRate: getCompatibilityTypeRate(offencePokemon, deffencePokemon),
+        compatibilityRate: getCompatibilityTypeRate(
+          offencePokemon,
+          deffencePokemon
+        ),
         sameTypeRate: getMovePokemonTypeRate(move, offencePokemon),
       } as damageRateMapper;
-      const calcedList = calcWithRand(
-        move,
-        offencePokemon,
-        deffencePokemon,
-        rateMapper
-      );
       const hitNumber =
         move.is_renzoku && offencePokemon.selected_hit_number
           ? offencePokemon.selected_hit_number
           : 1;
-      kusatuonsenList.push(...listToMapper(hitNumber, calcedList));
+      // もう少しいい鳥悪の処理方法(メモ化して同じなら同じ奴を返すほうが良いので)
+      for (let loopHitNumber = 1; loopHitNumber <= hitNumber; loopHitNumber++) {
+        const calcedList = calcWithRand(
+          move,
+          offencePokemon,
+          deffencePokemon,
+          rateMapper,
+          loopHitNumber
+        );
+        kusatuonsenList.push(
+          ...listToMapper(
+            // hitNumber,
+            calcedList
+          )
+        );
+      }
     }
   });
   const retTatamikomi = tatamikomi(kusatuonsenList);
@@ -198,12 +210,19 @@ function calcWithRand(
   offencePokemon: Pokemon,
   deffencePokemon: Pokemon,
   // rateList: number[]
-  rateMapper: damageRateMapper
+  rateMapper: damageRateMapper,
+  loopHitNumber: number
 ): Array<number> {
   const retList = [] as Array<number>;
   for (let rand = 0.85; rand <= 1.0; rand += 0.01) {
     rateMapper.randRate = rand;
-    const base = calc({ move, offencePokemon, deffencePokemon, rateMapper });
+    const base = calc({
+      move,
+      offencePokemon,
+      deffencePokemon,
+      rateMapper,
+      loopHitNumber,
+    });
     retList.push(base);
   }
   return retList;
@@ -214,13 +233,18 @@ function calc({
   offencePokemon,
   deffencePokemon,
   rateMapper,
+  loopHitNumber,
 }: {
   move: Move;
   offencePokemon: Pokemon;
   deffencePokemon: Pokemon;
   rateMapper: damageRateMapper;
+  loopHitNumber: number;
 }) {
-  const power = move.power;
+  let power = move.power;
+  if (move.id === 813 || move.id === 167) {
+    power = power * loopHitNumber;
+  }
   const attack =
     move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL
       ? offencePokemon.effective_value.attack
@@ -247,7 +271,7 @@ function getCompatibilityTypeRate(
   offencePokemon: Pokemon,
   deffencePokemon: Pokemon
 ): number {
-  const offenceType = offencePokemon.selected_move?.type||1;
+  const offenceType = offencePokemon.selected_move?.type || 1;
   const deffenceTypeList = deffencePokemon.base.type_id_list;
   let res = 1.0;
   const deffenceType1 = deffenceTypeList[0];
