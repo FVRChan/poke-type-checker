@@ -170,7 +170,7 @@ export function calc_interface({
     const move = offencePokemon.selected_move;
     if (move) {
       const rateMapper = {
-        compatibilityRate: getCompatibilityTypeRate(move, deffencePokemon),
+        compatibilityRate: getCompatibilityTypeRate(offencePokemon, deffencePokemon),
         sameTypeRate: getMovePokemonTypeRate(move, offencePokemon),
       } as damageRateMapper;
       const calcedList = calcWithRand(
@@ -244,10 +244,10 @@ function calc({
 }
 
 function getCompatibilityTypeRate(
-  offenceMove: Move,
+  offencePokemon: Pokemon,
   deffencePokemon: Pokemon
 ): number {
-  const offenceType = offenceMove.type;
+  const offenceType = offencePokemon.selected_move?.type||1;
   const deffenceTypeList = deffencePokemon.base.type_id_list;
   let res = 1.0;
   const deffenceType1 = deffenceTypeList[0];
@@ -272,6 +272,7 @@ function getCompatibilityTypeRate(
   }
   return res;
 }
+
 function getMovePokemonTypeRate(move: Move, offencePokemon: Pokemon): number {
   if (offencePokemon.base.type_id_list.includes(move.type)) {
     return 1.5;

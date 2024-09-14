@@ -616,6 +616,7 @@ class Pokemon:
     type_id_list: List[int] = List
     ability_id_list: List[int] = List
     move_id_list: List[int] = List
+    ability_list: List[PokemonAbility] = List
 
 
 @dataclass
@@ -699,6 +700,7 @@ def decode_pokemon(data: dict) -> Pokemon:
         ability_id_list=data["ability_id_list"],
         move_id_list=data["move_id_list"],
         weight=data["weight"],
+        # ability_list=data["ability_list"],
     )
 
 
@@ -1281,4 +1283,28 @@ def update_pokemon_data():
         takashi.close()
         break
 
-update_pokemon_data()
+# update_pokemon_data()
+def update_pokemon_list():
+    if os.path.exists(POKEMON_JSON_FILENAME)==False:
+        raise "file not found"
+    reader_opener=open(POKEMON_JSON_FILENAME)
+    reader=reader_opener.read()
+    # print(reader)
+    pokemon_list=json.loads(reader, object_hook=decode_pokemon)
+    reader_opener.close()
+    ability_list=get_ability_list()
+    for pokemon in pokemon_list:
+        pokemon_ability_list=list()
+        for ability_id in pokemon.ability_id_list:
+            for ability in [a for a in ability_list if a.id == ability_id]:
+                pokemon_ability_list.append(ability)
+        pokemon.ability_list=pokemon_ability_list
+        
+    # print(reader)
+    # for move in move_list:
+    #     move.set_extra_value()
+    writer=open(POKEMON_JSON_FILENAME,"w")
+    writer.write(json.dumps(pokemon_list, default=default, ensure_ascii=False))
+    writer.close()
+
+update_pokemon_list()
