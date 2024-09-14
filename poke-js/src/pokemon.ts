@@ -31,6 +31,7 @@ export interface Pokemon {
   selected_move?: Move;
   move_list?: Move[];
   selected_hit_number?: number;
+  terasu_type?: number;
 }
 
 export const pokemon_list = all_pokemon_list
@@ -76,7 +77,7 @@ export function pokemon_array(separate_number: number) {
   const local_separate_number = Math.min(t, separate_number);
   let ret_matrix = [] as Array<Array<Pokemon>>;
   let temp_list = [] as Array<Pokemon>;
-  pokemon_list.forEach((p, i) => {
+  pokemon_list.forEach((p, _) => {
     temp_list.push(p);
     if (temp_list.length >= local_separate_number) {
       ret_matrix.push(temp_list);
@@ -109,6 +110,7 @@ export function dummyPokemon(): Pokemon {
       move_id_list: [],
       weight: 1,
     },
+    terasu_type: 0,
     often_used_move: [],
     usage_rate: 999,
     effective_slider_step: {

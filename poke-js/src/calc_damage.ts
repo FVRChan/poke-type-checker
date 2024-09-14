@@ -1,6 +1,6 @@
 import { ClickAwayListener } from "@mui/material";
 import { Move, MOVE_DAMAGE_CLASS_PHYSICAL } from "./move";
-import { Pokemon, pokemon_list } from "./pokemon";
+import { dummyPokemon, Pokemon, pokemon_list } from "./pokemon";
 import type_map from "./type-map";
 import { calcRealValueHPStat, calcRealValueOtherStat } from "./util";
 
@@ -137,7 +137,7 @@ export function calc_interface({
       deffenceDummyPokemon.personality.special_defense
     ),
   };
-  // const vectorList: number[][] = [];
+  deffencePokemon.terasu_type = deffenceDummyPokemon.terasu_type;
   const kusatuonsenList: { [name: number]: number }[] = [];
   offencePokemonList.forEach((offencePokemon) => {
     offencePokemon.effective_value = {
@@ -272,7 +272,13 @@ function getCompatibilityTypeRate(
   deffencePokemon: Pokemon
 ): number {
   const offenceType = offencePokemon.selected_move?.type || 1;
-  const deffenceTypeList = deffencePokemon.base.type_id_list;
+  let deffenceTypeList = deffencePokemon.base.type_id_list;
+  if (deffencePokemon.id === 149) {
+    console.log(deffencePokemon);
+  }
+  if (deffencePokemon.terasu_type && deffencePokemon.terasu_type > 0) {
+    deffenceTypeList = [deffencePokemon.terasu_type];
+  }
   let res = 1.0;
   const deffenceType1 = deffenceTypeList[0];
   const r1 = type_map[deffenceType1].damage_relations;

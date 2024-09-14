@@ -254,3 +254,61 @@ export function type_id_to_kanji(t: number): string {
   }
   return "";
 }
+
+export function type_id_to_hiraganakatakana(t: number): string {
+  if (t === 1) {
+    return "ノーマル";
+  }
+  if (t === 2) {
+    return "かくとう";
+  }
+  if (t === 3) {
+    return "ひこう";
+  }
+  if (t === 4) {
+    return "どく";
+  }
+  if (t === 5) {
+    return "じめん";
+  }
+  if (t === 6) {
+    return "いわ";
+  }
+  if (t === 7) {
+    return "むし";
+  }
+  if (t === 8) {
+    return "ゴースト";
+  }
+  if (t === 9) {
+    return "はがね";
+  }
+  if (t === 10) {
+    return "ほのお";
+  }
+  if (t === 11) {
+    return "みず";
+  }
+  if (t === 12) {
+    return "くさ";
+  }
+  if (t === 13) {
+    return "でんき";
+  }
+  if (t === 14) {
+    return "エスパー";
+  }
+  if (t === 15) {
+    return "こおり";
+  }
+  if (t === 16) {
+    return "ドラゴン";
+  }
+  if (t === 17) {
+    return "あく";
+  }
+  if (t === 18) {
+    return "フェアリー";
+  }
+  return "なし";
+}

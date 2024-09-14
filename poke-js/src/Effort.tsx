@@ -1,6 +1,7 @@
 import React from "react";
 import EffortSlider from "./EffortSlider";
 import { Pokemon } from "./pokemon";
+import { MOVE_DAMAGE_CLASS_PHYSICAL, MOVE_DAMAGE_CLASS_SPECIAL } from "./move";
 
 export default function Effort({
   pokemon,
@@ -94,23 +95,26 @@ export default function Effort({
   };
   return (
     <>
-      {!isOffense && (
+      {isDefense && (
         <EffortSlider
           label={"HP"}
           step={effortStepHP}
           stepSetter={handleSetPokemonEffortStepHP}
         ></EffortSlider>
       )}
-      {!isDefense && (
-        <EffortSlider
-          label={"攻撃"}
-          step={effortStepAttack}
-          stepSetter={handleSetPokemonEffortStepAttack}
-          personality={personalityAttack}
-          personalitySetter={handleSetPersonalityAttack}
-        ></EffortSlider>
-      )}
-      {!isOffense && (
+      {isOffense &&
+        pokemon.selected_move &&
+        pokemon.selected_move.damage_class_number ===
+          MOVE_DAMAGE_CLASS_PHYSICAL && (
+          <EffortSlider
+            label={"攻撃"}
+            step={effortStepAttack}
+            stepSetter={handleSetPokemonEffortStepAttack}
+            personality={personalityAttack}
+            personalitySetter={handleSetPersonalityAttack}
+          ></EffortSlider>
+        )}
+      {isDefense && (
         <EffortSlider
           label={"防御"}
           step={effortStepDeffence}
@@ -119,16 +123,19 @@ export default function Effort({
           personalitySetter={handleSetPersonalityDeffence}
         ></EffortSlider>
       )}
-      {!isDefense && (
-        <EffortSlider
-          label={"特攻"}
-          step={effortStepSpecialAttack}
-          stepSetter={handleSetPokemonEffortStepSpecialAttack}
-          personality={personalitySpecialAttack}
-          personalitySetter={handleSetPersonalitySpecialAttack}
-        ></EffortSlider>
-      )}
-      {!isOffense && (
+      {isOffense &&
+        pokemon.selected_move &&
+        pokemon.selected_move.damage_class_number ===
+          MOVE_DAMAGE_CLASS_SPECIAL && (
+          <EffortSlider
+            label={"特攻"}
+            step={effortStepSpecialAttack}
+            stepSetter={handleSetPokemonEffortStepSpecialAttack}
+            personality={personalitySpecialAttack}
+            personalitySetter={handleSetPersonalitySpecialAttack}
+          ></EffortSlider>
+        )}
+      {isDefense && (
         <EffortSlider
           label={"特防"}
           step={effortStepSpecialDeffence}
