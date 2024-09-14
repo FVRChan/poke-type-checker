@@ -58,7 +58,7 @@ function OffencePokemon({
                 renderInput={(params) => <TextField {...params} />}
                 getOptionLabel={(move) =>
                   `${move.name_ja}(${type_id_to_kanji(move.type)} : ${
-                    move.power
+                    move.power||"?"
                   })`
                 }
               />

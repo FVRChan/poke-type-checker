@@ -189,12 +189,7 @@ export function calc_interface({
           rateMapper,
           loopHitNumber
         );
-        kusatuonsenList.push(
-          ...listToMapper(
-            // hitNumber,
-            calcedList
-          )
-        );
+        kusatuonsenList.push(...listToMapper(calcedList));
       }
     }
   });
@@ -202,6 +197,9 @@ export function calc_interface({
   const damageList = Object.keys(retTatamikomi).map((v) => parseInt(v));
   const maxDamage = Math.max(...damageList);
   const minDamage = Math.min(...damageList);
+  if (minDamage >= deffencePokemon.effective_value.hp) {
+    return `確定1発(${minDamage}~${maxDamage})`;
+  }
   return `(${minDamage}~${maxDamage})`;
 }
 
@@ -245,6 +243,9 @@ function calc({
   if (move.id === 813 || move.id === 167) {
     power = power * loopHitNumber;
   }
+  if (move.is_ketaguri) {
+    power = powerketaguri(deffencePokemon.base.weight);
+  }
   const attack =
     move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL
       ? offencePokemon.effective_value.attack
@@ -267,15 +268,27 @@ function calc({
   return a;
 }
 
+function powerketaguri(w: number): number {
+  if (w < 100) {
+    return 20;
+  } else if (w < 250) {
+    return 40;
+  } else if (w < 500) {
+    return 60;
+  } else if (w < 1000) {
+    return 80;
+  } else if (w < 2000) {
+    return 100;
+  }
+  return 120;
+}
+
 function getCompatibilityTypeRate(
   offencePokemon: Pokemon,
   deffencePokemon: Pokemon
 ): number {
   const offenceType = offencePokemon.selected_move?.type || 1;
   let deffenceTypeList = deffencePokemon.base.type_id_list;
-  if (deffencePokemon.id === 149) {
-    console.log(deffencePokemon);
-  }
   if (deffencePokemon.terasu_type && deffencePokemon.terasu_type > 0) {
     deffenceTypeList = [deffencePokemon.terasu_type];
   }
