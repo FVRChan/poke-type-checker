@@ -179,8 +179,10 @@ export function calc_interface({
         deffencePokemon,
         rateMapper
       );
-      // vectorList.push(calcedList);
-      const hitNumber = move.is_renzoku ? move.max_renzoku : 1;
+      const hitNumber =
+        move.is_renzoku && offencePokemon.selected_hit_number
+          ? offencePokemon.selected_hit_number
+          : 1;
       kusatuonsenList.push(...listToMapper(hitNumber, calcedList));
     }
   });
@@ -188,33 +190,7 @@ export function calc_interface({
   const damageList = Object.keys(retTatamikomi).map((v) => parseInt(v));
   const maxDamage = Math.max(...damageList);
   const minDamage = Math.min(...damageList);
-
-  // moveList.forEach((move) => {
-  // });
-
-  // const resList:number[]=[]
-  // vectorList.forEach((v)=>{
-  //   // v[0][0-15]
-  //   // v[1][0-15]
-  // })
-  // if (vectorList.length === 0) {
-  //   return `0~0`;
-  // }
-  // const finalCalcedList = kusatu(vectorList);
-  // const maxDamage = Math.max(...finalCalcedList);
-  // const minDamage = Math.min(...finalCalcedList);
   return `(${minDamage}~${maxDamage})`;
-
-  // 最後に確定なんちゃら～で出したい
-  // const counter = calcedList
-  //   .map((v) => {
-  //     return deffencePokemon.effective_value.hp - v < 0;
-  //   })
-  //   .filter((v) => v);
-  // if (counter.length === calcedList.length) {
-  //   return `(${minDamage}~${maxDamage})`;
-  // }
-  // return `(${minDamage}~${maxDamage})`;
 }
 
 function calcWithRand(

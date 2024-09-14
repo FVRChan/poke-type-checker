@@ -1,9 +1,14 @@
-import { Grid, Autocomplete, TextField } from "@mui/material";
+import { Grid, Autocomplete, TextField, Select, MenuItem } from "@mui/material";
 import Effort from "./Effort";
 import { Pokemon, pokemon_list } from "./pokemon";
 import { type_id_to_kanji } from "./type-map";
-import { isMobile } from "react-device-detect";
-
+function hitNumberOption(minHitNumber: number, maxHitNumber: number): number[] {
+  const dummy_list: number[] = [];
+  for (let a = minHitNumber; a <= maxHitNumber; a++) {
+    dummy_list.push(a);
+  }
+  return dummy_list;
+}
 function OffencePokemon({
   offencePokemon,
   setOffencePokemon,
@@ -18,9 +23,7 @@ function OffencePokemon({
       <Grid container direction="column">
         <Grid container direction="column">
           <Grid>
-            {isMobile?<>
-            <select>{pokemon_list.map((pokemon)=>{return(<option>{pokemon.base.name_ja}</option>)})}</select>
-            </>:<><Autocomplete
+            <Autocomplete
               value={offencePokemon}
               onChange={(_, p) => {
                 if (p) {
@@ -32,20 +35,20 @@ function OffencePokemon({
               sx={{ width: 200 }}
               renderInput={(params) => <TextField {...params} />}
               getOptionLabel={(p) => p.base.name_ja}
-            /></>}
+            />
           </Grid>
           <Grid>
             <div>
-              {isMobile?<><select>
-                {offencePokemon.move_list?.map((move)=>{return(<option>{`${move.name_ja}(${type_id_to_kanji(move.type)} : ${move.power})`}</option>)})}
-              </select>
-              </>:<>              <Autocomplete
+              <Autocomplete
                 style={{ float: "left" }}
                 value={offencePokemon.selected_move}
                 onChange={(_, m) => {
                   if (m) {
                     const tempPokemon = offencePokemon;
                     tempPokemon.selected_move = m;
+                    tempPokemon.selected_hit_number = m.min_renzoku
+                      ? m.min_renzoku
+                      : undefined;
                     setOffencePokemon(index, tempPokemon);
                   }
                 }}
@@ -54,10 +57,34 @@ function OffencePokemon({
                 sx={{ width: 200 }}
                 renderInput={(params) => <TextField {...params} />}
                 getOptionLabel={(move) =>
-                  `${move.name_ja}(${type_id_to_kanji(move.type)} : ${move.power})`
+                  `${move.name_ja}(${type_id_to_kanji(move.type)} : ${
+                    move.power
+                  })`
                 }
               />
-</>}
+              {offencePokemon.selected_move?.is_renzoku && (
+                <>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={offencePokemon.selected_hit_number}
+                    label="Age"
+                    onChange={(e) => {
+                      const tempPokemon = offencePokemon;
+                      tempPokemon.selected_hit_number = e.target
+                        .value as number;
+                      setOffencePokemon(index, tempPokemon);
+                    }}
+                  >
+                    {hitNumberOption(
+                      offencePokemon.selected_move.min_renzoku,
+                      offencePokemon.selected_move.max_renzoku
+                    ).map((aaaassss: number) => {
+                      return <MenuItem value={aaaassss}>{aaaassss}</MenuItem>;
+                    })}
+                  </Select>
+                </>
+              )}
             </div>
           </Grid>
         </Grid>

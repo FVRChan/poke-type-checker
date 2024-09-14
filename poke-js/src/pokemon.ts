@@ -30,6 +30,7 @@ export interface Pokemon {
   often_used_move: Array<number>;
   selected_move?: Move;
   move_list?: Move[];
+  selected_hit_number?: number;
 }
 
 export const pokemon_list = all_pokemon_list
