@@ -197,9 +197,9 @@ export function calc_interface({
   const damageList = Object.keys(retTatamikomi).map((v) => parseInt(v));
   const maxDamage = Math.max(...damageList);
   const minDamage = Math.min(...damageList);
-  if (minDamage >= deffencePokemon.effective_value.hp) {
-    return `確定1発(${minDamage}~${maxDamage})`;
-  }
+  // if (minDamage >= deffencePokemon.effective_value.hp) {
+  //   return `確定1発(${minDamage}~${maxDamage})`;
+  // }
   return `(${minDamage}~${maxDamage})`;
 }
 

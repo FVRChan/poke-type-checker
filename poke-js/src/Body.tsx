@@ -33,7 +33,13 @@ function Body({
                   >
                     {deffencePokemonList.map((deffencePokemon) => {
                       return (
-                        <TableCell style={{ background: "" }}>
+                        <TableCell
+                          style={{
+                            background: "",
+                            maxWidth: "65px",
+                            maxHeight: "65px",
+                          }}
+                        >
                           {deffencePokemon.base.picture_url ? (
                             <img
                               src={deffencePokemon.base.picture_url}
