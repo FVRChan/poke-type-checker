@@ -1,6 +1,13 @@
 import React from "react";
 import { pokemon_list, Pokemon, dummyPokemon } from "./pokemon";
-import { Grid, Box, AppBar } from "@mui/material";
+import {
+  Grid,
+  Box,
+  AppBar,
+  IconButton,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import SideBar from "./Sidebar";
 import OffencePokemon from "./OffencePokemon";
 import DefencePokemon from "./DefencePokemon";
@@ -9,40 +16,21 @@ import TemporaryDrawer from "./Drawer";
 import SideMenu from "./SideMenu";
 import { isMobile } from "react-device-detect";
 import { useWindowSize } from "./useWindowSize";
-// 負けた気はするがとりあえず行ける
-function copyPokemon(p: Pokemon): Pokemon {
-  return JSON.parse(JSON.stringify(p));
-}
+import { useViewModel } from "./useViewModel";
+import { Menu } from "@mui/icons-material";
 export default function App() {
-  const [offencePokemonList, setOffencePokemonList] = React.useState<Pokemon[]>(
-    [copyPokemon(pokemon_list[0])]
-  );
-  const handleAddOffencePokemonList = () => {
-    const temp = offencePokemonList;
-    temp.splice(temp.length, 0, copyPokemon(pokemon_list[0]));
-    setOffencePokemonList([...temp]);
-  };
-  const handleRemoveOffencePokemonList = (i: number) => {
-    const temp = offencePokemonList;
-    temp.splice(i, 1);
-    setOffencePokemonList([...temp]);
-  };
-  const handleSaveOffencePokemonList = (i: number, p: Pokemon) => {
-    const temp = offencePokemonList;
-    temp.splice(i, 1, p);
-    setOffencePokemonList([...temp]);
-  };
-  const [deffenceDummyPokemon, setDeffenceDummyPokemon] =
-    React.useState<Pokemon>(dummyPokemon);
-  const handleSaveDeffenceDummyPokemon = (i: number, p: Pokemon) => {
-    setDeffenceDummyPokemon((prev) => ({ ...prev }));
-  };
-
-  const [open, setopen] = React.useState(false);
-  const toggleOpen = () => {
-    setopen(!open);
-  };
-
+  const {
+    smartphoneDrawerOpen,
+    togglesmartphoneDrawerOpen,
+    offencePokemonList,
+    setOffencePokemonList,
+    handleAddOffencePokemonList,
+    handleRemoveOffencePokemonList,
+    handleSaveOffencePokemonList,
+    deffenceDummyPokemon,
+    setDeffenceDummyPokemon,
+    handleSaveDeffenceDummyPokemon,
+  } = useViewModel();
   return (
     <div className="App">
       <div>
@@ -50,8 +38,8 @@ export default function App() {
           {isMobile ? (
             <>
               <TemporaryDrawer
-                open={open}
-                toggleOpen={toggleOpen}
+                open={smartphoneDrawerOpen}
+                toggleOpen={togglesmartphoneDrawerOpen}
                 children={
                   <SideMenu
                     offencePokemonList={offencePokemonList}
@@ -70,7 +58,6 @@ export default function App() {
             </>
           ) : (
             <>
-              {" "}
               <SideBar
                 children={
                   <SideMenu
@@ -89,8 +76,31 @@ export default function App() {
               ></SideBar>
             </>
           )}
-          <Grid container direction="column" style={{ width: "95%" }}>
-            {isMobile && <button onClick={toggleOpen}>menu open</button>}
+          <Grid container direction="column">
+            {isMobile && (
+              <AppBar
+                position="sticky"
+                style={{
+                  width: "105%",
+                  marginLeft: "-10px",
+                  marginTop: "-10px",
+                }}
+              >
+                <Toolbar variant="dense">
+                  <IconButton
+                    onClick={togglesmartphoneDrawerOpen}
+                    edge="start"
+                    color="inherit"
+                    aria-label="menu"
+                  >
+                    <Menu />
+                  </IconButton>
+                  <Typography variant="h6" color="inherit" component="div">
+                    
+                  </Typography>
+                </Toolbar>
+              </AppBar>
+            )}
             <Body
               offencePokemonList={offencePokemonList}
               deffenceDummyPokemon={deffenceDummyPokemon}

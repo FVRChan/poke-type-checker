@@ -1,6 +1,6 @@
 import React from "react";
 // import {South} from '@mui/icons-material';
-import { Button, Slider, Stack } from "@mui/material";
+import { Button, Select, Slider, Stack } from "@mui/material";
 import { calcEffort, calcRealValueHPStat } from "./util";
 export default function EffortSlider({
   label,
