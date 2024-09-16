@@ -87,17 +87,18 @@ export default function App() {
                 }}
               >
                 <Toolbar variant="dense">
-                  <IconButton
+                  <button
                     onClick={togglesmartphoneDrawerOpen}
-                    edge="start"
-                    color="inherit"
-                    aria-label="menu"
+                    style={{
+                      textAlign: "center",
+                      width: "100%",
+                      height: "100%",
+                      background: "none",
+                      border: "none",
+                    }}
                   >
-                    <Menu />
-                  </IconButton>
-                  <Typography variant="h6" color="inherit" component="div">
-                    
-                  </Typography>
+                    <Menu></Menu>
+                  </button>
                 </Toolbar>
               </AppBar>
             )}

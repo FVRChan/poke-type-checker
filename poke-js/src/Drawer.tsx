@@ -12,12 +12,12 @@ export default function TemporaryDrawer({
   toggleOpen: () => void;
 }) {
   return (
-    <>
+    <div style={{ height: "100px" }}>
       <Drawer anchor="bottom" open={open} onClose={toggleOpen}>
         <button onClick={toggleOpen}>x</button>
         {children}
         <button onClick={toggleOpen}>x</button>
       </Drawer>
-    </>
+    </div>
   );
 }
