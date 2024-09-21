@@ -4,6 +4,7 @@ import { Pokemon, pokemon_list } from "./pokemon";
 import { type_id_to_kanji } from "./type-map";
 import { abilityList } from "./util";
 import ability_list, { Ability } from "./ability-list";
+import move_list from "./move";
 function hitNumberOption(minHitNumber: number, maxHitNumber: number): number[] {
   const dummy_list: number[] = [];
   for (let a = minHitNumber; a <= maxHitNumber; a++) {
@@ -28,6 +29,7 @@ function OffencePokemon({
             <Autocomplete
               value={offencePokemon}
               onChange={(_, p) => {
+                console.log(p?.selected_move, p?.selected_move_id);
                 if (p) {
                   setOffencePokemon(index, p);
                 }
@@ -41,7 +43,27 @@ function OffencePokemon({
           </Grid>
           <Grid>
             <div>
-              <Autocomplete
+              <Select
+                style={{ float: "left" }}
+                value={offencePokemon.selected_move_id}
+                defaultValue={offencePokemon.selected_move_id}
+                onChange={(e) => {
+                  const tempPokemon = offencePokemon;
+                  tempPokemon.selected_move_id =
+                    typeof e.target.value === "string"
+                      ? parseInt(e.target.value)
+                      : e.target.value;
+                  tempPokemon.selected_move = offencePokemon.move_list?.filter(
+                    (m) => m.id === tempPokemon.selected_move_id
+                  )[0];
+                  setOffencePokemon(index, tempPokemon);
+                }}
+              >
+                {offencePokemon.move_list?.map((m) => {
+                  return <MenuItem value={m.id}>{m.name_ja}</MenuItem>;
+                })}
+              </Select>
+              {/* <Autocomplete
                 style={{ float: "left" }}
                 value={offencePokemon.selected_move}
                 onChange={(_, m) => {
@@ -63,7 +85,7 @@ function OffencePokemon({
                     move.power || "?"
                   })`
                 }
-              />
+              /> */}
               {offencePokemon.selected_move?.is_renzoku && (
                 <>
                   <Select

@@ -29,6 +29,7 @@ export interface Pokemon {
   often_used_move: Array<number>;
   often_used_tokusei: Array<number>;
   selected_move?: Move;
+  selected_move_id?: number;
   move_list?: Move[];
   ability_list?: Ability[];
   selected_hit_number?: number;
@@ -73,6 +74,9 @@ pokemon_list.forEach((p) => {
   p.selected_ability = abilityList(p)[0];
   p.selected_ability_id = abilityList(p)[0].id;
   p.selected_move = filterMoveList(p)[0];
+});
+pokemon_list.forEach((p) => {
+  p.selected_move_id = p.selected_move?.id;
 });
 
 export function pokemon_array(separate_number: number) {
