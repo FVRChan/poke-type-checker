@@ -71,11 +71,13 @@ pokemon_list.forEach((p) => {
   p.move_list = filterMoveList(p);
   p.ability_list = abilityList(p);
   // 2回叩くのアレなので要改善
-  p.selected_ability = abilityList(p)[0];
-  p.selected_ability_id = abilityList(p)[0].id;
-  p.selected_move = filterMoveList(p)[0];
 });
 pokemon_list.forEach((p) => {
+  p.selected_ability = p.ability_list ? p.ability_list[0] : undefined;
+  p.selected_move = p.move_list ? p.move_list[0] : undefined;
+});
+pokemon_list.forEach((p) => {
+  p.selected_ability_id = p.selected_ability?.id;
   p.selected_move_id = p.selected_move?.id;
 });
 
