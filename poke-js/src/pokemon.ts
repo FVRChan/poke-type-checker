@@ -2,7 +2,9 @@ import { isMobile } from "react-device-detect";
 import { EffectiveValue, EffortSlider, Personality } from "./calc_damage";
 import { all_pokemon_list } from "./pokemon-list";
 import { Move } from "./move";
-import { sortMoveList } from "./util";
+import { filterMoveList } from "./util";
+import { abilityList } from "./util";
+import { Ability } from "./ability-list";
 
 export interface PokemonBase {
   id: number;
@@ -28,10 +30,15 @@ export interface Pokemon {
   personality: Personality;
   usage_rate: number;
   often_used_move: Array<number>;
+  often_used_tokusei: Array<number>;
   selected_move?: Move;
   move_list?: Move[];
+  ability_list?: Ability[];
   selected_hit_number?: number;
+  selected_ability?: Ability;
+  selected_ability_id?: number;
   terasu_type?: number;
+  adapt_deffence_ability?:boolean
 }
 
 export const pokemon_list = all_pokemon_list
@@ -63,8 +70,12 @@ pokemon_list.forEach((p) => {
     special_attack: 1.0,
     special_defense: 1.0,
   };
-  p.selected_move = sortMoveList(p)[0];
-  p.move_list = sortMoveList(p);
+  p.move_list = filterMoveList(p);
+  p.ability_list = abilityList(p);
+  // 2回叩くのアレなので要改善
+  p.selected_ability = abilityList(p)[0];
+  p.selected_ability_id = abilityList(p)[0].id;
+  p.selected_move = filterMoveList(p)[0];
 });
 
 export function pokemon_array(separate_number: number) {
@@ -88,7 +99,7 @@ export function pokemon_array(separate_number: number) {
 
 export function dummyPokemon(): Pokemon {
   const p = {
-    id: 9999999,
+    id: 9999999,adapt_deffence_ability:false,
     base: {
       id: 9999999,
       name_ja: "ああああ",
@@ -107,6 +118,7 @@ export function dummyPokemon(): Pokemon {
     },
     terasu_type: 0,
     often_used_move: [],
+    often_used_tokusei: [],
     usage_rate: 999,
     effective_slider_step: {
       hp: 0,

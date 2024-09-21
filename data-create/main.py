@@ -26,6 +26,9 @@ TYPE_ID_DRAGON = 16
 TYPE_ID_DARK = 17
 TYPE_ID_FAIRY = 18
 
+import waza
+import form_mapping
+import pokemon_type
 
 POKEMON_JSON_FILENAME="./tmp/pokemon.json"
 ITEM_JSON_FILENAME="./tmp/item.json"
@@ -33,204 +36,6 @@ MOVE_JSON_FILENAME="./tmp/move.json"
 ABILITY_JSON_FILENAME="./tmp/ability.json"
 TYPE_JSON_FILENAME="./tmp/type.json"
 
-# リージョンフォームなどのマッピング
-def form_mapping(pokemon_id:int,form_number:int):
-    mapper={
-        38:{1:10104},
-        89:{1:10113},
-        110:{1:10167},
-        128:{1:10250,2:10251,3:10252},
-        199:{1:10172},
-        479:{1:10008,2:10009,3:10010,4:10011,5:10012},
-        503:{1:10236},
-        571:{1:10239},
-        628:{1:10240},
-        706:{1:10242},
-        713:{1:10243},
-        724:{1:10244},
-        876:{1:10186},
-        901:{1:10272},
-        902:{1:10248},
-    }
-    try:
-        return mapper[pokemon_id][form_number]
-    except:
-        1
-    return pokemon_id
-
-MOVE_RENZOKU_DICT = {
-    "ダブルニードル": {"min": 2, "max": 2},
-    "にどげり": {"min": 2, "max": 2},
-    "ホネブーメラン": {"min": 2, "max": 2},
-    "ダブルアタック": {"min": 2, "max": 2},
-    "ギアソーサー": {"min": 2, "max": 2},
-    "ダブルチョップ": {"min": 2, "max": 2},
-    "ダブルパンツァー": {"min": 2, "max": 2},
-    "ドラゴンアロー": {"min": 2, "max": 2},
-    "ダブルウイング": {"min": 2, "max": 2},
-    "タキオンカッター": {"min": 2, "max": 2},
-    "ツインビーム": {"min": 2, "max": 2},
-    "すいりゅうれんだ": {"min": 3, "max": 3},
-    "トリプルダイブ": {"min": 3, "max": 3},
-    "おうふくビンタ": {"min": 2, "max": 5},
-    "たまなげ": {"min": 2, "max": 5},
-    "とげキャノン": {"min": 2, "max": 5},
-    "ミサイルばり": {"min": 2, "max": 5},
-    "みだれづき": {"min": 2, "max": 5},
-    "みだれひっかき": {"min": 2, "max": 5},
-    "れんぞくパンチ": {"min": 2, "max": 5},
-    "ボーンラッシュ": {"min": 2, "max": 5},
-    "タネマシンガン": {"min": 2, "max": 5},
-    "つっぱり": {"min": 2, "max": 5},
-    "つららばり": {"min": 2, "max": 5},
-    "ロックブラスト": {"min": 2, "max": 5},
-    "スイープビンタ": {"min": 2, "max": 5},
-    "みずしゅりけん": {"min": 2, "max": 5},
-    "スケイルショット": {"min": 2, "max": 5},
-    "トリプルキック": {"min": 1, "max": 3},
-    "トリプルアクセル": {"min": 1, "max": 3},
-    "ネズミざん": {"min": 1, "max": 10},
-}
-PUNCH_WAZA = ["アームハンマー",
-              "アイスハンマー",
-              "あんこくきょうだ",
-              "かみなりパンチ",
-              "きあいパンチ",
-              "グロウパンチ",
-              "コメットパンチ",
-              "ジェットパンチ",
-              "シャドーパンチ",
-              "すいりゅうれんだ",
-              "スカイアッパー",
-              "ダブルパンツァー",
-              "ドレインパンチ",
-              "ばくれつパンチ",
-              "バレットパンチ",
-              "ピヨピヨパンチ",
-              "ぶちかまし",
-              "プラズマフィスト",
-              "ふんどのこぶし",
-              "ほのおのパンチ",
-              "マッハパンチ",
-              "メガトンパンチ",
-              "れいとうパンチ",
-              "れんぞくパンチ",]
-TAMA_WAZA = ["アイスボール"
-             "アシッドボム"
-             "ウェザーボール"
-             "エナジーボール"
-             "エレキボール"
-             "オクタンほう"
-             "かえんだん"
-             "かえんボール"
-             "かふんだんご"
-             "がんせきほう"
-             "きあいだま"
-             "くちばしキャノン"
-             "ジャイロボール"
-             "シャドーボール"
-             "タネばくだん"
-             "タネマシンガン"
-             "タマゴばくだん"
-             "たまなげ"
-             "でんじほう"
-             "どろばくだん"
-             "はどうだん"
-             "ヘドロばくだん"
-             "マグネットボム"
-             "みずあめボム"
-             "ミストボール"
-             "ロックブラスト"]
-HADOU_WAZA = [
-    "あくのはどう",
-    "いやしのはどう",
-    "こんげんのはどう",
-    "だいちのはどう",
-    "はどうだん",
-    "みずのはどう",
-    "りゅうのはどう",
-]
-KAMITUKI_WAZA = [
-    "エラがみ",
-    "かみくだく",
-    "かみつく",
-    "かみなりのキバ",
-    "くらいつく",
-    "こおりのキバ",
-    "サイコファング",
-    "どくどくのキバ",
-    "ひっさつまえば",
-    "ほのおのキバ",
-]
-KAZE_WAZA = [
-    "エアカッター",
-    "エアロブラスト",
-    "おいかぜ",
-    "かぜおこし",
-    "かみなりあらし",
-    "こがらしあらし",
-    "こごえるかぜ",
-    "すなあらし",
-    "たつまき",
-    "ねっさのあらし",
-    "ねっぷう",
-    "はなふぶき",
-    "はるのあらし",
-    "ふきとばし",
-    "ふぶき",
-    "ぼうふう",
-    "ようせいのかぜ",
-]
-ODORI_WAZA = [
-    "アクアステップ",
-    "しょうりのまい",
-    "ソウルビート",
-    "ちょうのまい",
-    "つるぎのまい",
-    "はなびらのまい",
-    "フェザーダンス",
-    "フラフラダンス",
-    "ほのおのまい",
-    "みかづきのまい",
-    "めざめるダンス",
-    "りゅうのまい",
-]
-OTO_WAZA = [
-    "いにしえのうた",
-    "いびき",
-    "いやしのすず",
-    "いやなおと",
-    "うたう",
-    "うたかたのアリア",
-    "エコーボイス",
-    "オーバードライブ",
-    "おしゃべり",
-    "おたけび",
-    "きんぞくおん",
-    "くさぶえ",
-    "サイコノイズ",
-    "さわぐ",
-    "スケイルノイズ",
-    "すてゼリフ",
-    "ソウルビート",
-    "ダークパニック",
-    "チャームボイス",
-    "ちょうおんぱ",
-    "とおぼえ",
-    "ないしょばなし",
-    "なきごえ",
-    "バークアウト",
-    "ハイパーボイス",
-    "ばくおんぱ",
-    "ぶきみなじゅもん",
-    "フレアソング",
-    "ブレイジングソウルビート",
-    "ほえる",
-    "ほろびのうた",
-    "みわくのボイス",
-    "むしのさざめき",
-    "りんしょう",
-]
 pokemon_home_api_header = {
     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
     "content-type": "application/json",
@@ -247,12 +52,6 @@ def default(item: Any):
     elif dataclasses.is_dataclass(item):
         return dataclasses.asdict(item)
 
-
-@dataclass
-class PokemonType:
-    id: int
-    name_ja: str
-    name_en: str
 
 
 @dataclass
@@ -299,7 +98,7 @@ class PokemonAbility:
     is_koorinorinpun: bool = False
     is_gorimutixyuu: bool = False
     is_wazawainoutuwa: bool = False
-    is_wazawainouturugi: bool = False
+    is_wazawainoturugi: bool = False
     is_wazawainoohuda: bool = False
     is_wazawainoutama: bool = False
     is_hihiironokodou: bool = False
@@ -429,7 +228,7 @@ class PokemonAbility:
         if self.name_ja in ["わざわいのうつわ"]:
             self.is_wazawainoutuwa = True
         if self.name_ja in ["わざわいのつるぎ"]:
-            self.is_wazawainouturugi = True
+            self.is_wazawainoturugi = True
         if self.name_ja in ["わざわいのおふだ"]:
             self.is_wazawainoohuda = True
         if self.name_ja in ["わざわいのたま"]:
@@ -510,10 +309,10 @@ class PokemonMove:
     is_tutakon: bool = False
 
     def set_extra_value(self):
-        if self.name_ja in MOVE_RENZOKU_DICT:
+        if self.name_ja in waza.RENZOKU_WAZA_DICT:
             self.is_renzoku = True
-            self.min_renzoku = MOVE_RENZOKU_DICT[self.name_ja]["min"]
-            self.max_renzoku = MOVE_RENZOKU_DICT[self.name_ja]["max"]
+            self.min_renzoku = waza.RENZOKU_WAZA_DICT[self.name_ja]["min"]
+            self.max_renzoku = waza.RENZOKU_WAZA_DICT[self.name_ja]["max"]
         # https://wiki.xn--rckteqa2e.com/wiki/%E9%80%A3%E7%B6%9A%E6%94%BB%E6%92%83%E6%8A%80
         if self.name_ja == "フリーズドライ":
             self.is_freeze_dry = True
@@ -523,19 +322,19 @@ class PokemonMove:
             self.is_psy_blade = True
         if self.name_ja == "じだんだ" or self.name_ja == "やけっぱち":
             self.is_zidanda = True
-        if self.name_ja in PUNCH_WAZA:
+        if self.name_ja in waza.PUNCH_WAZA:
             self.is_punch = True
-        if self.name_ja in TAMA_WAZA:
+        if self.name_ja in waza.TAMA_WAZA:
             self.is_tama = True
-        if self.name_ja in HADOU_WAZA:
+        if self.name_ja in waza.HADOU_WAZA:
             self.is_hadou = True
-        if self.name_ja in KAMITUKI_WAZA:
+        if self.name_ja in waza.KAMITUKI_WAZA:
             self.is_kamituki = True
-        if self.name_ja in KAZE_WAZA:
+        if self.name_ja in waza.KAZE_WAZA:
             self.is_kaze = True
-        if self.name_ja in ODORI_WAZA:
+        if self.name_ja in waza.ODORI_WAZA:
             self.is_odori = True
-        if self.name_ja in OTO_WAZA:
+        if self.name_ja in waza.OTO_WAZA:
             self.is_oto = True
         if self.name_ja in ["ヘビーボンバー", "ヒートスタンプ"]:
             self.is_heavy_slam = True
@@ -616,7 +415,7 @@ class Pokemon:
     type_id_list: List[int] = List
     ability_id_list: List[int] = List
     move_id_list: List[int] = List
-    ability_list: List[PokemonAbility] = List
+    # ability_list: List[PokemonAbility] = List
 
 
 @dataclass
@@ -704,8 +503,8 @@ def decode_pokemon(data: dict) -> Pokemon:
     )
 
 
-def decode_pokemon_type(data: dict) -> PokemonType:
-    return PokemonType(
+def decode_pokemon_type(data: dict) -> pokemon_type.PokemonType:
+    return pokemon_type.PokemonType(
         id=data["id"],
         name_ja=data["name_ja"],
         name_en=data["name_en"],
@@ -753,7 +552,7 @@ def decode_pokemon_ability(data: dict) -> PokemonAbility:
         is_koorinorinpun=data["is_koorinorinpun"],
         is_gorimutixyuu=data["is_gorimutixyuu"],
         is_wazawainoutuwa=data["is_wazawainoutuwa"],
-        is_wazawainouturugi=data["is_wazawainouturugi"],
+        is_wazawainoturugi=data["is_wazawainoturugi"],
         is_wazawainoohuda=data["is_wazawainoohuda"],
         is_wazawainoutama=data["is_wazawainoutama"],
         is_hihiironokodou=data["is_hihiironokodou"],
@@ -918,7 +717,7 @@ def get_type_list():
                        if n["language"]["name"] == "ja"][0]["name"]
             name_en = [n for n in detail_res["names"]
                        if n["language"]["name"] == "en"][0]["name"]
-            type_list.append(PokemonType(
+            type_list.append(pokemon_type.PokemonType(
                 id=id,
                 name_ja=name_ja,
                 name_en=name_en,
@@ -978,7 +777,7 @@ def get_ability_list():
                 is_koorinorinpun=temp_row["is_koorinorinpun"],
                 is_gorimutixyuu=temp_row["is_gorimutixyuu"],
                 is_wazawainoutuwa=temp_row["is_wazawainoutuwa"],
-                is_wazawainouturugi=temp_row["is_wazawainouturugi"],
+                is_wazawainoturugi=temp_row["is_wazawainoturugi"],
                 is_wazawainoohuda=temp_row["is_wazawainoohuda"],
                 is_wazawainoutama=temp_row["is_wazawainoutama"],
                 is_hihiironokodou=temp_row["is_hihiironokodou"],
@@ -1143,7 +942,6 @@ def get_season_detail_info():
 
     return ret_dict
 
-# https://pokeapi.co/api/v2/nature?limit=33
 
 def get_personality_list():
     if os.path.exists("./tmp/personality.json"):
@@ -1194,6 +992,7 @@ class PokemonForRankMatch:
     base:Pokemon
     usage_rate:int=999
     often_used_move:List[int]= List
+    often_used_tokusei:List[int]= List
 
 
 def update_pokemon_data():
@@ -1217,7 +1016,7 @@ def update_pokemon_data():
             if len(pokemon)==0:
                 raise "kusa"
             pokemon=pokemon[0]
-            pokemon_id=form_mapping(int(usage_info["id"]),int(usage_info["form"]))
+            pokemon_id=form_mapping.form_mapping(int(usage_info["id"]),int(usage_info["form"]))
             usage_rate_mapper[pokemon_id]=loop_usage_rate
             if pokemon_id==964:
                 usage_rate_mapper[10256]=loop_usage_rate
@@ -1254,7 +1053,8 @@ def update_pokemon_data():
                 for pokemon_form in res_dict[pokemon_number].keys():
                     usage_info=res_dict[pokemon_number][pokemon_form]
                     often_usage_move_list=[int(move["id"]) for move in usage_info["temoti"]["waza"]]
-                    pokemon_id_list=[form_mapping(pokemon_id=int(pokemon_number),form_number=int(pokemon_form))]
+                    often_usage_tokusei_list=[int(move["id"]) for move in usage_info["temoti"]["tokusei"]]
+                    pokemon_id_list=[form_mapping.form_mapping(pokemon_id=int(pokemon_number),form_number=int(pokemon_form))]
                     if len(pokemon_id_list)==1 :
                         if pokemon_id_list[0]==964:
                             pokemon_id_list.append(10256)
@@ -1269,6 +1069,7 @@ def update_pokemon_data():
                             id=int(pokemon_id),
                             base=pokemon[0],
                             often_used_move=often_usage_move_list,
+                            often_used_tokusei=often_usage_tokusei_list,
                         )
                         if pokemon_id in usage_rate_mapper:
                             temp_info.usage_rate=usage_rate_mapper[pokemon_id]
@@ -1284,27 +1085,26 @@ def update_pokemon_data():
         break
 
 # update_pokemon_data()
-def update_pokemon_list():
-    if os.path.exists(POKEMON_JSON_FILENAME)==False:
-        raise "file not found"
-    reader_opener=open(POKEMON_JSON_FILENAME)
-    reader=reader_opener.read()
-    # print(reader)
-    pokemon_list=json.loads(reader, object_hook=decode_pokemon)
-    reader_opener.close()
-    ability_list=get_ability_list()
-    for pokemon in pokemon_list:
-        pokemon_ability_list=list()
-        for ability_id in pokemon.ability_id_list:
-            for ability in [a for a in ability_list if a.id == ability_id]:
-                pokemon_ability_list.append(ability)
-        pokemon.ability_list=pokemon_ability_list
+# def update_pokemon_list():
+#     if os.path.exists(POKEMON_JSON_FILENAME)==False:
+#         raise "file not found"
+#     reader_opener=open(POKEMON_JSON_FILENAME)
+#     reader=reader_opener.read()
+#     # print(reader)
+#     pokemon_list=json.loads(reader, object_hook=decode_pokemon)
+#     reader_opener.close()
+#     ability_list=get_ability_list()
+#     for pokemon in pokemon_list:
+#         pokemon_ability_list=list()
+#         for ability_id in pokemon.ability_id_list:
+#             for ability in [a for a in ability_list if a.id == ability_id]:
+#                 pokemon_ability_list.append(ability)
+#         pokemon.ability_list=pokemon_ability_list
         
-    # print(reader)
-    # for move in move_list:
-    #     move.set_extra_value()
-    writer=open(POKEMON_JSON_FILENAME,"w")
-    writer.write(json.dumps(pokemon_list, default=default, ensure_ascii=False))
-    writer.close()
+#     writer=open(POKEMON_JSON_FILENAME,"w")
+#     writer.write(json.dumps(pokemon_list, default=default, ensure_ascii=False))
+#     writer.close()
 
-update_pokemon_list()
+# update_pokemon_list()
+
+update_pokemon_data()

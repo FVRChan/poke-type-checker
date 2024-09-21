@@ -1,4 +1,4 @@
-import { Select, MenuItem } from "@mui/material";
+import { Select, MenuItem, Checkbox } from "@mui/material";
 import Effort from "./Effort";
 import { Pokemon } from "./pokemon";
 import { type_id_to_hiraganakatakana, type_id_to_kanji } from "./type-map";
@@ -52,6 +52,12 @@ function DefencePokemon({
           );
         })}
       </Select>
+      特性<Checkbox value={deffenceDummyPokemon.adapt_deffence_ability} onChange={()=>{
+        const temp=deffenceDummyPokemon
+        temp.adapt_deffence_ability=!temp.adapt_deffence_ability
+        setDeffenceDummyPokemon(index,temp)
+      }} />
+
     </>
   );
 }

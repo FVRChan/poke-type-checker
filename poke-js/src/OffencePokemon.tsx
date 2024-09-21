@@ -2,6 +2,8 @@ import { Grid, Autocomplete, TextField, Select, MenuItem } from "@mui/material";
 import Effort from "./Effort";
 import { Pokemon, pokemon_list } from "./pokemon";
 import { type_id_to_kanji } from "./type-map";
+import { abilityList } from "./util";
+import ability_list, { Ability } from "./ability-list";
 function hitNumberOption(minHitNumber: number, maxHitNumber: number): number[] {
   const dummy_list: number[] = [];
   for (let a = minHitNumber; a <= maxHitNumber; a++) {
@@ -68,7 +70,7 @@ function OffencePokemon({
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={offencePokemon.selected_hit_number}
-                    label="Age"
+                    label="えｗくぇｗくぇｗくぇｗｑ"
                     onChange={(e) => {
                       const tempPokemon = offencePokemon;
                       tempPokemon.selected_hit_number = e.target
@@ -83,10 +85,36 @@ function OffencePokemon({
                       return <MenuItem value={aaaassss}>{aaaassss}</MenuItem>;
                     })}
                   </Select>
+                  回
                 </>
               )}
             </div>
           </Grid>
+        </Grid>
+        <Grid>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={offencePokemon.selected_ability_id}
+            defaultValue={offencePokemon.selected_ability_id}
+            label="Age"
+            onChange={(e) => {
+              const tempPokemon = offencePokemon;
+              tempPokemon.selected_ability_id =
+                typeof e.target.value === "string"
+                  ? parseInt(e.target.value)
+                  : e.target.value;
+              tempPokemon.selected_ability = ability_list.filter(
+                (a) => a.id === tempPokemon.selected_ability_id
+              )[0];
+              setOffencePokemon(index, tempPokemon);
+            }}
+          >
+            {offencePokemon.ability_list &&
+              offencePokemon.ability_list.map((a) => {
+                return <MenuItem value={a.id}>{a.name_ja}</MenuItem>;
+              })}
+          </Select>
         </Grid>
         <Grid>
           <Effort

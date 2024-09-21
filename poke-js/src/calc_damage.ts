@@ -1,13 +1,18 @@
-import { ClickAwayListener } from "@mui/material";
 import { Move, MOVE_DAMAGE_CLASS_PHYSICAL } from "./move";
-import { dummyPokemon, Pokemon, pokemon_list } from "./pokemon";
+import { Pokemon } from "./pokemon";
 import type_map from "./type-map";
-import { calcRealValueHPStat, calcRealValueOtherStat } from "./util";
+import {
+  calcRealValueHPStat,
+  calcRealValueOtherStat,
+  canMultiscale,
+  canScrappy,
+} from "./util";
 
 interface damageRateMapper {
   compatibilityRate: number;
   sameTypeRate: number;
   randRate: number;
+  multiscaleRate:number;
 }
 export interface Effort {
   hp: number;
@@ -37,23 +42,6 @@ export interface EffectiveValue {
   special_defense: number;
 }
 
-// 名前
-// 効率良い方法が欲しい。。。(4以上はもうクソ重い)
-// function kusatu(numberArray: number[][]): number[] {
-//   if (numberArray.length === 1) {
-//     return numberArray[0];
-//   }
-//   const newList: number[] = [];
-//   numberArray[0].forEach((a) => {
-//     numberArray[1].forEach((b) => {
-//       newList.push(a + b);
-//     });
-//   });
-//   const newArray = numberArray;
-//   newArray.splice(0, 2, newList);
-//   return kusatu(newArray);
-// }
-
 function tatamikomi(dictList: { [name: number]: number }[]): {
   [name: number]: number;
 } {
@@ -82,10 +70,7 @@ function tatamikomi(dictList: { [name: number]: number }[]): {
   }
 }
 
-function listToMapper(
-  // i: number,
-  numberList: number[]
-): { [name: number]: number }[] {
+function listToMapper(numberList: number[]): { [name: number]: number }[] {
   const temp: { [name: number]: number } = {};
   numberList.forEach((w: number) => {
     if (!Object.hasOwn(temp, w)) {
@@ -94,9 +79,6 @@ function listToMapper(
     temp[w] += 1;
   });
   const retList: { [name: number]: number }[] = [temp];
-  // for (let j = 0; j < i; j++) {
-  //   retList.push(temp);
-  // }
   return retList;
 }
 
@@ -104,12 +86,10 @@ export function calc_interface({
   offencePokemonList,
   deffencePokemon,
   deffenceDummyPokemon,
-}: // moveList,
-{
+}: {
   offencePokemonList: Pokemon[];
   deffencePokemon: Pokemon;
   deffenceDummyPokemon: Pokemon;
-  // moveList: Move[];
 }) {
   deffencePokemon.effective_value = {
     hp: calcRealValueHPStat(
@@ -174,7 +154,8 @@ export function calc_interface({
           offencePokemon,
           deffencePokemon
         ),
-        sameTypeRate: getMovePokemonTypeRate(move, offencePokemon),
+        sameTypeRate: calcOffenceMoveTypeRate(move, offencePokemon),
+        multiscaleRate:1/2,
       } as damageRateMapper;
       const hitNumber =
         move.is_renzoku && offencePokemon.selected_hit_number
@@ -207,7 +188,6 @@ function calcWithRand(
   move: Move,
   offencePokemon: Pokemon,
   deffencePokemon: Pokemon,
-  // rateList: number[]
   rateMapper: damageRateMapper,
   loopHitNumber: number
 ): Array<number> {
@@ -240,11 +220,12 @@ function calc({
   loopHitNumber: number;
 }) {
   let power = move.power;
+  // トリプルアクセル/トリプルキックの時、Hit回数によって威力が変わる
   if (move.id === 813 || move.id === 167) {
     power = power * loopHitNumber;
   }
   if (move.is_ketaguri) {
-    power = powerketaguri(deffencePokemon.base.weight);
+    power = calcPowerKetaguri(deffencePokemon);
   }
   const attack =
     move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL
@@ -255,12 +236,14 @@ function calc({
       ? deffencePokemon.effective_value.defense
       : deffencePokemon.effective_value.special_defense;
 
-  // 基本
+  // 基本ダメージ部分計算
   let a = Math.floor((50 * 2) / 5 + 2);
   a = Math.floor((a * power * attack) / defense);
   a = Math.floor(a / 50 + 2);
 
-  // 順番を守る
+  // // 順番を守って各種倍率を掛け算していく
+  // if (canMultiscale(deffencePokemon)){
+  // a = Math.floor(a * rateMapper.multiscaleRate);}
   a = Math.floor(a * rateMapper.randRate);
   a = Math.floor(a * rateMapper.sameTypeRate);
   a = Math.floor(a * rateMapper.compatibilityRate);
@@ -268,7 +251,13 @@ function calc({
   return a;
 }
 
-function powerketaguri(w: number): number {
+/**
+ * けたぐり/くさむすびでの威力計算をする
+ * @param deffencePokemon
+ * @returns
+ */
+function calcPowerKetaguri(deffencePokemon: Pokemon): number {
+  const w = deffencePokemon.base.weight;
   if (w < 100) {
     return 20;
   } else if (w < 250) {
@@ -283,15 +272,23 @@ function powerketaguri(w: number): number {
   return 120;
 }
 
+/**
+ * タイプ相性での倍率計算をして倍率を返す(テラスタルもここで考慮)
+ * @param offencePokemon
+ * @param deffencePokemon
+ * @returns ダメージ倍率
+ */
 function getCompatibilityTypeRate(
   offencePokemon: Pokemon,
   deffencePokemon: Pokemon
 ): number {
   const offenceType = offencePokemon.selected_move?.type || 1;
   let deffenceTypeList = deffencePokemon.base.type_id_list;
+  // 防御側のテラスタイプによる調整
   if (deffencePokemon.terasu_type && deffencePokemon.terasu_type > 0) {
     deffenceTypeList = [deffencePokemon.terasu_type];
   }
+
   let res = 1.0;
   const deffenceType1 = deffenceTypeList[0];
   const r1 = type_map[deffenceType1].damage_relations;
@@ -300,7 +297,9 @@ function getCompatibilityTypeRate(
   } else if (r1.half_damage_from.includes(offenceType)) {
     res *= 0.5;
   } else if (r1.no_damage_from.includes(offenceType)) {
-    res *= 0;
+    if (!canScrappy(offencePokemon)) {
+      res *= 0;
+    }
   }
   if (deffenceTypeList.length === 2) {
     const deffenceType2 = deffenceTypeList[1];
@@ -310,13 +309,21 @@ function getCompatibilityTypeRate(
     } else if (r2.half_damage_from.includes(offenceType)) {
       res *= 0.5;
     } else if (r2.no_damage_from.includes(offenceType)) {
-      res *= 0;
+      if (!canScrappy(offencePokemon)) {
+        res *= 0;
+      }
     }
   }
   return res;
 }
 
-function getMovePokemonTypeRate(move: Move, offencePokemon: Pokemon): number {
+/**
+ * 攻める側のタイプ相性による倍率計算
+ * @param move
+ * @param offencePokemon
+ * @returns
+ */
+function calcOffenceMoveTypeRate(move: Move, offencePokemon: Pokemon): number {
   if (offencePokemon.base.type_id_list.includes(move.type)) {
     return 1.5;
   }
