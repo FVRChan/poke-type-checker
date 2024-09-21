@@ -1,5 +1,5 @@
 import { Move, MOVE_DAMAGE_CLASS_PHYSICAL } from "./move";
-import { Pokemon, PokemonOffenceInterface } from "./pokemon";
+import { Pokemon, PokemonDefenceInterface, PokemonOffenceInterface } from "./pokemon";
 import type_map from "./type-map";
 import {
   calcRealValueHPStat,
@@ -75,31 +75,31 @@ export function calc_interface({
   deffenceDummyPokemon,
 }: {
   offencePokemonList: PokemonOffenceInterface[];
-  deffencePokemon: Pokemon;
-  deffenceDummyPokemon: Pokemon;
+  deffencePokemon: PokemonDefenceInterface;
+  deffenceDummyPokemon: PokemonDefenceInterface;
 }) {
   deffencePokemon.effective_value = {
     hp: calcRealValueHPStat(
-      deffencePokemon.hp,
+      deffencePokemon.pokemon.hp,
       deffenceDummyPokemon.effective_slider_step.hp
     ),
     attack: calcRealValueOtherStat(
-      deffencePokemon.attack,
+      deffencePokemon.pokemon.attack,
       deffenceDummyPokemon.effective_slider_step.attack,
       deffenceDummyPokemon.personality.attack
     ),
     defense: calcRealValueOtherStat(
-      deffencePokemon.defense,
+      deffencePokemon.pokemon.defense,
       deffenceDummyPokemon.effective_slider_step.defense,
       deffenceDummyPokemon.personality.defense
     ),
     special_attack: calcRealValueOtherStat(
-      deffencePokemon.special_attack,
+      deffencePokemon.pokemon.special_attack,
       deffenceDummyPokemon.effective_slider_step.special_attack,
       deffenceDummyPokemon.personality.special_attack
     ),
     special_defense: calcRealValueOtherStat(
-      deffencePokemon.special_defense,
+      deffencePokemon.pokemon.special_defense,
       deffenceDummyPokemon.effective_slider_step.special_defense,
       deffenceDummyPokemon.personality.special_defense
     ),
@@ -174,7 +174,7 @@ export function calc_interface({
 function calcWithRand(
   move: Move,
   offencePokemon: PokemonOffenceInterface,
-  deffencePokemon: Pokemon,
+  deffencePokemon: PokemonDefenceInterface,
   rateMapper: damageRateMapper,
   loopHitNumber: number
 ): Array<number> {
@@ -202,7 +202,7 @@ function calc({
 }: {
   move: Move;
   offencePokemon: PokemonOffenceInterface;
-  deffencePokemon: Pokemon;
+  deffencePokemon: PokemonDefenceInterface;
   rateMapper: damageRateMapper;
   loopHitNumber: number;
 }) {
@@ -243,8 +243,8 @@ function calc({
  * @param deffencePokemon
  * @returns
  */
-function calcPowerKetaguri(deffencePokemon: Pokemon): number {
-  const w = deffencePokemon.weight;
+function calcPowerKetaguri(deffencePokemon: PokemonDefenceInterface): number {
+  const w = deffencePokemon.pokemon.weight;
   if (w < 100) {
     return 20;
   } else if (w < 250) {
@@ -267,10 +267,10 @@ function calcPowerKetaguri(deffencePokemon: Pokemon): number {
  */
 function getCompatibilityTypeRate(
   offencePokemon: PokemonOffenceInterface,
-  deffencePokemon: Pokemon
+  deffencePokemon: PokemonDefenceInterface
 ): number {
   const offenceType = offencePokemon.selected_move?.type || 1;
-  let deffenceTypeList = deffencePokemon.type_id_list;
+  let deffenceTypeList = deffencePokemon.pokemon.type_id_list;
   // 防御側のテラスタイプによる調整
   if (deffencePokemon.terasu_type && deffencePokemon.terasu_type > 0) {
     deffenceTypeList = [deffencePokemon.terasu_type];

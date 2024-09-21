@@ -3,6 +3,7 @@ import {
   dummyPokemon,
   Pokemon,
   pokemon_list,
+  PokemonDefenceInterface,
   PokemonOffenceInterface,
   toOffence,
 } from "./pokemon";
@@ -43,9 +44,13 @@ export function useViewModel() {
     temp.splice(i, 1, p);
     setOffencePokemonList([...temp]);
   };
+
   const [deffenceDummyPokemon, setDeffenceDummyPokemon] =
-    React.useState<Pokemon>(dummyPokemon);
-  const handleSaveDeffenceDummyPokemon = (i: number, p: Pokemon) => {
+    React.useState<PokemonDefenceInterface>(dummyPokemon);
+  const handleSaveDeffenceDummyPokemon = (
+    i: number,
+    p: PokemonDefenceInterface
+  ) => {
     setDeffenceDummyPokemon((prev) => ({ ...prev }));
   };
 

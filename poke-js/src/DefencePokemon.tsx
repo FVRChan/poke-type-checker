@@ -1,5 +1,5 @@
 import { Select, MenuItem, Checkbox } from "@mui/material";
-import { Pokemon } from "./pokemon";
+import { Pokemon, PokemonDefenceInterface } from "./pokemon";
 import { type_id_to_hiraganakatakana, type_id_to_kanji } from "./type-map";
 import DeffenceEffort from "./DefenceEffort";
 
@@ -9,8 +9,8 @@ function DefencePokemon({
   setDeffenceDummyPokemon,
   index = 0,
 }: {
-  deffenceDummyPokemon: Pokemon;
-  setDeffenceDummyPokemon: (i: number, p: Pokemon) => void;
+  deffenceDummyPokemon: PokemonDefenceInterface;
+  setDeffenceDummyPokemon: (i: number, p: PokemonDefenceInterface) => void;
   index?: number;
 }) {
   const tempArray = () => {

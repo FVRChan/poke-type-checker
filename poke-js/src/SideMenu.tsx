@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import DefencePokemon from "./DefencePokemon";
 import OffencePokemon from "./OffencePokemon";
-import { Pokemon, PokemonOffenceInterface } from "./pokemon";
+import { Pokemon, PokemonDefenceInterface, PokemonOffenceInterface } from "./pokemon";
 import { useWindowSize } from "./useWindowSize";
 
 function SideMenu({
@@ -16,8 +16,8 @@ function SideMenu({
   handleSaveOffencePokemonList: (i: number, p: PokemonOffenceInterface) => void;
   handleRemoveOffencePokemonList: (i: number) => void;
   handleAddOffencePokemonList: () => void;
-  deffenceDummyPokemon: Pokemon;
-  handleSaveDeffenceDummyPokemon: (i: number, p: Pokemon) => void;
+  deffenceDummyPokemon: PokemonDefenceInterface;
+  handleSaveDeffenceDummyPokemon: (i: number, p: PokemonDefenceInterface) => void;
 }) {
   return (
     <Grid container direction="column">

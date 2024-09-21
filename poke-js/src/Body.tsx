@@ -6,7 +6,7 @@ import {
   TableCell,
 } from "@mui/material";
 import { calc_interface } from "./calc_damage";
-import { Pokemon, pokemon_array, PokemonOffenceInterface } from "./pokemon";
+import { Pokemon, pokemon_array, PokemonDefenceInterface, PokemonOffenceInterface } from "./pokemon";
 import { useWindowSize } from "./useWindowSize";
 
 function Body({
@@ -14,7 +14,7 @@ function Body({
   deffenceDummyPokemon,
 }: {
   offencePokemonList: PokemonOffenceInterface[];
-  deffenceDummyPokemon: Pokemon;
+  deffenceDummyPokemon: PokemonDefenceInterface;
 }) {
   return (
     <>
@@ -27,7 +27,7 @@ function Body({
                   <TableRow
                     key={deffencePokemonList
                       .map((p) => {
-                        return p.name_ja;
+                        return p.pokemon.name_ja;
                       })
                       .join("")}
                   >
@@ -40,15 +40,15 @@ function Body({
                             maxHeight: "65px",
                           }}
                         >
-                          {deffencePokemon.picture_url ? (
+                          {deffencePokemon.pokemon.picture_url ? (
                             <img
-                              src={deffencePokemon.picture_url}
+                              src={deffencePokemon.pokemon.picture_url}
                               width={55}
                               height={55}
                             ></img>
                           ) : (
                             <>
-                              <div>{deffencePokemon.name_ja}</div>
+                              <div>{deffencePokemon.pokemon.name_ja}</div>
                             </>
                           )}
                           <div>

@@ -1,6 +1,6 @@
 import React from "react";
 import EffortSlider from "./EffortSlider";
-import { Pokemon } from "./pokemon";
+import { Pokemon, PokemonDefenceInterface } from "./pokemon";
 import { MOVE_DAMAGE_CLASS_PHYSICAL, MOVE_DAMAGE_CLASS_SPECIAL } from "./move";
 import { PersonalityRate } from "./calc_damage";
 
@@ -11,8 +11,8 @@ export default function DeffenceEffort({
   // isDefense,
   index,
 }: {
-  pokemon: Pokemon;
-  pokemonSetter: (i: number, p: Pokemon) => void;
+  pokemon: PokemonDefenceInterface;
+  pokemonSetter: (i: number, p: PokemonDefenceInterface) => void;
   // isOffense: boolean;
   // isDefense: boolean;
   index: number;

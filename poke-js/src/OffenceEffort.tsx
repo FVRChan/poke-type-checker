@@ -18,21 +18,21 @@ export default function OffenceEffort({
   index: number;
 }) {
   const [effortStepHP, setEffortStepHP] = React.useState<number>(
-    pokemon.pokemon.effective_slider_step.hp
+    pokemon.effective_slider_step.hp
   );
   const [effortStepAttack, setEffortStepAttack] = React.useState<number>(
-    pokemon.pokemon.effective_slider_step.attack
+    pokemon.effective_slider_step.attack
   );
   const [effortStepDeffence, setEffortStepDeffence] = React.useState<number>(
-    pokemon.pokemon.effective_slider_step.defense
+    pokemon.effective_slider_step.defense
   );
   const [effortStepSpecialAttack, setEffortStepSpecialAttack] =
     React.useState<number>(
-      pokemon.pokemon.effective_slider_step.special_attack
+      pokemon.effective_slider_step.special_attack
     );
   const [effortStepSpecialDeffence, setEffortStepSpecialDeffence] =
     React.useState<number>(
-      pokemon.pokemon.effective_slider_step.special_defense
+      pokemon.effective_slider_step.special_defense
     );
   const handleSetPokemonEffortStepHP = (newValue: number) => {
     setEffortStepHP(newValue);
@@ -65,14 +65,14 @@ export default function OffenceEffort({
     pokemonSetter(index, JSON.parse(JSON.stringify(temp)));
   };
   const [personalityAttack, setPersonalityAttack] =
-    React.useState<PersonalityRate>(pokemon.pokemon.personality.attack);
+    React.useState<PersonalityRate>(pokemon.personality.attack);
   const [personalityDeffence, setPersonalityDeffence] =
-    React.useState<PersonalityRate>(pokemon.pokemon.personality.defense);
+    React.useState<PersonalityRate>(pokemon.personality.defense);
   const [personalitySpecialAttack, setPersonalitySpecialAttack] =
-    React.useState<PersonalityRate>(pokemon.pokemon.personality.special_attack);
+    React.useState<PersonalityRate>(pokemon.personality.special_attack);
   const [personalitySpecialDeffence, setPersonalitySpecialDeffence] =
     React.useState<PersonalityRate>(
-      pokemon.pokemon.personality.special_defense
+      pokemon.personality.special_defense
     );
   const handleSetPersonalityAttack = (newValue: PersonalityRate) => {
     setPersonalityAttack(newValue);
