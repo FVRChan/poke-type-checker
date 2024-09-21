@@ -4,17 +4,17 @@ import { Pokemon } from "./pokemon";
 import { MOVE_DAMAGE_CLASS_PHYSICAL, MOVE_DAMAGE_CLASS_SPECIAL } from "./move";
 import { PersonalityRate } from "./calc_damage";
 
-export default function Effort({
+export default function DeffenceEffort({
   pokemon,
   pokemonSetter,
-  isOffense,
-  isDefense,
+  // isOffense,
+  // isDefense,
   index,
 }: {
   pokemon: Pokemon;
   pokemonSetter: (i: number, p: Pokemon) => void;
-  isOffense: boolean;
-  isDefense: boolean;
+  // isOffense: boolean;
+  // isDefense: boolean;
   index: number;
 }) {
   const [effortStepHP, setEffortStepHP] = React.useState<number>(
@@ -60,12 +60,10 @@ export default function Effort({
     temp.effective_slider_step.special_defense = newValue;
     pokemonSetter(index, temp);
   };
-  const [personalityAttack, setPersonalityAttack] = React.useState<
-    PersonalityRate
-  >(pokemon.personality.attack);
-  const [personalityDeffence, setPersonalityDeffence] = React.useState<
-    PersonalityRate
-  >(pokemon.personality.defense);
+  const [personalityAttack, setPersonalityAttack] =
+    React.useState<PersonalityRate>(pokemon.personality.attack);
+  const [personalityDeffence, setPersonalityDeffence] =
+    React.useState<PersonalityRate>(pokemon.personality.defense);
   const [personalitySpecialAttack, setPersonalitySpecialAttack] =
     React.useState<PersonalityRate>(pokemon.personality.special_attack);
   const [personalitySpecialDeffence, setPersonalitySpecialDeffence] =
@@ -96,14 +94,14 @@ export default function Effort({
   };
   return (
     <>
-      {isDefense && (
+      {
         <EffortSlider
           label={"HP"}
           step={effortStepHP}
           stepSetter={handleSetPokemonEffortStepHP}
         ></EffortSlider>
-      )}
-      {isOffense &&
+      }
+      {/* {isOffense &&
         pokemon.selected_move &&
         pokemon.selected_move.damage_class_number ===
           MOVE_DAMAGE_CLASS_PHYSICAL && (
@@ -114,8 +112,8 @@ export default function Effort({
             personality={personalityAttack}
             personalitySetter={handleSetPersonalityAttack}
           ></EffortSlider>
-        )}
-      {isDefense && (
+        )} */}
+      {
         <EffortSlider
           label={"防御"}
           step={effortStepDeffence}
@@ -123,8 +121,8 @@ export default function Effort({
           personality={personalityDeffence}
           personalitySetter={handleSetPersonalityDeffence}
         ></EffortSlider>
-      )}
-      {isOffense &&
+      }
+      {/* {isOffense &&
         pokemon.selected_move &&
         pokemon.selected_move.damage_class_number ===
           MOVE_DAMAGE_CLASS_SPECIAL && (
@@ -135,8 +133,8 @@ export default function Effort({
             personality={personalitySpecialAttack}
             personalitySetter={handleSetPersonalitySpecialAttack}
           ></EffortSlider>
-        )}
-      {isDefense && (
+        )} */}
+      {
         <EffortSlider
           label={"特防"}
           step={effortStepSpecialDeffence}
@@ -144,7 +142,7 @@ export default function Effort({
           personality={personalitySpecialDeffence}
           personalitySetter={handleSetPersonalitySpecialDeffence}
         ></EffortSlider>
-      )}
+      }
     </>
   );
 }

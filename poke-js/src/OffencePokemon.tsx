@@ -1,10 +1,10 @@
 import { Grid, Autocomplete, TextField, Select, MenuItem } from "@mui/material";
-import Effort from "./Effort";
 import { Pokemon, pokemon_list } from "./pokemon";
 import { type_id_to_kanji } from "./type-map";
 import { abilityList } from "./util";
 import ability_list, { Ability } from "./ability-list";
 import move_list from "./move";
+import OffenceEffort from "./OffenceEffort";
 function hitNumberOption(minHitNumber: number, maxHitNumber: number): number[] {
   const dummy_list: number[] = [];
   for (let a = minHitNumber; a <= maxHitNumber; a++) {
@@ -122,11 +122,9 @@ function OffencePokemon({
           </Select>
         </Grid>
         <Grid>
-          <Effort
+          <OffenceEffort
             pokemon={offencePokemon}
             pokemonSetter={setOffencePokemon}
-            isOffense
-            isDefense={false}
             index={index}
           />
         </Grid>

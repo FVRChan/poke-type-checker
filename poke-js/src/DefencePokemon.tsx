@@ -1,7 +1,7 @@
 import { Select, MenuItem, Checkbox } from "@mui/material";
-import Effort from "./Effort";
 import { Pokemon } from "./pokemon";
 import { type_id_to_hiraganakatakana, type_id_to_kanji } from "./type-map";
+import DeffenceEffort from "./DefenceEffort";
 
 // index もダミー
 function DefencePokemon({
@@ -22,11 +22,11 @@ function DefencePokemon({
   };
   return (
     <>
-      <Effort
+      <DeffenceEffort
         pokemon={deffenceDummyPokemon}
         pokemonSetter={setDeffenceDummyPokemon}
-        isOffense={false}
-        isDefense
+        // isOffense={false}
+        // isDefense
         index={index}
       />
       <Select
@@ -57,7 +57,6 @@ function DefencePokemon({
         temp.adapt_deffence_ability=!temp.adapt_deffence_ability
         setDeffenceDummyPokemon(index,temp)
       }} /> */}
-
     </>
   );
 }
