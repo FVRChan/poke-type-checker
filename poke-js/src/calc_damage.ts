@@ -1,5 +1,9 @@
 import { Move, MOVE_DAMAGE_CLASS_PHYSICAL } from "./move";
-import { Pokemon, PokemonDefenceInterface, PokemonOffenceInterface } from "./pokemon";
+import {
+  Pokemon,
+  PokemonDefenceInterface,
+  PokemonOffenceInterface,
+} from "./pokemon";
 import type_map from "./type-map";
 import {
   calcRealValueHPStat,
@@ -314,6 +318,19 @@ function calcOffenceMoveTypeRate(
   move: Move,
   offencePokemon: PokemonOffenceInterface
 ): number {
+  if (offencePokemon.terasu_type) {
+    if (
+      offencePokemon.terasu_type === move.type &&
+      offencePokemon.pokemon.type_id_list.includes(move.type)
+    ) {
+      return 2.0;
+    } else if (
+      offencePokemon.terasu_type === move.type &&
+      !offencePokemon.pokemon.type_id_list.includes(move.type)
+    ) {
+      return 1.5;
+    }
+  }
   if (offencePokemon.pokemon.type_id_list.includes(move.type)) {
     return 1.5;
   }

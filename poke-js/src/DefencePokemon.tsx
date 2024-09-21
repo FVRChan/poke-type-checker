@@ -2,6 +2,7 @@ import { Select, MenuItem, Checkbox } from "@mui/material";
 import { Pokemon, PokemonDefenceInterface } from "./pokemon";
 import { type_id_to_hiraganakatakana, type_id_to_kanji } from "./type-map";
 import DeffenceEffort from "./DefenceEffort";
+import { TerastalSelect } from "./TerastalSelect";
 
 // index もダミー
 function DefencePokemon({
@@ -13,26 +14,30 @@ function DefencePokemon({
   setDeffenceDummyPokemon: (i: number, p: PokemonDefenceInterface) => void;
   index?: number;
 }) {
-  const tempArray = () => {
-    const retList: number[] = [];
-    for (let i = 1; i <= 18; i++) {
-      retList.push(i);
-    }
-    return retList;
-  };
+  // const tempArray = () => {
+  //   const retList: number[] = [];
+  //   for (let i = 1; i <= 18; i++) {
+  //     retList.push(i);
+  //   }
+  //   return retList;
+  // };
   return (
     <>
       <DeffenceEffort
         pokemon={deffenceDummyPokemon}
         pokemonSetter={setDeffenceDummyPokemon}
-        // isOffense={false}
-        // isDefense
         index={index}
       />
-      <Select
+      <TerastalSelect
+        pokemon={deffenceDummyPokemon}
+        setPokemon={setDeffenceDummyPokemon}
+        index={index}
+      ></TerastalSelect>
+      {/* <Select
         defaultValue={0}
         labelId="demo-simple-select-label"
         id="demo-simple-select"
+        size="small"
         value={deffenceDummyPokemon.terasu_type}
         label="Age"
         onChange={(e) => {
@@ -51,12 +56,7 @@ function DefencePokemon({
             </MenuItem>
           );
         })}
-      </Select>
-      {/* 特性<Checkbox value={deffenceDummyPokemon.adapt_deffence_ability} onChange={()=>{
-        const temp=deffenceDummyPokemon
-        temp.adapt_deffence_ability=!temp.adapt_deffence_ability
-        setDeffenceDummyPokemon(index,temp)
-      }} /> */}
+      </Select> */}
     </>
   );
 }

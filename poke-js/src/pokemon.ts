@@ -68,7 +68,7 @@ export interface PokemonOffenceInterface {
   selected_hit_number?: number;
   selected_ability?: Ability;
   selected_ability_id?: number;
-  // terasu_type?: number;
+  terasu_type?: number;
   // adapt_deffence_ability?: boolean;
 }
 

@@ -10,6 +10,7 @@ import { abilityList } from "./util";
 import ability_list, { Ability } from "./ability-list";
 import move_list from "./move";
 import OffenceEffort from "./OffenceEffort";
+import { TerastalSelect } from "./TerastalSelect";
 function hitNumberOption(minHitNumber: number, maxHitNumber: number): number[] {
   const dummy_list: number[] = [];
   for (let a = minHitNumber; a <= maxHitNumber; a++) {
@@ -32,6 +33,7 @@ function OffencePokemon({
         <Grid container direction="column">
           <Grid>
             <Select
+              size="small"
               value={offencePokemon.pokemon.id}
               defaultValue={offencePokemon.pokemon.id}
               onChange={(e) => {
@@ -55,6 +57,7 @@ function OffencePokemon({
           <Grid>
             <div>
               <Select
+                size="small"
                 style={{ float: "left" }}
                 value={offencePokemon.selected_move_id}
                 defaultValue={offencePokemon.selected_move_id}
@@ -104,6 +107,7 @@ function OffencePokemon({
         </Grid>
         <Grid>
           <Select
+            size="small"
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={offencePokemon.selected_ability_id}
@@ -135,6 +139,11 @@ function OffencePokemon({
           />
         </Grid>
       </Grid>
+      <TerastalSelect
+        pokemon={offencePokemon}
+        setPokemon={setOffencePokemon}
+        index={index}
+      ></TerastalSelect>
     </>
   );
 }

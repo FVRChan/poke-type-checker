@@ -1,6 +1,6 @@
 import React from "react";
 // import {South} from '@mui/icons-material';
-import { Button, Select, Slider, Stack } from "@mui/material";
+import { Button, MenuItem, Select, Slider, Stack } from "@mui/material";
 import { calcEffort, calcRealValueHPStat } from "./util";
 import { PersonalityRate } from "./calc_damage";
 export default function EffortSlider({
@@ -27,7 +27,22 @@ export default function EffortSlider({
         <div>{label}</div>
         {label !== "HP" && personalitySetter && personality && (
           <>
-            <button
+            <Select
+              value={personality} size="small"
+              defaultValue={personality}
+              onChange={(e) => {
+                const next=typeof(e.target.value)==="string"?parseInt(e.target.value):e.target.value
+                personalitySetter(next as PersonalityRate)
+                // console.log()
+                // if(typeof(e.target.value)===)
+                // personalitySetter()
+              }}
+            >
+              <MenuItem value={0.9}>0.9</MenuItem>
+              <MenuItem value={1.0}>1.0</MenuItem>
+              <MenuItem value={1.1}>1.1</MenuItem>
+            </Select>
+            {/* <button
               style={{ margin: "1px" }}
               onClick={() => {
                 if (personality === 0.9) {
@@ -40,7 +55,7 @@ export default function EffortSlider({
               }}
             >
               {personality === 1.0 ? "1.0" : personality}
-            </button>
+            </button> */}
           </>
         )}
         <Slider
