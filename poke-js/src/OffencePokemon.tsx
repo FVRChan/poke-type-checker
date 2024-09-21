@@ -26,20 +26,32 @@ function OffencePokemon({
       <Grid container direction="column">
         <Grid container direction="column">
           <Grid>
-            <Autocomplete
-              value={offencePokemon}
-              onChange={(_, p) => {
-                console.log(p?.selected_move, p?.selected_move_id);
-                if (p) {
-                  setOffencePokemon(index, p);
+            <Select
+              value={offencePokemon.id}
+              defaultValue={offencePokemon.id}
+              onChange={(e) => {
+                const tempID =
+                  typeof e.target.value === "number"
+                    ? e.target.value
+                    : parseInt(e.target.value);
+                const tempPokemon = pokemon_list.filter(
+                  (p) => p.id === tempID
+                )[0];
+                console.log(
+                  e.target.value,
+                  typeof e.target.value,
+                  tempID,
+                  tempPokemon
+                );
+                if (tempPokemon) {
+                  setOffencePokemon(index, tempPokemon);
                 }
               }}
-              disablePortal
-              options={pokemon_list}
-              sx={{ width: 200 }}
-              renderInput={(params) => <TextField {...params} />}
-              getOptionLabel={(p) => p.name_ja}
-            />
+            >
+              {pokemon_list.map((p) => {
+                return <MenuItem value={p.id}>{p.name_ja}</MenuItem>;
+              })}
+            </Select>
           </Grid>
           <Grid>
             <div>
@@ -63,29 +75,6 @@ function OffencePokemon({
                   return <MenuItem value={m.id}>{m.name_ja}</MenuItem>;
                 })}
               </Select>
-              {/* <Autocomplete
-                style={{ float: "left" }}
-                value={offencePokemon.selected_move}
-                onChange={(_, m) => {
-                  if (m) {
-                    const tempPokemon = offencePokemon;
-                    tempPokemon.selected_move = m;
-                    tempPokemon.selected_hit_number = m.min_renzoku
-                      ? m.min_renzoku
-                      : undefined;
-                    setOffencePokemon(index, tempPokemon);
-                  }
-                }}
-                disablePortal
-                options={offencePokemon.move_list || []}
-                sx={{ width: 200 }}
-                renderInput={(params) => <TextField {...params} />}
-                getOptionLabel={(move) =>
-                  `${move.name_ja}(${type_id_to_kanji(move.type)} : ${
-                    move.power || "?"
-                  })`
-                }
-              /> */}
               {offencePokemon.selected_move?.is_renzoku && (
                 <>
                   <Select
