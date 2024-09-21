@@ -37,12 +37,6 @@ function OffencePokemon({
                 const tempPokemon = pokemon_list.filter(
                   (p) => p.id === tempID
                 )[0];
-                console.log(
-                  e.target.value,
-                  typeof e.target.value,
-                  tempID,
-                  tempPokemon
-                );
                 if (tempPokemon) {
                   setOffencePokemon(index, tempPokemon);
                 }
