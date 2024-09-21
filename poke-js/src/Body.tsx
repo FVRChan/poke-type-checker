@@ -6,14 +6,14 @@ import {
   TableCell,
 } from "@mui/material";
 import { calc_interface } from "./calc_damage";
-import { Pokemon, pokemon_array } from "./pokemon";
+import { Pokemon, pokemon_array, PokemonOffenceInterface } from "./pokemon";
 import { useWindowSize } from "./useWindowSize";
 
 function Body({
   offencePokemonList,
   deffenceDummyPokemon,
 }: {
-  offencePokemonList: Pokemon[];
+  offencePokemonList: PokemonOffenceInterface[];
   deffenceDummyPokemon: Pokemon;
 }) {
   return (

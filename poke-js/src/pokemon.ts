@@ -28,15 +28,79 @@ export interface Pokemon {
   usage_rate: number;
   often_used_move: Array<number>;
   often_used_tokusei: Array<number>;
-  selected_move?: Move;
-  selected_move_id?: number;
+  // selected_move?: Move;
+  // selected_move_id?: number;
   move_list?: Move[];
   ability_list?: Ability[];
+  // selected_hit_number?: number;
+  // selected_ability?: Ability;
+  // selected_ability_id?: number;
+  terasu_type?: number;
+  // adapt_deffence_ability?: boolean;
+}
+
+export interface PokemonOffenceInterface {
+  pokemon: Pokemon;
+  // id: number;
+  // name_ja: string;
+  // hp: number;
+  // attack: number;
+  // defense: number;
+  // special_attack: number;
+  // special_defense: number;
+  // speed: number;
+  // picture_url: string;
+  // species_id: number;
+  // type_id_list: Array<number>;
+  // ability_id_list: Array<number>;
+  // move_id_list: Array<number>;
+  // weight: number;
+  effective_value: EffectiveValue;
+  effective_slider_step: EffortSlider;
+  personality: Personality;
+  // usage_rate: number;
+  // often_used_move: Array<number>;
+  // often_used_tokusei: Array<number>;
+  selected_move?: Move;
+  selected_move_id?: number;
+  // move_list?: Move[];
+  // ability_list?: Ability[];
   selected_hit_number?: number;
   selected_ability?: Ability;
   selected_ability_id?: number;
-  terasu_type?: number;
+  // terasu_type?: number;
   // adapt_deffence_ability?: boolean;
+}
+
+export function toOffence(p: Pokemon): PokemonOffenceInterface {
+  const ret = {
+    pokemon: p,
+    selected_ability: p.ability_list ? p.ability_list[0] : undefined,
+    selected_move: p.move_list ? p.move_list[0] : undefined,
+    effective_slider_step: {
+      hp: 0,
+      attack: 32,
+      defense: 0,
+      special_attack: 32,
+      special_defense: 0,
+    },
+    effective_value: {
+      hp: 0,
+      attack: 0,
+      defense: 0,
+      special_attack: 0,
+      special_defense: 0,
+    },
+    personality: {
+      attack: 1.0,
+      defense: 1.0,
+      special_attack: 1.0,
+      special_defense: 1.0,
+    },
+  } as PokemonOffenceInterface;
+  ret.selected_ability_id = ret.selected_ability?.id;
+  ret.selected_move_id = ret.selected_move?.id;
+  return ret;
 }
 
 export const pokemon_list = all_pokemon_list
@@ -72,14 +136,14 @@ pokemon_list.forEach((p) => {
   p.ability_list = abilityList(p);
   // 2回叩くのアレなので要改善
 });
-pokemon_list.forEach((p) => {
-  p.selected_ability = p.ability_list ? p.ability_list[0] : undefined;
-  p.selected_move = p.move_list ? p.move_list[0] : undefined;
-});
-pokemon_list.forEach((p) => {
-  p.selected_ability_id = p.selected_ability?.id;
-  p.selected_move_id = p.selected_move?.id;
-});
+// pokemon_list.forEach((p) => {
+//   p.selected_ability = p.ability_list ? p.ability_list[0] : undefined;
+//   p.selected_move = p.move_list ? p.move_list[0] : undefined;
+// });
+// pokemon_list.forEach((p) => {
+//   p.selected_ability_id = p.selected_ability?.id;
+//   p.selected_move_id = p.selected_move?.id;
+// });
 
 export function pokemon_array(separate_number: number) {
   const t = isMobile ? 4 : 99;

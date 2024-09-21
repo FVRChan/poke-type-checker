@@ -1,9 +1,18 @@
 import React from "react";
-import { dummyPokemon, Pokemon, pokemon_list } from "./pokemon";
+import {
+  dummyPokemon,
+  Pokemon,
+  pokemon_list,
+  PokemonOffenceInterface,
+  toOffence,
+} from "./pokemon";
 
 // 負けた気はするがとりあえず行ける
-function copyPokemon(p: Pokemon): Pokemon {
-  return JSON.parse(JSON.stringify(p));
+// function copyPokemon(p: Pokemon): Pokemon {
+//   return JSON.parse(JSON.stringify(p));
+// }
+function copyPokemonToOffence(p: Pokemon): PokemonOffenceInterface {
+  return toOffence(JSON.parse(JSON.stringify(p)));
 }
 export function useViewModel() {
   // スマフォ用のメニューオープンフラグ
@@ -11,14 +20,14 @@ export function useViewModel() {
   const togglesmartphoneDrawerOpen = () => {
     setSmartphoneDrawerOpen(!smartphoneDrawerOpen);
   };
-  // 
+  //
 
-  const [offencePokemonList, setOffencePokemonList] = React.useState<Pokemon[]>(
-    [copyPokemon(pokemon_list[0])]
-  );
+  const [offencePokemonList, setOffencePokemonList] = React.useState<
+    PokemonOffenceInterface[]
+  >([copyPokemonToOffence(pokemon_list[0])]);
   const handleAddOffencePokemonList = () => {
     const temp = offencePokemonList;
-    temp.splice(temp.length, 0, copyPokemon(pokemon_list[0]));
+    temp.splice(temp.length, 0, copyPokemonToOffence(pokemon_list[0]));
     setOffencePokemonList([...temp]);
   };
   const handleRemoveOffencePokemonList = (i: number) => {
@@ -26,7 +35,10 @@ export function useViewModel() {
     temp.splice(i, 1);
     setOffencePokemonList([...temp]);
   };
-  const handleSaveOffencePokemonList = (i: number, p: Pokemon) => {
+  const handleSaveOffencePokemonList = (
+    i: number,
+    p: PokemonOffenceInterface
+  ) => {
     const temp = offencePokemonList;
     temp.splice(i, 1, p);
     setOffencePokemonList([...temp]);

@@ -1,7 +1,7 @@
 import ability_list, { Ability } from "./ability-list";
 import { PersonalityRate } from "./calc_damage";
 import move_list, { Move, MOVE_DAMAGE_CLASS_STATUS } from "./move";
-import { Pokemon } from "./pokemon";
+import { Pokemon, PokemonOffenceInterface } from "./pokemon";
 
 /**
  * 努力値計算(SliderのStep設定に苦戦したため0-32で考えて計算する関数)
@@ -81,7 +81,7 @@ export function abilityList(p: Pokemon): Ability[] {
     });
 }
 
-export function canScrappy(p: Pokemon): boolean {
+export function canScrappy(p: PokemonOffenceInterface): boolean {
   return (
     (p.selected_ability?.is_scrappy &&
       (p.selected_move?.type === 1 || p.selected_move?.type === 2)) ||

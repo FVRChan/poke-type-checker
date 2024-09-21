@@ -1,5 +1,10 @@
 import { Grid, Autocomplete, TextField, Select, MenuItem } from "@mui/material";
-import { Pokemon, pokemon_list } from "./pokemon";
+import {
+  Pokemon,
+  pokemon_list,
+  PokemonOffenceInterface,
+  toOffence,
+} from "./pokemon";
 import { type_id_to_kanji } from "./type-map";
 import { abilityList } from "./util";
 import ability_list, { Ability } from "./ability-list";
@@ -17,8 +22,8 @@ function OffencePokemon({
   setOffencePokemon,
   index,
 }: {
-  offencePokemon: Pokemon;
-  setOffencePokemon: (i: number, p: Pokemon) => void;
+  offencePokemon: PokemonOffenceInterface;
+  setOffencePokemon: (i: number, p: PokemonOffenceInterface) => void;
   index: number;
 }) {
   return (
@@ -27,8 +32,8 @@ function OffencePokemon({
         <Grid container direction="column">
           <Grid>
             <Select
-              value={offencePokemon.id}
-              defaultValue={offencePokemon.id}
+              value={offencePokemon.pokemon.id}
+              defaultValue={offencePokemon.pokemon.id}
               onChange={(e) => {
                 const tempID =
                   typeof e.target.value === "number"
@@ -38,7 +43,7 @@ function OffencePokemon({
                   (p) => p.id === tempID
                 )[0];
                 if (tempPokemon) {
-                  setOffencePokemon(index, tempPokemon);
+                  setOffencePokemon(index, toOffence(tempPokemon));
                 }
               }}
             >
@@ -59,13 +64,14 @@ function OffencePokemon({
                     typeof e.target.value === "string"
                       ? parseInt(e.target.value)
                       : e.target.value;
-                  tempPokemon.selected_move = offencePokemon.move_list?.filter(
-                    (m) => m.id === tempPokemon.selected_move_id
-                  )[0];
+                  tempPokemon.selected_move =
+                    offencePokemon.pokemon.move_list?.filter(
+                      (m) => m.id === tempPokemon.selected_move_id
+                    )[0];
                   setOffencePokemon(index, tempPokemon);
                 }}
               >
-                {offencePokemon.move_list?.map((m) => {
+                {offencePokemon.pokemon.move_list?.map((m) => {
                   return <MenuItem value={m.id}>{m.name_ja}</MenuItem>;
                 })}
               </Select>
@@ -115,8 +121,8 @@ function OffencePokemon({
               setOffencePokemon(index, tempPokemon);
             }}
           >
-            {offencePokemon.ability_list &&
-              offencePokemon.ability_list.map((a) => {
+            {offencePokemon.pokemon.ability_list &&
+              offencePokemon.pokemon.ability_list.map((a) => {
                 return <MenuItem value={a.id}>{a.name_ja}</MenuItem>;
               })}
           </Select>

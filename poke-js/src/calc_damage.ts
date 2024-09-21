@@ -1,5 +1,5 @@
 import { Move, MOVE_DAMAGE_CLASS_PHYSICAL } from "./move";
-import { Pokemon } from "./pokemon";
+import { Pokemon, PokemonOffenceInterface } from "./pokemon";
 import type_map from "./type-map";
 import {
   calcRealValueHPStat,
@@ -74,7 +74,7 @@ export function calc_interface({
   deffencePokemon,
   deffenceDummyPokemon,
 }: {
-  offencePokemonList: Pokemon[];
+  offencePokemonList: PokemonOffenceInterface[];
   deffencePokemon: Pokemon;
   deffenceDummyPokemon: Pokemon;
 }) {
@@ -109,26 +109,26 @@ export function calc_interface({
   offencePokemonList.forEach((offencePokemon) => {
     offencePokemon.effective_value = {
       hp: calcRealValueHPStat(
-        offencePokemon.hp,
+        offencePokemon.pokemon.hp,
         offencePokemon.effective_slider_step.hp
       ),
       attack: calcRealValueOtherStat(
-        offencePokemon.attack,
+        offencePokemon.pokemon.attack,
         offencePokemon.effective_slider_step.attack,
         offencePokemon.personality.attack
       ),
       defense: calcRealValueOtherStat(
-        offencePokemon.defense,
+        offencePokemon.pokemon.defense,
         offencePokemon.effective_slider_step.defense,
         offencePokemon.personality.defense
       ),
       special_attack: calcRealValueOtherStat(
-        offencePokemon.special_attack,
+        offencePokemon.pokemon.special_attack,
         offencePokemon.effective_slider_step.special_attack,
         offencePokemon.personality.special_attack
       ),
       special_defense: calcRealValueOtherStat(
-        offencePokemon.special_defense,
+        offencePokemon.pokemon.special_defense,
         offencePokemon.effective_slider_step.special_defense,
         offencePokemon.personality.special_defense
       ),
@@ -173,7 +173,7 @@ export function calc_interface({
 
 function calcWithRand(
   move: Move,
-  offencePokemon: Pokemon,
+  offencePokemon: PokemonOffenceInterface,
   deffencePokemon: Pokemon,
   rateMapper: damageRateMapper,
   loopHitNumber: number
@@ -201,7 +201,7 @@ function calc({
   loopHitNumber,
 }: {
   move: Move;
-  offencePokemon: Pokemon;
+  offencePokemon: PokemonOffenceInterface;
   deffencePokemon: Pokemon;
   rateMapper: damageRateMapper;
   loopHitNumber: number;
@@ -266,7 +266,7 @@ function calcPowerKetaguri(deffencePokemon: Pokemon): number {
  * @returns ダメージ倍率
  */
 function getCompatibilityTypeRate(
-  offencePokemon: Pokemon,
+  offencePokemon: PokemonOffenceInterface,
   deffencePokemon: Pokemon
 ): number {
   const offenceType = offencePokemon.selected_move?.type || 1;
@@ -310,8 +310,11 @@ function getCompatibilityTypeRate(
  * @param offencePokemon
  * @returns
  */
-function calcOffenceMoveTypeRate(move: Move, offencePokemon: Pokemon): number {
-  if (offencePokemon.type_id_list.includes(move.type)) {
+function calcOffenceMoveTypeRate(
+  move: Move,
+  offencePokemon: PokemonOffenceInterface
+): number {
+  if (offencePokemon.pokemon.type_id_list.includes(move.type)) {
     return 1.5;
   }
   return 1.0;
