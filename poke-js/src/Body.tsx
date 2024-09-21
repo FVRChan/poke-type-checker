@@ -27,7 +27,7 @@ function Body({
                   <TableRow
                     key={deffencePokemonList
                       .map((p) => {
-                        return p.base.name_ja;
+                        return p.name_ja;
                       })
                       .join("")}
                   >
@@ -40,15 +40,15 @@ function Body({
                             maxHeight: "65px",
                           }}
                         >
-                          {deffencePokemon.base.picture_url ? (
+                          {deffencePokemon.picture_url ? (
                             <img
-                              src={deffencePokemon.base.picture_url}
+                              src={deffencePokemon.picture_url}
                               width={55}
                               height={55}
                             ></img>
                           ) : (
                             <>
-                              <div>{deffencePokemon.base.name_ja}</div>
+                              <div>{deffencePokemon.name_ja}</div>
                             </>
                           )}
                           <div>

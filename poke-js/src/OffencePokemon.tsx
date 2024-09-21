@@ -36,7 +36,7 @@ function OffencePokemon({
               options={pokemon_list}
               sx={{ width: 200 }}
               renderInput={(params) => <TextField {...params} />}
-              getOptionLabel={(p) => p.base.name_ja}
+              getOptionLabel={(p) => p.name_ja}
             />
           </Grid>
           <Grid>

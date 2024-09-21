@@ -12,14 +12,14 @@ interface damageRateMapper {
   compatibilityRate: number;
   sameTypeRate: number;
   randRate: number;
-  multiscaleRate:number;
+  multiscaleRate: number;
 }
 export type PersonalityRate = 0.9 | 1.0 | 1.1;
 export interface Personality {
-  attack:PersonalityRate
-  defense:PersonalityRate
-  special_attack:PersonalityRate
-  special_defense:PersonalityRate
+  attack: PersonalityRate;
+  defense: PersonalityRate;
+  special_attack: PersonalityRate;
+  special_defense: PersonalityRate;
 }
 export interface EffectiveValue {
   hp: number;
@@ -80,26 +80,26 @@ export function calc_interface({
 }) {
   deffencePokemon.effective_value = {
     hp: calcRealValueHPStat(
-      deffencePokemon.base.hp,
+      deffencePokemon.hp,
       deffenceDummyPokemon.effective_slider_step.hp
     ),
     attack: calcRealValueOtherStat(
-      deffencePokemon.base.attack,
+      deffencePokemon.attack,
       deffenceDummyPokemon.effective_slider_step.attack,
       deffenceDummyPokemon.personality.attack
     ),
     defense: calcRealValueOtherStat(
-      deffencePokemon.base.defense,
+      deffencePokemon.defense,
       deffenceDummyPokemon.effective_slider_step.defense,
       deffenceDummyPokemon.personality.defense
     ),
     special_attack: calcRealValueOtherStat(
-      deffencePokemon.base.special_attack,
+      deffencePokemon.special_attack,
       deffenceDummyPokemon.effective_slider_step.special_attack,
       deffenceDummyPokemon.personality.special_attack
     ),
     special_defense: calcRealValueOtherStat(
-      deffencePokemon.base.special_defense,
+      deffencePokemon.special_defense,
       deffenceDummyPokemon.effective_slider_step.special_defense,
       deffenceDummyPokemon.personality.special_defense
     ),
@@ -109,26 +109,26 @@ export function calc_interface({
   offencePokemonList.forEach((offencePokemon) => {
     offencePokemon.effective_value = {
       hp: calcRealValueHPStat(
-        offencePokemon.base.hp,
+        offencePokemon.hp,
         offencePokemon.effective_slider_step.hp
       ),
       attack: calcRealValueOtherStat(
-        offencePokemon.base.attack,
+        offencePokemon.attack,
         offencePokemon.effective_slider_step.attack,
         offencePokemon.personality.attack
       ),
       defense: calcRealValueOtherStat(
-        offencePokemon.base.defense,
+        offencePokemon.defense,
         offencePokemon.effective_slider_step.defense,
         offencePokemon.personality.defense
       ),
       special_attack: calcRealValueOtherStat(
-        offencePokemon.base.special_attack,
+        offencePokemon.special_attack,
         offencePokemon.effective_slider_step.special_attack,
         offencePokemon.personality.special_attack
       ),
       special_defense: calcRealValueOtherStat(
-        offencePokemon.base.special_defense,
+        offencePokemon.special_defense,
         offencePokemon.effective_slider_step.special_defense,
         offencePokemon.personality.special_defense
       ),
@@ -142,7 +142,7 @@ export function calc_interface({
           deffencePokemon
         ),
         sameTypeRate: calcOffenceMoveTypeRate(move, offencePokemon),
-        multiscaleRate:1/2,
+        multiscaleRate: 1 / 2,
       } as damageRateMapper;
       const hitNumber =
         move.is_renzoku && offencePokemon.selected_hit_number
@@ -244,7 +244,7 @@ function calc({
  * @returns
  */
 function calcPowerKetaguri(deffencePokemon: Pokemon): number {
-  const w = deffencePokemon.base.weight;
+  const w = deffencePokemon.weight;
   if (w < 100) {
     return 20;
   } else if (w < 250) {
@@ -270,7 +270,7 @@ function getCompatibilityTypeRate(
   deffencePokemon: Pokemon
 ): number {
   const offenceType = offencePokemon.selected_move?.type || 1;
-  let deffenceTypeList = deffencePokemon.base.type_id_list;
+  let deffenceTypeList = deffencePokemon.type_id_list;
   // 防御側のテラスタイプによる調整
   if (deffencePokemon.terasu_type && deffencePokemon.terasu_type > 0) {
     deffenceTypeList = [deffencePokemon.terasu_type];
@@ -311,7 +311,7 @@ function getCompatibilityTypeRate(
  * @returns
  */
 function calcOffenceMoveTypeRate(move: Move, offencePokemon: Pokemon): number {
-  if (offencePokemon.base.type_id_list.includes(move.type)) {
+  if (offencePokemon.type_id_list.includes(move.type)) {
     return 1.5;
   }
   return 1.0;

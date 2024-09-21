@@ -7,7 +7,7 @@ import { abilityList } from "./util";
 import { Ability } from "./ability-list";
 import { EffortSlider } from "./EffortSlider";
 
-export interface PokemonBase {
+export interface Pokemon {
   id: number;
   name_ja: string;
   hp: number;
@@ -22,10 +22,6 @@ export interface PokemonBase {
   ability_id_list: Array<number>;
   move_id_list: Array<number>;
   weight: number;
-}
-export interface Pokemon {
-  id: number;
-  base: PokemonBase;
   effective_value: EffectiveValue;
   effective_slider_step: EffortSlider;
   personality: Personality;
@@ -80,7 +76,7 @@ pokemon_list.forEach((p) => {
 });
 
 export function pokemon_array(separate_number: number) {
-  const t = isMobile ? 4 : 20;
+  const t = isMobile ? 4 : 99;
   const local_separate_number = Math.min(t, separate_number);
   let ret_matrix = [] as Array<Array<Pokemon>>;
   let temp_list = [] as Array<Pokemon>;
@@ -102,22 +98,19 @@ export function dummyPokemon(): Pokemon {
   const p = {
     id: 9999999,
     adapt_deffence_ability: false,
-    base: {
-      id: 9999999,
-      name_ja: "ああああ",
-      hp: 1,
-      attack: 1,
-      defense: 1,
-      special_attack: 1,
-      special_defense: 1,
-      speed: 1,
-      picture_url: "",
-      species_id: 1,
-      type_id_list: [],
-      ability_id_list: [],
-      move_id_list: [],
-      weight: 1,
-    },
+    name_ja: "ああああ",
+    hp: 1,
+    attack: 1,
+    defense: 1,
+    special_attack: 1,
+    special_defense: 1,
+    speed: 1,
+    picture_url: "",
+    species_id: 1,
+    type_id_list: [],
+    ability_id_list: [],
+    move_id_list: [],
+    weight: 1,
     terasu_type: 0,
     often_used_move: [],
     often_used_tokusei: [],

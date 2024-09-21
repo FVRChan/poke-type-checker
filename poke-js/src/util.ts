@@ -49,7 +49,7 @@ export function filterMoveList(p: Pokemon): Move[] {
   return move_list
     .filter((m) => {
       return (
-        p.base.move_id_list.includes(m.id) &&
+        p.move_id_list.includes(m.id) &&
         m.damage_class_number !== MOVE_DAMAGE_CLASS_STATUS
       );
     })
@@ -72,7 +72,7 @@ export function filterMoveList(p: Pokemon): Move[] {
 export function abilityList(p: Pokemon): Ability[] {
   return ability_list
     .filter((a) => {
-      return p.base.ability_id_list.includes(a.id);
+      return p.ability_id_list.includes(a.id);
     })
     .sort((x: Ability, y: Ability) => {
       return (

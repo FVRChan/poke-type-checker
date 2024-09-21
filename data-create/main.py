@@ -989,10 +989,23 @@ def get_personality_list():
 @dataclass
 class PokemonForRankMatch:
     id:int
-    base:Pokemon
+    name_ja: str
+    hp: int
+    attack: int
+    defense: int
+    special_attack: int
+    special_defense: int
+    speed: int
+    picture_url: str
+    species_id: str
+    weight: int
     usage_rate:int=999
     often_used_move:List[int]= List
     often_used_tokusei:List[int]= List
+    type_id_list: List[int] = List
+    ability_id_list: List[int] = List
+    move_id_list: List[int] = List
+
 
 
 def update_pokemon_data():
@@ -1067,9 +1080,21 @@ def update_pokemon_data():
                         pokemon=[p for p in pokemon_list if int(p.id)==int(pokemon_id)]
                         temp_info=PokemonForRankMatch(
                             id=int(pokemon_id),
-                            base=pokemon[0],
                             often_used_move=often_usage_move_list,
                             often_used_tokusei=often_usage_tokusei_list,
+                            name_ja=pokemon[0].name_ja,
+                            hp=pokemon[0].hp,
+                            attack=pokemon[0].attack,
+                            defense=pokemon[0].defense,
+                            special_attack=pokemon[0].special_attack,
+                            special_defense=pokemon[0].special_defense,
+                            speed=pokemon[0].speed,
+                            picture_url=pokemon[0].picture_url,
+                            species_id=pokemon[0].species_id,
+                            weight=pokemon[0].weight,
+                            type_id_list=pokemon[0].type_id_list,
+                            ability_id_list=pokemon[0].ability_id_list,
+                            move_id_list=pokemon[0].move_id_list,
                         )
                         if pokemon_id in usage_rate_mapper:
                             temp_info.usage_rate=usage_rate_mapper[pokemon_id]
@@ -1100,7 +1125,7 @@ def update_pokemon_data():
 #             for ability in [a for a in ability_list if a.id == ability_id]:
 #                 pokemon_ability_list.append(ability)
 #         pokemon.ability_list=pokemon_ability_list
-        
+
 #     writer=open(POKEMON_JSON_FILENAME,"w")
 #     writer.write(json.dumps(pokemon_list, default=default, ensure_ascii=False))
 #     writer.close()
