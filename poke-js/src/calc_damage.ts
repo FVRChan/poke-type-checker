@@ -4,7 +4,7 @@ import type_map from "./type-map";
 import {
   calcRealValueHPStat,
   calcRealValueOtherStat,
-  canMultiscale,
+  // canMultiscale,
   canScrappy,
 } from "./util";
 
@@ -14,25 +14,12 @@ interface damageRateMapper {
   randRate: number;
   multiscaleRate:number;
 }
-export interface Effort {
-  hp: number;
-  attack: number;
-  defense: number;
-  special_attack: number;
-  special_defense: number;
-}
-export interface EffortSlider {
-  hp: number;
-  attack: number;
-  defense: number;
-  special_attack: number;
-  special_defense: number;
-}
+export type PersonalityRate = 0.9 | 1.0 | 1.1;
 export interface Personality {
-  attack: 0.9 | 1.0 | 1.1;
-  defense: 0.9 | 1.0 | 1.1;
-  special_attack: 0.9 | 1.0 | 1.1;
-  special_defense: 0.9 | 1.0 | 1.1;
+  attack:PersonalityRate
+  defense:PersonalityRate
+  special_attack:PersonalityRate
+  special_defense:PersonalityRate
 }
 export interface EffectiveValue {
   hp: number;

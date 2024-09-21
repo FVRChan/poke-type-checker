@@ -1,4 +1,5 @@
 import ability_list, { Ability } from "./ability-list";
+import { PersonalityRate } from "./calc_damage";
 import move_list, { Move, MOVE_DAMAGE_CLASS_STATUS } from "./move";
 import { Pokemon } from "./pokemon";
 
@@ -27,7 +28,7 @@ export function calcEffort(step: number): number {
 export function calcRealValueOtherStat(
   b: number,
   es: number,
-  p: 0.9 | 1.0 | 1.1
+  p: PersonalityRate
 ): number {
   return Math.floor(p * (20 + b + es));
 }
@@ -88,8 +89,8 @@ export function canScrappy(p: Pokemon): boolean {
   );
 }
 
-export function canMultiscale(p: Pokemon): boolean {
-  return (
-    (p.adapt_deffence_ability && p.selected_ability?.is_multi_slace) || false
-  );
-}
+// export function canMultiscale(p: Pokemon): boolean {
+//   return (
+//     (p.adapt_deffence_ability && p.selected_ability?.is_multi_slace) || false
+//   );
+// }

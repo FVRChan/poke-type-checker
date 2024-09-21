@@ -1,10 +1,11 @@
 import { isMobile } from "react-device-detect";
-import { EffectiveValue, EffortSlider, Personality } from "./calc_damage";
+import { EffectiveValue, Personality } from "./calc_damage";
 import { all_pokemon_list } from "./pokemon-list";
 import { Move } from "./move";
 import { filterMoveList } from "./util";
 import { abilityList } from "./util";
 import { Ability } from "./ability-list";
+import { EffortSlider } from "./EffortSlider";
 
 export interface PokemonBase {
   id: number;
@@ -38,7 +39,7 @@ export interface Pokemon {
   selected_ability?: Ability;
   selected_ability_id?: number;
   terasu_type?: number;
-  adapt_deffence_ability?:boolean
+  // adapt_deffence_ability?: boolean;
 }
 
 export const pokemon_list = all_pokemon_list
@@ -79,7 +80,7 @@ pokemon_list.forEach((p) => {
 });
 
 export function pokemon_array(separate_number: number) {
-  const t = isMobile ? 4 : 7;
+  const t = isMobile ? 4 : 20;
   const local_separate_number = Math.min(t, separate_number);
   let ret_matrix = [] as Array<Array<Pokemon>>;
   let temp_list = [] as Array<Pokemon>;
@@ -99,7 +100,8 @@ export function pokemon_array(separate_number: number) {
 
 export function dummyPokemon(): Pokemon {
   const p = {
-    id: 9999999,adapt_deffence_ability:false,
+    id: 9999999,
+    adapt_deffence_ability: false,
     base: {
       id: 9999999,
       name_ja: "ああああ",

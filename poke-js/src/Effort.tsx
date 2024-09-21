@@ -2,6 +2,7 @@ import React from "react";
 import EffortSlider from "./EffortSlider";
 import { Pokemon } from "./pokemon";
 import { MOVE_DAMAGE_CLASS_PHYSICAL, MOVE_DAMAGE_CLASS_SPECIAL } from "./move";
+import { PersonalityRate } from "./calc_damage";
 
 export default function Effort({
   pokemon,
@@ -60,34 +61,34 @@ export default function Effort({
     pokemonSetter(index, temp);
   };
   const [personalityAttack, setPersonalityAttack] = React.useState<
-    0.9 | 1.0 | 1.1
+    PersonalityRate
   >(pokemon.personality.attack);
   const [personalityDeffence, setPersonalityDeffence] = React.useState<
-    0.9 | 1.0 | 1.1
+    PersonalityRate
   >(pokemon.personality.defense);
   const [personalitySpecialAttack, setPersonalitySpecialAttack] =
-    React.useState<0.9 | 1.0 | 1.1>(pokemon.personality.special_attack);
+    React.useState<PersonalityRate>(pokemon.personality.special_attack);
   const [personalitySpecialDeffence, setPersonalitySpecialDeffence] =
-    React.useState<0.9 | 1.0 | 1.1>(pokemon.personality.special_defense);
-  const handleSetPersonalityAttack = (newValue: 0.9 | 1.0 | 1.1) => {
+    React.useState<PersonalityRate>(pokemon.personality.special_defense);
+  const handleSetPersonalityAttack = (newValue: PersonalityRate) => {
     setPersonalityAttack(newValue);
     const temp = { ...pokemon };
     temp.personality.attack = newValue;
     pokemonSetter(index, temp);
   };
-  const handleSetPersonalityDeffence = (newValue: 0.9 | 1.0 | 1.1) => {
+  const handleSetPersonalityDeffence = (newValue: PersonalityRate) => {
     setPersonalityDeffence(newValue);
     const temp = { ...pokemon };
     temp.personality.defense = newValue;
     pokemonSetter(index, temp);
   };
-  const handleSetPersonalitySpecialAttack = (newValue: 0.9 | 1.0 | 1.1) => {
+  const handleSetPersonalitySpecialAttack = (newValue: PersonalityRate) => {
     setPersonalitySpecialAttack(newValue);
     const temp = { ...pokemon };
     temp.personality.special_attack = newValue;
     pokemonSetter(index, temp);
   };
-  const handleSetPersonalitySpecialDeffence = (newValue: 0.9 | 1.0 | 1.1) => {
+  const handleSetPersonalitySpecialDeffence = (newValue: PersonalityRate) => {
     setPersonalitySpecialDeffence(newValue);
     const temp = { ...pokemon };
     temp.personality.special_defense = newValue;
@@ -146,4 +147,11 @@ export default function Effort({
       )}
     </>
   );
+}
+export interface Effort {
+  hp: number;
+  attack: number;
+  defense: number;
+  special_attack: number;
+  special_defense: number;
 }

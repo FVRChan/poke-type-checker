@@ -6,11 +6,13 @@ function copyPokemon(p: Pokemon): Pokemon {
   return JSON.parse(JSON.stringify(p));
 }
 export function useViewModel() {
-  // スマフォ用
+  // スマフォ用のメニューオープンフラグ
   const [smartphoneDrawerOpen, setSmartphoneDrawerOpen] = React.useState(false);
   const togglesmartphoneDrawerOpen = () => {
     setSmartphoneDrawerOpen(!smartphoneDrawerOpen);
   };
+  // 
+
   const [offencePokemonList, setOffencePokemonList] = React.useState<Pokemon[]>(
     [copyPokemon(pokemon_list[0])]
   );

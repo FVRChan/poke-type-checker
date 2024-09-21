@@ -52,11 +52,11 @@ function DefencePokemon({
           );
         })}
       </Select>
-      特性<Checkbox value={deffenceDummyPokemon.adapt_deffence_ability} onChange={()=>{
+      {/* 特性<Checkbox value={deffenceDummyPokemon.adapt_deffence_ability} onChange={()=>{
         const temp=deffenceDummyPokemon
         temp.adapt_deffence_ability=!temp.adapt_deffence_ability
         setDeffenceDummyPokemon(index,temp)
-      }} />
+      }} /> */}
 
     </>
   );

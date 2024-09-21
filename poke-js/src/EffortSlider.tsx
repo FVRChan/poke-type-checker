@@ -2,6 +2,7 @@ import React from "react";
 // import {South} from '@mui/icons-material';
 import { Button, Select, Slider, Stack } from "@mui/material";
 import { calcEffort, calcRealValueHPStat } from "./util";
+import { PersonalityRate } from "./calc_damage";
 export default function EffortSlider({
   label,
   step,
@@ -12,8 +13,8 @@ export default function EffortSlider({
   label: string;
   step: number;
   stepSetter: (newValue: number) => void;
-  personality?: 0.9 | 1.0 | 1.1;
-  personalitySetter?: (newValue: 0.9 | 1.0 | 1.1) => void;
+  personality?: PersonalityRate;
+  personalitySetter?: (newValue: PersonalityRate) => void;
 }) {
   return (
     <>
@@ -59,4 +60,11 @@ export default function EffortSlider({
       </Stack>
     </>
   );
+}
+export interface EffortSlider {
+  hp: number;
+  attack: number;
+  defense: number;
+  special_attack: number;
+  special_defense: number;
 }
