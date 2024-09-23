@@ -11,6 +11,7 @@ import ability_list, { Ability } from "./ability-list";
 import move_list from "./move";
 import OffenceEffort from "./OffenceEffort";
 import { TerastalSelect } from "./TerastalSelect";
+import { OffenceItem } from "./OffenceItem";
 function hitNumberOption(minHitNumber: number, maxHitNumber: number): number[] {
   const dummy_list: number[] = [];
   for (let a = minHitNumber; a <= maxHitNumber; a++) {
@@ -144,6 +145,11 @@ function OffencePokemon({
         setPokemon={setOffencePokemon}
         index={index}
       ></TerastalSelect>
+      <OffenceItem
+        pokemon={offencePokemon}
+        setPokemon={setOffencePokemon}
+        index={index}
+      ></OffenceItem>
     </>
   );
 }

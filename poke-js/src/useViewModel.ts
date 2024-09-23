@@ -26,11 +26,24 @@ export function useViewModel() {
   const [offencePokemonList, setOffencePokemonList] = React.useState<
     PokemonOffenceInterface[]
   >([copyPokemonToOffence(pokemon_list[0])]);
+
   const handleAddOffencePokemonList = () => {
     const temp = offencePokemonList;
-    temp.splice(temp.length, 0, copyPokemonToOffence(pokemon_list[0]));
+    temp.splice(
+      temp.length,
+      0,
+      JSON.parse(
+        JSON.stringify(offencePokemonList[offencePokemonList.length - 1])
+      )
+    );
     setOffencePokemonList([...temp]);
   };
+  // const handleAddOffencePokemonList = () => {
+  //   const temp = offencePokemonList;
+  //   temp.splice(temp.length, 0, copyPokemonToOffence(pokemon_list[0]));
+  //   setOffencePokemonList([...temp]);
+  // };
+
   const handleRemoveOffencePokemonList = (i: number) => {
     const temp = offencePokemonList;
     temp.splice(i, 1);

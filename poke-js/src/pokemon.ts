@@ -6,6 +6,7 @@ import { filterMoveList } from "./util";
 import { abilityList } from "./util";
 import { Ability } from "./ability-list";
 import { EffortSlider } from "./EffortSlider";
+import { OFFENCE_ITEM_RATE, OFFENCE_ITEM_RATE_ID } from "./OffenceItem";
 
 export interface Pokemon {
   id: number;
@@ -68,6 +69,7 @@ export interface PokemonOffenceInterface {
   selected_hit_number?: number;
   selected_ability?: Ability;
   selected_ability_id?: number;
+  selected_offencete_item_rate?: OFFENCE_ITEM_RATE_ID;
   terasu_type?: number;
   // adapt_deffence_ability?: boolean;
 }
