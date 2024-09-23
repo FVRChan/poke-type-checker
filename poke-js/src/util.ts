@@ -1,7 +1,11 @@
 import ability_list, { Ability } from "./ability-list";
 import { PersonalityRate } from "./calc_damage";
 import move_list, { Move, MOVE_DAMAGE_CLASS_STATUS } from "./move";
-import { Pokemon, PokemonOffenceInterface } from "./pokemon";
+import {
+  Pokemon,
+  PokemonDefenceInterface,
+  PokemonOffenceInterface,
+} from "./pokemon";
 
 /**
  * 努力値計算(SliderのStep設定に苦戦したため0-32で考えて計算する関数)
@@ -18,30 +22,6 @@ export function calcEffort(step: number): number {
   return 4 + (step - 1) * 8;
 }
 
-/**
- * レベル50個体値31前提で種族値と努力値、性格補正を加味したABCD実数値を計算する
- * @param b
- * @param es
- * @param p
- * @returns
- */
-export function calcRealValueOtherStat(
-  b: number,
-  es: number,
-  p: PersonalityRate
-): number {
-  return Math.floor(p * (20 + b + es));
-}
-
-/**
- * レベル50個体値31前提で種族値と努力値を加味したH実数値を計算する
- * @param b
- * @param es
- * @returns
- */
-export function calcRealValueHPStat(b: number, es: number) {
-  return 75 + b + es;
-}
 /**
  * 指定したポケモンが覚える技(変化技除く)の一覧を返す。使用率の高い技を参照して上の方に持ってくる
  */

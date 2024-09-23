@@ -18,11 +18,11 @@ export function OffenceItem({
   return (
     <Select
       size="small"
-      value={pokemon.selected_offencete_item_rate}
-      defaultValue={pokemon.selected_offencete_item_rate||undefined}
+      value={pokemon.selected_offencete_item_rate_id}
+      defaultValue={pokemon.selected_offencete_item_rate_id || undefined}
       onChange={(e) => {
         const tempPokemon = pokemon;
-        tempPokemon.selected_offencete_item_rate = e.target.value as number;
+        tempPokemon.selected_offencete_item_rate_id = e.target.value as number;
         setPokemon(index, tempPokemon);
       }}
     >
@@ -68,12 +68,32 @@ export function GetRate(
   rateID: OFFENCE_ITEM_RATE_ID,
   offencePokemon: PokemonOffenceInterface
 ): OFFENCE_ITEM_RATE {
-  if (rateID === ITEM_RATE_ID_ATTACK_15&&offencePokemon.selected_move?.damage_class_number===MOVE_DAMAGE_CLASS_PHYSICAL) return 1.5;
-  if (rateID === ITEM_RATE_ID_ATTACK_11&&offencePokemon.selected_move?.damage_class_number===MOVE_DAMAGE_CLASS_PHYSICAL) return 1.1;
+  if (
+    rateID === ITEM_RATE_ID_ATTACK_15 &&
+    offencePokemon.selected_move?.damage_class_number ===
+      MOVE_DAMAGE_CLASS_PHYSICAL
+  )
+    return 1.5;
+  if (
+    rateID === ITEM_RATE_ID_ATTACK_11 &&
+    offencePokemon.selected_move?.damage_class_number ===
+      MOVE_DAMAGE_CLASS_PHYSICAL
+  )
+    return 1.1;
   if (rateID === ITEM_RATE_ID_BATUGUN_12) return 1.2;
   if (rateID === ITEM_RATE_ID_OMEN_12) return 1.2;
-  if (rateID === ITEM_RATE_ID_SPECIEAL_ATTACK_15&&offencePokemon.selected_move?.damage_class_number===MOVE_DAMAGE_CLASS_SPECIAL) return 1.5;
-  if (rateID === ITEM_RATE_ID_SPECIEAL_ATTACK_11&&offencePokemon.selected_move?.damage_class_number===MOVE_DAMAGE_CLASS_SPECIAL) return 1.1;
+  if (
+    rateID === ITEM_RATE_ID_SPECIEAL_ATTACK_15 &&
+    offencePokemon.selected_move?.damage_class_number ===
+      MOVE_DAMAGE_CLASS_SPECIAL
+  )
+    return 1.5;
+  if (
+    rateID === ITEM_RATE_ID_SPECIEAL_ATTACK_11 &&
+    offencePokemon.selected_move?.damage_class_number ===
+      MOVE_DAMAGE_CLASS_SPECIAL
+  )
+    return 1.1;
   if (rateID === ITEM_RATE_ID_INOTINOTAMA_13) return 1.3;
   if (rateID === ITEM_RATE_ID_NORMAL_13) return 1.3;
   if (rateID === ITEM_RATE_ID_NORMAL_12) return 1.2;
@@ -97,29 +117,29 @@ export function GetRate(
   return 1;
 }
 
-const ITEM_RATE_ID_ATTACK_15: OFFENCE_ITEM_RATE = 1;
-const ITEM_RATE_ID_ATTACK_11: OFFENCE_ITEM_RATE = 2;
-const ITEM_RATE_ID_BATUGUN_12: OFFENCE_ITEM_RATE = 3;
-const ITEM_RATE_ID_OMEN_12: OFFENCE_ITEM_RATE = 4;
-const ITEM_RATE_ID_SPECIEAL_ATTACK_15: OFFENCE_ITEM_RATE = 5;
-const ITEM_RATE_ID_SPECIEAL_ATTACK_11: OFFENCE_ITEM_RATE = 6;
-const ITEM_RATE_ID_INOTINOTAMA_13: OFFENCE_ITEM_RATE = 7;
-const ITEM_RATE_ID_NORMAL_13: OFFENCE_ITEM_RATE = 8;
-const ITEM_RATE_ID_NORMAL_12: OFFENCE_ITEM_RATE = 9;
-const ITEM_RATE_ID_FIGHTING_12: OFFENCE_ITEM_RATE = 10;
-const ITEM_RATE_ID_FLYING_12: OFFENCE_ITEM_RATE = 11;
-const ITEM_RATE_ID_POISON_12: OFFENCE_ITEM_RATE = 12;
-const ITEM_RATE_ID_GROUND_12: OFFENCE_ITEM_RATE = 13;
-const ITEM_RATE_ID_ROCK_12: OFFENCE_ITEM_RATE = 14;
-const ITEM_RATE_ID_BUG_12: OFFENCE_ITEM_RATE = 15;
-const ITEM_RATE_ID_GHOST_12: OFFENCE_ITEM_RATE = 16;
-const ITEM_RATE_ID_STEEL_12: OFFENCE_ITEM_RATE = 17;
-const ITEM_RATE_ID_FIRE_12: OFFENCE_ITEM_RATE = 18;
-const ITEM_RATE_ID_WATER_12: OFFENCE_ITEM_RATE = 19;
-const ITEM_RATE_ID_GRASS_12: OFFENCE_ITEM_RATE = 20;
-const ITEM_RATE_ID_ELECTRIC_12: OFFENCE_ITEM_RATE = 21;
-const ITEM_RATE_ID_PSYCHIC_12: OFFENCE_ITEM_RATE = 22;
-const ITEM_RATE_ID_ICE_12: OFFENCE_ITEM_RATE = 23;
-const ITEM_RATE_ID_DRAGON_12: OFFENCE_ITEM_RATE = 24;
-const ITEM_RATE_ID_DARK_12: OFFENCE_ITEM_RATE = 25;
-const ITEM_RATE_ID_FAIRY_12: OFFENCE_ITEM_RATE = 26;
+export const ITEM_RATE_ID_ATTACK_15: OFFENCE_ITEM_RATE = 1;
+export const ITEM_RATE_ID_ATTACK_11: OFFENCE_ITEM_RATE = 2;
+export const ITEM_RATE_ID_BATUGUN_12: OFFENCE_ITEM_RATE = 3;
+export const ITEM_RATE_ID_OMEN_12: OFFENCE_ITEM_RATE = 4;
+export const ITEM_RATE_ID_SPECIEAL_ATTACK_15: OFFENCE_ITEM_RATE = 5;
+export const ITEM_RATE_ID_SPECIEAL_ATTACK_11: OFFENCE_ITEM_RATE = 6;
+export const ITEM_RATE_ID_INOTINOTAMA_13: OFFENCE_ITEM_RATE = 7;
+export const ITEM_RATE_ID_NORMAL_13: OFFENCE_ITEM_RATE = 8;
+export const ITEM_RATE_ID_NORMAL_12: OFFENCE_ITEM_RATE = 9;
+export const ITEM_RATE_ID_FIGHTING_12: OFFENCE_ITEM_RATE = 10;
+export const ITEM_RATE_ID_FLYING_12: OFFENCE_ITEM_RATE = 11;
+export const ITEM_RATE_ID_POISON_12: OFFENCE_ITEM_RATE = 12;
+export const ITEM_RATE_ID_GROUND_12: OFFENCE_ITEM_RATE = 13;
+export const ITEM_RATE_ID_ROCK_12: OFFENCE_ITEM_RATE = 14;
+export const ITEM_RATE_ID_BUG_12: OFFENCE_ITEM_RATE = 15;
+export const ITEM_RATE_ID_GHOST_12: OFFENCE_ITEM_RATE = 16;
+export const ITEM_RATE_ID_STEEL_12: OFFENCE_ITEM_RATE = 17;
+export const ITEM_RATE_ID_FIRE_12: OFFENCE_ITEM_RATE = 18;
+export const ITEM_RATE_ID_WATER_12: OFFENCE_ITEM_RATE = 19;
+export const ITEM_RATE_ID_GRASS_12: OFFENCE_ITEM_RATE = 20;
+export const ITEM_RATE_ID_ELECTRIC_12: OFFENCE_ITEM_RATE = 21;
+export const ITEM_RATE_ID_PSYCHIC_12: OFFENCE_ITEM_RATE = 22;
+export const ITEM_RATE_ID_ICE_12: OFFENCE_ITEM_RATE = 23;
+export const ITEM_RATE_ID_DRAGON_12: OFFENCE_ITEM_RATE = 24;
+export const ITEM_RATE_ID_DARK_12: OFFENCE_ITEM_RATE = 25;
+export const ITEM_RATE_ID_FAIRY_12: OFFENCE_ITEM_RATE = 26;
