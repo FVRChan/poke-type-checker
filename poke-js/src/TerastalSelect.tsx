@@ -15,7 +15,7 @@ export function TerastalSelect({
 }) {
   const tempArray = () => {
     const retList: number[] = [];
-    for (let i = 1; i <= 18; i++) {
+    for (let i = 1; i <= 19; i++) {
       retList.push(i);
     }
     return retList;

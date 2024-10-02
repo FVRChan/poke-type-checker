@@ -211,7 +211,7 @@ function calc({
   // if (canMultiscale(deffencePokemon)){
   // a = Math.floor(a * rateMapper.multiscaleRate);}
   a = Math.floor(a * rateMapper.randRate);
-  a = Math.floor(a * rateMapper.sameTypeRate);
+  a = calc_五捨五超入_gosutegoire(a * rateMapper.sameTypeRate);
   a = Math.floor(a * rateMapper.compatibilityRate);
 
   if (
@@ -305,16 +305,14 @@ function calcOffenceMoveTypeRate(
   offencePokemon: PokemonOffenceInterface
 ): number {
   if (offencePokemon.terasu_type) {
-    if (
-      offencePokemon.terasu_type === move.type &&
-      offencePokemon.pokemon.type_id_list.includes(move.type)
-    ) {
+    if (offencePokemon.terasu_type === move.type &&offencePokemon.pokemon.type_id_list.includes(move.type)) {
       return 2.0;
-    } else if (
-      offencePokemon.terasu_type === move.type &&
-      !offencePokemon.pokemon.type_id_list.includes(move.type)
-    ) {
+    } else if (offencePokemon.terasu_type === move.type &&!offencePokemon.pokemon.type_id_list.includes(move.type)) {
       return 1.5;
+    } else if (offencePokemon.terasu_type === 19 &&offencePokemon.pokemon.type_id_list.includes(move.type)) {
+      return 2.0;
+    } else if (offencePokemon.terasu_type === 19 &&!offencePokemon.pokemon.type_id_list.includes(move.type)) {
+      return 4916/4096; // 1.2
     }
   }
   if (offencePokemon.pokemon.type_id_list.includes(move.type)) {
