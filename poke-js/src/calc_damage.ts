@@ -1,9 +1,14 @@
-import { Move, MOVE_DAMAGE_CLASS_PHYSICAL } from "./move";
+import {
+  Move,
+  MOVE_DAMAGE_CLASS_PHYSICAL,
+  MOVE_DAMAGE_CLASS_SPECIAL,
+} from "./move";
 import { ITEM_RATE_ID_INOTINOTAMA_13 } from "./OffenceItem";
 import {
   Pokemon,
   PokemonDefenceInterface,
   PokemonOffenceInterface,
+  rankCorrectionEnum,
 } from "./pokemon";
 import {
   calcRealValueHPStat,
@@ -170,7 +175,6 @@ function to_string_v2(
   let retstr = `${headInfo.s}${headInfo.n}発【${minDamage}~${maxDamage}】`;
   if (headInfo.s === "乱数") {
     const rate = calcRate(deffencePokemon.effective_value.hp, retTatamikomi);
-    console.log(rate)
     retstr += `(${rate}%)`;
   }
   return retstr;
@@ -182,8 +186,7 @@ function calc_kakutei_ransuu(
   minDamage: number,
   maxDamage: number,
   n: number
-) :{s:string,n:number} {
-  // console.log(hp,minDamage,maxDamage)
+): { s: string; n: number } {
   if (n * minDamage >= hp) {
     return { s: "確定", n: n };
   } else if (n * minDamage < hp && n * maxDamage >= hp) {
@@ -247,7 +250,6 @@ function to_string(
     });
 
     const rate = okPatternNumber / sumPatternNumber;
-    console.log(rate * 100);
     headString = `乱数${rate * 100}%1発`;
   }
   return `${headString}(${minDamage}~${maxDamage})`;
@@ -296,10 +298,19 @@ function calc({
   if (move.is_ketaguri) {
     power = calcPowerKetaguri(deffencePokemon);
   }
-  const attack =
+  let attack =
     move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL
       ? offencePokemon.effective_value.attack
       : offencePokemon.effective_value.special_attack;
+  if (move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL) {
+    attack = calcRankedValue(attack, offencePokemon.rankCorrection.attack);
+  } else if (move.damage_class_number === MOVE_DAMAGE_CLASS_SPECIAL) {
+    attack = calcRankedValue(
+      attack,
+      offencePokemon.rankCorrection.special_attack
+    );
+  }
+
   const defense =
     move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL
       ? deffencePokemon.effective_value.defense
@@ -434,4 +445,15 @@ function calcOffenceMoveTypeRate(
     return 1.5;
   }
   return 1.0;
+}
+
+function calcRankedValue(baseValue: number, rate: rankCorrectionEnum): number {
+  let wwww = 2 / 2;
+  if (rate > 0) {
+    wwww = (2 + rate) / 2;
+  } else if (rate < 0) {
+    wwww = 2 / (2 + Math.abs(rate));
+  }
+
+  return Math.floor(baseValue * wwww);
 }

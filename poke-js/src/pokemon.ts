@@ -42,6 +42,7 @@ export interface PokemonOffenceInterface {
   selected_ability_id?: number;
   selected_offencete_item_rate_id?: OFFENCE_ITEM_RATE_ID;
   terasu_type?: number;
+  rankCorrection: rankCorrection;
 }
 
 export interface PokemonDefenceInterface {
@@ -52,7 +53,30 @@ export interface PokemonDefenceInterface {
   selected_ability?: Ability;
   selected_ability_id?: number;
   terasu_type?: number;
+  rankCorrection: rankCorrection;
 }
+
+export type rankCorrectionEnum =
+  | -6
+  | -5
+  | -4
+  | -3
+  | -2
+  | -1
+  | 0
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6;
+export interface rankCorrection {
+  attack: rankCorrectionEnum;
+  defense: rankCorrectionEnum;
+  special_attack: rankCorrectionEnum;
+  special_defense: rankCorrectionEnum;
+}
+
 export function toOffence(p: Pokemon): PokemonOffenceInterface {
   const ret = {
     pokemon: p,
@@ -77,6 +101,12 @@ export function toOffence(p: Pokemon): PokemonOffenceInterface {
       defense: 1.0,
       special_attack: 1.0,
       special_defense: 1.0,
+    },
+    rankCorrection: {
+      attack: 0,
+      defense: 0,
+      special_attack: 0,
+      special_defense: 0,
     },
   } as PokemonOffenceInterface;
   ret.selected_ability_id = ret.selected_ability?.id;
@@ -106,6 +136,12 @@ export function toDefence(p: Pokemon): PokemonDefenceInterface {
       defense: 1.0,
       special_attack: 1.0,
       special_defense: 1.0,
+    },
+    rankCorrection: {
+      attack: 0,
+      defense: 0,
+      special_attack: 0,
+      special_defense: 0,
     },
   } as PokemonOffenceInterface;
   ret.selected_ability_id = ret.selected_ability?.id;
@@ -182,6 +218,12 @@ export function dummyPokemon(): PokemonDefenceInterface {
       special_attack: 0,
       special_defense: 0,
     },
+    rankCorrection: {
+      attack: 0,
+      defense: 0,
+      special_attack: 0,
+      special_defense: 0,
+    },
     personality: {
       attack: 1.0,
       defense: 1.0,
@@ -191,3 +233,7 @@ export function dummyPokemon(): PokemonDefenceInterface {
   } as PokemonDefenceInterface;
   return p;
 }
+
+export const rankCorrectionEnumList: rankCorrectionEnum[] = [
+  -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6,
+];
