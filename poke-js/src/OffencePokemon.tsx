@@ -72,6 +72,9 @@ function OffencePokemon({
                     offencePokemon.pokemon.move_list?.filter(
                       (m) => m.id === tempPokemon.selected_move_id
                     )[0];
+                    if (tempPokemon.selected_move?.is_renzoku){
+                      tempPokemon.selected_hit_number=tempPokemon.selected_move.min_renzoku
+                    }
                   setOffencePokemon(index, tempPokemon);
                 }}
               >
@@ -81,7 +84,7 @@ function OffencePokemon({
               </Select>
               {offencePokemon.selected_move?.is_renzoku && (
                 <>
-                  <Select
+                  <Select size="small"
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={offencePokemon.selected_hit_number}

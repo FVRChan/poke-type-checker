@@ -102,7 +102,7 @@ export function calc_interface({
     special_defense: calcRealValueSpecialDeffenceDefencePokemon(kusatuonsen),
   };
   kusatuonsen.terasu_type = deffenceDummyPokemon.terasu_type;
-  const kusatuonsenList: { [name: number]: number }[] = [];
+  const damageMapList: { [name: number]: number }[] = [];
   offencePokemonList.forEach((offencePokemon) => {
     offencePokemon.effective_value = {
       hp: calcRealValueHPStat(offencePokemon),
@@ -136,18 +136,121 @@ export function calc_interface({
           rateMapper,
           loopHitNumber
         );
-        kusatuonsenList.push(...listToMapper(calcedList));
+        damageMapList.push(...listToMapper(calcedList));
       }
     }
   });
-  const retTatamikomi = tatamikomi(kusatuonsenList);
-  const damageList = Object.keys(retTatamikomi).map((v) => parseInt(v));
-  const maxDamage = Math.max(...damageList);
-  const minDamage = Math.min(...damageList);
+  const retTatamikomi = tatamikomi(damageMapList);
+  // const damageList = Object.keys(retTatamikomi).map((v) => parseInt(v));
+  // const maxDamage = Math.max(...damageList);
+  // const minDamage = Math.min(...damageList);
   // if (minDamage >= deffencePokemon.effective_value.hp) {
   //   return `確定1発(${minDamage}~${maxDamage})`;
   // }
-  return `(${minDamage}~${maxDamage})`;
+  // return `(${minDamage}~${maxDamage})`;
+  return to_string_v2(kusatuonsen, retTatamikomi);
+}
+
+function to_string_v2(
+  deffencePokemon: PokemonDefenceInterface,
+  retTatamikomi: {
+    [name: number]: number;
+  }
+): string {
+  const damageList = Object.keys(retTatamikomi).map((v) => parseInt(v));
+  const maxDamage = Math.max(...damageList);
+  const minDamage = Math.min(...damageList);
+  if (minDamage === 0 || maxDamage === 0) return "";
+  const headInfo = calc_kakutei_ransuu(
+    deffencePokemon.effective_value.hp,
+    minDamage,
+    maxDamage,
+    1
+  );
+  let retstr = `${headInfo.s}${headInfo.n}発【${minDamage}~${maxDamage}】`;
+  if (headInfo.s === "乱数") {
+    const rate = calcRate(deffencePokemon.effective_value.hp, retTatamikomi);
+    console.log(rate)
+    retstr += `(${rate}%)`;
+  }
+  return retstr;
+  // return head+tail
+}
+
+function calc_kakutei_ransuu(
+  hp: number,
+  minDamage: number,
+  maxDamage: number,
+  n: number
+) :{s:string,n:number} {
+  // console.log(hp,minDamage,maxDamage)
+  if (n * minDamage >= hp) {
+    return { s: "確定", n: n };
+  } else if (n * minDamage < hp && n * maxDamage >= hp) {
+    return { s: "乱数", n: n };
+  }
+  return calc_kakutei_ransuu(hp, minDamage, maxDamage, n + 1);
+}
+
+function calcRate(
+  hp: number,
+  retTatamikomi: {
+    [name: number]: number;
+  }
+) {
+  const sumPatternNumber = Object.values(retTatamikomi).reduce(function (s, e) {
+    return s + e;
+  });
+  const okPattern = Object.keys(retTatamikomi).filter((d) => parseInt(d) >= hp);
+  let okPatternNumber = 0;
+  Object.keys(retTatamikomi).forEach((d) => {
+    if (okPattern.includes(d)) {
+      okPatternNumber += retTatamikomi[parseInt(d)];
+    }
+  });
+
+  const rate = okPatternNumber / sumPatternNumber;
+  return rate * 100;
+}
+
+function to_string(
+  deffencePokemon: PokemonDefenceInterface,
+  retTatamikomi: {
+    [name: number]: number;
+  }
+): string {
+  const damageList = Object.keys(retTatamikomi).map((v) => parseInt(v));
+  const maxDamage = Math.max(...damageList);
+  const minDamage = Math.min(...damageList);
+  let headString = "";
+  if (minDamage >= deffencePokemon.effective_value.hp) {
+    headString = "確定1発";
+  } else if (
+    minDamage < deffencePokemon.effective_value.hp &&
+    maxDamage >= deffencePokemon.effective_value.hp
+  ) {
+    headString = "乱数1発";
+    const sumPatternNumber = Object.values(retTatamikomi).reduce(function (
+      s,
+      e
+    ) {
+      return s + e;
+    });
+    const okPattern = Object.keys(retTatamikomi).filter(
+      (d) => parseInt(d) >= deffencePokemon.effective_value.hp
+    );
+    let okPatternNumber = 0;
+    Object.keys(retTatamikomi).forEach((d) => {
+      if (okPattern.includes(d)) {
+        okPatternNumber += retTatamikomi[parseInt(d)];
+      }
+    });
+
+    const rate = okPatternNumber / sumPatternNumber;
+    console.log(rate * 100);
+    headString = `乱数${rate * 100}%1発`;
+  }
+  return `${headString}(${minDamage}~${maxDamage})`;
 }
 
 function calcWithRand(
@@ -305,14 +408,26 @@ function calcOffenceMoveTypeRate(
   offencePokemon: PokemonOffenceInterface
 ): number {
   if (offencePokemon.terasu_type) {
-    if (offencePokemon.terasu_type === move.type &&offencePokemon.pokemon.type_id_list.includes(move.type)) {
+    if (
+      offencePokemon.terasu_type === move.type &&
+      offencePokemon.pokemon.type_id_list.includes(move.type)
+    ) {
       return 2.0;
-    } else if (offencePokemon.terasu_type === move.type &&!offencePokemon.pokemon.type_id_list.includes(move.type)) {
+    } else if (
+      offencePokemon.terasu_type === move.type &&
+      !offencePokemon.pokemon.type_id_list.includes(move.type)
+    ) {
       return 1.5;
-    } else if (offencePokemon.terasu_type === 19 &&offencePokemon.pokemon.type_id_list.includes(move.type)) {
+    } else if (
+      offencePokemon.terasu_type === 19 &&
+      offencePokemon.pokemon.type_id_list.includes(move.type)
+    ) {
       return 2.0;
-    } else if (offencePokemon.terasu_type === 19 &&!offencePokemon.pokemon.type_id_list.includes(move.type)) {
-      return 4916/4096; // 1.2
+    } else if (
+      offencePokemon.terasu_type === 19 &&
+      !offencePokemon.pokemon.type_id_list.includes(move.type)
+    ) {
+      return 4916 / 4096; // 1.2
     }
   }
   if (offencePokemon.pokemon.type_id_list.includes(move.type)) {

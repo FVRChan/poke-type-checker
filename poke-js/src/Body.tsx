@@ -18,7 +18,7 @@ function Body({
 }) {
   return (
     <>
-      <TableContainer style={{ width: "95%" }}>
+      <TableContainer style={{ width: "97%" }}>
         <Table stickyHeader aria-label="sticky table">
           <TableBody style={{ maxWidth: `${useWindowSize()}px` }}>
             {pokemon_array((useWindowSize().width - 50) / 150).map(
@@ -36,8 +36,8 @@ function Body({
                         <TableCell
                           style={{
                             background: "",
-                            maxWidth: "65px",
-                            maxHeight: "65px",
+                            maxWidth: "85px",
+                            maxHeight: "85px",
                           }}
                         >
                           {deffencePokemon.pokemon.picture_url ? (

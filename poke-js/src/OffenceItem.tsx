@@ -20,6 +20,8 @@ export function OffenceItem({
       size="small"
       value={pokemon.selected_offencete_item_rate_id}
       defaultValue={pokemon.selected_offencete_item_rate_id || undefined}
+      placeholder="アイテムを選択"
+      label="アイテムを選択"
       onChange={(e) => {
         const tempPokemon = pokemon;
         tempPokemon.selected_offencete_item_rate_id = e.target.value as number;
@@ -27,17 +29,13 @@ export function OffenceItem({
       }}
     >
       <MenuItem value={undefined}>なし</MenuItem>
-      <MenuItem value={ITEM_RATE_ID_ATTACK_15}>こだわりハチマキ</MenuItem>
-      <MenuItem value={ITEM_RATE_ID_SPECIEAL_ATTACK_15}>
-        こだわりメガネ
-      </MenuItem>
+      {/* <MenuItem value={ITEM_RATE_ID_ATTACK_15}>こだわりハチマキ</MenuItem>
+      <MenuItem value={ITEM_RATE_ID_SPECIEAL_ATTACK_15}>こだわりメガネ</MenuItem> */}
       <MenuItem value={ITEM_RATE_ID_INOTINOTAMA_13}>いのちのたま</MenuItem>
-      <MenuItem value={ITEM_RATE_ID_BATUGUN_12}>たつじんのおび</MenuItem>
+      {/* <MenuItem value={ITEM_RATE_ID_BATUGUN_12}>たつじんのおび</MenuItem>
       <MenuItem value={ITEM_RATE_ID_OMEN_12}>おめん</MenuItem>
       <MenuItem value={ITEM_RATE_ID_ATTACK_11}>ちからのハチマキ</MenuItem>
-      <MenuItem value={ITEM_RATE_ID_SPECIEAL_ATTACK_11}>
-        ものしりメガネ
-      </MenuItem>
+      <MenuItem value={ITEM_RATE_ID_SPECIEAL_ATTACK_11}>ものしりメガネ</MenuItem>
       <MenuItem value={ITEM_RATE_ID_NORMAL_13}>ノーマルジュエル</MenuItem>
       <MenuItem value={ITEM_RATE_ID_NORMAL_12}>シルクのスカーフ</MenuItem>
       <MenuItem value={ITEM_RATE_ID_FIRE_12}>もくたん</MenuItem>
@@ -56,7 +54,7 @@ export function OffenceItem({
       <MenuItem value={ITEM_RATE_ID_DRAGON_12}>りゅうのキバ</MenuItem>
       <MenuItem value={ITEM_RATE_ID_DARK_12}>くろいメガネ</MenuItem>
       <MenuItem value={ITEM_RATE_ID_STEEL_12}>メタルコート</MenuItem>
-      <MenuItem value={ITEM_RATE_ID_FAIRY_12}>ようせいのハネ</MenuItem>
+      <MenuItem value={ITEM_RATE_ID_FAIRY_12}>ようせいのハネ</MenuItem> */}
     </Select>
   );
 }

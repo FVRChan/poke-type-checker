@@ -229,7 +229,7 @@ pokemon_list.forEach((p) => {
 // }
 
 export function pokemon_array(separate_number: number) {
-  const t = isMobile ? 4 : 99;
+  const t = isMobile ? 4 : 7;
   const local_separate_number = Math.min(t, separate_number);
   let ret_matrix = [] as Array<Array<PokemonDefenceInterface>>;
   let temp_list = [] as Array<PokemonDefenceInterface>;
