@@ -2,7 +2,6 @@ import React from "react";
 import EffortSlider from "./EffortSlider";
 import {
   PokemonOffenceInterface,
-  rankCorrection,
   rankCorrectionEnum,
   rankCorrectionEnumList,
 } from "./pokemon";

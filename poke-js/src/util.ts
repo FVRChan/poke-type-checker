@@ -61,6 +61,9 @@ export function abilityList(p: Pokemon): Ability[] {
     });
 }
 
+/**
+ * きもったま、しんがんを確認する
+ */
 export function canScrappy(p: PokemonOffenceInterface): boolean {
   return (
     (p.selected_ability?.is_scrappy &&

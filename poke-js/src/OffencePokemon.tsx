@@ -1,14 +1,10 @@
-import { Grid, Autocomplete, TextField, Select, MenuItem } from "@mui/material";
+import { Grid,  Select, MenuItem } from "@mui/material";
 import {
-  Pokemon,
   pokemon_list,
   PokemonOffenceInterface,
   toOffence,
 } from "./pokemon";
-import { type_id_to_kanji } from "./type-map";
-import { abilityList } from "./util";
 import ability_list, { Ability } from "./ability-list";
-import move_list from "./move";
 import OffenceEffort from "./OffenceEffort";
 import { TerastalSelect } from "./TerastalSelect";
 import { OffenceItem } from "./OffenceItem";

@@ -1,8 +1,8 @@
-import { Grid } from "@mui/material";
+import { Grid, IconButton } from "@mui/material";
 import DefencePokemon from "./DefencePokemon";
 import OffencePokemon from "./OffencePokemon";
-import { Pokemon, PokemonDefenceInterface, PokemonOffenceInterface } from "./pokemon";
-import { useWindowSize } from "./useWindowSize";
+import { PokemonDefenceInterface, PokemonOffenceInterface } from "./pokemon";
+import { AddCircle, RemoveCircle } from "@mui/icons-material";
 
 function SideMenu({
   offencePokemonList,
@@ -17,7 +17,10 @@ function SideMenu({
   handleRemoveOffencePokemonList: (i: number) => void;
   handleAddOffencePokemonList: () => void;
   deffenceDummyPokemon: PokemonDefenceInterface;
-  handleSaveDeffenceDummyPokemon: (i: number, p: PokemonDefenceInterface) => void;
+  handleSaveDeffenceDummyPokemon: (
+    i: number,
+    p: PokemonDefenceInterface
+  ) => void;
 }) {
   return (
     <Grid container direction="column">
@@ -33,27 +36,28 @@ function SideMenu({
               ></OffencePokemon>
               {offencePokemonList.length > 1 && (
                 <div style={{ textAlign: "center" }}>
-                  <button
+                  <IconButton
                     onClick={() => {
                       handleRemoveOffencePokemonList(i);
                     }}
                   >
-                    -
-                  </button>
+                    <RemoveCircle />
+                  </IconButton>
                 </div>
               )}
             </>
           );
         })}
+
         <div style={{ textAlign: "center" }}>
           {offencePokemonList.length < 3 && (
-            <button
+            <IconButton
               onClick={() => {
                 handleAddOffencePokemonList();
               }}
             >
-              +
-            </button>
+              <AddCircle />
+            </IconButton>
           )}
         </div>
       </Grid>

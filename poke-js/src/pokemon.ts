@@ -6,7 +6,8 @@ import { filterMoveList } from "./util";
 import { abilityList } from "./util";
 import { Ability } from "./ability-list";
 import { EffortSlider } from "./EffortSlider";
-import { OFFENCE_ITEM_RATE_ID } from "./OffenceItem";
+import { OFFENCE_ITEM_ID } from "./OffenceItem";
+import { DEFENCE_ITEM_ID } from "./DefenceItem";
 
 export interface Pokemon {
   id: number;
@@ -28,6 +29,7 @@ export interface Pokemon {
   often_used_tokusei: Array<number>;
   move_list?: Move[];
   ability_list?: Ability[];
+  is_not_last_evolve:boolean;
 }
 
 export interface PokemonOffenceInterface {
@@ -40,7 +42,7 @@ export interface PokemonOffenceInterface {
   selected_hit_number?: number;
   selected_ability?: Ability;
   selected_ability_id?: number;
-  selected_offencete_item_rate_id?: OFFENCE_ITEM_RATE_ID;
+  selected_offencete_item_rate_id?: OFFENCE_ITEM_ID;
   terasu_type?: number;
   rankCorrection: rankCorrection;
 }
@@ -54,6 +56,7 @@ export interface PokemonDefenceInterface {
   selected_ability_id?: number;
   terasu_type?: number;
   rankCorrection: rankCorrection;
+  selected_defencete_item_rate_id?: DEFENCE_ITEM_ID;
 }
 
 export type rankCorrectionEnum =
@@ -203,6 +206,7 @@ export function dummyPokemon(): PokemonDefenceInterface {
       often_used_move: [],
       often_used_tokusei: [],
       usage_rate: 999,
+      is_not_last_evolve:false,
     },
     effective_slider_step: {
       hp: 0,

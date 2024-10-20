@@ -29,6 +29,7 @@ TYPE_ID_FAIRY = 18
 import waza
 import form_mapping
 import pokemon_type
+import is_not_last_evolve_pokemon_id_list 
 
 POKEMON_JSON_FILENAME="./tmp/pokemon.json"
 ITEM_JSON_FILENAME="./tmp/item.json"
@@ -1000,6 +1001,7 @@ class PokemonForRankMatch:
     species_id: str
     weight: int
     usage_rate:int=999
+    is_not_last_evolve:bool=False
     often_used_move:List[int]= List
     often_used_tokusei:List[int]= List
     type_id_list: List[int] = List
@@ -1100,6 +1102,8 @@ def update_pokemon_data():
                             temp_info.usage_rate=usage_rate_mapper[pokemon_id]
                         if int(pokemon_id) in usage_rate_mapper:
                             temp_info.usage_rate=usage_rate_mapper[int(pokemon_id)]
+                        if int(pokemon_id) in is_not_last_evolve_pokemon_id_list.is_not_last_evolve_pokemon_id_list:
+                            temp_info.is_not_last_evolve=True
                         if pokemon_id not in detail_mapper:
                             detail_mapper[pokemon_id]=temp_info
                             detail_list.append(temp_info)

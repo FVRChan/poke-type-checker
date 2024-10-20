@@ -1,11 +1,14 @@
 import {
+  DEFENCE_ITEM_ID_ASSAULT_VEST,
+  DEFENCE_ITEM_ID_SINKANOKISEKI,
+} from "./DefenceItem";
+import {
   Move,
   MOVE_DAMAGE_CLASS_PHYSICAL,
   MOVE_DAMAGE_CLASS_SPECIAL,
 } from "./move";
-import { ITEM_RATE_ID_INOTINOTAMA_13 } from "./OffenceItem";
+import { OFFENCE_ITEM_ID_INOTINOTAMA_13 } from "./OffenceItem";
 import {
-  Pokemon,
   PokemonDefenceInterface,
   PokemonOffenceInterface,
   rankCorrectionEnum,
@@ -25,10 +28,10 @@ import type_map from "./type-map";
 import { canScrappy } from "./util";
 
 interface damageRateMapper {
-  compatibilityRate: number;
-  sameTypeRate: number;
-  randRate: number;
-  multiscaleRate: number;
+  compatibilityRate: number; //攻撃技と防御側ポケモンの相性補正
+  sameTypeRate: number; //タイプ一致の補正
+  randRate: number; //乱数幅(0.85~1.00)
+  // multiscaleRate: number;
 }
 export type PersonalityRate = 0.9 | 1.0 | 1.1;
 export interface Personality {
@@ -85,6 +88,31 @@ function listToMapper(numberList: number[]): { [name: number]: number }[] {
   return retList;
 }
 
+export function copiedDummyInfoForDefencePokemon({
+  deffencePokemon,
+  deffenceDummyPokemon,
+}: {
+  deffencePokemon: PokemonDefenceInterface;
+  deffenceDummyPokemon: PokemonDefenceInterface;
+}): PokemonDefenceInterface {
+  const newDefencePokemon = { ...deffencePokemon };
+  newDefencePokemon.effective_slider_step =
+    deffenceDummyPokemon.effective_slider_step;
+  newDefencePokemon.personality = deffenceDummyPokemon.personality;
+  newDefencePokemon.selected_defencete_item_rate_id =
+    deffenceDummyPokemon.selected_defencete_item_rate_id;
+  newDefencePokemon.effective_value = {
+    hp: calcRealValueHPStat(newDefencePokemon),
+    attack: calcRealValueAttackDefencePokemon(newDefencePokemon),
+    defense: calcRealValueDeffenceDefencePokemon(newDefencePokemon),
+    special_attack: calcRealValueSpecialAttackDefencePokemon(newDefencePokemon),
+    special_defense:
+      calcRealValueSpecialDeffenceDefencePokemon(newDefencePokemon),
+  };
+  newDefencePokemon.terasu_type = deffenceDummyPokemon.terasu_type;
+  return newDefencePokemon;
+}
+
 export function calc_interface({
   offencePokemonList,
   deffencePokemon,
@@ -94,19 +122,10 @@ export function calc_interface({
   deffencePokemon: PokemonDefenceInterface;
   deffenceDummyPokemon: PokemonDefenceInterface;
 }) {
-  const kusatuonsen = { ...deffencePokemon };
-  kusatuonsen.effective_slider_step =
-    deffenceDummyPokemon.effective_slider_step;
-  kusatuonsen.personality = deffenceDummyPokemon.personality;
-
-  kusatuonsen.effective_value = {
-    hp: calcRealValueHPStat(kusatuonsen),
-    attack: calcRealValueAttackDefencePokemon(kusatuonsen),
-    defense: calcRealValueDeffenceDefencePokemon(kusatuonsen),
-    special_attack: calcRealValueSpecialAttackDefencePokemon(kusatuonsen),
-    special_defense: calcRealValueSpecialDeffenceDefencePokemon(kusatuonsen),
-  };
-  kusatuonsen.terasu_type = deffenceDummyPokemon.terasu_type;
+  const copiedDefencePokemon = copiedDummyInfoForDefencePokemon({
+    deffencePokemon,
+    deffenceDummyPokemon,
+  });
   const damageMapList: { [name: number]: number }[] = [];
   offencePokemonList.forEach((offencePokemon) => {
     offencePokemon.effective_value = {
@@ -123,10 +142,10 @@ export function calc_interface({
       const rateMapper = {
         compatibilityRate: getCompatibilityTypeRate(
           offencePokemon,
-          kusatuonsen
+          copiedDefencePokemon
         ),
         sameTypeRate: calcOffenceMoveTypeRate(move, offencePokemon),
-        multiscaleRate: 1 / 2,
+        // multiscaleRate: 1 / 2,
       } as damageRateMapper;
       const hitNumber =
         move.is_renzoku && offencePokemon.selected_hit_number
@@ -137,7 +156,7 @@ export function calc_interface({
         const calcedList = calcWithRand(
           move,
           offencePokemon,
-          kusatuonsen,
+          copiedDefencePokemon,
           rateMapper,
           loopHitNumber
         );
@@ -146,14 +165,7 @@ export function calc_interface({
     }
   });
   const retTatamikomi = tatamikomi(damageMapList);
-  // const damageList = Object.keys(retTatamikomi).map((v) => parseInt(v));
-  // const maxDamage = Math.max(...damageList);
-  // const minDamage = Math.min(...damageList);
-  // if (minDamage >= deffencePokemon.effective_value.hp) {
-  //   return `確定1発(${minDamage}~${maxDamage})`;
-  // }
-  // return `(${minDamage}~${maxDamage})`;
-  return to_string_v2(kusatuonsen, retTatamikomi);
+  return to_string_v2(copiedDefencePokemon, retTatamikomi);
 }
 
 function to_string_v2(
@@ -213,46 +225,10 @@ function calcRate(
   });
 
   const rate = okPatternNumber / sumPatternNumber;
-  return rate * 100;
-}
+  // parseFloat(rate.toFixed(3))
+  // return rate * 100;
 
-function to_string(
-  deffencePokemon: PokemonDefenceInterface,
-  retTatamikomi: {
-    [name: number]: number;
-  }
-): string {
-  const damageList = Object.keys(retTatamikomi).map((v) => parseInt(v));
-  const maxDamage = Math.max(...damageList);
-  const minDamage = Math.min(...damageList);
-  let headString = "";
-  if (minDamage >= deffencePokemon.effective_value.hp) {
-    headString = "確定1発";
-  } else if (
-    minDamage < deffencePokemon.effective_value.hp &&
-    maxDamage >= deffencePokemon.effective_value.hp
-  ) {
-    headString = "乱数1発";
-    const sumPatternNumber = Object.values(retTatamikomi).reduce(function (
-      s,
-      e
-    ) {
-      return s + e;
-    });
-    const okPattern = Object.keys(retTatamikomi).filter(
-      (d) => parseInt(d) >= deffencePokemon.effective_value.hp
-    );
-    let okPatternNumber = 0;
-    Object.keys(retTatamikomi).forEach((d) => {
-      if (okPattern.includes(d)) {
-        okPatternNumber += retTatamikomi[parseInt(d)];
-      }
-    });
-
-    const rate = okPatternNumber / sumPatternNumber;
-    headString = `乱数${rate * 100}%1発`;
-  }
-  return `${headString}(${minDamage}~${maxDamage})`;
+  return parseFloat(rate.toFixed(rate * 100));
 }
 
 function calcWithRand(
@@ -311,10 +287,28 @@ function calc({
     );
   }
 
-  const defense =
+  let defense =
     move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL
       ? deffencePokemon.effective_value.defense
       : deffencePokemon.effective_value.special_defense;
+
+  // とつげきチョッキ
+  if (
+    move.damage_class_number === MOVE_DAMAGE_CLASS_SPECIAL &&
+    deffencePokemon.selected_defencete_item_rate_id ===
+      DEFENCE_ITEM_ID_ASSAULT_VEST
+  ) {
+    defense = Math.round((defense * 6144) / 4096);
+  }
+
+  // しんかのきせき
+  if (
+    deffencePokemon.selected_defencete_item_rate_id ===
+      DEFENCE_ITEM_ID_SINKANOKISEKI &&
+    deffencePokemon.pokemon.is_not_last_evolve
+  ) {
+    defense = Math.round((defense * 6144) / 4096);
+  }
 
   // 基本ダメージ部分計算
   let a = Math.floor((50 * 2) / 5 + 2);
@@ -330,22 +324,26 @@ function calc({
 
   if (
     offencePokemon.selected_offencete_item_rate_id ===
-    ITEM_RATE_ID_INOTINOTAMA_13
+    OFFENCE_ITEM_ID_INOTINOTAMA_13
   ) {
     a = calc_五捨五超入_gosutegoire((a * 5324) / 4096);
   }
 
   return a;
 }
-
+/**
+ *
+ * @param a 五捨五超入したい数値
+ * @returns 五捨五超入された値
+ */
 function calc_五捨五超入_gosutegoire(a: number): number {
   return Math.ceil(a - 0.5);
 }
 
 /**
  * けたぐり/くさむすびでの威力計算をする
- * @param deffencePokemon
- * @returns
+ * @param deffencePokemon 体重計算するべき防御側のポケモン
+ * @returns 威力
  */
 function calcPowerKetaguri(deffencePokemon: PokemonDefenceInterface): number {
   const w = deffencePokemon.pokemon.weight;
