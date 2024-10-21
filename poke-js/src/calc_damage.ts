@@ -282,6 +282,11 @@ function calc_move_power({
     power = calcPowerKetaguri(deffencePokemon);
   }
 
+  if (move.is_kiru&&offencePokemon.selected_ability_id===292){
+    power=Math.floor(power*per_150)
+
+  }
+
   if (move.is_punch){
     if(offencePokemon.selected_offencete_item_rate_id===OFFENCE_ITEM_ID_PUNCHGLOVE){
       power=Math.floor(power*per_110_punchglobe)

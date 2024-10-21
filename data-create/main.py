@@ -273,6 +273,7 @@ class PokemonMove:
     is_psy_blade: bool = False
     is_zidanda: bool = False
     is_punch: bool = False
+    is_kiru:bool=False
     is_tama: bool = False
     is_hadou: bool = False
     is_kamituki: bool = False
@@ -325,6 +326,8 @@ class PokemonMove:
             self.is_zidanda = True
         if self.name_ja in waza.PUNCH_WAZA:
             self.is_punch = True
+        if self.name_ja in waza.KIRU_WAZA:
+            self.is_kiru = True
         if self.name_ja in waza.TAMA_WAZA:
             self.is_tama = True
         if self.name_ja in waza.HADOU_WAZA:
@@ -580,6 +583,7 @@ def decode_pokemon_move(data: dict) -> PokemonMove:
         is_psy_blade=data["is_psy_blade"],
         is_zidanda=data["is_zidanda"],
         is_punch=data["is_punch"],
+        is_kiru=data["is_kiru"],
         is_tama=data["is_tama"],
         is_hadou=data["is_hadou"],
         is_kamituki=data["is_kamituki"],
@@ -1137,3 +1141,4 @@ def update_pokemon_data():
 # update_pokemon_list()
 
 update_pokemon_data()
+# update_move_list()
