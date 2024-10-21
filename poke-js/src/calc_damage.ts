@@ -7,7 +7,8 @@ import {
   MOVE_DAMAGE_CLASS_PHYSICAL,
   MOVE_DAMAGE_CLASS_SPECIAL,
 } from "./move";
-import { OFFENCE_ITEM_ID_INOTINOTAMA_13 } from "./OffenceItem";
+import { OFFENCE_ITEM_ID_INOTINOTAMA, OFFENCE_ITEM_ID_KODAWARIHATIMAKI, OFFENCE_ITEM_ID_KODAWARIMEGANE, OFFENCE_ITEM_ID_MONOSHIRIMEGANE, OFFENCE_ITEM_ID_PUNCHGLOVE, OFFENCE_ITEM_ID_TIKARANOHATIMAKI } from "./OffenceItem";
+import OffencePokemon from "./OffencePokemon";
 import {
   PokemonDefenceInterface,
   PokemonOffenceInterface,
@@ -253,6 +254,53 @@ function calcWithRand(
   return retList;
 }
 
+const per_110=4505/4096
+const per_110_punchglobe=4506/4096
+const per_150=6144/4096
+const per_130=5324/4096
+const per_120=4915/4096
+
+function calc_move_power({
+  move,
+  offencePokemon,
+  deffencePokemon,
+  rateMapper,
+  loopHitNumber,
+}: {
+  move: Move;
+  offencePokemon: PokemonOffenceInterface;
+  deffencePokemon: PokemonDefenceInterface;
+  rateMapper: damageRateMapper;
+  loopHitNumber: number;
+}){
+  let power = move.power;
+  // トリプルアクセル/トリプルキックの時、Hit回数によって威力が変わる
+  if (move.id === 813 || move.id === 167) {
+    power = power * loopHitNumber;
+  }
+  if (move.is_ketaguri) {
+    power = calcPowerKetaguri(deffencePokemon);
+  }
+
+  if (move.is_punch){
+    if(offencePokemon.selected_offencete_item_rate_id===OFFENCE_ITEM_ID_PUNCHGLOVE){
+      power=Math.floor(power*per_110_punchglobe)
+
+    }
+    if(offencePokemon.selected_ability_id===89){
+      power=Math.floor(power*per_120)
+
+    }
+  }
+  if (move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL&&offencePokemon.selected_offencete_item_rate_id===OFFENCE_ITEM_ID_TIKARANOHATIMAKI){
+    power=Math.floor(power*per_110)
+  }
+  if (move.damage_class_number === MOVE_DAMAGE_CLASS_SPECIAL&&offencePokemon.selected_offencete_item_rate_id===OFFENCE_ITEM_ID_MONOSHIRIMEGANE){
+    power=Math.floor(power*per_110)
+  }
+return power
+}
+
 function calc({
   move,
   offencePokemon,
@@ -266,6 +314,8 @@ function calc({
   rateMapper: damageRateMapper;
   loopHitNumber: number;
 }) {
+
+  /*
   let power = move.power;
   // トリプルアクセル/トリプルキックの時、Hit回数によって威力が変わる
   if (move.id === 813 || move.id === 167) {
@@ -274,13 +324,38 @@ function calc({
   if (move.is_ketaguri) {
     power = calcPowerKetaguri(deffencePokemon);
   }
+
+  if (move.is_punch&&offencePokemon.selected_offencete_item_rate_id===OFFENCE_ITEM_ID_PUNCHGLOVE){
+    power=Math.floor(power*per_110_punchglobe)
+  }
+  if (move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL&&offencePokemon.selected_offencete_item_rate_id===OFFENCE_ITEM_ID_TIKARANOHATIMAKI){
+    power=Math.floor(power*per_110)
+  }
+  if (move.damage_class_number === MOVE_DAMAGE_CLASS_SPECIAL&&offencePokemon.selected_offencete_item_rate_id===OFFENCE_ITEM_ID_MONOSHIRIMEGANE){
+    power=Math.floor(power*per_110)
+  }
+  */
+ const power=calc_move_power({
+  move,
+  offencePokemon,
+  deffencePokemon,
+  rateMapper,
+  loopHitNumber,
+})
+
   let attack =
     move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL
       ? offencePokemon.effective_value.attack
       : offencePokemon.effective_value.special_attack;
   if (move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL) {
+    if (offencePokemon.selected_offencete_item_rate_id===OFFENCE_ITEM_ID_KODAWARIHATIMAKI){
+      attack = Math.floor(attack*per_150)
+    }
     attack = calcRankedValue(attack, offencePokemon.rankCorrection.attack);
   } else if (move.damage_class_number === MOVE_DAMAGE_CLASS_SPECIAL) {
+    if (offencePokemon.selected_offencete_item_rate_id===OFFENCE_ITEM_ID_KODAWARIMEGANE){
+      attack = Math.floor(attack*per_150)
+    }
     attack = calcRankedValue(
       attack,
       offencePokemon.rankCorrection.special_attack
@@ -298,7 +373,8 @@ function calc({
     deffencePokemon.selected_defencete_item_rate_id ===
       DEFENCE_ITEM_ID_ASSAULT_VEST
   ) {
-    defense = Math.round((defense * 6144) / 4096);
+    // defense = Math.round((defense * 6144) / 4096);
+    defense = Math.round(defense*per_150);
   }
 
   // しんかのきせき
@@ -307,7 +383,8 @@ function calc({
       DEFENCE_ITEM_ID_SINKANOKISEKI &&
     deffencePokemon.pokemon.is_not_last_evolve
   ) {
-    defense = Math.round((defense * 6144) / 4096);
+    // defense = Math.round((defense * 6144) / 4096);
+    defense = Math.round(defense*per_150);
   }
 
   // 基本ダメージ部分計算
@@ -324,9 +401,10 @@ function calc({
 
   if (
     offencePokemon.selected_offencete_item_rate_id ===
-    OFFENCE_ITEM_ID_INOTINOTAMA_13
+    OFFENCE_ITEM_ID_INOTINOTAMA
   ) {
-    a = calc_五捨五超入_gosutegoire((a * 5324) / 4096);
+    // a = calc_五捨五超入_gosutegoire((a * 5324) / 4096);
+    a = calc_五捨五超入_gosutegoire(a*per_130);
   }
 
   return a;
@@ -436,7 +514,8 @@ function calcOffenceMoveTypeRate(
       offencePokemon.terasu_type === 19 &&
       !offencePokemon.pokemon.type_id_list.includes(move.type)
     ) {
-      return 4916 / 4096; // 1.2
+      // return 4916 / 4096; // 1.2
+      return per_120; // 1.2
     }
   }
   if (offencePokemon.pokemon.type_id_list.includes(move.type)) {

@@ -32,13 +32,20 @@ export function OffenceItem({
       <MenuItem value={OFFENCE_ITEM_ID_NO_SET} selected>
         なし
       </MenuItem>
-      {/* <MenuItem value={OFFENCE_ITEM_ID_ATTACK_15}>こだわりハチマキ</MenuItem>
-      <MenuItem value={OFFENCE_ITEM_ID_SPECIEAL_ATTACK_15}>こだわりメガネ</MenuItem> */}
-      <MenuItem value={OFFENCE_ITEM_ID_INOTINOTAMA_13}>いのちのたま</MenuItem>
+      <MenuItem value={OFFENCE_ITEM_ID_KODAWARIHATIMAKI}>
+        こだわりハチマキ
+      </MenuItem>
+      <MenuItem value={OFFENCE_ITEM_ID_KODAWARIMEGANE}>こだわりメガネ</MenuItem>
+      <MenuItem value={OFFENCE_ITEM_ID_INOTINOTAMA}>いのちのたま</MenuItem>
+      <MenuItem value={OFFENCE_ITEM_ID_TIKARANOHATIMAKI}>
+        ちからのハチマキ
+      </MenuItem>
+      <MenuItem value={OFFENCE_ITEM_ID_MONOSHIRIMEGANE}>
+        ものしりメガネ
+      </MenuItem>
+      <MenuItem value={OFFENCE_ITEM_ID_PUNCHGLOVE}>パンチグローブ</MenuItem>
       {/* <MenuItem value={OFFENCE_ITEM_ID_BATUGUN_12}>たつじんのおび</MenuItem>
       <MenuItem value={OFFENCE_ITEM_ID_OMEN_12}>おめん</MenuItem>
-      <MenuItem value={OFFENCE_ITEM_ID_ATTACK_11}>ちからのハチマキ</MenuItem>
-      <MenuItem value={OFFENCE_ITEM_ID_SPECIEAL_ATTACK_11}>ものしりメガネ</MenuItem>
       <MenuItem value={OFFENCE_ITEM_ID_NORMAL_13}>ノーマルジュエル</MenuItem>
       <MenuItem value={OFFENCE_ITEM_ID_NORMAL_12}>シルクのスカーフ</MenuItem>
       <MenuItem value={OFFENCE_ITEM_ID_FIRE_12}>もくたん</MenuItem>
@@ -64,30 +71,10 @@ export function OffenceItem({
 
 export type OFFENCE_ITEM_ID = number;
 
-export const OFFENCE_ITEM_ID_NO_SET: OFFENCE_ITEM_ID = 0;
-export const OFFENCE_ITEM_ID_ATTACK_15: OFFENCE_ITEM_ID = 1;
-export const OFFENCE_ITEM_ID_ATTACK_11: OFFENCE_ITEM_ID = 2;
-export const OFFENCE_ITEM_ID_BATUGUN_12: OFFENCE_ITEM_ID = 3;
-export const OFFENCE_ITEM_ID_OMEN_12: OFFENCE_ITEM_ID = 4;
-export const OFFENCE_ITEM_ID_SPECIEAL_ATTACK_15: OFFENCE_ITEM_ID = 5;
-export const OFFENCE_ITEM_ID_SPECIEAL_ATTACK_11: OFFENCE_ITEM_ID = 6;
-export const OFFENCE_ITEM_ID_INOTINOTAMA_13: OFFENCE_ITEM_ID = 7;
-export const OFFENCE_ITEM_ID_NORMAL_13: OFFENCE_ITEM_ID = 8;
-export const OFFENCE_ITEM_ID_NORMAL_12: OFFENCE_ITEM_ID = 9;
-export const OFFENCE_ITEM_ID_FIGHTING_12: OFFENCE_ITEM_ID = 10;
-export const OFFENCE_ITEM_ID_FLYING_12: OFFENCE_ITEM_ID = 11;
-export const OFFENCE_ITEM_ID_POISON_12: OFFENCE_ITEM_ID = 12;
-export const OFFENCE_ITEM_ID_GROUND_12: OFFENCE_ITEM_ID = 13;
-export const OFFENCE_ITEM_ID_ROCK_12: OFFENCE_ITEM_ID = 14;
-export const OFFENCE_ITEM_ID_BUG_12: OFFENCE_ITEM_ID = 15;
-export const OFFENCE_ITEM_ID_GHOST_12: OFFENCE_ITEM_ID = 16;
-export const OFFENCE_ITEM_ID_STEEL_12: OFFENCE_ITEM_ID = 17;
-export const OFFENCE_ITEM_ID_FIRE_12: OFFENCE_ITEM_ID = 18;
-export const OFFENCE_ITEM_ID_WATER_12: OFFENCE_ITEM_ID = 19;
-export const OFFENCE_ITEM_ID_GRASS_12: OFFENCE_ITEM_ID = 20;
-export const OFFENCE_ITEM_ID_ELECTRIC_12: OFFENCE_ITEM_ID = 21;
-export const OFFENCE_ITEM_ID_PSYCHIC_12: OFFENCE_ITEM_ID = 22;
-export const OFFENCE_ITEM_ID_ICE_12: OFFENCE_ITEM_ID = 23;
-export const OFFENCE_ITEM_ID_DRAGON_12: OFFENCE_ITEM_ID = 24;
-export const OFFENCE_ITEM_ID_DARK_12: OFFENCE_ITEM_ID = 25;
-export const OFFENCE_ITEM_ID_FAIRY_12: OFFENCE_ITEM_ID = 26;
+export const OFFENCE_ITEM_ID_NO_SET: OFFENCE_ITEM_ID = 775670783;
+export const OFFENCE_ITEM_ID_KODAWARIHATIMAKI: OFFENCE_ITEM_ID = 667731897
+export const OFFENCE_ITEM_ID_TIKARANOHATIMAKI: OFFENCE_ITEM_ID = 811830655
+export const OFFENCE_ITEM_ID_KODAWARIMEGANE: OFFENCE_ITEM_ID = 917939879
+export const OFFENCE_ITEM_ID_MONOSHIRIMEGANE: OFFENCE_ITEM_ID = 724819493
+export const OFFENCE_ITEM_ID_INOTINOTAMA: OFFENCE_ITEM_ID = 968967646
+export const OFFENCE_ITEM_ID_PUNCHGLOVE: OFFENCE_ITEM_ID = 152041385
