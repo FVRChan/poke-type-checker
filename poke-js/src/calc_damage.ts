@@ -1,13 +1,22 @@
+import { ManageHistoryRounded } from "@mui/icons-material";
 import {
   DEFENCE_ITEM_ID_ASSAULT_VEST,
   DEFENCE_ITEM_ID_SINKANOKISEKI,
+  DefenceItem,
 } from "./DefenceItem";
 import {
   Move,
   MOVE_DAMAGE_CLASS_PHYSICAL,
   MOVE_DAMAGE_CLASS_SPECIAL,
 } from "./move";
-import { OFFENCE_ITEM_ID_INOTINOTAMA, OFFENCE_ITEM_ID_KODAWARIHATIMAKI, OFFENCE_ITEM_ID_KODAWARIMEGANE, OFFENCE_ITEM_ID_MONOSHIRIMEGANE, OFFENCE_ITEM_ID_PUNCHGLOVE, OFFENCE_ITEM_ID_TIKARANOHATIMAKI } from "./OffenceItem";
+import {
+  OFFENCE_ITEM_ID_INOTINOTAMA,
+  OFFENCE_ITEM_ID_KODAWARIHATIMAKI,
+  OFFENCE_ITEM_ID_KODAWARIMEGANE,
+  OFFENCE_ITEM_ID_MONOSHIRIMEGANE,
+  OFFENCE_ITEM_ID_PUNCHGLOVE,
+  OFFENCE_ITEM_ID_TIKARANOHATIMAKI,
+} from "./OffenceItem";
 import OffencePokemon from "./OffencePokemon";
 import {
   PokemonDefenceInterface,
@@ -25,6 +34,14 @@ import {
   calcRealValueSpecialAttackOffencePokemon,
   calcRealValueSpecialDeffenceOffencePokemon,
 } from "./stat_calc";
+import {
+  POKEMON_TYPE_ELECTRIC,
+  POKEMON_TYPE_FAIRY,
+  POKEMON_TYPE_FLYING,
+  POKEMON_TYPE_ICE,
+  POKEMON_TYPE_NORMAL,
+  POKEMON_TYPE_STERA,
+} from "./type";
 import type_map from "./type-map";
 import { canScrappy } from "./util";
 
@@ -32,7 +49,6 @@ interface damageRateMapper {
   compatibilityRate: number; //攻撃技と防御側ポケモンの相性補正
   sameTypeRate: number; //タイプ一致の補正
   randRate: number; //乱数幅(0.85~1.00)
-  // multiscaleRate: number;
 }
 export type PersonalityRate = 0.9 | 1.0 | 1.1;
 export interface Personality {
@@ -254,56 +270,128 @@ function calcWithRand(
   return retList;
 }
 
-const per_110=4505/4096
-const per_110_punchglobe=4506/4096
-const per_150=6144/4096
-const per_130=5324/4096
-const per_120=4915/4096
+const per_110 = 4505 / 4096;
+const per_110_punchglobe = 4506 / 4096;
+const per_150 = 6144 / 4096;
+const per_200 = 8192 / 4096;
+const per_050 = 2048 / 4096;
+const per_075 = 3072 / 4096;
+const per_130 = 5324 / 4096;
+const per_120 = 4915 / 4096;
 
 function calc_move_power({
   move,
   offencePokemon,
   deffencePokemon,
-  rateMapper,
+  // rateMapper,
   loopHitNumber,
 }: {
   move: Move;
   offencePokemon: PokemonOffenceInterface;
   deffencePokemon: PokemonDefenceInterface;
-  rateMapper: damageRateMapper;
+  // rateMapper: damageRateMapper;
   loopHitNumber: number;
-}){
+}) {
   let power = move.power;
+  if (move.is_ketaguri) {
+    power = calcPowerKetaguri(deffencePokemon);
+  }
+  if (move.is_heavy_slam) {
+    power = calcPowerHeavy({ offencePokemon, deffencePokemon });
+  }
   // トリプルアクセル/トリプルキックの時、Hit回数によって威力が変わる
   if (move.id === 813 || move.id === 167) {
     power = power * loopHitNumber;
   }
-  if (move.is_ketaguri) {
-    power = calcPowerKetaguri(deffencePokemon);
+
+  let rate=4096
+
+  if (
+    offencePokemon.selected_ability?.is_faily_skin &&
+    move.type === POKEMON_TYPE_NORMAL
+  ) {
+    rate = Math.floor(rate * per_120);
+  }
+  if (
+    offencePokemon.selected_ability?.is_sky_skin &&
+    move.type === POKEMON_TYPE_FLYING
+  ) {
+    rate = Math.floor(rate * per_120);
+  }
+  if (
+    offencePokemon.selected_ability?.is_ereki_skin &&
+    move.type === POKEMON_TYPE_ELECTRIC
+  ) {
+    rate = Math.floor(rate * per_120);
+  }
+  if (
+    offencePokemon.selected_ability?.is_freeze_skin &&
+    move.type === POKEMON_TYPE_ICE
+  ) {
+    rate = Math.floor(rate * per_120);
+  }
+  // TODO : ノーマルスキン
+
+  if (move.is_kiru && offencePokemon.selected_ability?.is_kireazi) {
+    rate = Math.floor(rate * per_150);
   }
 
-  if (move.is_kiru&&offencePokemon.selected_ability_id===292){
-    power=Math.floor(power*per_150)
-
+  if (move.is_hadou && offencePokemon.selected_ability?.is_mega_launcher) {
+    rate = Math.floor(rate * per_150);
   }
 
-  if (move.is_punch){
-    if(offencePokemon.selected_offencete_item_rate_id===OFFENCE_ITEM_ID_PUNCHGLOVE){
-      power=Math.floor(power*per_110_punchglobe)
+  if (move.is_oto && offencePokemon.selected_ability?.is_punkrock) {
+    rate = Math.floor(rate * per_130);
+  }
 
+  if (move.is_kamituki && offencePokemon.selected_ability?.is_ganzixyouago) {
+    rate = Math.floor(rate * per_150);
+  }
+
+  if (move.is_sutemi_waza && offencePokemon.selected_ability?.is_sutemi) {
+    rate = Math.floor(rate * per_120);
+  }
+
+  if (move.is_punch) {
+    if (
+      offencePokemon.selected_offencete_item_rate_id ===
+      OFFENCE_ITEM_ID_PUNCHGLOVE
+    ) {
+      rate = Math.floor(rate * per_110_punchglobe);
     }
-    if(offencePokemon.selected_ability_id===89){
-      power=Math.floor(power*per_120)
-
+    if (offencePokemon.selected_ability?.is_tetunokobushi) {
+      rate = Math.floor(rate * per_120);
     }
   }
-  if (move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL&&offencePokemon.selected_offencete_item_rate_id===OFFENCE_ITEM_ID_TIKARANOHATIMAKI){
-    power=Math.floor(power*per_110)
+
+  if (move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL) {
+    if (
+      offencePokemon.selected_offencete_item_rate_id ===
+      OFFENCE_ITEM_ID_TIKARANOHATIMAKI
+    ) {
+      rate = Math.floor(rate * per_110);
+    }
+    if (offencePokemon.selected_ability?.is_dokubousou) {
+      rate = Math.floor(rate * per_150);
+    }
   }
-  if (move.damage_class_number === MOVE_DAMAGE_CLASS_SPECIAL&&offencePokemon.selected_offencete_item_rate_id===OFFENCE_ITEM_ID_MONOSHIRIMEGANE){
-    power=Math.floor(power*per_110)
+
+  if (move.damage_class_number === MOVE_DAMAGE_CLASS_SPECIAL) {
+    if (
+      offencePokemon.selected_offencete_item_rate_id ===
+      OFFENCE_ITEM_ID_MONOSHIRIMEGANE
+    ) {
+      rate = Math.floor(rate * per_110);
+    }
+    if (offencePokemon.selected_ability?.is_netubousou) {
+      rate = Math.floor(rate * per_150);
+    }
   }
-return power
+
+  let finalPower=calc_五捨五超入_gosutegoire(power*rate/4096)
+  if (finalPower<1){finalPower=1}
+
+  return finalPower;
 }
 
 function calc({
@@ -319,47 +407,34 @@ function calc({
   rateMapper: damageRateMapper;
   loopHitNumber: number;
 }) {
+  // 【1】威力の補正値
+  const power = calc_move_power({
+    move,
+    offencePokemon,
+    deffencePokemon,
+    // rateMapper,
+    loopHitNumber,
+  });
 
-  /*
-  let power = move.power;
-  // トリプルアクセル/トリプルキックの時、Hit回数によって威力が変わる
-  if (move.id === 813 || move.id === 167) {
-    power = power * loopHitNumber;
-  }
-  if (move.is_ketaguri) {
-    power = calcPowerKetaguri(deffencePokemon);
-  }
-
-  if (move.is_punch&&offencePokemon.selected_offencete_item_rate_id===OFFENCE_ITEM_ID_PUNCHGLOVE){
-    power=Math.floor(power*per_110_punchglobe)
-  }
-  if (move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL&&offencePokemon.selected_offencete_item_rate_id===OFFENCE_ITEM_ID_TIKARANOHATIMAKI){
-    power=Math.floor(power*per_110)
-  }
-  if (move.damage_class_number === MOVE_DAMAGE_CLASS_SPECIAL&&offencePokemon.selected_offencete_item_rate_id===OFFENCE_ITEM_ID_MONOSHIRIMEGANE){
-    power=Math.floor(power*per_110)
-  }
-  */
- const power=calc_move_power({
-  move,
-  offencePokemon,
-  deffencePokemon,
-  rateMapper,
-  loopHitNumber,
-})
-
+  // 【3】攻撃の補正値
   let attack =
     move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL
       ? offencePokemon.effective_value.attack
       : offencePokemon.effective_value.special_attack;
   if (move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL) {
-    if (offencePokemon.selected_offencete_item_rate_id===OFFENCE_ITEM_ID_KODAWARIHATIMAKI){
-      attack = Math.floor(attack*per_150)
+    if (
+      offencePokemon.selected_offencete_item_rate_id ===
+      OFFENCE_ITEM_ID_KODAWARIHATIMAKI
+    ) {
+      attack = Math.floor(attack * per_150);
     }
     attack = calcRankedValue(attack, offencePokemon.rankCorrection.attack);
   } else if (move.damage_class_number === MOVE_DAMAGE_CLASS_SPECIAL) {
-    if (offencePokemon.selected_offencete_item_rate_id===OFFENCE_ITEM_ID_KODAWARIMEGANE){
-      attack = Math.floor(attack*per_150)
+    if (
+      offencePokemon.selected_offencete_item_rate_id ===
+      OFFENCE_ITEM_ID_KODAWARIMEGANE
+    ) {
+      attack = Math.floor(attack * per_150);
     }
     attack = calcRankedValue(
       attack,
@@ -367,6 +442,7 @@ function calc({
     );
   }
 
+  // 【5】防御の補正値
   let defense =
     move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL
       ? deffencePokemon.effective_value.defense
@@ -379,7 +455,7 @@ function calc({
       DEFENCE_ITEM_ID_ASSAULT_VEST
   ) {
     // defense = Math.round((defense * 6144) / 4096);
-    defense = Math.round(defense*per_150);
+    defense = Math.round(defense * per_150);
   }
 
   // しんかのきせき
@@ -389,8 +465,25 @@ function calc({
     deffencePokemon.pokemon.is_not_last_evolve
   ) {
     // defense = Math.round((defense * 6144) / 4096);
-    defense = Math.round(defense*per_150);
+    defense = Math.round(defense * per_150);
   }
+
+  if (
+    offencePokemon.selected_ability?.is_wazawainoturugi &&
+    move.damage_class_number === MOVE_DAMAGE_CLASS_PHYSICAL
+  ) {
+    defense = Math.round(defense * per_075);
+  }
+  if (
+    offencePokemon.selected_ability?.is_wazawainoutama &&
+    move.damage_class_number === MOVE_DAMAGE_CLASS_SPECIAL
+  ) {
+    defense = Math.round(defense * per_075);
+  }
+
+  // 【7】ダメージの補正値
+
+  // 【8】最終ダメージ
 
   // 基本ダメージ部分計算
   let a = Math.floor((50 * 2) / 5 + 2);
@@ -409,7 +502,7 @@ function calc({
     OFFENCE_ITEM_ID_INOTINOTAMA
   ) {
     // a = calc_五捨五超入_gosutegoire((a * 5324) / 4096);
-    a = calc_五捨五超入_gosutegoire(a*per_130);
+    a = calc_五捨五超入_gosutegoire(a * per_130);
   }
 
   return a;
@@ -419,7 +512,7 @@ function calc({
  * @param a 五捨五超入したい数値
  * @returns 五捨五超入された値
  */
-function calc_五捨五超入_gosutegoire(a: number): number {
+export function calc_五捨五超入_gosutegoire(a: number): number {
   return Math.ceil(a - 0.5);
 }
 
@@ -444,6 +537,29 @@ function calcPowerKetaguri(deffencePokemon: PokemonDefenceInterface): number {
   return 120;
 }
 
+function calcPowerHeavy({
+  offencePokemon,
+  deffencePokemon,
+}: {
+  offencePokemon: PokemonOffenceInterface;
+  deffencePokemon: PokemonDefenceInterface;
+}): number {
+  const temp = deffencePokemon.pokemon.weight / offencePokemon.pokemon.weight;
+  if (temp < 1 / 5) {
+    return 120;
+  }
+  if (temp < 1 / 4) {
+    return 100;
+  }
+  if (temp < 1 / 3) {
+    return 80;
+  }
+  if (temp < 1 / 2) {
+    return 60;
+  }
+  return 40;
+}
+
 /**
  * タイプ相性での倍率計算をして倍率を返す(テラスタルもここで考慮)
  * @param offencePokemon
@@ -454,7 +570,33 @@ function getCompatibilityTypeRate(
   offencePokemon: PokemonOffenceInterface,
   deffencePokemon: PokemonDefenceInterface
 ): number {
-  const offenceType = offencePokemon.selected_move?.type || 1;
+  let offenceType = offencePokemon.selected_move?.type || 1;
+  if (
+    offencePokemon.selected_ability?.is_faily_skin &&
+    offencePokemon.selected_move?.type === POKEMON_TYPE_NORMAL
+  ) {
+    offenceType = POKEMON_TYPE_FAIRY;
+  }
+  if (
+    offencePokemon.selected_ability?.is_faily_skin &&
+    offencePokemon.selected_move?.type === POKEMON_TYPE_NORMAL
+  ) {
+    offenceType = POKEMON_TYPE_FAIRY;
+  }
+  if (
+    offencePokemon.selected_ability?.is_faily_skin &&
+    offencePokemon.selected_move?.type === POKEMON_TYPE_NORMAL
+  ) {
+    offenceType = POKEMON_TYPE_FAIRY;
+  }
+  if (
+    offencePokemon.selected_ability?.is_faily_skin &&
+    offencePokemon.selected_move?.type === POKEMON_TYPE_NORMAL
+  ) {
+    offenceType = POKEMON_TYPE_FAIRY;
+  }
+  // TODO : ノーマルスキン
+
   let deffenceTypeList = deffencePokemon.pokemon.type_id_list;
   // 防御側のテラスタイプによる調整
   if (deffencePokemon.terasu_type && deffencePokemon.terasu_type > 0) {
@@ -465,9 +607,9 @@ function getCompatibilityTypeRate(
   const deffenceType1 = deffenceTypeList[0];
   const r1 = type_map[deffenceType1].damage_relations;
   if (r1.double_damage_from.includes(offenceType)) {
-    res *= 2.0;
+    res *= per_200;
   } else if (r1.half_damage_from.includes(offenceType)) {
-    res *= 0.5;
+    res *= per_050;
   } else if (r1.no_damage_from.includes(offenceType)) {
     if (!canScrappy(offencePokemon)) {
       res *= 0;
@@ -477,9 +619,9 @@ function getCompatibilityTypeRate(
     const deffenceType2 = deffenceTypeList[1];
     const r2 = type_map[deffenceType2].damage_relations;
     if (r2.double_damage_from.includes(offenceType)) {
-      res *= 2.0;
+      res *= per_200;
     } else if (r2.half_damage_from.includes(offenceType)) {
-      res *= 0.5;
+      res *= per_050;
     } else if (r2.no_damage_from.includes(offenceType)) {
       if (!canScrappy(offencePokemon)) {
         res *= 0;
@@ -499,32 +641,58 @@ function calcOffenceMoveTypeRate(
   move: Move,
   offencePokemon: PokemonOffenceInterface
 ): number {
+  let moveType = move.type;
+
+  if (
+    offencePokemon.selected_ability?.is_faily_skin &&
+    move?.type === POKEMON_TYPE_NORMAL
+  ) {
+    moveType = POKEMON_TYPE_FAIRY;
+  }
+  if (
+    offencePokemon.selected_ability?.is_sky_skin &&
+    move?.type === POKEMON_TYPE_NORMAL
+  ) {
+    moveType = POKEMON_TYPE_FLYING;
+  }
+  if (
+    offencePokemon.selected_ability?.is_ereki_skin &&
+    move?.type === POKEMON_TYPE_NORMAL
+  ) {
+    moveType = POKEMON_TYPE_ELECTRIC;
+  }
+  if (
+    offencePokemon.selected_ability?.is_freeze_skin &&
+    move?.type === POKEMON_TYPE_NORMAL
+  ) {
+    moveType = POKEMON_TYPE_ICE;
+  }
+
   if (offencePokemon.terasu_type) {
     if (
-      offencePokemon.terasu_type === move.type &&
-      offencePokemon.pokemon.type_id_list.includes(move.type)
+      offencePokemon.terasu_type === moveType &&
+      offencePokemon.pokemon.type_id_list.includes(moveType)
     ) {
-      return 2.0;
+      return per_200;
     } else if (
-      offencePokemon.terasu_type === move.type &&
-      !offencePokemon.pokemon.type_id_list.includes(move.type)
+      offencePokemon.terasu_type === moveType &&
+      !offencePokemon.pokemon.type_id_list.includes(moveType)
     ) {
-      return 1.5;
+      return per_150;
     } else if (
-      offencePokemon.terasu_type === 19 &&
-      offencePokemon.pokemon.type_id_list.includes(move.type)
+      offencePokemon.terasu_type === POKEMON_TYPE_STERA &&
+      offencePokemon.pokemon.type_id_list.includes(moveType)
     ) {
-      return 2.0;
+      return per_200;
     } else if (
-      offencePokemon.terasu_type === 19 &&
-      !offencePokemon.pokemon.type_id_list.includes(move.type)
+      offencePokemon.terasu_type === POKEMON_TYPE_STERA &&
+      !offencePokemon.pokemon.type_id_list.includes(moveType)
     ) {
-      // return 4916 / 4096; // 1.2
       return per_120; // 1.2
     }
   }
-  if (offencePokemon.pokemon.type_id_list.includes(move.type)) {
-    return 1.5;
+  if (offencePokemon.pokemon.type_id_list.includes(moveType)) {
+    return per_150;
   }
   return 1.0;
 }

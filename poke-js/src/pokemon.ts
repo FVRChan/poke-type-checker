@@ -4,10 +4,11 @@ import { all_pokemon_list } from "./pokemon-list";
 import { Move } from "./move";
 import { filterMoveList } from "./util";
 import { abilityList } from "./util";
-import { Ability } from "./ability-list";
+import { Ability } from "./ability";
 import { EffortSlider } from "./EffortSlider";
 import { OFFENCE_ITEM_ID } from "./OffenceItem";
 import { DEFENCE_ITEM_ID } from "./DefenceItem";
+import { PokemonType } from "./type";
 
 export interface Pokemon {
   id: number;
@@ -43,7 +44,7 @@ export interface PokemonOffenceInterface {
   selected_ability?: Ability;
   selected_ability_id?: number;
   selected_offencete_item_rate_id?: OFFENCE_ITEM_ID;
-  terasu_type?: number;
+  terasu_type?: PokemonType;
   rankCorrection: rankCorrection;
 }
 
@@ -54,7 +55,7 @@ export interface PokemonDefenceInterface {
   personality: Personality;
   selected_ability?: Ability;
   selected_ability_id?: number;
-  terasu_type?: number;
+  terasu_type?: PokemonType;
   rankCorrection: rankCorrection;
   selected_defencete_item_rate_id?: DEFENCE_ITEM_ID;
 }
@@ -146,9 +147,9 @@ export function toDefence(p: Pokemon): PokemonDefenceInterface {
       special_attack: 0,
       special_defense: 0,
     },
-  } as PokemonOffenceInterface;
-  ret.selected_ability_id = ret.selected_ability?.id;
-  ret.selected_move_id = ret.selected_move?.id;
+  } as PokemonDefenceInterface;
+  // ret.selected_ability_id = ret.selected_ability?.id;
+  // ret.selected_move_id = ret.selected_move?.id;
   return ret;
 }
 

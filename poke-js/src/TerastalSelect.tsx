@@ -1,6 +1,7 @@
 import { Select, MenuItem } from "@mui/material";
 import { type_id_to_hiraganakatakana } from "./type-map";
 import { PokemonDefenceInterface, PokemonOffenceInterface } from "./pokemon";
+import { PokemonType } from "./type";
 
 export function TerastalSelect({
   index,
@@ -14,9 +15,9 @@ export function TerastalSelect({
     | ((i: number, p: PokemonOffenceInterface) => void);
 }) {
   const tempArray = () => {
-    const retList: number[] = [];
+    const retList: PokemonType[] = [];
     for (let i = 1; i <= 19; i++) {
-      retList.push(i);
+      retList.push(i as PokemonType);
     }
     return retList;
   };
@@ -30,7 +31,8 @@ export function TerastalSelect({
       label="Age"
       onChange={(e) => {
         const tempPokemon = pokemon;
-        tempPokemon.terasu_type = e.target.value as number;
+        const local_type= e.target.value as PokemonType|undefined;
+        tempPokemon.terasu_type =local_type
         setPokemon(index, tempPokemon);
       }}
     >

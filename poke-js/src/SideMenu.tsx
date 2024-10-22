@@ -61,6 +61,7 @@ function SideMenu({
           )}
         </div>
       </Grid>
+
       <Grid>
         <h2>防御側</h2>
         <DefencePokemon
@@ -68,6 +69,15 @@ function SideMenu({
           setDeffenceDummyPokemon={handleSaveDeffenceDummyPokemon}
         ></DefencePokemon>
       </Grid>
+
+      {/* <Grid>
+        <h2>その他</h2>
+        <DefencePokemon
+          deffenceDummyPokemon={deffenceDummyPokemon}
+          setDeffenceDummyPokemon={handleSaveDeffenceDummyPokemon}
+        ></DefencePokemon>
+      </Grid> */}
+
     </Grid>
   );
 }

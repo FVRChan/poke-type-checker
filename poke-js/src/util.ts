@@ -1,6 +1,9 @@
-import ability_list, { Ability } from "./ability-list";
+// import ability_list, { Ability } from "./ability-list";
+import { Ability } from "./ability";
+import ability_list from "./ability-list";
 import { PersonalityRate } from "./calc_damage";
-import move_list, { Move, MOVE_DAMAGE_CLASS_STATUS } from "./move";
+import  { Move, MOVE_DAMAGE_CLASS_STATUS } from "./move";
+import move_list from "./move-list";
 import {
   Pokemon,
   PokemonDefenceInterface,

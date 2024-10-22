@@ -4,10 +4,11 @@ import {
   PokemonOffenceInterface,
   toOffence,
 } from "./pokemon";
-import ability_list, { Ability } from "./ability-list";
+// import ability_list, { Ability } from "./ability-list";
 import OffenceEffort from "./OffenceEffort";
 import { TerastalSelect } from "./TerastalSelect";
 import { OffenceItem } from "./OffenceItem";
+import ability_list from "./ability-list";
 function hitNumberOption(minHitNumber: number, maxHitNumber: number): number[] {
   const dummy_list: number[] = [];
   for (let a = minHitNumber; a <= maxHitNumber; a++) {

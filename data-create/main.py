@@ -73,6 +73,10 @@ class PokemonAbility:
     is_multi_slace: bool = False
     is_tera_shell: bool = False
     is_faily_skin: bool = False
+    is_sky_skin: bool = False
+    is_ereki_skin: bool = False
+    is_freeze_skin: bool = False
+    is_normal_skin    : bool = False
     is_iromegane: bool = False
     is_tennen: bool = False
     is_harikiri: bool = False
@@ -176,6 +180,14 @@ class PokemonAbility:
             self.is_tera_shell = True
         if self.name_ja == "フェアリースキン":
             self.is_faily_skin = True
+        if self.name_ja == "スカイスキン":
+            self.is_sky_skin = True
+        if self.name_ja == "エレキスキン":
+            self.is_ereki_skin = True
+        if self.name_ja == "フリーズスキン":
+            self.is_freeze_skin = True
+        if self.name_ja == "ノーマルスキン":
+            self.is_normal_skin = True
         if self.name_ja == "いろめがね":
             self.is_iromegane = True
         if self.name_ja == "てんねん":
@@ -280,6 +292,8 @@ class PokemonMove:
     is_kaze: bool = False
     is_odori: bool = False
     is_oto: bool = False
+    is_triple_kick_accelerator: bool = False
+    is_sutemi_waza:bool=False
     is_heavy_slam: bool = False
     is_ketaguri: bool = False
     is_hatakiotosu: bool = False
@@ -340,6 +354,10 @@ class PokemonMove:
             self.is_odori = True
         if self.name_ja in waza.OTO_WAZA:
             self.is_oto = True
+        if self.name_ja in waza.TRIPLE_WAZA:
+            self.is_triple_kick_accelerator = True
+        if self.name_ja in waza.SUTEMI_WAZA:
+            self.is_sutemi_waza = True
         if self.name_ja in ["ヘビーボンバー", "ヒートスタンプ"]:
             self.is_heavy_slam = True
         if self.name_ja in ["けたぐり", "くさむすび"]:
@@ -530,6 +548,10 @@ def decode_pokemon_ability(data: dict) -> PokemonAbility:
         is_multi_slace=data["is_multi_slace"],
         is_tera_shell=data["is_tera_shell"],
         is_faily_skin=data["is_faily_skin"],
+        is_sky_skin=data["is_sky_skin"],
+        is_ereki_skin=data["is_ereki_skin"],
+        is_freeze_skin=data["is_freeze_skin"],
+        is_normal_skin=data["is_normal_skin"],
         is_iromegane=data["is_iromegane"],
         is_tennen=data["is_tennen"],
         is_harikiri=data["is_harikiri"],
@@ -590,6 +612,8 @@ def decode_pokemon_move(data: dict) -> PokemonMove:
         is_kaze=data["is_kaze"],
         is_odori=data["is_odori"],
         is_oto=data["is_oto"],
+        is_triple_kick_accelerator=data["is_triple_kick_accelerator"],
+        is_sutemi_waza=data["is_sutemi_waza"],
         is_heavy_slam=data["is_heavy_slam"],
         is_ketaguri=data["is_ketaguri"],
         is_hatakiotosu=data["is_hatakiotosu"],
@@ -1140,5 +1164,7 @@ def update_pokemon_data():
 
 # update_pokemon_list()
 
-update_pokemon_data()
-# update_move_list()
+# get_ability_list()
+# update_pokemon_data()
+get_move_list()
+update_move_list()
