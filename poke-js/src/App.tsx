@@ -9,8 +9,6 @@ import {
   Typography,
 } from "@mui/material";
 import SideBar from "./Sidebar";
-import OffencePokemon from "./OffencePokemon";
-import DefencePokemon from "./DefencePokemon";
 import Body from "./Body";
 import TemporaryDrawer from "./Drawer";
 import SideMenu from "./SideMenu";

@@ -5,8 +5,6 @@ interface abilityTypeRate {
     id: number;
     name_ja: string;
     name_en: string;
-    cause_type_damege_special_rate: abilityTypeRate;
-    receive_type_damege_special_rate: abilityTypeRate;
     is_scrappy: boolean;
     is_tikaramoti: boolean;
     is_katayaburi: boolean;
@@ -51,5 +49,17 @@ interface abilityTypeRate {
     is_hadoronengine: boolean;
     is_kireazi: boolean;
     is_soudaisixyou: boolean;
+    is_suihou:boolean
+    is_taranzisuta:boolean
+    is_iwahakobi:boolean
+    is_ryunoagito:boolean
+    is_haganetukai_haganenoseisin:boolean
+    is_fairyaura:boolean
+    is_darkaura:boolean
+    is_sinryoku:boolean
+    is_mouka:boolean
+    is_gekiryu:boolean
+    is_musinosirase:boolean
+    is_sunanotikara    :boolean
   }
   

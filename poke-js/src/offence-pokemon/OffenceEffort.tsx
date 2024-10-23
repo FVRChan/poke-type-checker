@@ -1,13 +1,10 @@
 import React from "react";
-import EffortSlider from "./EffortSlider";
-import {
-  PokemonOffenceInterface,
-  rankCorrectionEnum,
-  rankCorrectionEnumList,
-} from "./pokemon";
-import { MOVE_DAMAGE_CLASS_PHYSICAL, MOVE_DAMAGE_CLASS_SPECIAL } from "./move";
-import { PersonalityRate } from "./calc_damage";
+
 import { Grid, MenuItem, Select } from "@mui/material";
+import { PersonalityRate } from "../calc_damage";
+import EffortSlider from "../EffortSlider";
+import { MOVE_DAMAGE_CLASS_PHYSICAL, MOVE_DAMAGE_CLASS_SPECIAL } from "../move";
+import { PokemonOffenceInterface, rankCorrectionEnum, rankCorrectionEnumList } from "../pokemon";
 
 export default function OffenceEffort({
   pokemon,

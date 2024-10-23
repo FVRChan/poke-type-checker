@@ -1,10 +1,5 @@
 import { MenuItem, Select } from "@mui/material";
-import {
-  Pokemon,
-  PokemonDefenceInterface,
-  PokemonOffenceInterface,
-} from "./pokemon";
-import { MOVE_DAMAGE_CLASS_PHYSICAL, MOVE_DAMAGE_CLASS_SPECIAL } from "./move";
+import { PokemonOffenceInterface } from "../pokemon";
 
 export function OffenceItem({
   index,
@@ -44,6 +39,7 @@ export function OffenceItem({
         ものしりメガネ
       </MenuItem>
       <MenuItem value={OFFENCE_ITEM_ID_PUNCHGLOVE}>パンチグローブ</MenuItem>
+      <MenuItem value={OFFENCE_ITEM_ID_NORMAL_JEWEL}>ノーマルジュエル</MenuItem>
       {/* <MenuItem value={OFFENCE_ITEM_ID_BATUGUN_12}>たつじんのおび</MenuItem>
       <MenuItem value={OFFENCE_ITEM_ID_OMEN_12}>おめん</MenuItem>
       <MenuItem value={OFFENCE_ITEM_ID_NORMAL_13}>ノーマルジュエル</MenuItem>
@@ -78,3 +74,5 @@ export const OFFENCE_ITEM_ID_KODAWARIMEGANE: OFFENCE_ITEM_ID = 917939879
 export const OFFENCE_ITEM_ID_MONOSHIRIMEGANE: OFFENCE_ITEM_ID = 724819493
 export const OFFENCE_ITEM_ID_INOTINOTAMA: OFFENCE_ITEM_ID = 968967646
 export const OFFENCE_ITEM_ID_PUNCHGLOVE: OFFENCE_ITEM_ID = 152041385
+export const OFFENCE_ITEM_ID_NORMAL_JEWEL: OFFENCE_ITEM_ID = 1520413853729873918
+

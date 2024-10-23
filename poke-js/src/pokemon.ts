@@ -6,9 +6,9 @@ import { filterMoveList } from "./util";
 import { abilityList } from "./util";
 import { Ability } from "./ability";
 import { EffortSlider } from "./EffortSlider";
-import { OFFENCE_ITEM_ID } from "./OffenceItem";
-import { DEFENCE_ITEM_ID } from "./DefenceItem";
 import { PokemonType } from "./type";
+import { DEFENCE_ITEM_ID } from "./defence-pokemon/DefenceItem";
+import { OFFENCE_ITEM_ID } from "./offence-pokemon/OffenceItem";
 
 export interface Pokemon {
   id: number;

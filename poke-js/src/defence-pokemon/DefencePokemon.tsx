@@ -1,6 +1,6 @@
-import {  PokemonDefenceInterface } from "./pokemon";
+import { PokemonDefenceInterface } from "../pokemon";
+import { TerastalSelect } from "../TerastalSelect";
 import DeffenceEffort from "./DefenceEffort";
-import { TerastalSelect } from "./TerastalSelect";
 import { DefenceItem } from "./DefenceItem";
 
 // index もダミー

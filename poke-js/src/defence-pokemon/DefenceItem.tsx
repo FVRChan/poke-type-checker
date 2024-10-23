@@ -1,5 +1,5 @@
 import { MenuItem, Select } from "@mui/material";
-import { PokemonDefenceInterface } from "./pokemon";
+import { PokemonDefenceInterface } from "../pokemon";
 
 export function DefenceItem({
   index,

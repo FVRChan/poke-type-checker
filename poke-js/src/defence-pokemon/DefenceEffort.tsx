@@ -1,8 +1,7 @@
 import React from "react";
-import EffortSlider from "./EffortSlider";
-import { Pokemon, PokemonDefenceInterface } from "./pokemon";
-import { MOVE_DAMAGE_CLASS_PHYSICAL, MOVE_DAMAGE_CLASS_SPECIAL } from "./move";
-import { PersonalityRate } from "./calc_damage";
+import { PersonalityRate } from "../calc_damage";
+import EffortSlider from "../EffortSlider";
+import { PokemonDefenceInterface } from "../pokemon";
 
 export default function DeffenceEffort({
   pokemon,

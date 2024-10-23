@@ -1,8 +1,8 @@
 import { Grid, IconButton } from "@mui/material";
-import DefencePokemon from "./DefencePokemon";
-import OffencePokemon from "./OffencePokemon";
 import { PokemonDefenceInterface, PokemonOffenceInterface } from "./pokemon";
 import { AddCircle, RemoveCircle } from "@mui/icons-material";
+import DefencePokemon from "./defence-pokemon/DefencePokemon";
+import OffencePokemon from "./offence-pokemon/OffencePokemon";
 
 function SideMenu({
   offencePokemonList,
