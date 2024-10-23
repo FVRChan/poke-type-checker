@@ -7,6 +7,11 @@ import json
 from typing import Any
 from datetime import date
 import os
+
+import waza
+import form_mapping
+import pokemon_type
+import is_not_last_evolve_pokemon_id_list 
 TYPE_ID_NORMAL = 1
 TYPE_ID_FIGHTING = 2
 TYPE_ID_FLYING = 3
@@ -26,10 +31,6 @@ TYPE_ID_DRAGON = 16
 TYPE_ID_DARK = 17
 TYPE_ID_FAIRY = 18
 
-import waza
-import form_mapping
-import pokemon_type
-import is_not_last_evolve_pokemon_id_list 
 
 POKEMON_JSON_FILENAME="./tmp/pokemon.json"
 ITEM_JSON_FILENAME="./tmp/item.json"
@@ -60,11 +61,6 @@ class PokemonAbility:
     id: int
     name_ja: str
     name_en: str
-
-    # # 与えるときのダメージ倍率(タイプ別)
-    cause_type_damege_special_rate: dict = Dict
-    # # 与えるときのダメージ倍率(タイプ別)
-    receive_type_damege_special_rate: dict = Dict
 
     is_scrappy: bool = False
     is_tikaramoti: bool = False
@@ -111,59 +107,65 @@ class PokemonAbility:
     is_kireazi: bool = False
     is_soudaisixyou: bool = False
 
+    is_suihou:bool=False
+    is_taranzisuta:bool=False
+    is_iwahakobi:bool=False
+    is_ryunoagito:bool=False
+    is_haganetukai_haganenoseisin:bool=False
+    is_fairyaura:bool=False
+    is_darkaura:bool=False
+    is_sinryoku:bool=False
+    is_mouka:bool=False
+    is_gekiryu:bool=False
+    is_musinosirase:bool=False
+    is_sunanotikara:bool=False    
+
     def set_extra_value(self):
         # 受けるダメージ
         if self.name_ja == "あついしぼう":
-            self.receive_type_damege_special_rate = {
-                TYPE_ID_FIRE: 0.5, TYPE_ID_ICE: 0.5}
+            _=1
         if self.name_ja == "ちくでん" or self.name_ja == "ひらいしん" or self.name_ja == "でんきエンジン":
-            self.receive_type_damege_special_rate = {TYPE_ID_ELECTRIC: 0}
+            _=1
         if self.name_ja == "もらいび" or self.name_ja == "こんがりボディ":
-            self.receive_type_damege_special_rate = {TYPE_ID_FIRE: 0}
+            _=1
         if self.name_ja == "すいほう" or self.name_ja == "たいねつ":
-            self.receive_type_damege_special_rate = {TYPE_ID_FIRE: 0.5}
+            _=1
         if self.name_ja == "ちょすい" or self.name_ja == "よびみず":
-            self.receive_type_damege_special_rate = {TYPE_ID_WATER: 0}
+            _=1
         if self.name_ja == "そうしょく":
-            self.receive_type_damege_special_rate = {TYPE_ID_GRASS: 0}
+            _=1
         if self.name_ja == "どしょく" or self.name_ja == "ふゆう":
-            self.receive_type_damege_special_rate = {TYPE_ID_GROUND: 0}
+            _=1
         if self.name_ja == "きよめのしお":
-            self.receive_type_damege_special_rate = {TYPE_ID_GHOST: 0.5}
+            _=1
         if self.name_ja == "かんそうはだ":
-            self.receive_type_damege_special_rate = {
-                TYPE_ID_WATER: 0, TYPE_ID_FIRE: 1.25
-            }
+            _=1
 
         # 与えるダメージ
         if self.name_ja == "すいほう":
-            self.cause_type_damege_special_rate = {TYPE_ID_WATER: 2.0}
+            self.is_suihou=True
         if self.name_ja == "トランジスタ":
-            self.cause_type_damege_special_rate = {TYPE_ID_ELECTRIC: 1.3}
+            self.is_taranzisuta=True
         if self.name_ja == "いわはこび":
-            self.cause_type_damege_special_rate = {TYPE_ID_ROCK: 1.5}
+            self.is_iwahakobi=True
         if self.name_ja == "りゅうのあぎと":
-            self.cause_type_damege_special_rate = {TYPE_ID_DRAGON: 1.5}
+            self.is_ryunoagito=True
         if self.name_ja == "はがねつかい" or self.name_ja == "はがねのせいしん":
-            self.cause_type_damege_special_rate = {TYPE_ID_STEEL: 1.5}
+            self.is_haganetukai_haganenoseisin=True
         if self.name_ja == "フェアリーオーラ":
-            self.cause_type_damege_special_rate = {TYPE_ID_FAIRY: 5448/4096}
+            self.is_fairyaura=True
         if self.name_ja == "ダークオーラ":
-            self.cause_type_damege_special_rate = {TYPE_ID_DARK: 5448/4096}
+            self.is_darkaura=True
         if self.name_ja == "しんりょく":
-            self.cause_type_damege_special_rate = {TYPE_ID_GRASS: 1.5}
+            self.is_sinryoku=True
         if self.name_ja == "もうか":
-            self.cause_type_damege_special_rate = {TYPE_ID_FIRE: 1.5}
+            self.is_mouka=True
         if self.name_ja == "げきりゅう":
-            self.cause_type_damege_special_rate = {TYPE_ID_WATER: 1.5}
+            self.is_gekiryu=True
         if self.name_ja == "むしのしらせ":
-            self.cause_type_damege_special_rate = {TYPE_ID_BUG: 1.5}
+            self.is_musinosirase=True
         if self.name_ja == "すなのちから":
-            self.cause_type_damege_special_rate = {
-                TYPE_ID_ROCK: 1.3,
-                TYPE_ID_GROUND: 1.3,
-                TYPE_ID_STEEL: 1.3,
-            }
+            self.is_sunanotikara=True
 
         # その他
         if self.name_ja == "きもったま" or self.name_ja == "しんがん":
@@ -539,8 +541,6 @@ def decode_pokemon_ability(data: dict) -> PokemonAbility:
         id=data["id"],
         name_ja=data["name_ja"],
         name_en=data["name_en"],
-        cause_type_damege_special_rate=data["cause_type_damege_special_rate"],
-        receive_type_damege_special_rate=data["receive_type_damege_special_rate"],
         is_scrappy=data["is_scrappy"],
         is_tikaramoti=data["is_tikaramoti"],
         is_katayaburi=data["is_katayaburi"],
@@ -585,6 +585,18 @@ def decode_pokemon_ability(data: dict) -> PokemonAbility:
         is_hadoronengine=data["is_hadoronengine"],
         is_kireazi=data["is_kireazi"],
         is_soudaisixyou=data["is_soudaisixyou"],
+        is_suihou=data["is_suihou"],
+        is_taranzisuta=data["is_taranzisuta"],
+        is_iwahakobi=data["is_iwahakobi"],
+        is_ryunoagito=data["is_ryunoagito"],
+        is_haganetukai_haganenoseisin=data["is_haganetukai_haganenoseisin"],
+        is_fairyaura=data["is_fairyaura"],
+        is_darkaura=data["is_darkaura"],
+        is_sinryoku=data["is_sinryoku"],
+        is_mouka=data["is_mouka"],
+        is_gekiryu=data["is_gekiryu"],
+        is_musinosirase=data["is_musinosirase"],
+        is_sunanotikara        =data["is_sunanotikara"],
     )
 
 
@@ -771,8 +783,6 @@ def get_ability_list():
                 id=temp_row["id"],
                 name_ja=temp_row["name_ja"],
                 name_en=temp_row["name_en"],
-                cause_type_damege_special_rate=temp_row["cause_type_damege_special_rate"],
-                receive_type_damege_special_rate=temp_row["receive_type_damege_special_rate"],
                 is_scrappy=temp_row["is_scrappy"],
                 is_tikaramoti=temp_row["is_tikaramoti"],
                 is_katayaburi=temp_row["is_katayaburi"],
@@ -1040,12 +1050,7 @@ class PokemonForRankMatch:
 
 def update_pokemon_data():
     pokemon_list=get_pokemon_list()
-    # ability_list=get_ability_list()
-    # move_list=get_move_list()
-    # type_list=get_type_list()
-    # item_list=get_item_list()
     single_season_list=get_rankmatch_season_list()
-    # personality_list=get_personality_list()
 
     for single_season in single_season_list:
         usage_info_list=single_season.set_usage_rank_list()
@@ -1061,13 +1066,13 @@ def update_pokemon_data():
             pokemon=pokemon[0]
             pokemon_id=form_mapping.form_mapping(int(usage_info["id"]),int(usage_info["form"]))
             usage_rate_mapper[pokemon_id]=loop_usage_rate
-            if pokemon_id==964:
+            if pokemon_id==964: # イルカマン
                 usage_rate_mapper[10256]=loop_usage_rate
-            elif pokemon_id==1017:
+            elif pokemon_id==1017: # オーガポン
                 usage_rate_mapper[10273]=loop_usage_rate
                 usage_rate_mapper[10274]=loop_usage_rate
                 usage_rate_mapper[10275]=loop_usage_rate
-            elif pokemon_id==1024:
+            elif pokemon_id==1024: # テラパゴス
                 usage_rate_mapper[10276]=loop_usage_rate
                 usage_rate_mapper[10277]=loop_usage_rate
 
@@ -1166,5 +1171,5 @@ def update_pokemon_data():
 
 # get_ability_list()
 # update_pokemon_data()
-get_move_list()
-update_move_list()
+# get_move_list()
+# update_move_list()

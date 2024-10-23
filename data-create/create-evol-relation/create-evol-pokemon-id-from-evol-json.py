@@ -1,5 +1,6 @@
 import json
 
+# 進化関係のJSONからしんかのきせき適用ポケモンのIDを得る
 
 def process_chain_evolves(chain: dict):
     chain["is_last_evol"] = 0
@@ -13,7 +14,7 @@ def process_chain_evolves(chain: dict):
 
 
 #
-reader_list = json.loads(open("evol.json").read())
+reader_list = json.loads(open("./tmp/evol.json").read())
 
 # リージョンフォームだけ進化するパターン
 # ハリーセン 211=>10234
@@ -37,4 +38,6 @@ for row in reader_list:
             chain["species_id"] = regional_dict[chain["species_id"]]
     res_list += chain_list
 res_list = [res["species_id"]
-                for res in res_list if res["is_last_evol"] == 0]
+            for res in res_list if res["is_last_evol"] == 0]
+
+# ↑で表示した奴を is_not_last_evolve_pokemon_id_list.py に移す

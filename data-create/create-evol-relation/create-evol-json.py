@@ -14,6 +14,8 @@ for r in res["results"]:
     if counter % 10 == 0:
         print(counter)
     counter += 1
-writer = open("./evol.json", "w")
+writer = open("./tmp/evol.json", "w")
 writer.write(json.dumps(chain_list))
 writer.close()
+
+# 進化関係のJSONをAPIから取得して保存する(加工は別スクリプトで)
