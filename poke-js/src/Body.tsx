@@ -5,7 +5,6 @@ import {
   TableRow,
   TableCell,
 } from "@mui/material";
-import { calc_interface } from "./calc_damage";
 import {
   pokemon_array,
   PokemonDefenceInterface,
@@ -13,13 +12,17 @@ import {
 } from "./pokemon";
 import { useWindowSize } from "./useWindowSize";
 import { ShowEffortValue } from "./ShowEffortValue";
+import { otherSetting } from "./OtherSetting";
+import { calc_interface } from "./calc-damage/calc_damage";
 
 function Body({
   offencePokemonList,
   deffenceDummyPokemon,
+  otherSetting,
 }: {
   offencePokemonList: PokemonOffenceInterface[];
   deffenceDummyPokemon: PokemonDefenceInterface;
+  otherSetting: otherSetting;
 }) {
   return (
     <>
@@ -45,44 +48,24 @@ function Body({
                             maxHeight: "85px",
                           }}
                         >
-                          {/* <div>
-                            <div style={{ float: "left" }}>
-                              {deffencePokemon.pokemon.picture_url ? (
-                                <img
-                                  src={deffencePokemon.pokemon.picture_url}
-                                  width={55}
-                                  height={55}
-                                ></img>
-                              ) : (
-                                <>
-                                  <div>{deffencePokemon.pokemon.name_ja}</div>
-                                </>
-                              )}
-                            </div>
-                            <div style={{ float: "left" }}>
-                              <ShowEffortValue
-                                deffencePokemon={deffencePokemon}
-                                deffenceDummyPokemon={deffenceDummyPokemon}
-                              ></ShowEffortValue>
-                            </div>
-                          </div> */}
                           {deffencePokemon.pokemon.picture_url ? (
-                                <img
-                                  src={deffencePokemon.pokemon.picture_url}
-                                  width={55}
-                                  height={55}
-                                ></img>
-                              ) : (
-                                <>
-                                  <div>{deffencePokemon.pokemon.name_ja}</div>
-                                </>
-                              )}
+                            <img
+                              src={deffencePokemon.pokemon.picture_url}
+                              width={55}
+                              height={55}
+                            ></img>
+                          ) : (
+                            <>
+                              <div>{deffencePokemon.pokemon.name_ja}</div>
+                            </>
+                          )}
 
                           <div>
                             {calc_interface({
                               offencePokemonList,
                               deffencePokemon,
                               deffenceDummyPokemon,
+                              otherSetting,
                             })}
                           </div>
                         </TableCell>

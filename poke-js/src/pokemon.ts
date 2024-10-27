@@ -1,5 +1,4 @@
 import { isMobile } from "react-device-detect";
-import { EffectiveValue, Personality } from "./calc_damage";
 import { all_pokemon_list } from "./pokemon-list";
 import { Move } from "./move";
 import { filterMoveList } from "./util";
@@ -9,6 +8,7 @@ import { EffortSlider } from "./EffortSlider";
 import { PokemonType } from "./type";
 import { DEFENCE_ITEM_ID } from "./defence-pokemon/DefenceItem";
 import { OFFENCE_ITEM_ID } from "./offence-pokemon/OffenceItem";
+import { EffectiveValue, Personality } from "./calc-damage/calc_damage";
 
 export interface Pokemon {
   id: number;
@@ -30,7 +30,7 @@ export interface Pokemon {
   often_used_tokusei: Array<number>;
   move_list?: Move[];
   ability_list?: Ability[];
-  is_not_last_evolve:boolean;
+  is_not_last_evolve: boolean;
 }
 
 export interface PokemonOffenceInterface {
@@ -46,6 +46,11 @@ export interface PokemonOffenceInterface {
   selected_offencete_item_rate_id?: OFFENCE_ITEM_ID;
   terasu_type?: PokemonType;
   rankCorrection: rankCorrection;
+  other_setting: calcOtherSetting;
+}
+
+export interface calcOtherSetting {
+  powor_ohakamairi?: number;
 }
 
 export interface PokemonDefenceInterface {
@@ -58,6 +63,7 @@ export interface PokemonDefenceInterface {
   terasu_type?: PokemonType;
   rankCorrection: rankCorrection;
   selected_defencete_item_rate_id?: DEFENCE_ITEM_ID;
+  other_setting: calcOtherSetting;
 }
 
 export type rankCorrectionEnum =
@@ -112,6 +118,7 @@ export function toOffence(p: Pokemon): PokemonOffenceInterface {
       special_attack: 0,
       special_defense: 0,
     },
+    other_setting: {},
   } as PokemonOffenceInterface;
   ret.selected_ability_id = ret.selected_ability?.id;
   ret.selected_move_id = ret.selected_move?.id;
@@ -147,9 +154,8 @@ export function toDefence(p: Pokemon): PokemonDefenceInterface {
       special_attack: 0,
       special_defense: 0,
     },
+    other_setting: {},
   } as PokemonDefenceInterface;
-  // ret.selected_ability_id = ret.selected_ability?.id;
-  // ret.selected_move_id = ret.selected_move?.id;
   return ret;
 }
 
@@ -187,6 +193,7 @@ export function pokemon_array(separate_number: number) {
 
 export function dummyPokemon(): PokemonDefenceInterface {
   const p = {
+    other_setting: {},
     pokemon: {
       id: 9999999,
       adapt_deffence_ability: false,
@@ -207,7 +214,7 @@ export function dummyPokemon(): PokemonDefenceInterface {
       often_used_move: [],
       often_used_tokusei: [],
       usage_rate: 999,
-      is_not_last_evolve:false,
+      is_not_last_evolve: false,
     },
     effective_slider_step: {
       hp: 0,

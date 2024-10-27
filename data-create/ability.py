@@ -58,7 +58,9 @@ class PokemonAbility:
     is_taranzisuta: bool = False
     is_iwahakobi: bool = False
     is_ryunoagito: bool = False
-    is_haganetukai_haganenoseisin: bool = False
+    
+    is_haganetukai: bool = False
+    is_haganenoseisin: bool = False
     is_fairyaura: bool = False
     is_darkaura: bool = False
     is_sinryoku: bool = False
@@ -97,8 +99,10 @@ class PokemonAbility:
             self.is_iwahakobi = True
         if self.name_ja == "りゅうのあぎと":
             self.is_ryunoagito = True
-        if self.name_ja == "はがねつかい" or self.name_ja == "はがねのせいしん":
-            self.is_haganetukai_haganenoseisin = True
+        if self.name_ja == "はがねつかい":
+            self.is_haganetukai = True
+        if self.name_ja == "はがねのせいしん":
+            self.is_haganenoseisin = True
         if self.name_ja == "フェアリーオーラ":
             self.is_fairyaura = True
         if self.name_ja == "ダークオーラ":
@@ -259,7 +263,8 @@ def decode_pokemon_ability(data: dict) -> PokemonAbility:
         is_taranzisuta=data["is_taranzisuta"],
         is_iwahakobi=data["is_iwahakobi"],
         is_ryunoagito=data["is_ryunoagito"],
-        is_haganetukai_haganenoseisin=data["is_haganetukai_haganenoseisin"],
+        is_haganetukai=data["is_haganetukai"],
+        is_haganenoseisin=data["is_haganenoseisin"],
         is_fairyaura=data["is_fairyaura"],
         is_darkaura=data["is_darkaura"],
         is_sinryoku=data["is_sinryoku"],

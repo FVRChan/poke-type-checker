@@ -3,6 +3,7 @@ import { PokemonDefenceInterface, PokemonOffenceInterface } from "./pokemon";
 import { AddCircle, RemoveCircle } from "@mui/icons-material";
 import DefencePokemon from "./defence-pokemon/DefencePokemon";
 import OffencePokemon from "./offence-pokemon/OffencePokemon";
+import OtherSetting, { otherSetting } from "./OtherSetting";
 
 function SideMenu({
   offencePokemonList,
@@ -11,6 +12,8 @@ function SideMenu({
   handleAddOffencePokemonList,
   deffenceDummyPokemon,
   handleSaveDeffenceDummyPokemon,
+  otherSetting,
+  handleSaveOtherSetting,
 }: {
   offencePokemonList: PokemonOffenceInterface[];
   handleSaveOffencePokemonList: (i: number, p: PokemonOffenceInterface) => void;
@@ -21,6 +24,8 @@ function SideMenu({
     i: number,
     p: PokemonDefenceInterface
   ) => void;
+  otherSetting: otherSetting;
+  handleSaveOtherSetting: (v: otherSetting) => void;
 }) {
   return (
     <Grid container direction="column">
@@ -70,14 +75,14 @@ function SideMenu({
         ></DefencePokemon>
       </Grid>
 
-      {/* <Grid>
+      <Grid>
         <h2>その他</h2>
-        <DefencePokemon
-          deffenceDummyPokemon={deffenceDummyPokemon}
-          setDeffenceDummyPokemon={handleSaveDeffenceDummyPokemon}
-        ></DefencePokemon>
-      </Grid> */}
-
+        <OtherSetting
+          otherSetting={otherSetting}
+          handleSaveOtherSetting={handleSaveOtherSetting}
+        ></OtherSetting>
+      </Grid>
+      <div style={{ margin: "80px" }}></div>
     </Grid>
   );
 }

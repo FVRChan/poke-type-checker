@@ -1,4 +1,4 @@
-import { Grid,  Select, MenuItem } from "@mui/material";
+import { Grid, Select, MenuItem } from "@mui/material";
 
 // import ability_list, { Ability } from "./ability-list";
 import OffenceEffort from "./OffenceEffort";
@@ -100,6 +100,32 @@ function OffencePokemon({
                     })}
                   </Select>
                   回
+                </>
+              )}
+              {offencePokemon.selected_move?.is_ohakamairi && (
+                <>
+                  <Select
+                    size="small"
+                    defaultValue={50}
+                    value={offencePokemon?.other_setting?.powor_ohakamairi}
+                    onChange={(e) => {
+                      const tempPokemon = offencePokemon;
+                      tempPokemon.other_setting.powor_ohakamairi = e.target
+                        .value as number;
+                      setOffencePokemon(index, tempPokemon);
+                    }}
+                  >
+                    <MenuItem selected value={50}>
+                      50
+                    </MenuItem>
+                    <MenuItem value={100}>100</MenuItem>
+                    <MenuItem value={150}>150</MenuItem>
+                    <MenuItem value={200}>200</MenuItem>
+                    <MenuItem value={250}>250</MenuItem>
+                    <MenuItem value={300}>300</MenuItem>
+                    <MenuItem value={350}>350</MenuItem>
+                    <MenuItem value={400}>400</MenuItem>
+                  </Select>
                 </>
               )}
             </div>

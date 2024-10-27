@@ -28,6 +28,8 @@ export default function App() {
     deffenceDummyPokemon,
     setDeffenceDummyPokemon,
     handleSaveDeffenceDummyPokemon,
+    otherSetting,
+    handleSaveOtherSetting,
   } = useViewModel();
   return (
     <div className="App">
@@ -50,6 +52,8 @@ export default function App() {
                     handleSaveDeffenceDummyPokemon={
                       handleSaveDeffenceDummyPokemon
                     }
+                    otherSetting={otherSetting}
+                    handleSaveOtherSetting={handleSaveOtherSetting}
                   />
                 }
               ></TemporaryDrawer>
@@ -69,6 +73,8 @@ export default function App() {
                     handleSaveDeffenceDummyPokemon={
                       handleSaveDeffenceDummyPokemon
                     }
+                    otherSetting={otherSetting}
+                    handleSaveOtherSetting={handleSaveOtherSetting}
                   />
                 }
               ></SideBar>
@@ -103,6 +109,7 @@ export default function App() {
             <Body
               offencePokemonList={offencePokemonList}
               deffenceDummyPokemon={deffenceDummyPokemon}
+              otherSetting={otherSetting}
             ></Body>
           </Grid>
         </Box>

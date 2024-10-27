@@ -1,19 +1,15 @@
 import React from "react";
-import { PersonalityRate } from "../calc_damage";
 import EffortSlider from "../EffortSlider";
 import { PokemonDefenceInterface } from "../pokemon";
+import { PersonalityRate } from "../calc-damage/calc_damage";
 
 export default function DeffenceEffort({
   pokemon,
   pokemonSetter,
-  // isOffense,
-  // isDefense,
   index,
 }: {
   pokemon: PokemonDefenceInterface;
   pokemonSetter: (i: number, p: PokemonDefenceInterface) => void;
-  // isOffense: boolean;
-  // isDefense: boolean;
   index: number;
 }) {
   const [effortStepHP, setEffortStepHP] = React.useState<number>(

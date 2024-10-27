@@ -1105,7 +1105,7 @@ def update_pokemon_data():
 
 # update_pokemon_list()
 
-# get_ability_list()
+get_ability_list()
 # update_pokemon_data()
 # get_move_list()
 # update_move_list()

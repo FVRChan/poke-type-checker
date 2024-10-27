@@ -53,7 +53,8 @@ interface abilityTypeRate {
     is_taranzisuta:boolean
     is_iwahakobi:boolean
     is_ryunoagito:boolean
-    is_haganetukai_haganenoseisin:boolean
+    is_haganetukai:boolean
+    is_haganenoseisin:boolean
     is_fairyaura:boolean
     is_darkaura:boolean
     is_sinryoku:boolean

@@ -1,21 +1,13 @@
-export type weather=number
-export type battle_field=number
+export type weather = number;
+export type battle_field = number;
 
-export const WEATHER_EMPTY:weather=0
-export const WEATHER_HARE:weather=16819478152
-export const WEATHER_AME:weather=8797812186
-export const WEATHER_SUNA:weather=9099939329
-export const WEATHER_YUKI:weather=28811245318
-export const BATTLE_FIELD_EMPTY:battle_field=0
-export const BATTLE_FIELD_PSYCHO_SAIKO:battle_field=6154078732
-export const BATTLE_FIELD_EREKI:battle_field=9416521460
-export const BATTLE_FIELD_MISUTO:battle_field=17409592515
-export const BATTLE_FIELD_GLASS:battle_field=10807819746
-
-
-
-
-
-
-
-
+export const WEATHER_EMPTY: weather = 10000;
+export const WEATHER_HARE: weather = 20000;
+export const WEATHER_AME: weather = 30000;
+export const WEATHER_SUNA: weather = 40000;
+export const WEATHER_YUKI: weather = 50000;
+export const BATTLE_FIELD_EMPTY: battle_field = 110000;
+export const BATTLE_FIELD_PSYCHO_SAIKO: battle_field = 210000;
+export const BATTLE_FIELD_EREKI: battle_field = 310000;
+export const BATTLE_FIELD_MISUTO: battle_field = 410000;
+export const BATTLE_FIELD_GLASS: battle_field = 510000;

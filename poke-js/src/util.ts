@@ -1,14 +1,15 @@
 // import ability_list, { Ability } from "./ability-list";
 import { Ability } from "./ability";
 import ability_list from "./ability-list";
-import { PersonalityRate } from "./calc_damage";
-import  { Move, MOVE_DAMAGE_CLASS_STATUS } from "./move";
+import { Move, MOVE_DAMAGE_CLASS_STATUS } from "./move";
 import move_list from "./move-list";
 import {
   Pokemon,
+  pokemon_array,
   PokemonDefenceInterface,
   PokemonOffenceInterface,
 } from "./pokemon";
+import { POKEMON_TYPE_FLYING } from "./type";
 
 /**
  * 努力値計算(SliderのStep設定に苦戦したため0-32で考えて計算する関数)
@@ -80,3 +81,11 @@ export function canScrappy(p: PokemonOffenceInterface): boolean {
 //     (p.adapt_deffence_ability && p.selected_ability?.is_multi_slace) || false
 //   );
 // }
+
+export function nowGroundAttack({offencePokemon}:{offencePokemon:PokemonOffenceInterface}):boolean{
+  if(
+    (offencePokemon.terasu_type&&offencePokemon.terasu_type===POKEMON_TYPE_FLYING)||
+    !offencePokemon.terasu_type&&offencePokemon.pokemon.type_id_list.includes(POKEMON_TYPE_FLYING)
+  ){return true}
+  return false
+}

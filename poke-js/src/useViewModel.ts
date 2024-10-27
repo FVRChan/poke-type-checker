@@ -7,6 +7,8 @@ import {
   PokemonOffenceInterface,
   toOffence,
 } from "./pokemon";
+import { otherSetting } from "./OtherSetting";
+import { BATTLE_FIELD_EMPTY, WEATHER_EMPTY } from "./other_setting";
 
 // 負けた気はするがとりあえず行ける
 // function copyPokemon(p: Pokemon): Pokemon {
@@ -67,6 +69,15 @@ export function useViewModel() {
     setDeffenceDummyPokemon((prev) => ({ ...prev }));
   };
 
+  const [otherSetting, setOtherSetting] = React.useState<otherSetting>({
+    battle_field: BATTLE_FIELD_EMPTY,
+    weather: WEATHER_EMPTY,
+  } as otherSetting);
+
+  const handleSaveOtherSetting = (os: otherSetting) => {
+    setOtherSetting((perv) => ({ ...os }));
+  };
+
   return {
     smartphoneDrawerOpen,
     togglesmartphoneDrawerOpen,
@@ -78,5 +89,7 @@ export function useViewModel() {
     deffenceDummyPokemon,
     setDeffenceDummyPokemon,
     handleSaveDeffenceDummyPokemon,
+    otherSetting,
+    handleSaveOtherSetting,
   };
 }

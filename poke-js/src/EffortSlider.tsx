@@ -2,7 +2,7 @@ import React from "react";
 // import {South} from '@mui/icons-material';
 import { Button, MenuItem, Select, Slider, Stack } from "@mui/material";
 import { calcEffort } from "./util";
-import { PersonalityRate } from "./calc_damage";
+import { PersonalityRate } from "./calc-damage/calc_damage";
 export default function EffortSlider({
   label,
   step,

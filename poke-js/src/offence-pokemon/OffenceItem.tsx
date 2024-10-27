@@ -42,7 +42,6 @@ export function OffenceItem({
       <MenuItem value={OFFENCE_ITEM_ID_NORMAL_JEWEL}>ノーマルジュエル</MenuItem>
       {/* <MenuItem value={OFFENCE_ITEM_ID_BATUGUN_12}>たつじんのおび</MenuItem>
       <MenuItem value={OFFENCE_ITEM_ID_OMEN_12}>おめん</MenuItem>
-      <MenuItem value={OFFENCE_ITEM_ID_NORMAL_13}>ノーマルジュエル</MenuItem>
       <MenuItem value={OFFENCE_ITEM_ID_NORMAL_12}>シルクのスカーフ</MenuItem>
       <MenuItem value={OFFENCE_ITEM_ID_FIRE_12}>もくたん</MenuItem>
       <MenuItem value={OFFENCE_ITEM_ID_WATER_12}>しんぴのしずく</MenuItem>
